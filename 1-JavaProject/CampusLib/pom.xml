@@ -8,7 +8,7 @@
   <version>1.0-SNAPSHOT</version>
 
   <name>CampusLib</name>
-  <url>http://www.unisa.diem.com</url>
+  <url>http://www.diem.unisa.com</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
