@@ -1,5 +1,8 @@
 package campuslib.collections;
 
-public class UserRegistry {
+import campuslib.models.User;
+import java.util.HashMap;
 
+public class UserRegistry {
+    private HashMap<Integer, User> registry;
 }

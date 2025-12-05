@@ -1,5 +1,10 @@
 package campuslib.models;
 
-public class User extends Person {
+import campuslib.enums.UserStatus;
 
+public class User extends Person {
+    private final int enrollmentID;
+    private String email;
+    private UserStatus status;
+    private int maxLoans;
 }
