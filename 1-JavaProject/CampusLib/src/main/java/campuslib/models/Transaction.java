@@ -10,14 +10,14 @@ public class Transaction {
     private final LocalDate startDate;
 
     /**
-     * @brief Istanzia un nuovo oggetto Transaction
-     * @param[in] borrowedBook Il libro preso in prestito
-     * @param[in] borrowerUser L'utente che ha preso in prestito il libro
-     * @param[in] startDate La data di inizio del prestito
-     * @return Un nuovo oggetto Transaction
+     * @brief Istanzia un nuovo oggetto Transaction.
+     * @param[in] borrowedBook Il libro preso in prestito.
+     * @param[in] borrowerUser L'utente che ha preso in prestito il libro.
+     * @param[in] startDate La data di inizio del prestito.
+     * @return Un nuovo oggetto Transaction.
      * @pre
-     * - il libro deve trovarsi nello stato "ADOPTED"
-     * - l'utente deve essere attivo
+     * - il libro deve trovarsi nello stato "ADOPTED".
+     * - l'utente deve essere attivo.
      */
     public Transaction(Book borrowedBook, User borrowerUser, LocalDate startDate) {
    
@@ -25,24 +25,24 @@ public class Transaction {
     }
 
     /**
-     * @brief restituisce l'ID univoco del prestito
-     * @return L'ID univoco del prestito
+     * @brief restituisce l'ID univoco del prestito.
+     * @return L'ID univoco del prestito.
      */
     public int getId() {
         
         return 0;
     }
     /**
-     * @brief Restituisce il libro preso in prestito
-     * @return Il libro preso in prestito
+     * @brief Restituisce il libro preso in prestito.
+     * @return Il libro preso in prestito.
      */
     public Book getBorrowedBook() {
 
         return null;
     }
     /**
-     * @brief Restituisce l'utente che ha preso in prestito il libro
-     * @return L'utente che ha preso in prestito il libro
+     * @brief Restituisce l'utente che ha preso in prestito il libro.
+     * @return L'utente che ha preso in prestito il libro.
      */
     public User getBorrowerUser() {
         
@@ -50,8 +50,8 @@ public class Transaction {
     }
 
     /**
-     * @brief Restituisce la data di inizio del prestito
-     * @return La data di inizio del prestito
+     * @brief Restituisce la data di inizio del prestito.
+     * @return La data di inizio del prestito.
      */
     public LocalDate getStartDate() {
         
