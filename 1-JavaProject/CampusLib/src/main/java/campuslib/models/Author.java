@@ -1,6 +1,7 @@
 package campuslib.models;
 /**
- * @brief Autore.
+ * @brief Rappresenta un Autore, specializzando Person.
+ * @see Person
  */
 public class Author extends Person {
 

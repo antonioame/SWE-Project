@@ -2,6 +2,11 @@ package campuslib.models;
 
 import java.time.LocalDate;
 
+/**
+ * @brief Rappresenta un prestito di un libro.
+ * Estende Transaction aggiungendo la data prevista di restituzione.
+ * @see Transaction
+ */
 public class Loan extends Transaction {
     private LocalDate expectedReturnDate;
     
