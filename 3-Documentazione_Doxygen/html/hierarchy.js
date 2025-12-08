@@ -7,7 +7,6 @@ var hierarchy =
       [ "campuslib.models.User", "classcampuslib_1_1models_1_1_user.html", null ]
     ] ],
     [ "campuslib.collections.GivebackRegistry", "classcampuslib_1_1collections_1_1_giveback_registry.html", null ],
-    [ "campuslib.services.LibraryManager", "classcampuslib_1_1services_1_1_library_manager.html", null ],
     [ "campuslib.collections.LoanRegistry", "classcampuslib_1_1collections_1_1_loan_registry.html", null ],
     [ "campuslib.models.Person", "classcampuslib_1_1models_1_1_person.html", [
       [ "campuslib.models.Author", "classcampuslib_1_1models_1_1_author.html", null ],
