@@ -19,8 +19,7 @@ public class Giveback extends Transaction {
      * @post
      * Il prestito corrispondente viene aggiunto alla lista delle restituzioni.
      */
-    public GiveBack(Book borrowedBook, User borrowerUser, LocalDate startDate, LocalDate endDate){
-    
+    public GiveBack(Book borrowedBook, User borrowerUser, LocalDate startDate, LocalDate endDate) {
     }
 
     
@@ -28,7 +27,7 @@ public class Giveback extends Transaction {
      * @brief Restituisce l'effettiva data di restituzione del libro.
      * @return La data di restituzione del libro.
      */
-    public LocalDate getEndDate(){
+    public LocalDate getEndDate() {
     
         return null;
     }
@@ -37,9 +36,8 @@ public class Giveback extends Transaction {
      * @brief Restituisce una rappresentazione testuale dell'oggetto GiveBack.
      * @return Una stringa contenente le informazioni relative alla restituzione.
      */
-    public String toString(){
+    public String toString() {
     
         return null;
     }
-    
 }
