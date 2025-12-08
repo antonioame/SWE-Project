@@ -7,13 +7,14 @@ public class Person {
     private String surname;
     private String name;
     
- /**
-  * @brief Costruttore.
-  * Istanzia un nuovo oggetto Person.
-  * @param[in] surname Cognome della persona.
-  * @param[in] name Nome della persona.
-  */
-    public Person(String surname, String name) {}
+    /**
+    * @brief Costruttore.
+    * Istanzia un nuovo oggetto Person.
+    * @param[in] surname Cognome della persona.
+    * @param[in] name Nome della persona.
+    */
+    public Person(String surname, String name) {
+    }
     
     /**
      * @brief Restituisce il nome della persona.
@@ -37,13 +38,15 @@ public class Person {
      * @brief Imposta il nome della persona.
      * @param[in] name Nome persona.
      */
-    public void setName(String name) {}
+    public void setName(String name) {
+    }
     
     /**
      * @brief Imposta il cognome della persona.
      * @param[in] surname Cognome persona.
      */
-    public void setSurname(String surname) {}
+    public void setSurname(String surname) {
+    }
     
     /**
      * @brief Restituisce una rappresentazione testuale dell'oggetto Person.

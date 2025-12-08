@@ -3,6 +3,9 @@ package campuslib.models;
 import campuslib.enums.UserStatus;
 import java.util.LinkedList;
 
+/**
+ * @brief Utente.
+ */
 public class User extends Person implements Comparable<User>{
     private final int enrollmentID;
     private String email;
@@ -12,13 +15,14 @@ public class User extends Person implements Comparable<User>{
     /**
      * @brief Costruttore dell'utente (studente).
      * Istanzia un nuovo oggetto User, utilizzando il costruttore della superclasse Person.
-     * @param[in] name 
-     * @param[in] surname 
+     * @param[in] name Nome dell'utente.
+     * @param[in] surname Cognome dell'utente.
      * @param[in] enrollmentID Matricola dell'utente.
      * @param[in] email E-mail dell'utente. 
      * @see Person.
      */
-    public User(String name, String surname, int enrollmentID, String email) {}
+    public User(String name, String surname, int enrollmentID, String email) {
+    }
     
     /**
      * @brief Restituisce la matricola dell'utente.
@@ -26,7 +30,7 @@ public class User extends Person implements Comparable<User>{
      */
     public int getEnrollmentID() {
     
-        return null;
+        return 0;
     }
     
     /**
@@ -55,20 +59,22 @@ public class User extends Person implements Comparable<User>{
      */
     public int getMaxLoans() {
     
-        
+        return 0;
     }
     
     /**
      * @brief Imposta l'e-mail dell'utente.
      * @param[in] email E-mail utente. 
      */
-    public void setEmail(String email) {}
+    public void setEmail(String email) {
+    }
     
     /**
      * @brief Imposta lo stato dell'utente.
      * @param[in] status Stato utente.
      */
-    public void setStatus(UserStatus status) {}
+    public void setStatus(UserStatus status) {
+    }
     
     /**
      * @brief Indica se l'utente è attivo o meno.
@@ -97,7 +103,10 @@ public class User extends Person implements Comparable<User>{
      * maggiore del massimo numero di prestiti possibili.
      * @see getActiveLoans()
      */
-    public int getAvailableLoanSlots() {}
+    public int getAvailableLoanSlots() {
+    
+        return 0;
+    }
     
     /**
      * @brief Indica se l'utente può effettuare nuovi prestiti o meno.
@@ -168,7 +177,10 @@ public class User extends Person implements Comparable<User>{
      * @see equals(Object obj)
      */
     @Override
-    public int hashCode() {}
+    public int hashCode() {
+    
+        return 0;
+    }
     
     /**
      * @brief Confronta l'oggetto User corrente con un altro oggetto User ai fini dell'ordinamento.
@@ -179,7 +191,10 @@ public class User extends Person implements Comparable<User>{
      * uguale, minore o maggiore dell'altro utente, secondo l'ordinamento.
      */   
     @Override
-    public int compareTo(User other) {}
+    public int compareTo(User other) {
+    
+        return 0;
+    }
     
     
     
