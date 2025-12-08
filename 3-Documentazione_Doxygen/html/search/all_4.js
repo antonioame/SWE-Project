@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['getactiveloans_0',['getActiveLoans',['../classcampuslib_1_1models_1_1_user.html#a25ce4e97a12ea4b7ad41ced777137263',1,'campuslib::models::User']]],
+  ['getauthors_1',['getAuthors',['../classcampuslib_1_1models_1_1_book.html#a623582ba01182d2c06436dcd313bfb47',1,'campuslib::models::Book']]],
+  ['getavailableloanslots_2',['getAvailableLoanSlots',['../classcampuslib_1_1models_1_1_user.html#a7d90c3bd8778e28d570cbba6069bbdbe',1,'campuslib::models::User']]],
+  ['getborrowedbook_3',['getBorrowedBook',['../classcampuslib_1_1models_1_1_transaction.html#a809315b48b9a8038f72c2e2f9c560c4f',1,'campuslib::models::Transaction']]],
+  ['getborroweruser_4',['getBorrowerUser',['../classcampuslib_1_1models_1_1_transaction.html#a9a56777b3dadedf5ec43f387730b4a8b',1,'campuslib::models::Transaction']]],
+  ['getcopies_5',['getCopies',['../classcampuslib_1_1models_1_1_book.html#a6f7d4b5287c6ada7588089195957e2fb',1,'campuslib::models::Book']]],
+  ['getemail_6',['getEmail',['../classcampuslib_1_1models_1_1_user.html#a39b0c7e020c62cb317f60d4e443dd8d1',1,'campuslib::models::User']]],
+  ['getenddate_7',['getEndDate',['../classcampuslib_1_1models_1_1_giveback.html#a4ddaa7a41e938d633defa64301d6912f',1,'campuslib::models::Giveback']]],
+  ['getenrollmentid_8',['getEnrollmentID',['../classcampuslib_1_1models_1_1_user.html#afb1fc5af0f7aa456d4694145d40d218c',1,'campuslib::models::User']]],
+  ['getexpectedreturndate_9',['getExpectedReturnDate',['../classcampuslib_1_1models_1_1_loan.html#a4024e35c972cab023b30800e4497f08c',1,'campuslib::models::Loan']]],
+  ['getid_10',['getId',['../classcampuslib_1_1models_1_1_transaction.html#a2b08ab28abc1f7cc1be907b065a39857',1,'campuslib::models::Transaction']]],
+  ['getisbn_11',['getIsbn',['../classcampuslib_1_1models_1_1_book.html#a5ba1f3ebbcef47049eff63619cb036f2',1,'campuslib::models::Book']]],
+  ['getmaxloans_12',['getMaxLoans',['../classcampuslib_1_1models_1_1_user.html#afa374d86f74f27b5fdd3a3be007f3537',1,'campuslib::models::User']]],
+  ['getname_13',['getName',['../classcampuslib_1_1models_1_1_person.html#a83abffbc925d1f6dabc55e4995c863ed',1,'campuslib::models::Person']]],
+  ['getpublishingyear_14',['getPublishingYear',['../classcampuslib_1_1models_1_1_book.html#a0cd6baa87e3223c0abbd707530d80fce',1,'campuslib::models::Book']]],
+  ['getstartdate_15',['getStartDate',['../classcampuslib_1_1models_1_1_transaction.html#a3f94153b1e0e0d21b51c5ded81c4ce92',1,'campuslib::models::Transaction']]],
+  ['getstatus_16',['getStatus',['../classcampuslib_1_1models_1_1_user.html#ae3828e8a1ec70017ba739a243c49c132',1,'campuslib::models::User']]],
+  ['getsurname_17',['getSurname',['../classcampuslib_1_1models_1_1_person.html#aa418c6c95b366d2bdf51bc5e0bc6a7c3',1,'campuslib::models::Person']]],
+  ['gettitle_18',['getTitle',['../classcampuslib_1_1models_1_1_book.html#a79742406138155591f295878063549de',1,'campuslib::models::Book']]],
+  ['giveback_19',['GiveBack',['../classcampuslib_1_1models_1_1_giveback.html#a8956a18bb5dc1c9f549af2b582e8dc8e',1,'campuslib::models::Giveback']]],
+  ['giveback_20',['Giveback',['../classcampuslib_1_1models_1_1_giveback.html',1,'campuslib::models']]],
+  ['givebackregistry_21',['GivebackRegistry',['../classcampuslib_1_1collections_1_1_giveback_registry.html',1,'campuslib.collections.GivebackRegistry'],['../classcampuslib_1_1collections_1_1_giveback_registry.html#a69296ff6034de4d0c2323df9854028cb',1,'campuslib.collections.GivebackRegistry.GivebackRegistry()']]]
+];
