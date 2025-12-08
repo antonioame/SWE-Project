@@ -1,5 +1,7 @@
 package campuslib.models;
-
+/**
+ * @brief Autore.
+ */
 public class Author extends Person {
 
     /**
@@ -11,6 +13,7 @@ public class Author extends Person {
      * @param[in] name Nome dell'autore.
      * @see Person
      */
-    public Author(String surname, String name) {S}
+    public Author(String surname, String name) {
+    }
 }
 
