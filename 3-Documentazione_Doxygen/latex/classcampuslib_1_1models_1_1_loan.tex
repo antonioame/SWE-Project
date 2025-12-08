@@ -1,0 +1,176 @@
+\doxysection{campuslib.\+models.\+Loan Class Reference}
+\hypertarget{classcampuslib_1_1models_1_1_loan}{}\label{classcampuslib_1_1models_1_1_loan}\index{campuslib.models.Loan@{campuslib.models.Loan}}
+Inheritance diagram for campuslib.\+models.\+Loan\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classcampuslib_1_1models_1_1_loan}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcampuslib_1_1models_1_1_loan_a796710fcf019b8a8cb6f6f61ad0d9888}{Loan}} (\mbox{\hyperlink{classcampuslib_1_1models_1_1_book}{Book}} borrowed\+Book, \mbox{\hyperlink{classcampuslib_1_1models_1_1_user}{User}} borrower\+User, Local\+Date start\+Date, Local\+Date expected\+Return\+Date)
+\begin{DoxyCompactList}\small\item\em Istanzia un nuovo oggetto \doxylink{classcampuslib_1_1models_1_1_loan}{Loan}. Il metodo istanzia un nuovo oggetto \doxylink{classcampuslib_1_1models_1_1_loan}{Loan}, utilizzando il costruttore della superclasse \doxylink{classcampuslib_1_1models_1_1_transaction}{Transaction}. \end{DoxyCompactList}\item 
+Local\+Date \mbox{\hyperlink{classcampuslib_1_1models_1_1_loan_a4024e35c972cab023b30800e4497f08c}{get\+Expected\+Return\+Date}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce la data di restituzione prevista del prestito. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcampuslib_1_1models_1_1_loan_adbcafda0c6e4cab6fd54787edb335681}{set\+Expected\+Return\+Date}} (Local\+Date expected\+Return\+Date)
+\begin{DoxyCompactList}\small\item\em Imposta la data di restituzione prevista del prestito. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcampuslib_1_1models_1_1_loan_ae5e44b547c5ca4db9e3efe7d1500a792}{to\+String}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce una rappresentazione testuale dell\textquotesingle{}oggetto \doxylink{classcampuslib_1_1models_1_1_loan}{Loan}. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcampuslib_1_1models_1_1_loan_ae780e6f2deada22996e1ec15376f41a7}{equals}} (Object obj)
+\begin{DoxyCompactList}\small\item\em Confronta l\textquotesingle{}oggetto \doxylink{classcampuslib_1_1models_1_1_loan}{Loan} corrente con un altro oggetto per verificarne l\textquotesingle{}uguaglianza. L\textquotesingle{}uguaglianza è verificata se entrambi gli oggetti sono di tipo \doxylink{classcampuslib_1_1models_1_1_loan}{Loan} e hanno stessa data di restituzione prevista. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcampuslib_1_1models_1_1_loan_a039f83bfcf62495be5cb312e0cf09cb2}{compare\+To}} (\mbox{\hyperlink{classcampuslib_1_1models_1_1_loan}{Loan}} other)
+\begin{DoxyCompactList}\small\item\em Confronta l\textquotesingle{}oggetto \doxylink{classcampuslib_1_1models_1_1_loan}{Loan} corrente con un altro oggetto \doxylink{classcampuslib_1_1models_1_1_loan}{Loan} per l\textquotesingle{}ordinamento. L\textquotesingle{}ordinamento è basato sulla data di restituzione prevista. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcampuslib_1_1models_1_1_loan_ae7c07ff264af8342fb21e9d58018bc8a}{is\+Overdue}} ()
+\begin{DoxyCompactList}\small\item\em Verifica se il prestito è in ritardo. La funzione confronta la data di restituezione prevista con la data corrente per determinare se il prestito è in ritardo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classcampuslib_1_1models_1_1_transaction}{campuslib.\+models.\+Transaction}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcampuslib_1_1models_1_1_transaction_a2cf6ce6397a5ec6c0bda38c7aa067ea5}{Transaction}} (\mbox{\hyperlink{classcampuslib_1_1models_1_1_book}{Book}} borrowed\+Book, \mbox{\hyperlink{classcampuslib_1_1models_1_1_user}{User}} borrower\+User, Local\+Date start\+Date)
+\begin{DoxyCompactList}\small\item\em Istanzia un nuovo oggetto \doxylink{classcampuslib_1_1models_1_1_transaction}{Transaction}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcampuslib_1_1models_1_1_transaction_a2b08ab28abc1f7cc1be907b065a39857}{get\+Id}} ()
+\begin{DoxyCompactList}\small\item\em restituisce l\textquotesingle{}ID univoco del prestito. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcampuslib_1_1models_1_1_book}{Book}} \mbox{\hyperlink{classcampuslib_1_1models_1_1_transaction_a809315b48b9a8038f72c2e2f9c560c4f}{get\+Borrowed\+Book}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce il libro preso in prestito. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcampuslib_1_1models_1_1_user}{User}} \mbox{\hyperlink{classcampuslib_1_1models_1_1_transaction_a9a56777b3dadedf5ec43f387730b4a8b}{get\+Borrower\+User}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce l\textquotesingle{}utente che ha preso in prestito il libro. \end{DoxyCompactList}\item 
+Local\+Date \mbox{\hyperlink{classcampuslib_1_1models_1_1_transaction_a3f94153b1e0e0d21b51c5ded81c4ce92}{get\+Start\+Date}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce la data di inizio del prestito. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{classcampuslib_1_1models_1_1_loan_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classcampuslib_1_1models_1_1_loan_a796710fcf019b8a8cb6f6f61ad0d9888}\index{campuslib.models.Loan@{campuslib.models.Loan}!Loan@{Loan}}
+\index{Loan@{Loan}!campuslib.models.Loan@{campuslib.models.Loan}}
+\doxysubsubsection{\texorpdfstring{Loan()}{Loan()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1models_1_1_loan_a796710fcf019b8a8cb6f6f61ad0d9888} 
+campuslib.\+models.\+Loan.\+Loan (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcampuslib_1_1models_1_1_book}{Book}}}]{borrowed\+Book}{, }\item[{\mbox{\hyperlink{classcampuslib_1_1models_1_1_user}{User}}}]{borrower\+User}{, }\item[{Local\+Date}]{start\+Date}{, }\item[{Local\+Date}]{expected\+Return\+Date}{}\end{DoxyParamCaption})}
+
+
+
+Istanzia un nuovo oggetto \doxylink{classcampuslib_1_1models_1_1_loan}{Loan}. Il metodo istanzia un nuovo oggetto \doxylink{classcampuslib_1_1models_1_1_loan}{Loan}, utilizzando il costruttore della superclasse \doxylink{classcampuslib_1_1models_1_1_transaction}{Transaction}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em expected\+Return\+Date} & La data di restituzione prevista del prestito. \\
+\hline
+\mbox{\texttt{in}}  & {\em start\+Date} & La data di inizio del prestito. \\
+\hline
+\mbox{\texttt{in}}  & {\em borrowed\+Book} & Il libro preso in prestito. \\
+\hline
+\mbox{\texttt{in}}  & {\em borrower\+User} & L\textquotesingle{}utente che ha preso in prestito il libro. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un nuovo oggetto \doxylink{classcampuslib_1_1models_1_1_loan}{Loan}. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classcampuslib_1_1models_1_1_transaction}{Transaction} 
+\end{DoxySeeAlso}
+
+
+\label{doc-func-members}
+\Hypertarget{classcampuslib_1_1models_1_1_loan_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcampuslib_1_1models_1_1_loan_a039f83bfcf62495be5cb312e0cf09cb2}\index{campuslib.models.Loan@{campuslib.models.Loan}!compareTo@{compareTo}}
+\index{compareTo@{compareTo}!campuslib.models.Loan@{campuslib.models.Loan}}
+\doxysubsubsection{\texorpdfstring{compareTo()}{compareTo()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1models_1_1_loan_a039f83bfcf62495be5cb312e0cf09cb2} 
+int campuslib.\+models.\+Loan.\+compare\+To (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcampuslib_1_1models_1_1_loan}{Loan}}}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Confronta l\textquotesingle{}oggetto \doxylink{classcampuslib_1_1models_1_1_loan}{Loan} corrente con un altro oggetto \doxylink{classcampuslib_1_1models_1_1_loan}{Loan} per l\textquotesingle{}ordinamento. L\textquotesingle{}ordinamento è basato sulla data di restituzione prevista. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em other} & L\textquotesingle{}oggetto \doxylink{classcampuslib_1_1models_1_1_loan}{Loan} da confrontare con il prestito corrente. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un valore negativo, zero o positivo se il prestito corrente è minore, uguale o maggiore dell\textquotesingle{}altro prestito. 
+\end{DoxyReturn}
+\Hypertarget{classcampuslib_1_1models_1_1_loan_ae780e6f2deada22996e1ec15376f41a7}\index{campuslib.models.Loan@{campuslib.models.Loan}!equals@{equals}}
+\index{equals@{equals}!campuslib.models.Loan@{campuslib.models.Loan}}
+\doxysubsubsection{\texorpdfstring{equals()}{equals()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1models_1_1_loan_ae780e6f2deada22996e1ec15376f41a7} 
+boolean campuslib.\+models.\+Loan.\+equals (\begin{DoxyParamCaption}\item[{Object}]{obj}{}\end{DoxyParamCaption})}
+
+
+
+Confronta l\textquotesingle{}oggetto \doxylink{classcampuslib_1_1models_1_1_loan}{Loan} corrente con un altro oggetto per verificarne l\textquotesingle{}uguaglianza. L\textquotesingle{}uguaglianza è verificata se entrambi gli oggetti sono di tipo \doxylink{classcampuslib_1_1models_1_1_loan}{Loan} e hanno stessa data di restituzione prevista. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em obj} & L\textquotesingle{}oggetto da confrontare con il prestito corrente. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se l\textquotesingle{}oggetto specificato è uguale all\textquotesingle{}oggetto corrente, false altrimenti. 
+\end{DoxyReturn}
+\Hypertarget{classcampuslib_1_1models_1_1_loan_a4024e35c972cab023b30800e4497f08c}\index{campuslib.models.Loan@{campuslib.models.Loan}!getExpectedReturnDate@{getExpectedReturnDate}}
+\index{getExpectedReturnDate@{getExpectedReturnDate}!campuslib.models.Loan@{campuslib.models.Loan}}
+\doxysubsubsection{\texorpdfstring{getExpectedReturnDate()}{getExpectedReturnDate()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1models_1_1_loan_a4024e35c972cab023b30800e4497f08c} 
+Local\+Date campuslib.\+models.\+Loan.\+get\+Expected\+Return\+Date (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Restituisce la data di restituzione prevista del prestito. 
+
+\begin{DoxyReturn}{Returns}
+La data di restituzione prevista del prestito. 
+\end{DoxyReturn}
+\Hypertarget{classcampuslib_1_1models_1_1_loan_ae7c07ff264af8342fb21e9d58018bc8a}\index{campuslib.models.Loan@{campuslib.models.Loan}!isOverdue@{isOverdue}}
+\index{isOverdue@{isOverdue}!campuslib.models.Loan@{campuslib.models.Loan}}
+\doxysubsubsection{\texorpdfstring{isOverdue()}{isOverdue()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1models_1_1_loan_ae7c07ff264af8342fb21e9d58018bc8a} 
+boolean campuslib.\+models.\+Loan.\+is\+Overdue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Verifica se il prestito è in ritardo. La funzione confronta la data di restituezione prevista con la data corrente per determinare se il prestito è in ritardo. 
+
+\begin{DoxyReturn}{Returns}
+true se il prestito è in ritardo, false altrimenti. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+La data di inizio del prestito deve essere antecedente o uguale alla data corrente. 
+\end{DoxyPrecond}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classcampuslib_1_1models_1_1_loan_a4024e35c972cab023b30800e4497f08c}{get\+Expected\+Return\+Date()} 
+\end{DoxySeeAlso}
+\Hypertarget{classcampuslib_1_1models_1_1_loan_adbcafda0c6e4cab6fd54787edb335681}\index{campuslib.models.Loan@{campuslib.models.Loan}!setExpectedReturnDate@{setExpectedReturnDate}}
+\index{setExpectedReturnDate@{setExpectedReturnDate}!campuslib.models.Loan@{campuslib.models.Loan}}
+\doxysubsubsection{\texorpdfstring{setExpectedReturnDate()}{setExpectedReturnDate()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1models_1_1_loan_adbcafda0c6e4cab6fd54787edb335681} 
+void campuslib.\+models.\+Loan.\+set\+Expected\+Return\+Date (\begin{DoxyParamCaption}\item[{Local\+Date}]{expected\+Return\+Date}{}\end{DoxyParamCaption})}
+
+
+
+Imposta la data di restituzione prevista del prestito. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em new\+Date} & La nuova data di restituzione prevista del prestito. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcampuslib_1_1models_1_1_loan_ae5e44b547c5ca4db9e3efe7d1500a792}\index{campuslib.models.Loan@{campuslib.models.Loan}!toString@{toString}}
+\index{toString@{toString}!campuslib.models.Loan@{campuslib.models.Loan}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1models_1_1_loan_ae5e44b547c5ca4db9e3efe7d1500a792} 
+String campuslib.\+models.\+Loan.\+to\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Restituisce una rappresentazione testuale dell\textquotesingle{}oggetto \doxylink{classcampuslib_1_1models_1_1_loan}{Loan}. 
+
+\begin{DoxyReturn}{Returns}
+Una stringa contenente le informazioni del prestito. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/anto/\+SWE-\/\+Playground/\+Progetto/2-\/final\+\_\+project/remote\+\_\+repo/\+SWE-\/\+Project/1-\/\+Java\+Project/\+Campus\+Lib/src/main/java/campuslib/models/Loan.\+java\end{DoxyCompactItemize}

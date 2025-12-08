@@ -1,0 +1,317 @@
+\doxysection{campuslib.\+models.\+Book Class Reference}
+\hypertarget{classcampuslib_1_1models_1_1_book}{}\label{classcampuslib_1_1models_1_1_book}\index{campuslib.models.Book@{campuslib.models.Book}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcampuslib_1_1models_1_1_book_a9dc39ae231956952c32ac4a8a746d804}{Book}} (String isbn, String title, Array\+List$<$ \mbox{\hyperlink{classcampuslib_1_1models_1_1_author}{Author}} $>$ authors, int publishing\+Year, int copies)
+\begin{DoxyCompactList}\small\item\em Istanzia un nuovo oggetto \doxylink{classcampuslib_1_1models_1_1_book}{Book}. La funzione istanzia un nuovo oggetto \doxylink{classcampuslib_1_1models_1_1_book}{Book} con i parametri forniti, implementando un controllo sul formato dell\textquotesingle{}ISBN. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcampuslib_1_1models_1_1_book_a5ba1f3ebbcef47049eff63619cb036f2}{get\+Isbn}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce il codice ISBN del libro. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcampuslib_1_1models_1_1_book_a79742406138155591f295878063549de}{get\+Title}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce il titolo del libro. \end{DoxyCompactList}\item 
+Array\+List$<$ \mbox{\hyperlink{classcampuslib_1_1models_1_1_author}{Author}} $>$ \mbox{\hyperlink{classcampuslib_1_1models_1_1_book_a623582ba01182d2c06436dcd313bfb47}{get\+Authors}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce la lista degli autori del libro. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcampuslib_1_1models_1_1_book_a0cd6baa87e3223c0abbd707530d80fce}{get\+Publishing\+Year}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce l\textquotesingle{}anno di pubblicazione del libro. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcampuslib_1_1models_1_1_book_a6f7d4b5287c6ada7588089195957e2fb}{get\+Copies}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce il numero totale di copie del libro. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcampuslib_1_1models_1_1_book_a5a57f11d592e19af1c354239fdee139c}{is\+Adopted}} ()
+\begin{DoxyCompactList}\small\item\em Verifica se il libro è in adozione. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcampuslib_1_1models_1_1_book_af2f14750d66e3aa250270cb786a8c21e}{check\+Availability}} ()
+\begin{DoxyCompactList}\small\item\em Verifica la disponibilità del libro. Il metodo verifica la disponibilità del libro confrontando il numero di copie totali con il numero di prestiti associati al libro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcampuslib_1_1models_1_1_book_ac4115a5e668d11fab1e2a5fa997006cb}{set\+Title}} (String title)
+\begin{DoxyCompactList}\small\item\em Imposta il titolo del libro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcampuslib_1_1models_1_1_book_a37203f0bc92d5604cf99a05f7e372420}{set\+Status}} (\mbox{\hyperlink{enumcampuslib_1_1enums_1_1_adoption_status}{Adoption\+Status}} status)
+\begin{DoxyCompactList}\small\item\em Imposta lo stato di adozione del libro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcampuslib_1_1models_1_1_book_a0149b9707c1b12c33756ad78ae922aa5}{set\+Publishing\+Year}} (int year)
+\begin{DoxyCompactList}\small\item\em Imposta l\textquotesingle{}anno di pubblicazione del libro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcampuslib_1_1models_1_1_book_a91efc2c05cb3061d5b089dc770a4e5ba}{set\+Copies}} (int copies)
+\begin{DoxyCompactList}\small\item\em Imposta il numero di copie totali del libro. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcampuslib_1_1models_1_1_book_aa3010b4fa57f4e13526df5d139b5c7f2}{add\+Author}} (\mbox{\hyperlink{classcampuslib_1_1models_1_1_author}{Author}} author)
+\begin{DoxyCompactList}\small\item\em Aggiunge un autore alla lista degli autori del libro. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcampuslib_1_1models_1_1_book_a17176a1c6898e694d7755e10be2d8521}{to\+String}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce una rappresentazione testuale dell\textquotesingle{}oggetto \doxylink{classcampuslib_1_1models_1_1_book}{Book}. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcampuslib_1_1models_1_1_book_af9b3a5f6d4f9d0fcd88f106e1ad7c569}{equals}} (Object obj)
+\begin{DoxyCompactList}\small\item\em Confronta l\textquotesingle{}oggetto \doxylink{classcampuslib_1_1models_1_1_book}{Book} corrente con un altro oggetto per verificarne l\textquotesingle{}uguaglianza. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcampuslib_1_1models_1_1_book_aa2a4a1ea5f25ed581de53799d381ed68}{compare\+To}} (\mbox{\hyperlink{classcampuslib_1_1models_1_1_book}{Book}} other)
+\begin{DoxyCompactList}\small\item\em Confronta l\textquotesingle{}oggetto \doxylink{classcampuslib_1_1models_1_1_book}{Book} corrente con un altro oggetto \doxylink{classcampuslib_1_1models_1_1_book}{Book} per l\textquotesingle{}ordinamento. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcampuslib_1_1models_1_1_book_a67ce6f75cec7a91da733d8b4079a0b1a}{hash\+Code}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce il codice hash dell\textquotesingle{}oggetto \doxylink{classcampuslib_1_1models_1_1_book}{Book}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{classcampuslib_1_1models_1_1_book_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classcampuslib_1_1models_1_1_book_a9dc39ae231956952c32ac4a8a746d804}\index{campuslib.models.Book@{campuslib.models.Book}!Book@{Book}}
+\index{Book@{Book}!campuslib.models.Book@{campuslib.models.Book}}
+\doxysubsubsection{\texorpdfstring{Book()}{Book()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1models_1_1_book_a9dc39ae231956952c32ac4a8a746d804} 
+campuslib.\+models.\+Book.\+Book (\begin{DoxyParamCaption}\item[{String}]{isbn}{, }\item[{String}]{title}{, }\item[{Array\+List$<$ \mbox{\hyperlink{classcampuslib_1_1models_1_1_author}{Author}} $>$}]{authors}{, }\item[{int}]{publishing\+Year}{, }\item[{int}]{copies}{}\end{DoxyParamCaption})}
+
+
+
+Istanzia un nuovo oggetto \doxylink{classcampuslib_1_1models_1_1_book}{Book}. La funzione istanzia un nuovo oggetto \doxylink{classcampuslib_1_1models_1_1_book}{Book} con i parametri forniti, implementando un controllo sul formato dell\textquotesingle{}ISBN. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em isbn} & Il codice ISBN del libro. \\
+\hline
+\mbox{\texttt{in}}  & {\em title} & Il titolo del libro. \\
+\hline
+\mbox{\texttt{in}}  & {\em authors} & La lista degli autori del libro. \\
+\hline
+\mbox{\texttt{in}}  & {\em publishing\+Year} & L\textquotesingle{}anno di pubblicazione del libro. \\
+\hline
+\mbox{\texttt{in}}  & {\em copies} & Il numero totale di copie del libro. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un nuovo oggetto \doxylink{classcampuslib_1_1models_1_1_book}{Book}. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+check\+ISBN(\+String isbn) 
+\end{DoxySeeAlso}
+
+
+\label{doc-func-members}
+\Hypertarget{classcampuslib_1_1models_1_1_book_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcampuslib_1_1models_1_1_book_aa3010b4fa57f4e13526df5d139b5c7f2}\index{campuslib.models.Book@{campuslib.models.Book}!addAuthor@{addAuthor}}
+\index{addAuthor@{addAuthor}!campuslib.models.Book@{campuslib.models.Book}}
+\doxysubsubsection{\texorpdfstring{addAuthor()}{addAuthor()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1models_1_1_book_aa3010b4fa57f4e13526df5d139b5c7f2} 
+boolean campuslib.\+models.\+Book.\+add\+Author (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcampuslib_1_1models_1_1_author}{Author}}}]{author}{}\end{DoxyParamCaption})}
+
+
+
+Aggiunge un autore alla lista degli autori del libro. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em author} & L\textquotesingle{}autore da aggiungere. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se l\textquotesingle{}autore è stato aggiunto con successo, false altrimenti. 
+\end{DoxyReturn}
+\Hypertarget{classcampuslib_1_1models_1_1_book_af2f14750d66e3aa250270cb786a8c21e}\index{campuslib.models.Book@{campuslib.models.Book}!checkAvailability@{checkAvailability}}
+\index{checkAvailability@{checkAvailability}!campuslib.models.Book@{campuslib.models.Book}}
+\doxysubsubsection{\texorpdfstring{checkAvailability()}{checkAvailability()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1models_1_1_book_af2f14750d66e3aa250270cb786a8c21e} 
+boolean campuslib.\+models.\+Book.\+check\+Availability (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Verifica la disponibilità del libro. Il metodo verifica la disponibilità del libro confrontando il numero di copie totali con il numero di prestiti associati al libro. 
+
+\begin{DoxyReturn}{Returns}
+true se il libro è disponibile, false altrimenti. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+get\+Associated\+Loans() 
+\end{DoxySeeAlso}
+\Hypertarget{classcampuslib_1_1models_1_1_book_aa2a4a1ea5f25ed581de53799d381ed68}\index{campuslib.models.Book@{campuslib.models.Book}!compareTo@{compareTo}}
+\index{compareTo@{compareTo}!campuslib.models.Book@{campuslib.models.Book}}
+\doxysubsubsection{\texorpdfstring{compareTo()}{compareTo()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1models_1_1_book_aa2a4a1ea5f25ed581de53799d381ed68} 
+int campuslib.\+models.\+Book.\+compare\+To (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcampuslib_1_1models_1_1_book}{Book}}}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Confronta l\textquotesingle{}oggetto \doxylink{classcampuslib_1_1models_1_1_book}{Book} corrente con un altro oggetto \doxylink{classcampuslib_1_1models_1_1_book}{Book} per l\textquotesingle{}ordinamento. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em other} & L\textquotesingle{}oggetto \doxylink{classcampuslib_1_1models_1_1_book}{Book} da confrontare con il libro corrente. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un valore negativo, zero o positivo se il libro corrente è rispettivamente minore, uguale o maggiore dell\textquotesingle{}altro libro. 
+\end{DoxyReturn}
+\Hypertarget{classcampuslib_1_1models_1_1_book_af9b3a5f6d4f9d0fcd88f106e1ad7c569}\index{campuslib.models.Book@{campuslib.models.Book}!equals@{equals}}
+\index{equals@{equals}!campuslib.models.Book@{campuslib.models.Book}}
+\doxysubsubsection{\texorpdfstring{equals()}{equals()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1models_1_1_book_af9b3a5f6d4f9d0fcd88f106e1ad7c569} 
+boolean campuslib.\+models.\+Book.\+equals (\begin{DoxyParamCaption}\item[{Object}]{obj}{}\end{DoxyParamCaption})}
+
+
+
+Confronta l\textquotesingle{}oggetto \doxylink{classcampuslib_1_1models_1_1_book}{Book} corrente con un altro oggetto per verificarne l\textquotesingle{}uguaglianza. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em obj} & L\textquotesingle{}oggetto da confrontare con il libro corrente. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se gli oggetti sono uguali, false altrimenti. 
+\end{DoxyReturn}
+\Hypertarget{classcampuslib_1_1models_1_1_book_a623582ba01182d2c06436dcd313bfb47}\index{campuslib.models.Book@{campuslib.models.Book}!getAuthors@{getAuthors}}
+\index{getAuthors@{getAuthors}!campuslib.models.Book@{campuslib.models.Book}}
+\doxysubsubsection{\texorpdfstring{getAuthors()}{getAuthors()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1models_1_1_book_a623582ba01182d2c06436dcd313bfb47} 
+Array\+List$<$ \mbox{\hyperlink{classcampuslib_1_1models_1_1_author}{Author}} $>$ campuslib.\+models.\+Book.\+get\+Authors (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Restituisce la lista degli autori del libro. 
+
+\begin{DoxyReturn}{Returns}
+La lista degli autori del libro. 
+\end{DoxyReturn}
+\Hypertarget{classcampuslib_1_1models_1_1_book_a6f7d4b5287c6ada7588089195957e2fb}\index{campuslib.models.Book@{campuslib.models.Book}!getCopies@{getCopies}}
+\index{getCopies@{getCopies}!campuslib.models.Book@{campuslib.models.Book}}
+\doxysubsubsection{\texorpdfstring{getCopies()}{getCopies()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1models_1_1_book_a6f7d4b5287c6ada7588089195957e2fb} 
+int campuslib.\+models.\+Book.\+get\+Copies (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Restituisce il numero totale di copie del libro. 
+
+\begin{DoxyReturn}{Returns}
+Il numero totale di copie del libro. 
+\end{DoxyReturn}
+\Hypertarget{classcampuslib_1_1models_1_1_book_a5ba1f3ebbcef47049eff63619cb036f2}\index{campuslib.models.Book@{campuslib.models.Book}!getIsbn@{getIsbn}}
+\index{getIsbn@{getIsbn}!campuslib.models.Book@{campuslib.models.Book}}
+\doxysubsubsection{\texorpdfstring{getIsbn()}{getIsbn()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1models_1_1_book_a5ba1f3ebbcef47049eff63619cb036f2} 
+String campuslib.\+models.\+Book.\+get\+Isbn (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Restituisce il codice ISBN del libro. 
+
+\begin{DoxyReturn}{Returns}
+Il codice ISBN del libro. 
+\end{DoxyReturn}
+\Hypertarget{classcampuslib_1_1models_1_1_book_a0cd6baa87e3223c0abbd707530d80fce}\index{campuslib.models.Book@{campuslib.models.Book}!getPublishingYear@{getPublishingYear}}
+\index{getPublishingYear@{getPublishingYear}!campuslib.models.Book@{campuslib.models.Book}}
+\doxysubsubsection{\texorpdfstring{getPublishingYear()}{getPublishingYear()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1models_1_1_book_a0cd6baa87e3223c0abbd707530d80fce} 
+int campuslib.\+models.\+Book.\+get\+Publishing\+Year (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Restituisce l\textquotesingle{}anno di pubblicazione del libro. 
+
+\begin{DoxyReturn}{Returns}
+L\textquotesingle{}anno di pubblicazione del libro. 
+\end{DoxyReturn}
+\Hypertarget{classcampuslib_1_1models_1_1_book_a79742406138155591f295878063549de}\index{campuslib.models.Book@{campuslib.models.Book}!getTitle@{getTitle}}
+\index{getTitle@{getTitle}!campuslib.models.Book@{campuslib.models.Book}}
+\doxysubsubsection{\texorpdfstring{getTitle()}{getTitle()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1models_1_1_book_a79742406138155591f295878063549de} 
+String campuslib.\+models.\+Book.\+get\+Title (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Restituisce il titolo del libro. 
+
+\begin{DoxyReturn}{Returns}
+Il titolo del libro. 
+\end{DoxyReturn}
+\Hypertarget{classcampuslib_1_1models_1_1_book_a67ce6f75cec7a91da733d8b4079a0b1a}\index{campuslib.models.Book@{campuslib.models.Book}!hashCode@{hashCode}}
+\index{hashCode@{hashCode}!campuslib.models.Book@{campuslib.models.Book}}
+\doxysubsubsection{\texorpdfstring{hashCode()}{hashCode()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1models_1_1_book_a67ce6f75cec7a91da733d8b4079a0b1a} 
+int campuslib.\+models.\+Book.\+hash\+Code (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Restituisce il codice hash dell\textquotesingle{}oggetto \doxylink{classcampuslib_1_1models_1_1_book}{Book}. 
+
+\begin{DoxyReturn}{Returns}
+Il codice hash calcolato in base all\textquotesingle{}ISBN del libro. 
+\end{DoxyReturn}
+\Hypertarget{classcampuslib_1_1models_1_1_book_a5a57f11d592e19af1c354239fdee139c}\index{campuslib.models.Book@{campuslib.models.Book}!isAdopted@{isAdopted}}
+\index{isAdopted@{isAdopted}!campuslib.models.Book@{campuslib.models.Book}}
+\doxysubsubsection{\texorpdfstring{isAdopted()}{isAdopted()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1models_1_1_book_a5a57f11d592e19af1c354239fdee139c} 
+boolean campuslib.\+models.\+Book.\+is\+Adopted (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Verifica se il libro è in adozione. 
+
+\begin{DoxyReturn}{Returns}
+true se il libro è in adozione, false altrimenti. 
+\end{DoxyReturn}
+\Hypertarget{classcampuslib_1_1models_1_1_book_a91efc2c05cb3061d5b089dc770a4e5ba}\index{campuslib.models.Book@{campuslib.models.Book}!setCopies@{setCopies}}
+\index{setCopies@{setCopies}!campuslib.models.Book@{campuslib.models.Book}}
+\doxysubsubsection{\texorpdfstring{setCopies()}{setCopies()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1models_1_1_book_a91efc2c05cb3061d5b089dc770a4e5ba} 
+void campuslib.\+models.\+Book.\+set\+Copies (\begin{DoxyParamCaption}\item[{int}]{copies}{}\end{DoxyParamCaption})}
+
+
+
+Imposta il numero di copie totali del libro. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em copies} & Il nuovo numero di copie totali del libro. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcampuslib_1_1models_1_1_book_a0149b9707c1b12c33756ad78ae922aa5}\index{campuslib.models.Book@{campuslib.models.Book}!setPublishingYear@{setPublishingYear}}
+\index{setPublishingYear@{setPublishingYear}!campuslib.models.Book@{campuslib.models.Book}}
+\doxysubsubsection{\texorpdfstring{setPublishingYear()}{setPublishingYear()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1models_1_1_book_a0149b9707c1b12c33756ad78ae922aa5} 
+void campuslib.\+models.\+Book.\+set\+Publishing\+Year (\begin{DoxyParamCaption}\item[{int}]{year}{}\end{DoxyParamCaption})}
+
+
+
+Imposta l\textquotesingle{}anno di pubblicazione del libro. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em year} & Il nuovo anno di pubblicazione del libro. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcampuslib_1_1models_1_1_book_a37203f0bc92d5604cf99a05f7e372420}\index{campuslib.models.Book@{campuslib.models.Book}!setStatus@{setStatus}}
+\index{setStatus@{setStatus}!campuslib.models.Book@{campuslib.models.Book}}
+\doxysubsubsection{\texorpdfstring{setStatus()}{setStatus()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1models_1_1_book_a37203f0bc92d5604cf99a05f7e372420} 
+void campuslib.\+models.\+Book.\+set\+Status (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumcampuslib_1_1enums_1_1_adoption_status}{Adoption\+Status}}}]{status}{}\end{DoxyParamCaption})}
+
+
+
+Imposta lo stato di adozione del libro. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em status} & Il nuovo stato di adozione del libro. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcampuslib_1_1models_1_1_book_ac4115a5e668d11fab1e2a5fa997006cb}\index{campuslib.models.Book@{campuslib.models.Book}!setTitle@{setTitle}}
+\index{setTitle@{setTitle}!campuslib.models.Book@{campuslib.models.Book}}
+\doxysubsubsection{\texorpdfstring{setTitle()}{setTitle()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1models_1_1_book_ac4115a5e668d11fab1e2a5fa997006cb} 
+void campuslib.\+models.\+Book.\+set\+Title (\begin{DoxyParamCaption}\item[{String}]{title}{}\end{DoxyParamCaption})}
+
+
+
+Imposta il titolo del libro. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em title} & Il nuovo titolo del libro. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcampuslib_1_1models_1_1_book_a17176a1c6898e694d7755e10be2d8521}\index{campuslib.models.Book@{campuslib.models.Book}!toString@{toString}}
+\index{toString@{toString}!campuslib.models.Book@{campuslib.models.Book}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1models_1_1_book_a17176a1c6898e694d7755e10be2d8521} 
+String campuslib.\+models.\+Book.\+to\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Restituisce una rappresentazione testuale dell\textquotesingle{}oggetto \doxylink{classcampuslib_1_1models_1_1_book}{Book}. 
+
+\begin{DoxyReturn}{Returns}
+Una stringa contenente le informazioni relative al libro. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/anto/\+SWE-\/\+Playground/\+Progetto/2-\/final\+\_\+project/remote\+\_\+repo/\+SWE-\/\+Project/1-\/\+Java\+Project/\+Campus\+Lib/src/main/java/campuslib/models/Book.\+java\end{DoxyCompactItemize}

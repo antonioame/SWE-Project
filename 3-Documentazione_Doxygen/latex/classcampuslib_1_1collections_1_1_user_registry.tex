@@ -1,0 +1,206 @@
+\doxysection{campuslib.\+collections.\+User\+Registry Class Reference}
+\hypertarget{classcampuslib_1_1collections_1_1_user_registry}{}\label{classcampuslib_1_1collections_1_1_user_registry}\index{campuslib.collections.UserRegistry@{campuslib.collections.UserRegistry}}
+
+
+Il registro degli utenti della biblioteca.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcampuslib_1_1collections_1_1_user_registry_aea99edb70af84ff02004d9fa01fd41cd}{User\+Registry}} ()
+\begin{DoxyCompactList}\small\item\em Costruttore. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcampuslib_1_1collections_1_1_user_registry_a0d114b82b367ebce0a9d1e5c10da36c6}{add\+User}} (\mbox{\hyperlink{classcampuslib_1_1models_1_1_user}{User}} user)
+\begin{DoxyCompactList}\small\item\em Aggiunge un utente al registro. L\textquotesingle{}utente è aggiunto se l\textquotesingle{}ID di iscrizione è valido. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcampuslib_1_1collections_1_1_user_registry_abba739e826e46ae3b11ceb80e3e26864}{remove\+User}} (int enrollment\+ID)
+\begin{DoxyCompactList}\small\item\em Rimuove un utente dal registro. \end{DoxyCompactList}\item 
+Linked\+List$<$ \mbox{\hyperlink{classcampuslib_1_1models_1_1_user}{User}} $>$ \mbox{\hyperlink{classcampuslib_1_1collections_1_1_user_registry_af66ac500f4609ffa67505134e1bd49f8}{search\+By\+Name}} (String name, String surname)
+\begin{DoxyCompactList}\small\item\em Cerca utenti nel registro per nome e cognome. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcampuslib_1_1models_1_1_user}{User}} \mbox{\hyperlink{classcampuslib_1_1collections_1_1_user_registry_ac6136490d407c0b1dbe5004aaad7e793}{search\+By\+Enrollment\+ID}} (int enrollment\+ID)
+\begin{DoxyCompactList}\small\item\em Cerca un utente nel registro per ID di iscrizione. \end{DoxyCompactList}\item 
+Linked\+List$<$ \mbox{\hyperlink{classcampuslib_1_1models_1_1_user}{User}} $>$ \mbox{\hyperlink{classcampuslib_1_1collections_1_1_user_registry_a344a3dae13ee3fafad69d064ee4ce3b2}{search}} (String query)
+\begin{DoxyCompactList}\small\item\em Cerca utenti secondo una query generica. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcampuslib_1_1collections_1_1_user_registry_ad5a299ef08353d02ae954af38f6377f4}{to\+String}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce una rappresentazione testuale del registro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcampuslib_1_1collections_1_1_user_registry_a62b748bd3e100d8c70f29f3e4bc02290}{export\+On\+File}} (String file\+Name)
+\begin{DoxyCompactList}\small\item\em Esporta il registro su file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classcampuslib_1_1collections_1_1_user_registry}{User\+Registry}} \mbox{\hyperlink{classcampuslib_1_1collections_1_1_user_registry_a3e3e3665d73f93141b9acdb9fdc51cd9}{import\+From\+File}} (String file\+Name)
+\begin{DoxyCompactList}\small\item\em Importa un registro da file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Il registro degli utenti della biblioteca. 
+
+\label{doc-constructors}
+\Hypertarget{classcampuslib_1_1collections_1_1_user_registry_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classcampuslib_1_1collections_1_1_user_registry_aea99edb70af84ff02004d9fa01fd41cd}\index{campuslib.collections.UserRegistry@{campuslib.collections.UserRegistry}!UserRegistry@{UserRegistry}}
+\index{UserRegistry@{UserRegistry}!campuslib.collections.UserRegistry@{campuslib.collections.UserRegistry}}
+\doxysubsubsection{\texorpdfstring{UserRegistry()}{UserRegistry()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1collections_1_1_user_registry_aea99edb70af84ff02004d9fa01fd41cd} 
+campuslib.\+collections.\+User\+Registry.\+User\+Registry (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Costruttore. 
+
+\begin{DoxyPostcond}{Postcondition}
+Il registro utenti è vuoto. 
+\end{DoxyPostcond}
+
+
+\label{doc-func-members}
+\Hypertarget{classcampuslib_1_1collections_1_1_user_registry_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcampuslib_1_1collections_1_1_user_registry_a0d114b82b367ebce0a9d1e5c10da36c6}\index{campuslib.collections.UserRegistry@{campuslib.collections.UserRegistry}!addUser@{addUser}}
+\index{addUser@{addUser}!campuslib.collections.UserRegistry@{campuslib.collections.UserRegistry}}
+\doxysubsubsection{\texorpdfstring{addUser()}{addUser()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1collections_1_1_user_registry_a0d114b82b367ebce0a9d1e5c10da36c6} 
+boolean campuslib.\+collections.\+User\+Registry.\+add\+User (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcampuslib_1_1models_1_1_user}{User}}}]{user}{}\end{DoxyParamCaption})}
+
+
+
+Aggiunge un utente al registro. L\textquotesingle{}utente è aggiunto se l\textquotesingle{}ID di iscrizione è valido. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em user} & Utente da aggiungere. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Esito aggiunta. 
+\end{DoxyReturn}
+\Hypertarget{classcampuslib_1_1collections_1_1_user_registry_a62b748bd3e100d8c70f29f3e4bc02290}\index{campuslib.collections.UserRegistry@{campuslib.collections.UserRegistry}!exportOnFile@{exportOnFile}}
+\index{exportOnFile@{exportOnFile}!campuslib.collections.UserRegistry@{campuslib.collections.UserRegistry}}
+\doxysubsubsection{\texorpdfstring{exportOnFile()}{exportOnFile()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1collections_1_1_user_registry_a62b748bd3e100d8c70f29f3e4bc02290} 
+void campuslib.\+collections.\+User\+Registry.\+export\+On\+File (\begin{DoxyParamCaption}\item[{String}]{file\+Name}{}\end{DoxyParamCaption})}
+
+
+
+Esporta il registro su file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em file\+Name} & Nome del file da scrivere. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+Il registro viene salvato sul file specificato. 
+\end{DoxyPostcond}
+\Hypertarget{classcampuslib_1_1collections_1_1_user_registry_a3e3e3665d73f93141b9acdb9fdc51cd9}\index{campuslib.collections.UserRegistry@{campuslib.collections.UserRegistry}!importFromFile@{importFromFile}}
+\index{importFromFile@{importFromFile}!campuslib.collections.UserRegistry@{campuslib.collections.UserRegistry}}
+\doxysubsubsection{\texorpdfstring{importFromFile()}{importFromFile()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1collections_1_1_user_registry_a3e3e3665d73f93141b9acdb9fdc51cd9} 
+\mbox{\hyperlink{classcampuslib_1_1collections_1_1_user_registry}{User\+Registry}} campuslib.\+collections.\+User\+Registry.\+import\+From\+File (\begin{DoxyParamCaption}\item[{String}]{file\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Importa un registro da file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em file\+Name} & Nome del file da cui importare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Registro importato o null se il file non è valido. 
+\end{DoxyReturn}
+\Hypertarget{classcampuslib_1_1collections_1_1_user_registry_abba739e826e46ae3b11ceb80e3e26864}\index{campuslib.collections.UserRegistry@{campuslib.collections.UserRegistry}!removeUser@{removeUser}}
+\index{removeUser@{removeUser}!campuslib.collections.UserRegistry@{campuslib.collections.UserRegistry}}
+\doxysubsubsection{\texorpdfstring{removeUser()}{removeUser()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1collections_1_1_user_registry_abba739e826e46ae3b11ceb80e3e26864} 
+boolean campuslib.\+collections.\+User\+Registry.\+remove\+User (\begin{DoxyParamCaption}\item[{int}]{enrollment\+ID}{}\end{DoxyParamCaption})}
+
+
+
+Rimuove un utente dal registro. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em enrollment\+ID} & ID di iscrizione dell\textquotesingle{}utente da rimuovere. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Esito rimozione. 
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+Se presente, l\textquotesingle{}utente viene rimosso dal registro, altrimenti restituisce false. 
+\end{DoxyPostcond}
+\Hypertarget{classcampuslib_1_1collections_1_1_user_registry_a344a3dae13ee3fafad69d064ee4ce3b2}\index{campuslib.collections.UserRegistry@{campuslib.collections.UserRegistry}!search@{search}}
+\index{search@{search}!campuslib.collections.UserRegistry@{campuslib.collections.UserRegistry}}
+\doxysubsubsection{\texorpdfstring{search()}{search()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1collections_1_1_user_registry_a344a3dae13ee3fafad69d064ee4ce3b2} 
+Linked\+List$<$ \mbox{\hyperlink{classcampuslib_1_1models_1_1_user}{User}} $>$ campuslib.\+collections.\+User\+Registry.\+search (\begin{DoxyParamCaption}\item[{String}]{query}{}\end{DoxyParamCaption})}
+
+
+
+Cerca utenti secondo una query generica. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em query} & Stringa di ricerca (cerca in nome, cognome, email, ID). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Lista di utenti che corrispondono alla query (vuota se nessun utente corrisponde al criterio di ricerca). 
+\end{DoxyReturn}
+\Hypertarget{classcampuslib_1_1collections_1_1_user_registry_ac6136490d407c0b1dbe5004aaad7e793}\index{campuslib.collections.UserRegistry@{campuslib.collections.UserRegistry}!searchByEnrollmentID@{searchByEnrollmentID}}
+\index{searchByEnrollmentID@{searchByEnrollmentID}!campuslib.collections.UserRegistry@{campuslib.collections.UserRegistry}}
+\doxysubsubsection{\texorpdfstring{searchByEnrollmentID()}{searchByEnrollmentID()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1collections_1_1_user_registry_ac6136490d407c0b1dbe5004aaad7e793} 
+\mbox{\hyperlink{classcampuslib_1_1models_1_1_user}{User}} campuslib.\+collections.\+User\+Registry.\+search\+By\+Enrollment\+ID (\begin{DoxyParamCaption}\item[{int}]{enrollment\+ID}{}\end{DoxyParamCaption})}
+
+
+
+Cerca un utente nel registro per ID di iscrizione. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em enrollment\+ID} & ID di iscrizione da cercare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Utente trovato o null se non presente. 
+\end{DoxyReturn}
+\Hypertarget{classcampuslib_1_1collections_1_1_user_registry_af66ac500f4609ffa67505134e1bd49f8}\index{campuslib.collections.UserRegistry@{campuslib.collections.UserRegistry}!searchByName@{searchByName}}
+\index{searchByName@{searchByName}!campuslib.collections.UserRegistry@{campuslib.collections.UserRegistry}}
+\doxysubsubsection{\texorpdfstring{searchByName()}{searchByName()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1collections_1_1_user_registry_af66ac500f4609ffa67505134e1bd49f8} 
+Linked\+List$<$ \mbox{\hyperlink{classcampuslib_1_1models_1_1_user}{User}} $>$ campuslib.\+collections.\+User\+Registry.\+search\+By\+Name (\begin{DoxyParamCaption}\item[{String}]{name}{, }\item[{String}]{surname}{}\end{DoxyParamCaption})}
+
+
+
+Cerca utenti nel registro per nome e cognome. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em name} & Nome da cercare. \\
+\hline
+\mbox{\texttt{in}}  & {\em surname} & Cognome da cercare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Lista di utenti trovati (vuota se nessun utente corrisponde al criterio di ricerca). 
+\end{DoxyReturn}
+\Hypertarget{classcampuslib_1_1collections_1_1_user_registry_ad5a299ef08353d02ae954af38f6377f4}\index{campuslib.collections.UserRegistry@{campuslib.collections.UserRegistry}!toString@{toString}}
+\index{toString@{toString}!campuslib.collections.UserRegistry@{campuslib.collections.UserRegistry}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1collections_1_1_user_registry_ad5a299ef08353d02ae954af38f6377f4} 
+String campuslib.\+collections.\+User\+Registry.\+to\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Restituisce una rappresentazione testuale del registro. 
+
+\begin{DoxyReturn}{Returns}
+Rappresentazione testuale del registro. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/anto/\+SWE-\/\+Playground/\+Progetto/2-\/final\+\_\+project/remote\+\_\+repo/\+SWE-\/\+Project/1-\/\+Java\+Project/\+Campus\+Lib/src/main/java/campuslib/collections/User\+Registry.\+java\end{DoxyCompactItemize}

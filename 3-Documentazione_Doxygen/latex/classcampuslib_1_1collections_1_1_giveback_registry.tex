@@ -1,0 +1,121 @@
+\doxysection{campuslib.\+collections.\+Giveback\+Registry Class Reference}
+\hypertarget{classcampuslib_1_1collections_1_1_giveback_registry}{}\label{classcampuslib_1_1collections_1_1_giveback_registry}\index{campuslib.collections.GivebackRegistry@{campuslib.collections.GivebackRegistry}}
+
+
+Il registro delle restituzioni della biblioteca.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcampuslib_1_1collections_1_1_giveback_registry_a69296ff6034de4d0c2323df9854028cb}{Giveback\+Registry}} ()
+\begin{DoxyCompactList}\small\item\em Costruttore. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcampuslib_1_1collections_1_1_giveback_registry_a79ca80233b1e7ab9a18c88ff26bf2257}{add\+Giveback}} (\mbox{\hyperlink{classcampuslib_1_1models_1_1_giveback}{Giveback}} restitution)
+\begin{DoxyCompactList}\small\item\em Aggiunge una restituzione al registro. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcampuslib_1_1collections_1_1_giveback_registry_afb23f00a35b83f2670592d38e4a70524}{to\+String}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce una rappresentazione testuale del registro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcampuslib_1_1collections_1_1_giveback_registry_a6df8be2f364311b45cf7c5484ef86204}{export\+On\+File}} (String file\+Name)
+\begin{DoxyCompactList}\small\item\em Esporta il registro su file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classcampuslib_1_1collections_1_1_giveback_registry}{Giveback\+Registry}} \mbox{\hyperlink{classcampuslib_1_1collections_1_1_giveback_registry_abd1c5e68c279b30508cce6a62ec6c679}{import\+From\+File}} (String file\+Name)
+\begin{DoxyCompactList}\small\item\em Importa un registro da file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Il registro delle restituzioni della biblioteca. 
+
+\label{doc-constructors}
+\Hypertarget{classcampuslib_1_1collections_1_1_giveback_registry_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classcampuslib_1_1collections_1_1_giveback_registry_a69296ff6034de4d0c2323df9854028cb}\index{campuslib.collections.GivebackRegistry@{campuslib.collections.GivebackRegistry}!GivebackRegistry@{GivebackRegistry}}
+\index{GivebackRegistry@{GivebackRegistry}!campuslib.collections.GivebackRegistry@{campuslib.collections.GivebackRegistry}}
+\doxysubsubsection{\texorpdfstring{GivebackRegistry()}{GivebackRegistry()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1collections_1_1_giveback_registry_a69296ff6034de4d0c2323df9854028cb} 
+campuslib.\+collections.\+Giveback\+Registry.\+Giveback\+Registry (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Costruttore. 
+
+\begin{DoxyPostcond}{Postcondition}
+Il registro restituzioni è vuoto. 
+\end{DoxyPostcond}
+
+
+\label{doc-func-members}
+\Hypertarget{classcampuslib_1_1collections_1_1_giveback_registry_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcampuslib_1_1collections_1_1_giveback_registry_a79ca80233b1e7ab9a18c88ff26bf2257}\index{campuslib.collections.GivebackRegistry@{campuslib.collections.GivebackRegistry}!addGiveback@{addGiveback}}
+\index{addGiveback@{addGiveback}!campuslib.collections.GivebackRegistry@{campuslib.collections.GivebackRegistry}}
+\doxysubsubsection{\texorpdfstring{addGiveback()}{addGiveback()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1collections_1_1_giveback_registry_a79ca80233b1e7ab9a18c88ff26bf2257} 
+boolean campuslib.\+collections.\+Giveback\+Registry.\+add\+Giveback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcampuslib_1_1models_1_1_giveback}{Giveback}}}]{restitution}{}\end{DoxyParamCaption})}
+
+
+
+Aggiunge una restituzione al registro. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em restitution} & Restituzione da aggiungere. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Esito aggiunta. 
+\end{DoxyReturn}
+\Hypertarget{classcampuslib_1_1collections_1_1_giveback_registry_a6df8be2f364311b45cf7c5484ef86204}\index{campuslib.collections.GivebackRegistry@{campuslib.collections.GivebackRegistry}!exportOnFile@{exportOnFile}}
+\index{exportOnFile@{exportOnFile}!campuslib.collections.GivebackRegistry@{campuslib.collections.GivebackRegistry}}
+\doxysubsubsection{\texorpdfstring{exportOnFile()}{exportOnFile()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1collections_1_1_giveback_registry_a6df8be2f364311b45cf7c5484ef86204} 
+void campuslib.\+collections.\+Giveback\+Registry.\+export\+On\+File (\begin{DoxyParamCaption}\item[{String}]{file\+Name}{}\end{DoxyParamCaption})}
+
+
+
+Esporta il registro su file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em file\+Name} & Nome del file da scrivere. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+Il registro viene salvato sul file specificato. 
+\end{DoxyPostcond}
+\Hypertarget{classcampuslib_1_1collections_1_1_giveback_registry_abd1c5e68c279b30508cce6a62ec6c679}\index{campuslib.collections.GivebackRegistry@{campuslib.collections.GivebackRegistry}!importFromFile@{importFromFile}}
+\index{importFromFile@{importFromFile}!campuslib.collections.GivebackRegistry@{campuslib.collections.GivebackRegistry}}
+\doxysubsubsection{\texorpdfstring{importFromFile()}{importFromFile()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1collections_1_1_giveback_registry_abd1c5e68c279b30508cce6a62ec6c679} 
+\mbox{\hyperlink{classcampuslib_1_1collections_1_1_giveback_registry}{Giveback\+Registry}} campuslib.\+collections.\+Giveback\+Registry.\+import\+From\+File (\begin{DoxyParamCaption}\item[{String}]{file\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Importa un registro da file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em file\+Name} & Nome del file da cui importare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Registro importato o null se il file non è valido. 
+\end{DoxyReturn}
+\Hypertarget{classcampuslib_1_1collections_1_1_giveback_registry_afb23f00a35b83f2670592d38e4a70524}\index{campuslib.collections.GivebackRegistry@{campuslib.collections.GivebackRegistry}!toString@{toString}}
+\index{toString@{toString}!campuslib.collections.GivebackRegistry@{campuslib.collections.GivebackRegistry}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1collections_1_1_giveback_registry_afb23f00a35b83f2670592d38e4a70524} 
+String campuslib.\+collections.\+Giveback\+Registry.\+to\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Restituisce una rappresentazione testuale del registro. 
+
+\begin{DoxyReturn}{Returns}
+Rappresentazione testuale del registro. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/anto/\+SWE-\/\+Playground/\+Progetto/2-\/final\+\_\+project/remote\+\_\+repo/\+SWE-\/\+Project/1-\/\+Java\+Project/\+Campus\+Lib/src/main/java/campuslib/collections/Giveback\+Registry.\+java\end{DoxyCompactItemize}

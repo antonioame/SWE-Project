@@ -1,0 +1,227 @@
+\doxysection{campuslib.\+collections.\+Book\+Catalog Class Reference}
+\hypertarget{classcampuslib_1_1collections_1_1_book_catalog}{}\label{classcampuslib_1_1collections_1_1_book_catalog}\index{campuslib.collections.BookCatalog@{campuslib.collections.BookCatalog}}
+
+
+Il catalogo dei libri della biblioteca.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcampuslib_1_1collections_1_1_book_catalog_ab0c16a89610cd2073a9569ad97c81c7f}{Book\+Catalog}} ()
+\begin{DoxyCompactList}\small\item\em Costruttore. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcampuslib_1_1collections_1_1_book_catalog_a0725d6ad5150029e115f8a4c96ece331}{add\+Book}} (\mbox{\hyperlink{classcampuslib_1_1models_1_1_book}{Book}} book)
+\begin{DoxyCompactList}\small\item\em Aggiunge un libro al catalogo. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classcampuslib_1_1collections_1_1_book_catalog_a6b79d65c4f1e336362372fdf3c3d9a0a}{remove\+Book}} (String isbn)
+\begin{DoxyCompactList}\small\item\em Rimuove un libro dal catalogo. \end{DoxyCompactList}\item 
+Linked\+List$<$ \mbox{\hyperlink{classcampuslib_1_1models_1_1_book}{Book}} $>$ \mbox{\hyperlink{classcampuslib_1_1collections_1_1_book_catalog_a93eac7f7e7760e6faa20ece4704de9e0}{search\+By\+Title}} (String title)
+\begin{DoxyCompactList}\small\item\em Cerca libri nel catalogo per titolo. \end{DoxyCompactList}\item 
+Linked\+List$<$ \mbox{\hyperlink{classcampuslib_1_1models_1_1_book}{Book}} $>$ \mbox{\hyperlink{classcampuslib_1_1collections_1_1_book_catalog_ab29ba1456edc3b40270aaa0d313984ac}{search\+By\+Author}} (\mbox{\hyperlink{classcampuslib_1_1models_1_1_author}{Author}} author)
+\begin{DoxyCompactList}\small\item\em Cerca libri nel catalogo per autore. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcampuslib_1_1models_1_1_book}{Book}} \mbox{\hyperlink{classcampuslib_1_1collections_1_1_book_catalog_a29310935fef25669399a2eb1b0ce8c73}{search\+By\+Isbn}} (String isbn)
+\begin{DoxyCompactList}\small\item\em Cerca un libro nel catalogo per ISBN. \end{DoxyCompactList}\item 
+Linked\+List$<$ \mbox{\hyperlink{classcampuslib_1_1models_1_1_book}{Book}} $>$ \mbox{\hyperlink{classcampuslib_1_1collections_1_1_book_catalog_ae0714cca7f30aba3bb97cda0a667a437}{search}} (String query)
+\begin{DoxyCompactList}\small\item\em Cerca libri secondo un parametro di ricerca generico. La ricerca viene effettuata su tutti gli attributi del libro\+: titolo, autori (nome e cognome), ISBN e anno di pubblicazione. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcampuslib_1_1collections_1_1_book_catalog_a2f04386be2fa6a0736645e1e8a41c8e5}{to\+String}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce una rappresentazione testuale del catalogo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcampuslib_1_1collections_1_1_book_catalog_a902a1bbdbdfa8081ff15310e12243d1c}{export\+On\+File}} (String file\+Name)
+\begin{DoxyCompactList}\small\item\em Esporta il catalogo su file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classcampuslib_1_1collections_1_1_book_catalog}{Book\+Catalog}} \mbox{\hyperlink{classcampuslib_1_1collections_1_1_book_catalog_a9f23901fff6fa5020e5d88e70f923f14}{import\+From\+File}} (String file\+Name)
+\begin{DoxyCompactList}\small\item\em Importa un catalogo da file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Il catalogo dei libri della biblioteca. 
+
+\label{doc-constructors}
+\Hypertarget{classcampuslib_1_1collections_1_1_book_catalog_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classcampuslib_1_1collections_1_1_book_catalog_ab0c16a89610cd2073a9569ad97c81c7f}\index{campuslib.collections.BookCatalog@{campuslib.collections.BookCatalog}!BookCatalog@{BookCatalog}}
+\index{BookCatalog@{BookCatalog}!campuslib.collections.BookCatalog@{campuslib.collections.BookCatalog}}
+\doxysubsubsection{\texorpdfstring{BookCatalog()}{BookCatalog()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1collections_1_1_book_catalog_ab0c16a89610cd2073a9569ad97c81c7f} 
+campuslib.\+collections.\+Book\+Catalog.\+Book\+Catalog (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Costruttore. 
+
+\begin{DoxyPostcond}{Postcondition}
+Il catalogo libri è vuoto. 
+\end{DoxyPostcond}
+
+
+\label{doc-func-members}
+\Hypertarget{classcampuslib_1_1collections_1_1_book_catalog_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcampuslib_1_1collections_1_1_book_catalog_a0725d6ad5150029e115f8a4c96ece331}\index{campuslib.collections.BookCatalog@{campuslib.collections.BookCatalog}!addBook@{addBook}}
+\index{addBook@{addBook}!campuslib.collections.BookCatalog@{campuslib.collections.BookCatalog}}
+\doxysubsubsection{\texorpdfstring{addBook()}{addBook()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1collections_1_1_book_catalog_a0725d6ad5150029e115f8a4c96ece331} 
+boolean campuslib.\+collections.\+Book\+Catalog.\+add\+Book (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcampuslib_1_1models_1_1_book}{Book}}}]{book}{}\end{DoxyParamCaption})}
+
+
+
+Aggiunge un libro al catalogo. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em book} & Libro da aggiungere. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Esito aggiunta. 
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+Il libro è aggiunto se rispetta il formato per ISBN, altrimenti restituisce false. 
+\end{DoxyPostcond}
+\Hypertarget{classcampuslib_1_1collections_1_1_book_catalog_a902a1bbdbdfa8081ff15310e12243d1c}\index{campuslib.collections.BookCatalog@{campuslib.collections.BookCatalog}!exportOnFile@{exportOnFile}}
+\index{exportOnFile@{exportOnFile}!campuslib.collections.BookCatalog@{campuslib.collections.BookCatalog}}
+\doxysubsubsection{\texorpdfstring{exportOnFile()}{exportOnFile()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1collections_1_1_book_catalog_a902a1bbdbdfa8081ff15310e12243d1c} 
+void campuslib.\+collections.\+Book\+Catalog.\+export\+On\+File (\begin{DoxyParamCaption}\item[{String}]{file\+Name}{}\end{DoxyParamCaption})}
+
+
+
+Esporta il catalogo su file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em file\+Name} & Nome del file da scrivere. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+Il catalogo viene salvato sul file specificato. 
+\end{DoxyPostcond}
+\Hypertarget{classcampuslib_1_1collections_1_1_book_catalog_a9f23901fff6fa5020e5d88e70f923f14}\index{campuslib.collections.BookCatalog@{campuslib.collections.BookCatalog}!importFromFile@{importFromFile}}
+\index{importFromFile@{importFromFile}!campuslib.collections.BookCatalog@{campuslib.collections.BookCatalog}}
+\doxysubsubsection{\texorpdfstring{importFromFile()}{importFromFile()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1collections_1_1_book_catalog_a9f23901fff6fa5020e5d88e70f923f14} 
+\mbox{\hyperlink{classcampuslib_1_1collections_1_1_book_catalog}{Book\+Catalog}} campuslib.\+collections.\+Book\+Catalog.\+import\+From\+File (\begin{DoxyParamCaption}\item[{String}]{file\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Importa un catalogo da file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em file\+Name} & Nome del file da cui importare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Catalogo importato o null se il file non è valido. 
+\end{DoxyReturn}
+\Hypertarget{classcampuslib_1_1collections_1_1_book_catalog_a6b79d65c4f1e336362372fdf3c3d9a0a}\index{campuslib.collections.BookCatalog@{campuslib.collections.BookCatalog}!removeBook@{removeBook}}
+\index{removeBook@{removeBook}!campuslib.collections.BookCatalog@{campuslib.collections.BookCatalog}}
+\doxysubsubsection{\texorpdfstring{removeBook()}{removeBook()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1collections_1_1_book_catalog_a6b79d65c4f1e336362372fdf3c3d9a0a} 
+boolean campuslib.\+collections.\+Book\+Catalog.\+remove\+Book (\begin{DoxyParamCaption}\item[{String}]{isbn}{}\end{DoxyParamCaption})}
+
+
+
+Rimuove un libro dal catalogo. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em isbn} & ISBN del libro da rimuovere. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Esito rimozione. 
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+Il libro viene rimosso se presente nel catalogo, altrimenti restituisce false. 
+\end{DoxyPostcond}
+\Hypertarget{classcampuslib_1_1collections_1_1_book_catalog_ae0714cca7f30aba3bb97cda0a667a437}\index{campuslib.collections.BookCatalog@{campuslib.collections.BookCatalog}!search@{search}}
+\index{search@{search}!campuslib.collections.BookCatalog@{campuslib.collections.BookCatalog}}
+\doxysubsubsection{\texorpdfstring{search()}{search()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1collections_1_1_book_catalog_ae0714cca7f30aba3bb97cda0a667a437} 
+Linked\+List$<$ \mbox{\hyperlink{classcampuslib_1_1models_1_1_book}{Book}} $>$ campuslib.\+collections.\+Book\+Catalog.\+search (\begin{DoxyParamCaption}\item[{String}]{query}{}\end{DoxyParamCaption})}
+
+
+
+Cerca libri secondo un parametro di ricerca generico. La ricerca viene effettuata su tutti gli attributi del libro\+: titolo, autori (nome e cognome), ISBN e anno di pubblicazione. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em query} & Parametro di ricerca generico (da confrontare con gli attributi del libro). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Lista di libri che corrispondono alla query (vuota se nessun libro corrisponde al criterio di ricerca). 
+\end{DoxyReturn}
+\Hypertarget{classcampuslib_1_1collections_1_1_book_catalog_ab29ba1456edc3b40270aaa0d313984ac}\index{campuslib.collections.BookCatalog@{campuslib.collections.BookCatalog}!searchByAuthor@{searchByAuthor}}
+\index{searchByAuthor@{searchByAuthor}!campuslib.collections.BookCatalog@{campuslib.collections.BookCatalog}}
+\doxysubsubsection{\texorpdfstring{searchByAuthor()}{searchByAuthor()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1collections_1_1_book_catalog_ab29ba1456edc3b40270aaa0d313984ac} 
+Linked\+List$<$ \mbox{\hyperlink{classcampuslib_1_1models_1_1_book}{Book}} $>$ campuslib.\+collections.\+Book\+Catalog.\+search\+By\+Author (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcampuslib_1_1models_1_1_author}{Author}}}]{author}{}\end{DoxyParamCaption})}
+
+
+
+Cerca libri nel catalogo per autore. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em author} & Autore del libro da cercare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Lista di libri trovati (vuota se nessun libro corrisponde al criterio di ricerca). 
+\end{DoxyReturn}
+\Hypertarget{classcampuslib_1_1collections_1_1_book_catalog_a29310935fef25669399a2eb1b0ce8c73}\index{campuslib.collections.BookCatalog@{campuslib.collections.BookCatalog}!searchByIsbn@{searchByIsbn}}
+\index{searchByIsbn@{searchByIsbn}!campuslib.collections.BookCatalog@{campuslib.collections.BookCatalog}}
+\doxysubsubsection{\texorpdfstring{searchByIsbn()}{searchByIsbn()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1collections_1_1_book_catalog_a29310935fef25669399a2eb1b0ce8c73} 
+\mbox{\hyperlink{classcampuslib_1_1models_1_1_book}{Book}} campuslib.\+collections.\+Book\+Catalog.\+search\+By\+Isbn (\begin{DoxyParamCaption}\item[{String}]{isbn}{}\end{DoxyParamCaption})}
+
+
+
+Cerca un libro nel catalogo per ISBN. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em isbn} & Codice ISBN del libro da cercare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Libro trovato o null se non presente. 
+\end{DoxyReturn}
+\Hypertarget{classcampuslib_1_1collections_1_1_book_catalog_a93eac7f7e7760e6faa20ece4704de9e0}\index{campuslib.collections.BookCatalog@{campuslib.collections.BookCatalog}!searchByTitle@{searchByTitle}}
+\index{searchByTitle@{searchByTitle}!campuslib.collections.BookCatalog@{campuslib.collections.BookCatalog}}
+\doxysubsubsection{\texorpdfstring{searchByTitle()}{searchByTitle()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1collections_1_1_book_catalog_a93eac7f7e7760e6faa20ece4704de9e0} 
+Linked\+List$<$ \mbox{\hyperlink{classcampuslib_1_1models_1_1_book}{Book}} $>$ campuslib.\+collections.\+Book\+Catalog.\+search\+By\+Title (\begin{DoxyParamCaption}\item[{String}]{title}{}\end{DoxyParamCaption})}
+
+
+
+Cerca libri nel catalogo per titolo. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em title} & Titolo del libro da cercare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Lista di libri trovati (vuota se nessun libro corrisponde al criterio di ricerca). 
+\end{DoxyReturn}
+\Hypertarget{classcampuslib_1_1collections_1_1_book_catalog_a2f04386be2fa6a0736645e1e8a41c8e5}\index{campuslib.collections.BookCatalog@{campuslib.collections.BookCatalog}!toString@{toString}}
+\index{toString@{toString}!campuslib.collections.BookCatalog@{campuslib.collections.BookCatalog}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily \label{classcampuslib_1_1collections_1_1_book_catalog_a2f04386be2fa6a0736645e1e8a41c8e5} 
+String campuslib.\+collections.\+Book\+Catalog.\+to\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Restituisce una rappresentazione testuale del catalogo. 
+
+\begin{DoxyReturn}{Returns}
+Rappresentazione testuale del catalogo. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/anto/\+SWE-\/\+Playground/\+Progetto/2-\/final\+\_\+project/remote\+\_\+repo/\+SWE-\/\+Project/1-\/\+Java\+Project/\+Campus\+Lib/src/main/java/campuslib/collections/Book\+Catalog.\+java\end{DoxyCompactItemize}
