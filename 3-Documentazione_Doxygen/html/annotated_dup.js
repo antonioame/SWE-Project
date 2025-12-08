@@ -19,9 +19,6 @@ var annotated_dup =
         [ "Person", "classcampuslib_1_1models_1_1_person.html", "classcampuslib_1_1models_1_1_person" ],
         [ "Transaction", "classcampuslib_1_1models_1_1_transaction.html", "classcampuslib_1_1models_1_1_transaction" ],
         [ "User", "classcampuslib_1_1models_1_1_user.html", "classcampuslib_1_1models_1_1_user" ]
-      ] ],
-      [ "services", null, [
-        [ "LibraryManager", "classcampuslib_1_1services_1_1_library_manager.html", null ]
       ] ]
     ] ]
 ];

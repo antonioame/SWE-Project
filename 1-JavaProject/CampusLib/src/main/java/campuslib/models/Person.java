@@ -1,7 +1,10 @@
 package campuslib.models;
 
 /**
- * @brief Persona.
+ * @brief Rappresenta una Persona.
+ * Superclasse per Author e User
+ * @see Author
+ * @see User
  */
 public abstract class Person {
     private String surname;

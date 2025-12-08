@@ -103,7 +103,6 @@ var NAVTREEINDEX0 =
 "classcampuslib_1_1models_1_1_user.html#af16ef342469c3a2fd6197005a882532a":[0,0,0,2,6,2],
 "classcampuslib_1_1models_1_1_user.html#afa374d86f74f27b5fdd3a3be007f3537":[0,0,0,2,6,10],
 "classcampuslib_1_1models_1_1_user.html#afb1fc5af0f7aa456d4694145d40d218c":[0,0,0,2,6,9],
-"classcampuslib_1_1services_1_1_library_manager.html":[0,0,0,3,0],
 "classes.html":[0,1],
 "enumcampuslib_1_1enums_1_1_adoption_status.html":[0,0,0,1,0],
 "enumcampuslib_1_1enums_1_1_user_status.html":[0,0,0,1,1],

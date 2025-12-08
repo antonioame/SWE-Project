@@ -105,7 +105,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac110c463116ef50ab69a11372493c4cc" id="r_ac110c463116ef50ab69a11372493c4cc"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac110c463116ef50ab69a11372493c4cc">removeLoan</a> (<a class="el" href="classcampuslib_1_1models_1_1_loan.html">Loan</a> loan)</td></tr>
 <tr class="memdesc:ac110c463116ef50ab69a11372493c4cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rimuove un prestito dal registro.  <br /></td></tr>
 <tr class="memitem:a3ec0a05312c8df7961f50b01c70598fa" id="r_a3ec0a05312c8df7961f50b01c70598fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcampuslib_1_1models_1_1_giveback.html">Giveback</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ec0a05312c8df7961f50b01c70598fa">convertToGiveback</a> (<a class="el" href="classcampuslib_1_1models_1_1_loan.html">Loan</a> loan)</td></tr>
-<tr class="memdesc:a3ec0a05312c8df7961f50b01c70598fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converte un prestito in una restituzione. Se presente, rimuove il prestito dal registro e crea l'oggetto <a class="el" href="classcampuslib_1_1models_1_1_giveback.html">Giveback</a> corrispondente.  <br /></td></tr>
+<tr class="memdesc:a3ec0a05312c8df7961f50b01c70598fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converte un prestito in una restituzione. Se presente, rimuove il prestito dal registro e crea l'oggetto <a class="el" href="classcampuslib_1_1models_1_1_giveback.html" title="Rappresenta la restituzione di un libro. Estende Transaction registrando la data effettiva di restitu...">Giveback</a> corrispondente.  <br /></td></tr>
 <tr class="memitem:a587411297728ae8d07ec4faa48caa20c" id="r_a587411297728ae8d07ec4faa48caa20c"><td class="memItemLeft" align="right" valign="top">LinkedList&lt; <a class="el" href="classcampuslib_1_1models_1_1_loan.html">Loan</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a587411297728ae8d07ec4faa48caa20c">searchByUser</a> (<a class="el" href="classcampuslib_1_1models_1_1_user.html">User</a> user)</td></tr>
 <tr class="memdesc:a587411297728ae8d07ec4faa48caa20c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cerca prestiti per utente.  <br /></td></tr>
 <tr class="memitem:a47948ffa24662d3959015cab5d223dbd" id="r_a47948ffa24662d3959015cab5d223dbd"><td class="memItemLeft" align="right" valign="top">LinkedList&lt; <a class="el" href="classcampuslib_1_1models_1_1_loan.html">Loan</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a47948ffa24662d3959015cab5d223dbd">searchByBook</a> (String isbn)</td></tr>
@@ -193,14 +193,14 @@ TreeSet&lt; <a class="el" href="classcampuslib_1_1models_1_1_loan.html">Loan</a>
       </table>
 </div><div class="memdoc">
 
-<p>Converte un prestito in una restituzione. Se presente, rimuove il prestito dal registro e crea l'oggetto <a class="el" href="classcampuslib_1_1models_1_1_giveback.html">Giveback</a> corrispondente. </p>
+<p>Converte un prestito in una restituzione. Se presente, rimuove il prestito dal registro e crea l'oggetto <a class="el" href="classcampuslib_1_1models_1_1_giveback.html" title="Rappresenta la restituzione di un libro. Estende Transaction registrando la data effettiva di restitu...">Giveback</a> corrispondente. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">loan</td><td>Prestito da convertire in restituzione. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Nuova istanza per <a class="el" href="classcampuslib_1_1models_1_1_giveback.html">Giveback</a> o null se il prestito non è presente nel registro. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Nuova istanza per <a class="el" href="classcampuslib_1_1models_1_1_giveback.html" title="Rappresenta la restituzione di un libro. Estende Transaction registrando la data effettiva di restitu...">Giveback</a> o null se il prestito non è presente nel registro. </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="#ac110c463116ef50ab69a11372493c4cc" title="Rimuove un prestito dal registro.">removeLoan</a> </dd></dl>
 
 </div>
