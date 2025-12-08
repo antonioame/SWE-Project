@@ -2,6 +2,11 @@ package campuslib.models;
 
 import java.time.LocalDate;
 
+/**
+ * @brief Rappresenta la restituzione di un libro.
+ * Estende Transaction registrando la data effettiva di restituzione del libro.
+ * @see Transaction
+ */
 public class Giveback extends Transaction {
     private final LocalDate endDate;
     

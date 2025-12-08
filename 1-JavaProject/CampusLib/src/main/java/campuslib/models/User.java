@@ -4,7 +4,8 @@ import campuslib.enums.UserStatus;
 import java.util.LinkedList;
 
 /**
- * @brief Utente.
+ * @brief Rappresenta Utente, specializzando Person.
+ * @see Person
  */
 public class User extends Person implements Comparable<User>{
     private final int enrollmentID;

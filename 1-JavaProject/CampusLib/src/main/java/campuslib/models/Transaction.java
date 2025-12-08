@@ -2,6 +2,12 @@ package campuslib.models;
 
 import java.time.LocalDate;
 
+/**
+ * @brief Classe astratta che rappresenta una transazione nella biblioteca.
+ * Superclasse per Loan e Giveback.
+ * @see Loan
+ * @see Giveback
+ */
 public abstract class Transaction {
     private static int nextId = 1;
     private final int id;

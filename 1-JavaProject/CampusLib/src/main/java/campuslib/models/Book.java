@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 import campuslib.enums.AdoptionStatus;
 
+/**
+ * @brief Rappresenta un Libro.
+ */
 public class Book {
     private final String isbn;
     private String title;
