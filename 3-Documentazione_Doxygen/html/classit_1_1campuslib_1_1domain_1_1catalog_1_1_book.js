@@ -1,0 +1,27 @@
+var classit_1_1campuslib_1_1domain_1_1catalog_1_1_book =
+[
+    [ "Book", "classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a854ba6cf5e2d0fc29c94ea018a91e893", null ],
+    [ "addAuthor", "classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a6208683e61bd4e7978a4c643c71b0d8f", null ],
+    [ "checkAvailability", "classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#acdd7f4eef381ee3ace4a91f3bff36457", null ],
+    [ "checkIsbn", "classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a7336fc4d78be632dbfcd472b08e8d57f", null ],
+    [ "compareTo", "classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a6afa823e710b385de32040d2355a6014", null ],
+    [ "equals", "classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#aa1956669c38f514253842f4b89e7a115", null ],
+    [ "getAuthors", "classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#afbc031315b2fe7d86538c580e20f4ba6", null ],
+    [ "getCopies", "classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a5d734c11dce16fcc19526ffb31521d7d", null ],
+    [ "getIsbn", "classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a8ebd1c0798c899be83b8a860f83b3629", null ],
+    [ "getPublishingYear", "classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a6aac38fb12f03e2c945f4b0184dace55", null ],
+    [ "getTitle", "classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#adfb93e1058e4b0fac6dd1a422734033d", null ],
+    [ "hashCode", "classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a15c5f18673d7960aaceb4ace4a2e9658", null ],
+    [ "isAdopted", "classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#acb5fb719084a57a35f44f2c81d225812", null ],
+    [ "setCopies", "classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a6538b4eb58a5233abd0d393f87eb0913", null ],
+    [ "setPublishingYear", "classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a73121e9165490c5d9db028811c052a57", null ],
+    [ "setStatus", "classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#aae83566a99ce9ecb83621c49456e29e0", null ],
+    [ "setTitle", "classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a28264c4a2c0b56aaffc3ebc21c09a1bd", null ],
+    [ "toString", "classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a303b5cfcd32d39f5e3645496965ba8f9", null ],
+    [ "authors", "classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#ac69f8163404d3c5b270dcd0146f08761", null ],
+    [ "copies", "classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a8f240bc9013417c2eb12cd90f607aea2", null ],
+    [ "isbn", "classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a9fda446b7556d66c32514b2f64b0811d", null ],
+    [ "publishingYear", "classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#aa4e879feb9d7eec39724d4f9fa848fd7", null ],
+    [ "status", "classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a7e7d749c4ee4c4a91665d857cba1f69a", null ],
+    [ "title", "classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a6891b0f96e4df796ffa4ad4236dcadf7", null ]
+];

@@ -1,0 +1,183 @@
+\doxysection{it.\+campuslib.\+domain.\+transactions.\+Transaction Class Reference}
+\hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction}{}\label{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction}\index{it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}}
+
+
+Classe astratta che rappresenta una transazione nella biblioteca.  
+
+
+Inheritance diagram for it.\+campuslib.\+domain.\+transactions.\+Transaction\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_aa32b6942e0c77929b13aa98d5cd4ffef}{Transaction}} (\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}} \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a1cb772a968ba6efe9fc3d96e7075e075}{borrowed\+Book}}, \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}} \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a1d2a34e30b653900968b282ebc0467ea}{borrower\+User}}, Local\+Date \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_ac28524950bcff672c08375866b688f3e}{start\+Date}})
+\begin{DoxyCompactList}\small\item\em Istanzia un nuovo oggetto \doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction}{Transaction}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a32233168c25c0265a9689ccf00464af6}{get\+Id}} ()
+\begin{DoxyCompactList}\small\item\em restituisce l\textquotesingle{}ID univoco del prestito. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}} \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a6d7bb48cb28dccf277db33ab978e67e5}{get\+Borrowed\+Book}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce il libro preso in prestito. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}} \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a0b0ed2399d51699079d53646413b2a8e}{get\+Borrower\+User}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce l\textquotesingle{}utente che ha preso in prestito il libro. \end{DoxyCompactList}\item 
+Local\+Date \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_aef13a66f82bfa2b88d84d3b944659b19}{get\+Start\+Date}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce la data di inizio del prestito. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final int \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a1fdd6a18d049e26a5562930c74c3d0e4}{id}}
+\item 
+final \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}} \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a1cb772a968ba6efe9fc3d96e7075e075}{borrowed\+Book}}
+\item 
+final \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}} \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a1d2a34e30b653900968b282ebc0467ea}{borrower\+User}}
+\item 
+final Local\+Date \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_ac28524950bcff672c08375866b688f3e}{start\+Date}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a7ea9c0909b276e5f613c432d9973902e}{next\+Id}} = 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe astratta che rappresenta una transazione nella biblioteca. 
+
+Superclasse per \doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan}{Loan} e \doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_giveback}{Giveback}. \begin{DoxySeeAlso}{See also}
+\doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan}{Loan} 
+
+\doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_giveback}{Giveback} 
+\end{DoxySeeAlso}
+
+
+\label{doc-constructors}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_aa32b6942e0c77929b13aa98d5cd4ffef}\index{it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}!Transaction@{Transaction}}
+\index{Transaction@{Transaction}!it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}}
+\doxysubsubsection{\texorpdfstring{Transaction()}{Transaction()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_aa32b6942e0c77929b13aa98d5cd4ffef} 
+it.\+campuslib.\+domain.\+transactions.\+Transaction.\+Transaction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}}}]{borrowed\+Book}{, }\item[{\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}}}]{borrower\+User}{, }\item[{Local\+Date}]{start\+Date}{}\end{DoxyParamCaption})}
+
+
+
+Istanzia un nuovo oggetto \doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction}{Transaction}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em borrowed\+Book} & Il libro preso in prestito. \\
+\hline
+\mbox{\texttt{in}}  & {\em borrower\+User} & L\textquotesingle{}utente che ha preso in prestito il libro. \\
+\hline
+\mbox{\texttt{in}}  & {\em start\+Date} & La data di inizio del prestito. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un nuovo oggetto \doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction}{Transaction}. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+
+\begin{DoxyItemize}
+\item il libro deve trovarsi nello stato "{}\+ADOPTED"{}.
+\item l\textquotesingle{}utente deve essere attivo. 
+\end{DoxyItemize}
+\end{DoxyPrecond}
+
+
+\label{doc-func-members}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a6d7bb48cb28dccf277db33ab978e67e5}\index{it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}!getBorrowedBook@{getBorrowedBook}}
+\index{getBorrowedBook@{getBorrowedBook}!it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}}
+\doxysubsubsection{\texorpdfstring{getBorrowedBook()}{getBorrowedBook()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a6d7bb48cb28dccf277db33ab978e67e5} 
+\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}} it.\+campuslib.\+domain.\+transactions.\+Transaction.\+get\+Borrowed\+Book (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Restituisce il libro preso in prestito. 
+
+\begin{DoxyReturn}{Returns}
+Il libro preso in prestito. 
+\end{DoxyReturn}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a0b0ed2399d51699079d53646413b2a8e}\index{it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}!getBorrowerUser@{getBorrowerUser}}
+\index{getBorrowerUser@{getBorrowerUser}!it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}}
+\doxysubsubsection{\texorpdfstring{getBorrowerUser()}{getBorrowerUser()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a0b0ed2399d51699079d53646413b2a8e} 
+\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}} it.\+campuslib.\+domain.\+transactions.\+Transaction.\+get\+Borrower\+User (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Restituisce l\textquotesingle{}utente che ha preso in prestito il libro. 
+
+\begin{DoxyReturn}{Returns}
+L\textquotesingle{}utente che ha preso in prestito il libro. 
+\end{DoxyReturn}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a32233168c25c0265a9689ccf00464af6}\index{it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}!getId@{getId}}
+\index{getId@{getId}!it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a32233168c25c0265a9689ccf00464af6} 
+int it.\+campuslib.\+domain.\+transactions.\+Transaction.\+get\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+restituisce l\textquotesingle{}ID univoco del prestito. 
+
+\begin{DoxyReturn}{Returns}
+L\textquotesingle{}ID univoco del prestito. 
+\end{DoxyReturn}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_aef13a66f82bfa2b88d84d3b944659b19}\index{it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}!getStartDate@{getStartDate}}
+\index{getStartDate@{getStartDate}!it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}}
+\doxysubsubsection{\texorpdfstring{getStartDate()}{getStartDate()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_aef13a66f82bfa2b88d84d3b944659b19} 
+Local\+Date it.\+campuslib.\+domain.\+transactions.\+Transaction.\+get\+Start\+Date (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Restituisce la data di inizio del prestito. 
+
+\begin{DoxyReturn}{Returns}
+La data di inizio del prestito. 
+\end{DoxyReturn}
+
+
+\label{doc-variable-members}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a1cb772a968ba6efe9fc3d96e7075e075}\index{it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}!borrowedBook@{borrowedBook}}
+\index{borrowedBook@{borrowedBook}!it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}}
+\doxysubsubsection{\texorpdfstring{borrowedBook}{borrowedBook}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a1cb772a968ba6efe9fc3d96e7075e075} 
+final \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}} it.\+campuslib.\+domain.\+transactions.\+Transaction.\+borrowed\+Book\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a1d2a34e30b653900968b282ebc0467ea}\index{it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}!borrowerUser@{borrowerUser}}
+\index{borrowerUser@{borrowerUser}!it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}}
+\doxysubsubsection{\texorpdfstring{borrowerUser}{borrowerUser}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a1d2a34e30b653900968b282ebc0467ea} 
+final \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}} it.\+campuslib.\+domain.\+transactions.\+Transaction.\+borrower\+User\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a1fdd6a18d049e26a5562930c74c3d0e4}\index{it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}!id@{id}}
+\index{id@{id}!it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a1fdd6a18d049e26a5562930c74c3d0e4} 
+final int it.\+campuslib.\+domain.\+transactions.\+Transaction.\+id\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a7ea9c0909b276e5f613c432d9973902e}\index{it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}!nextId@{nextId}}
+\index{nextId@{nextId}!it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}}
+\doxysubsubsection{\texorpdfstring{nextId}{nextId}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a7ea9c0909b276e5f613c432d9973902e} 
+int it.\+campuslib.\+domain.\+transactions.\+Transaction.\+next\+Id = 1\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_ac28524950bcff672c08375866b688f3e}\index{it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}!startDate@{startDate}}
+\index{startDate@{startDate}!it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}}
+\doxysubsubsection{\texorpdfstring{startDate}{startDate}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_ac28524950bcff672c08375866b688f3e} 
+final Local\+Date it.\+campuslib.\+domain.\+transactions.\+Transaction.\+start\+Date\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/anto/\+SWE-\/\+Playground/\+Progetto/2-\/final\+\_\+project/remote\+\_\+repo/\+SWE-\/\+Project/1-\/\+Java\+Project/\+Campus\+Lib/src/main/java/it/campuslib/domain/transactions/\mbox{\hyperlink{_transaction_8java}{Transaction.\+java}}\end{DoxyCompactItemize}

@@ -1,6 +1,23 @@
 var searchData=
 [
-  ['user_0',['User',['../classcampuslib_1_1models_1_1_user.html',1,'campuslib.models.User'],['../classcampuslib_1_1models_1_1_user.html#a5ba3e1660b062d0bbad26a89d266970b',1,'campuslib.models.User.User()']]],
-  ['userregistry_1',['UserRegistry',['../classcampuslib_1_1collections_1_1_user_registry.html',1,'campuslib.collections.UserRegistry'],['../classcampuslib_1_1collections_1_1_user_registry.html#aea99edb70af84ff02004d9fa01fd41cd',1,'campuslib.collections.UserRegistry.UserRegistry()']]],
-  ['userstatus_2',['UserStatus',['../enumcampuslib_1_1enums_1_1_user_status.html',1,'campuslib::enums']]]
+  ['search_0',['search',['../classit_1_1campuslib_1_1collections_1_1_book_catalog.html#a2307a4a42d0b2b54bd55eedb3f39e532',1,'it.campuslib.collections.BookCatalog.search()'],['../classit_1_1campuslib_1_1collections_1_1_user_registry.html#a6900fd05e4a8d2d2e1e26e0f22d460d8',1,'it.campuslib.collections.UserRegistry.search()']]],
+  ['searchbyauthor_1',['searchByAuthor',['../classit_1_1campuslib_1_1collections_1_1_book_catalog.html#a6eebdd83ec2c4bf68d76f131076b1177',1,'it::campuslib::collections::BookCatalog']]],
+  ['searchbybook_2',['searchByBook',['../classit_1_1campuslib_1_1collections_1_1_loan_registry.html#a712fdda8cc3ef8300df1c9c9e7538386',1,'it::campuslib::collections::LoanRegistry']]],
+  ['searchbydate_3',['searchByDate',['../classit_1_1campuslib_1_1collections_1_1_loan_registry.html#a1bffaad8d91780c995d8e853ae120d9a',1,'it::campuslib::collections::LoanRegistry']]],
+  ['searchbyenrollmentid_4',['searchByEnrollmentID',['../classit_1_1campuslib_1_1collections_1_1_user_registry.html#a970bbc97330534dca7038cd93b033161',1,'it::campuslib::collections::UserRegistry']]],
+  ['searchbyisbn_5',['searchByIsbn',['../classit_1_1campuslib_1_1collections_1_1_book_catalog.html#a045893c0c6860e8f2f095177790cead3',1,'it::campuslib::collections::BookCatalog']]],
+  ['searchbyname_6',['searchByName',['../classit_1_1campuslib_1_1collections_1_1_user_registry.html#a8940d710f8c7bf5df8883c3a813a3d4e',1,'it::campuslib::collections::UserRegistry']]],
+  ['searchbytitle_7',['searchByTitle',['../classit_1_1campuslib_1_1collections_1_1_book_catalog.html#ac0a6c471306c1a5d990006ce888f50b9',1,'it::campuslib::collections::BookCatalog']]],
+  ['searchbyuser_8',['searchByUser',['../classit_1_1campuslib_1_1collections_1_1_loan_registry.html#aabddd52ba7f6cde6bd5aee885f493695',1,'it::campuslib::collections::LoanRegistry']]],
+  ['setcopies_9',['setCopies',['../classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a6538b4eb58a5233abd0d393f87eb0913',1,'it::campuslib::domain::catalog::Book']]],
+  ['setemail_10',['setEmail',['../classit_1_1campuslib_1_1domain_1_1users_1_1_user.html#af1b9fe3e5052cf83312db56546618fe7',1,'it::campuslib::domain::users::User']]],
+  ['setexpectedreturndate_11',['setExpectedReturnDate',['../classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan.html#a3d56ebb3e3a8e0f9dd1ee60e312c5b06',1,'it::campuslib::domain::transactions::Loan']]],
+  ['setname_12',['setName',['../classit_1_1campuslib_1_1domain_1_1users_1_1_person.html#a19c18be3372e7dc7b0b9900c41b7ab38',1,'it::campuslib::domain::users::Person']]],
+  ['setpublishingyear_13',['setPublishingYear',['../classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a73121e9165490c5d9db028811c052a57',1,'it::campuslib::domain::catalog::Book']]],
+  ['setstatus_14',['setStatus',['../classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#aae83566a99ce9ecb83621c49456e29e0',1,'it.campuslib.domain.catalog.Book.setStatus()'],['../classit_1_1campuslib_1_1domain_1_1users_1_1_user.html#ad6b097d430ad42823cbaed3d783d8139',1,'it.campuslib.domain.users.User.setStatus()']]],
+  ['setsurname_15',['setSurname',['../classit_1_1campuslib_1_1domain_1_1users_1_1_person.html#ab770dda0c0dd41ac0e72c20757b9ef3e',1,'it::campuslib::domain::users::Person']]],
+  ['settitle_16',['setTitle',['../classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a28264c4a2c0b56aaffc3ebc21c09a1bd',1,'it::campuslib::domain::catalog::Book']]],
+  ['startdate_17',['startDate',['../classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction.html#ac28524950bcff672c08375866b688f3e',1,'it::campuslib::domain::transactions::Transaction']]],
+  ['status_18',['status',['../classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a7e7d749c4ee4c4a91665d857cba1f69a',1,'it.campuslib.domain.catalog.Book.status'],['../classit_1_1campuslib_1_1domain_1_1users_1_1_user.html#a77145a8ce4ebaa8af0f75bf0f3f1dc8c',1,'it.campuslib.domain.users.User.status']]],
+  ['surname_19',['surname',['../classit_1_1campuslib_1_1domain_1_1users_1_1_person.html#a88cb766e8476d0c8853ec7622d88df54',1,'it::campuslib::domain::users::Person']]]
 ];
