@@ -1,0 +1,128 @@
+\doxysection{it.\+campuslib.\+domain.\+transactions.\+Giveback Class Reference}
+\hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_giveback}{}\label{classit_1_1campuslib_1_1domain_1_1transactions_1_1_giveback}\index{it.campuslib.domain.transactions.Giveback@{it.campuslib.domain.transactions.Giveback}}
+
+
+Rappresenta la restituzione di un libro.  
+
+
+Inheritance diagram for it.\+campuslib.\+domain.\+transactions.\+Giveback\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classit_1_1campuslib_1_1domain_1_1transactions_1_1_giveback}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_giveback_a57ff492d99f7469f50325618978e0f97}{Give\+Back}} (\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}} \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a1cb772a968ba6efe9fc3d96e7075e075}{borrowed\+Book}}, \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}} \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a1d2a34e30b653900968b282ebc0467ea}{borrower\+User}}, Local\+Date \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_ac28524950bcff672c08375866b688f3e}{start\+Date}}, Local\+Date \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_giveback_a6d6a9d8af52069c81f0b845c7f666fd2}{end\+Date}})
+\begin{DoxyCompactList}\small\item\em Instanzia un nuovo oggetto Give\+Back. \end{DoxyCompactList}\item 
+Local\+Date \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_giveback_acee7759b6009725604dc51c31b118801}{get\+End\+Date}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce l\textquotesingle{}effettiva data di restituzione del libro. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_giveback_a985919cd58557a738165bf7a8d39ebbe}{to\+String}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce una rappresentazione testuale dell\textquotesingle{}oggetto Give\+Back. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction}{it.\+campuslib.\+domain.\+transactions.\+Transaction}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_aa32b6942e0c77929b13aa98d5cd4ffef}{Transaction}} (\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}} \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a1cb772a968ba6efe9fc3d96e7075e075}{borrowed\+Book}}, \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}} \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a1d2a34e30b653900968b282ebc0467ea}{borrower\+User}}, Local\+Date \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_ac28524950bcff672c08375866b688f3e}{start\+Date}})
+\begin{DoxyCompactList}\small\item\em Istanzia un nuovo oggetto \doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction}{Transaction}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a32233168c25c0265a9689ccf00464af6}{get\+Id}} ()
+\begin{DoxyCompactList}\small\item\em restituisce l\textquotesingle{}ID univoco del prestito. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}} \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a6d7bb48cb28dccf277db33ab978e67e5}{get\+Borrowed\+Book}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce il libro preso in prestito. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}} \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a0b0ed2399d51699079d53646413b2a8e}{get\+Borrower\+User}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce l\textquotesingle{}utente che ha preso in prestito il libro. \end{DoxyCompactList}\item 
+Local\+Date \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_aef13a66f82bfa2b88d84d3b944659b19}{get\+Start\+Date}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce la data di inizio del prestito. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final Local\+Date \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_giveback_a6d6a9d8af52069c81f0b845c7f666fd2}{end\+Date}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Rappresenta la restituzione di un libro. 
+
+Estende \doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction}{Transaction} registrando la data effettiva di restituzione del libro. \begin{DoxySeeAlso}{See also}
+\doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction}{Transaction} 
+\end{DoxySeeAlso}
+
+
+\label{doc-func-members}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_giveback_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_giveback_acee7759b6009725604dc51c31b118801}\index{it.campuslib.domain.transactions.Giveback@{it.campuslib.domain.transactions.Giveback}!getEndDate@{getEndDate}}
+\index{getEndDate@{getEndDate}!it.campuslib.domain.transactions.Giveback@{it.campuslib.domain.transactions.Giveback}}
+\doxysubsubsection{\texorpdfstring{getEndDate()}{getEndDate()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1transactions_1_1_giveback_acee7759b6009725604dc51c31b118801} 
+Local\+Date it.\+campuslib.\+domain.\+transactions.\+Giveback.\+get\+End\+Date (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Restituisce l\textquotesingle{}effettiva data di restituzione del libro. 
+
+\begin{DoxyReturn}{Returns}
+La data di restituzione del libro. 
+\end{DoxyReturn}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_giveback_a57ff492d99f7469f50325618978e0f97}\index{it.campuslib.domain.transactions.Giveback@{it.campuslib.domain.transactions.Giveback}!GiveBack@{GiveBack}}
+\index{GiveBack@{GiveBack}!it.campuslib.domain.transactions.Giveback@{it.campuslib.domain.transactions.Giveback}}
+\doxysubsubsection{\texorpdfstring{GiveBack()}{GiveBack()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1transactions_1_1_giveback_a57ff492d99f7469f50325618978e0f97} 
+it.\+campuslib.\+domain.\+transactions.\+Giveback.\+Give\+Back (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}}}]{borrowed\+Book}{, }\item[{\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}}}]{borrower\+User}{, }\item[{Local\+Date}]{start\+Date}{, }\item[{Local\+Date}]{end\+Date}{}\end{DoxyParamCaption})}
+
+
+
+Instanzia un nuovo oggetto Give\+Back. 
+
+Il metodo istanzia un nuovo oggetto Give\+Back, utilizzando il costruttore della superclasse \doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction}{Transaction}. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em borrowed\+Book} & Il riferimento all\textquotesingle{}oggetto libro che è stato restituito. \\
+\hline
+\mbox{\texttt{in}}  & {\em borrower\+User} & L\textquotesingle{}utente che ha effettuato la restituzione. \\
+\hline
+\mbox{\texttt{in}}  & {\em start\+Date} & La data di inizio del prestito. \\
+\hline
+\mbox{\texttt{in}}  & {\em end\+Date} & La data di restituzione del libro. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un nuovo oggetto Give\+Back. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction}{Transaction} 
+\end{DoxySeeAlso}
+\begin{DoxyPrecond}{Precondition}
+Il prestito del richiedente è attivo. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Il prestito corrispondente viene aggiunto alla lista delle restituzioni. 
+\end{DoxyPostcond}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_giveback_a985919cd58557a738165bf7a8d39ebbe}\index{it.campuslib.domain.transactions.Giveback@{it.campuslib.domain.transactions.Giveback}!toString@{toString}}
+\index{toString@{toString}!it.campuslib.domain.transactions.Giveback@{it.campuslib.domain.transactions.Giveback}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1transactions_1_1_giveback_a985919cd58557a738165bf7a8d39ebbe} 
+String it.\+campuslib.\+domain.\+transactions.\+Giveback.\+to\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Restituisce una rappresentazione testuale dell\textquotesingle{}oggetto Give\+Back. 
+
+\begin{DoxyReturn}{Returns}
+Una stringa contenente le informazioni relative alla restituzione. 
+\end{DoxyReturn}
+
+
+\label{doc-variable-members}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_giveback_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_giveback_a6d6a9d8af52069c81f0b845c7f666fd2}\index{it.campuslib.domain.transactions.Giveback@{it.campuslib.domain.transactions.Giveback}!endDate@{endDate}}
+\index{endDate@{endDate}!it.campuslib.domain.transactions.Giveback@{it.campuslib.domain.transactions.Giveback}}
+\doxysubsubsection{\texorpdfstring{endDate}{endDate}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1transactions_1_1_giveback_a6d6a9d8af52069c81f0b845c7f666fd2} 
+final Local\+Date it.\+campuslib.\+domain.\+transactions.\+Giveback.\+end\+Date\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/anto/\+SWE-\/\+Playground/\+Progetto/2-\/final\+\_\+project/remote\+\_\+repo/\+SWE-\/\+Project/1-\/\+Java\+Project/\+Campus\+Lib/src/main/java/it/campuslib/domain/transactions/\mbox{\hyperlink{_giveback_8java}{Giveback.\+java}}\end{DoxyCompactItemize}

@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['addauthor_0',['addAuthor',['../classcampuslib_1_1models_1_1_book.html#aa3010b4fa57f4e13526df5d139b5c7f2',1,'campuslib::models::Book']]],
-  ['addbook_1',['addBook',['../classcampuslib_1_1collections_1_1_book_catalog.html#a0725d6ad5150029e115f8a4c96ece331',1,'campuslib::collections::BookCatalog']]],
-  ['addgiveback_2',['addGiveback',['../classcampuslib_1_1collections_1_1_giveback_registry.html#a79ca80233b1e7ab9a18c88ff26bf2257',1,'campuslib::collections::GivebackRegistry']]],
-  ['addloan_3',['addLoan',['../classcampuslib_1_1collections_1_1_loan_registry.html#af5615828bbd26d5e8f03723411b3d8c3',1,'campuslib::collections::LoanRegistry']]],
-  ['adduser_4',['addUser',['../classcampuslib_1_1collections_1_1_user_registry.html#a0d114b82b367ebce0a9d1e5c10da36c6',1,'campuslib::collections::UserRegistry']]],
-  ['author_5',['Author',['../classcampuslib_1_1models_1_1_author.html#a9eb4baec95069a8998f72d06d8dae541',1,'campuslib::models::Author']]]
+  ['addauthor_0',['addAuthor',['../classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a6208683e61bd4e7978a4c643c71b0d8f',1,'it::campuslib::domain::catalog::Book']]],
+  ['addbook_1',['addBook',['../classit_1_1campuslib_1_1collections_1_1_book_catalog.html#ac3a0881818f207ec8e600a05c1da0d66',1,'it::campuslib::collections::BookCatalog']]],
+  ['addgiveback_2',['addGiveback',['../classit_1_1campuslib_1_1collections_1_1_giveback_registry.html#a5122359d045038bf7208ad117f9afdf5',1,'it::campuslib::collections::GivebackRegistry']]],
+  ['addloan_3',['addLoan',['../classit_1_1campuslib_1_1collections_1_1_loan_registry.html#abd7c1938d2c9c73c28a63d09cad09b71',1,'it::campuslib::collections::LoanRegistry']]],
+  ['adduser_4',['addUser',['../classit_1_1campuslib_1_1collections_1_1_user_registry.html#aaff34013a8758d4ff726ee273e043caf',1,'it::campuslib::collections::UserRegistry']]],
+  ['author_5',['Author',['../classit_1_1campuslib_1_1domain_1_1catalog_1_1_author.html#a0eafbdf6610713f6306b26c7f594efd4',1,'it::campuslib::domain::catalog::Author']]]
 ];

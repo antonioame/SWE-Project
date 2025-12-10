@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['importfromfile_0',['importFromFile',['../classcampuslib_1_1collections_1_1_book_catalog.html#a9f23901fff6fa5020e5d88e70f923f14',1,'campuslib.collections.BookCatalog.importFromFile()'],['../classcampuslib_1_1collections_1_1_giveback_registry.html#abd1c5e68c279b30508cce6a62ec6c679',1,'campuslib.collections.GivebackRegistry.importFromFile()'],['../classcampuslib_1_1collections_1_1_loan_registry.html#a957ca0c550674fd904e153011ef9674c',1,'campuslib.collections.LoanRegistry.importFromFile()'],['../classcampuslib_1_1collections_1_1_user_registry.html#a3e3e3665d73f93141b9acdb9fdc51cd9',1,'campuslib.collections.UserRegistry.importFromFile()']]],
-  ['isactive_1',['isActive',['../classcampuslib_1_1models_1_1_user.html#a1e5691a5119f3611a5e40530f2f3533f',1,'campuslib::models::User']]],
-  ['isadopted_2',['isAdopted',['../classcampuslib_1_1models_1_1_book.html#a5a57f11d592e19af1c354239fdee139c',1,'campuslib::models::Book']]],
-  ['isoverdue_3',['isOverdue',['../classcampuslib_1_1models_1_1_loan.html#ae7c07ff264af8342fb21e9d58018bc8a',1,'campuslib::models::Loan']]]
+  ['importfromfile_0',['importFromFile',['../classit_1_1campuslib_1_1collections_1_1_book_catalog.html#a620c1477f18936a51bb47cde07ac367b',1,'it.campuslib.collections.BookCatalog.importFromFile()'],['../classit_1_1campuslib_1_1collections_1_1_giveback_registry.html#a3ae6003d4c2d1aa19bf090af0bcd2e91',1,'it.campuslib.collections.GivebackRegistry.importFromFile()'],['../classit_1_1campuslib_1_1collections_1_1_loan_registry.html#affed8b05cfc34a33cb81ab06f6424617',1,'it.campuslib.collections.LoanRegistry.importFromFile()'],['../classit_1_1campuslib_1_1collections_1_1_user_registry.html#a987c9ad3589d325622fb25f803b2d0ec',1,'it.campuslib.collections.UserRegistry.importFromFile()']]],
+  ['isactive_1',['isActive',['../classit_1_1campuslib_1_1domain_1_1users_1_1_user.html#ab4a93fd25497138e9cb7dafb7f665a7c',1,'it::campuslib::domain::users::User']]],
+  ['isadopted_2',['isAdopted',['../classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#acb5fb719084a57a35f44f2c81d225812',1,'it::campuslib::domain::catalog::Book']]],
+  ['isoverdue_3',['isOverdue',['../classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan.html#a83604d1b4681a453dbbe79f7175a8437',1,'it::campuslib::domain::transactions::Loan']]]
 ];

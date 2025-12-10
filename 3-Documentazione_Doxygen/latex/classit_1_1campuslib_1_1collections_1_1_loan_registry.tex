@@ -1,0 +1,246 @@
+\doxysection{it.\+campuslib.\+collections.\+Loan\+Registry Class Reference}
+\hypertarget{classit_1_1campuslib_1_1collections_1_1_loan_registry}{}\label{classit_1_1campuslib_1_1collections_1_1_loan_registry}\index{it.campuslib.collections.LoanRegistry@{it.campuslib.collections.LoanRegistry}}
+
+
+Il registro dei prestiti attivi della biblioteca.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_loan_registry_adbe21544c6c02deee2f75d9576e2c951}{Loan\+Registry}} ()
+\begin{DoxyCompactList}\small\item\em Costruttore. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_loan_registry_abd7c1938d2c9c73c28a63d09cad09b71}{add\+Loan}} (\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan}{Loan}} loan)
+\begin{DoxyCompactList}\small\item\em Aggiunge un prestito al registro. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_loan_registry_a1a3b98cc51c6b00cc2a8490c2066cc9e}{remove\+Loan}} (\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan}{Loan}} loan)
+\begin{DoxyCompactList}\small\item\em Rimuove un prestito dal registro. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_giveback}{Giveback}} \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_loan_registry_a12a9adf1287299e6e5023b5f5ba93157}{convert\+To\+Giveback}} (\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan}{Loan}} loan)
+\begin{DoxyCompactList}\small\item\em Converte un prestito in una restituzione. \end{DoxyCompactList}\item 
+Linked\+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan}{Loan}} $>$ \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_loan_registry_aabddd52ba7f6cde6bd5aee885f493695}{search\+By\+User}} (\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}} user)
+\begin{DoxyCompactList}\small\item\em Cerca prestiti per utente. \end{DoxyCompactList}\item 
+Linked\+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan}{Loan}} $>$ \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_loan_registry_a712fdda8cc3ef8300df1c9c9e7538386}{search\+By\+Book}} (String isbn)
+\begin{DoxyCompactList}\small\item\em Cerca prestiti per libro. \end{DoxyCompactList}\item 
+Linked\+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan}{Loan}} $>$ \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_loan_registry_a1bffaad8d91780c995d8e853ae120d9a}{search\+By\+Date}} (String date)
+\begin{DoxyCompactList}\small\item\em Cerca prestiti per data. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_loan_registry_a75adb8beb8353f0ccfb9e71e0d3bfb84}{to\+String}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce una rappresentazione testuale del registro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_loan_registry_ad265f9fa7808ac9dec3fe4b66ea9d28a}{export\+On\+File}} (String file\+Name)
+\begin{DoxyCompactList}\small\item\em Esporta il registro su file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_loan_registry}{Loan\+Registry}} \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_loan_registry_affed8b05cfc34a33cb81ab06f6424617}{import\+From\+File}} (String file\+Name)
+\begin{DoxyCompactList}\small\item\em Importa un registro da file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Tree\+Set$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan}{Loan}} $>$ \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_loan_registry_ad5eef91db457de1b8447b2771c8fb72f}{registry}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Il registro dei prestiti attivi della biblioteca. 
+
+\label{doc-constructors}
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_loan_registry_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_loan_registry_adbe21544c6c02deee2f75d9576e2c951}\index{it.campuslib.collections.LoanRegistry@{it.campuslib.collections.LoanRegistry}!LoanRegistry@{LoanRegistry}}
+\index{LoanRegistry@{LoanRegistry}!it.campuslib.collections.LoanRegistry@{it.campuslib.collections.LoanRegistry}}
+\doxysubsubsection{\texorpdfstring{LoanRegistry()}{LoanRegistry()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_loan_registry_adbe21544c6c02deee2f75d9576e2c951} 
+it.\+campuslib.\+collections.\+Loan\+Registry.\+Loan\+Registry (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Costruttore. 
+
+\begin{DoxyPostcond}{Postcondition}
+Il registro prestiti è vuoto. 
+\end{DoxyPostcond}
+
+
+\label{doc-func-members}
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_loan_registry_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_loan_registry_abd7c1938d2c9c73c28a63d09cad09b71}\index{it.campuslib.collections.LoanRegistry@{it.campuslib.collections.LoanRegistry}!addLoan@{addLoan}}
+\index{addLoan@{addLoan}!it.campuslib.collections.LoanRegistry@{it.campuslib.collections.LoanRegistry}}
+\doxysubsubsection{\texorpdfstring{addLoan()}{addLoan()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_loan_registry_abd7c1938d2c9c73c28a63d09cad09b71} 
+boolean it.\+campuslib.\+collections.\+Loan\+Registry.\+add\+Loan (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan}{Loan}}}]{loan}{}\end{DoxyParamCaption})}
+
+
+
+Aggiunge un prestito al registro. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em loan} & Prestito da aggiungere. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Esito aggiunta. 
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+Il prestito è aggiunto al registro. 
+\end{DoxyPostcond}
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_loan_registry_a12a9adf1287299e6e5023b5f5ba93157}\index{it.campuslib.collections.LoanRegistry@{it.campuslib.collections.LoanRegistry}!convertToGiveback@{convertToGiveback}}
+\index{convertToGiveback@{convertToGiveback}!it.campuslib.collections.LoanRegistry@{it.campuslib.collections.LoanRegistry}}
+\doxysubsubsection{\texorpdfstring{convertToGiveback()}{convertToGiveback()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_loan_registry_a12a9adf1287299e6e5023b5f5ba93157} 
+\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_giveback}{Giveback}} it.\+campuslib.\+collections.\+Loan\+Registry.\+convert\+To\+Giveback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan}{Loan}}}]{loan}{}\end{DoxyParamCaption})}
+
+
+
+Converte un prestito in una restituzione. 
+
+Se presente, rimuove il prestito dal registro e crea l\textquotesingle{}oggetto \doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_giveback}{Giveback} corrispondente. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em loan} & Prestito da convertire in restituzione. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nuova istanza per \doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_giveback}{Giveback} o null se il prestito non è presente nel registro. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classit_1_1campuslib_1_1collections_1_1_loan_registry_a1a3b98cc51c6b00cc2a8490c2066cc9e}{remove\+Loan} 
+\end{DoxySeeAlso}
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_loan_registry_ad265f9fa7808ac9dec3fe4b66ea9d28a}\index{it.campuslib.collections.LoanRegistry@{it.campuslib.collections.LoanRegistry}!exportOnFile@{exportOnFile}}
+\index{exportOnFile@{exportOnFile}!it.campuslib.collections.LoanRegistry@{it.campuslib.collections.LoanRegistry}}
+\doxysubsubsection{\texorpdfstring{exportOnFile()}{exportOnFile()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_loan_registry_ad265f9fa7808ac9dec3fe4b66ea9d28a} 
+void it.\+campuslib.\+collections.\+Loan\+Registry.\+export\+On\+File (\begin{DoxyParamCaption}\item[{String}]{file\+Name}{}\end{DoxyParamCaption})}
+
+
+
+Esporta il registro su file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em file\+Name} & Nome del file da scrivere. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+Il registro viene salvato sul file specificato. 
+\end{DoxyPostcond}
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_loan_registry_affed8b05cfc34a33cb81ab06f6424617}\index{it.campuslib.collections.LoanRegistry@{it.campuslib.collections.LoanRegistry}!importFromFile@{importFromFile}}
+\index{importFromFile@{importFromFile}!it.campuslib.collections.LoanRegistry@{it.campuslib.collections.LoanRegistry}}
+\doxysubsubsection{\texorpdfstring{importFromFile()}{importFromFile()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_loan_registry_affed8b05cfc34a33cb81ab06f6424617} 
+\mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_loan_registry}{Loan\+Registry}} it.\+campuslib.\+collections.\+Loan\+Registry.\+import\+From\+File (\begin{DoxyParamCaption}\item[{String}]{file\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Importa un registro da file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em file\+Name} & Nome del file da cui importare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Registro importato o null se il file non è valido. 
+\end{DoxyReturn}
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_loan_registry_a1a3b98cc51c6b00cc2a8490c2066cc9e}\index{it.campuslib.collections.LoanRegistry@{it.campuslib.collections.LoanRegistry}!removeLoan@{removeLoan}}
+\index{removeLoan@{removeLoan}!it.campuslib.collections.LoanRegistry@{it.campuslib.collections.LoanRegistry}}
+\doxysubsubsection{\texorpdfstring{removeLoan()}{removeLoan()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_loan_registry_a1a3b98cc51c6b00cc2a8490c2066cc9e} 
+boolean it.\+campuslib.\+collections.\+Loan\+Registry.\+remove\+Loan (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan}{Loan}}}]{loan}{}\end{DoxyParamCaption})}
+
+
+
+Rimuove un prestito dal registro. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em loan} & Prestito da rimuovere. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Esito rimozione. 
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+Se presente, il prestito viene rimosso dal registro, altrimenti restituisce false. 
+\end{DoxyPostcond}
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_loan_registry_a712fdda8cc3ef8300df1c9c9e7538386}\index{it.campuslib.collections.LoanRegistry@{it.campuslib.collections.LoanRegistry}!searchByBook@{searchByBook}}
+\index{searchByBook@{searchByBook}!it.campuslib.collections.LoanRegistry@{it.campuslib.collections.LoanRegistry}}
+\doxysubsubsection{\texorpdfstring{searchByBook()}{searchByBook()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_loan_registry_a712fdda8cc3ef8300df1c9c9e7538386} 
+Linked\+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan}{Loan}} $>$ it.\+campuslib.\+collections.\+Loan\+Registry.\+search\+By\+Book (\begin{DoxyParamCaption}\item[{String}]{isbn}{}\end{DoxyParamCaption})}
+
+
+
+Cerca prestiti per libro. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em isbn} & ISBN del libro. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Lista di prestiti del libro (vuota se nessun prestito corrisponde al criterio di ricerca). 
+\end{DoxyReturn}
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_loan_registry_a1bffaad8d91780c995d8e853ae120d9a}\index{it.campuslib.collections.LoanRegistry@{it.campuslib.collections.LoanRegistry}!searchByDate@{searchByDate}}
+\index{searchByDate@{searchByDate}!it.campuslib.collections.LoanRegistry@{it.campuslib.collections.LoanRegistry}}
+\doxysubsubsection{\texorpdfstring{searchByDate()}{searchByDate()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_loan_registry_a1bffaad8d91780c995d8e853ae120d9a} 
+Linked\+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan}{Loan}} $>$ it.\+campuslib.\+collections.\+Loan\+Registry.\+search\+By\+Date (\begin{DoxyParamCaption}\item[{String}]{date}{}\end{DoxyParamCaption})}
+
+
+
+Cerca prestiti per data. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em date} & Data da cercare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Lista di prestiti della data specificata (vuota se nessun prestito corrisponde al criterio di ricerca). 
+\end{DoxyReturn}
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_loan_registry_aabddd52ba7f6cde6bd5aee885f493695}\index{it.campuslib.collections.LoanRegistry@{it.campuslib.collections.LoanRegistry}!searchByUser@{searchByUser}}
+\index{searchByUser@{searchByUser}!it.campuslib.collections.LoanRegistry@{it.campuslib.collections.LoanRegistry}}
+\doxysubsubsection{\texorpdfstring{searchByUser()}{searchByUser()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_loan_registry_aabddd52ba7f6cde6bd5aee885f493695} 
+Linked\+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan}{Loan}} $>$ it.\+campuslib.\+collections.\+Loan\+Registry.\+search\+By\+User (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}}}]{user}{}\end{DoxyParamCaption})}
+
+
+
+Cerca prestiti per utente. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em user} & Utente per cui cercare i prestiti. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Lista di prestiti dell\textquotesingle{}utente (vuota se nessun prestito corrisponde al criterio di ricerca). 
+\end{DoxyReturn}
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_loan_registry_a75adb8beb8353f0ccfb9e71e0d3bfb84}\index{it.campuslib.collections.LoanRegistry@{it.campuslib.collections.LoanRegistry}!toString@{toString}}
+\index{toString@{toString}!it.campuslib.collections.LoanRegistry@{it.campuslib.collections.LoanRegistry}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_loan_registry_a75adb8beb8353f0ccfb9e71e0d3bfb84} 
+String it.\+campuslib.\+collections.\+Loan\+Registry.\+to\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Restituisce una rappresentazione testuale del registro. 
+
+\begin{DoxyReturn}{Returns}
+Rappresentazione testuale del registro. 
+\end{DoxyReturn}
+
+
+\label{doc-variable-members}
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_loan_registry_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_loan_registry_ad5eef91db457de1b8447b2771c8fb72f}\index{it.campuslib.collections.LoanRegistry@{it.campuslib.collections.LoanRegistry}!registry@{registry}}
+\index{registry@{registry}!it.campuslib.collections.LoanRegistry@{it.campuslib.collections.LoanRegistry}}
+\doxysubsubsection{\texorpdfstring{registry}{registry}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_loan_registry_ad5eef91db457de1b8447b2771c8fb72f} 
+Tree\+Set$<$\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan}{Loan}}$>$ it.\+campuslib.\+collections.\+Loan\+Registry.\+registry\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/anto/\+SWE-\/\+Playground/\+Progetto/2-\/final\+\_\+project/remote\+\_\+repo/\+SWE-\/\+Project/1-\/\+Java\+Project/\+Campus\+Lib/src/main/java/it/campuslib/collections/\mbox{\hyperlink{_loan_registry_8java}{Loan\+Registry.\+java}}\end{DoxyCompactItemize}
