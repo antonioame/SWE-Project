@@ -12,11 +12,11 @@ Il registro degli utenti della biblioteca.
 \begin{DoxyCompactList}\small\item\em Costruttore. \end{DoxyCompactList}\item 
 boolean \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_user_registry_aaff34013a8758d4ff726ee273e043caf}{add\+User}} (\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}} user)
 \begin{DoxyCompactList}\small\item\em Aggiunge un utente al registro. \end{DoxyCompactList}\item 
-boolean \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_user_registry_af3f8b47e03ed5bedbef680b2c4dc16d7}{remove\+User}} (int enrollment\+ID)
+boolean \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_user_registry_a0943a3a88962daf5f1ce5bdda4ab9172}{remove\+User}} (String enrollment\+ID)
 \begin{DoxyCompactList}\small\item\em Rimuove un utente dal registro. \end{DoxyCompactList}\item 
 Linked\+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}} $>$ \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_user_registry_a8940d710f8c7bf5df8883c3a813a3d4e}{search\+By\+Name}} (String name, String surname)
 \begin{DoxyCompactList}\small\item\em Cerca utenti nel registro per nome e cognome. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}} \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_user_registry_a970bbc97330534dca7038cd93b033161}{search\+By\+Enrollment\+ID}} (int enrollment\+ID)
+\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}} \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_user_registry_a0b91825e9e5cf7325a620a8b27763836}{search\+By\+Enrollment\+ID}} (String enrollment\+ID)
 \begin{DoxyCompactList}\small\item\em Cerca un utente nel registro per ID di iscrizione. \end{DoxyCompactList}\item 
 Linked\+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}} $>$ \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_user_registry_a6900fd05e4a8d2d2e1e26e0f22d460d8}{search}} (String query)
 \begin{DoxyCompactList}\small\item\em Cerca utenti secondo una query generica. \end{DoxyCompactList}\item 
@@ -32,7 +32,7 @@ static \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_user_registry}{U
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-Hash\+Map$<$ Integer, \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}} $>$ \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_user_registry_a2885d0d1d2a8bfb6c714330c43c0ea0e}{registry}}
+Hash\+Map$<$ String, \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}} $>$ \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_user_registry_af466f802c2a47aae9172047328bb4c85}{registry}}
 \end{DoxyCompactItemize}
 
 
@@ -114,11 +114,11 @@ Importa un registro da file.
 \begin{DoxyReturn}{Returns}
 Registro importato o null se il file non è valido. 
 \end{DoxyReturn}
-\Hypertarget{classit_1_1campuslib_1_1collections_1_1_user_registry_af3f8b47e03ed5bedbef680b2c4dc16d7}\index{it.campuslib.collections.UserRegistry@{it.campuslib.collections.UserRegistry}!removeUser@{removeUser}}
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_user_registry_a0943a3a88962daf5f1ce5bdda4ab9172}\index{it.campuslib.collections.UserRegistry@{it.campuslib.collections.UserRegistry}!removeUser@{removeUser}}
 \index{removeUser@{removeUser}!it.campuslib.collections.UserRegistry@{it.campuslib.collections.UserRegistry}}
 \doxysubsubsection{\texorpdfstring{removeUser()}{removeUser()}}
-{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_user_registry_af3f8b47e03ed5bedbef680b2c4dc16d7} 
-boolean it.\+campuslib.\+collections.\+User\+Registry.\+remove\+User (\begin{DoxyParamCaption}\item[{int}]{enrollment\+ID}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_user_registry_a0943a3a88962daf5f1ce5bdda4ab9172} 
+boolean it.\+campuslib.\+collections.\+User\+Registry.\+remove\+User (\begin{DoxyParamCaption}\item[{String}]{enrollment\+ID}{}\end{DoxyParamCaption})}
 
 
 
@@ -153,11 +153,11 @@ Cerca utenti secondo una query generica.
 \begin{DoxyReturn}{Returns}
 Lista di utenti che corrispondono alla query (vuota se nessun utente corrisponde al criterio di ricerca). 
 \end{DoxyReturn}
-\Hypertarget{classit_1_1campuslib_1_1collections_1_1_user_registry_a970bbc97330534dca7038cd93b033161}\index{it.campuslib.collections.UserRegistry@{it.campuslib.collections.UserRegistry}!searchByEnrollmentID@{searchByEnrollmentID}}
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_user_registry_a0b91825e9e5cf7325a620a8b27763836}\index{it.campuslib.collections.UserRegistry@{it.campuslib.collections.UserRegistry}!searchByEnrollmentID@{searchByEnrollmentID}}
 \index{searchByEnrollmentID@{searchByEnrollmentID}!it.campuslib.collections.UserRegistry@{it.campuslib.collections.UserRegistry}}
 \doxysubsubsection{\texorpdfstring{searchByEnrollmentID()}{searchByEnrollmentID()}}
-{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_user_registry_a970bbc97330534dca7038cd93b033161} 
-\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}} it.\+campuslib.\+collections.\+User\+Registry.\+search\+By\+Enrollment\+ID (\begin{DoxyParamCaption}\item[{int}]{enrollment\+ID}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_user_registry_a0b91825e9e5cf7325a620a8b27763836} 
+\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}} it.\+campuslib.\+collections.\+User\+Registry.\+search\+By\+Enrollment\+ID (\begin{DoxyParamCaption}\item[{String}]{enrollment\+ID}{}\end{DoxyParamCaption})}
 
 
 
@@ -209,11 +209,11 @@ Rappresentazione testuale del registro.
 \label{doc-variable-members}
 \Hypertarget{classit_1_1campuslib_1_1collections_1_1_user_registry_doc-variable-members}
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classit_1_1campuslib_1_1collections_1_1_user_registry_a2885d0d1d2a8bfb6c714330c43c0ea0e}\index{it.campuslib.collections.UserRegistry@{it.campuslib.collections.UserRegistry}!registry@{registry}}
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_user_registry_af466f802c2a47aae9172047328bb4c85}\index{it.campuslib.collections.UserRegistry@{it.campuslib.collections.UserRegistry}!registry@{registry}}
 \index{registry@{registry}!it.campuslib.collections.UserRegistry@{it.campuslib.collections.UserRegistry}}
 \doxysubsubsection{\texorpdfstring{registry}{registry}}
-{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_user_registry_a2885d0d1d2a8bfb6c714330c43c0ea0e} 
-Hash\+Map$<$Integer, \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}}$>$ it.\+campuslib.\+collections.\+User\+Registry.\+registry\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_user_registry_af466f802c2a47aae9172047328bb4c85} 
+Hash\+Map$<$String, \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}}$>$ it.\+campuslib.\+collections.\+User\+Registry.\+registry\hspace{0.3cm}{\ttfamily [private]}}
 
 
 

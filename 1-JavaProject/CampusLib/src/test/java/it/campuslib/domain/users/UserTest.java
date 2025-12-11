@@ -21,9 +21,9 @@ public class UserTest {
     @BeforeEach
     public void setUp() {
     
-        utente1 = new User("Mario", "Rossi", 1112701345, "mario.rossi@studenti.unisa.it");
-        utente2 = new User("Andrea", "Bianchi", 1234567890, "andrea.bianchi@unisa.it");
-        utente3 = new User("Luca", "Verdi", 1000111222, "luca.verdi@studenti.unisa.it");
+        utente1 = new User("Mario", "Rossi", "1112701345", "mario.rossi@studenti.unisa.it");
+        utente2 = new User("Andrea", "Bianchi", "1234567890", "andrea.bianchi@unisa.it");
+        utente3 = new User("Luca", "Verdi", "1000111222", "luca.verdi@studenti.unisa.it");
     }
     
     
@@ -31,11 +31,11 @@ public class UserTest {
     public void testConstructorValid() {
     
         
-        User u1 = new User("Mario", "Rossi", 0612701345, "mario.rossi@unisa.it"); //Formati corretti
+        User u1 = new User("Mario", "Rossi", "0612701345", "mario.rossi@unisa.it"); //Formati corretti
         
-        User u2 = new User("Mario", "Bianchi", 0612455, "mario.bianchi@studenti.unisa.it"); //Formato matricola errato
+        User u2 = new User("Mario", "Bianchi", "0612455", "mario.bianchi@studenti.unisa.it"); //Formato matricola errato
         
-        User u3 = new User("Mario", "Bianchi", 0612701345, "mario.bianchi@unina.it"); //Formato email errato
+        User u3 = new User("Mario", "Bianchi", "0612701345", "mario.bianchi@unina.it"); //Formato email errato
         
         assertNotNull(u1);
         assertNotNull(u2);
@@ -48,9 +48,9 @@ public class UserTest {
     @Timeout(value = 5, unit = TimeUnit.SECONDS)
     public void testGetEnrollmentID() {
         
-        assertEquals(1112701345, utente1.getEnrollmentID());
-        assertEquals(1234567890, utente2.getEnrollmentID());
-        assertEquals(1000111222, utente3.getEnrollmentID());
+        assertEquals("1112701345", utente1.getEnrollmentID());
+        assertEquals("1234567890", utente2.getEnrollmentID());
+        assertEquals("1000111222", utente3.getEnrollmentID());
        
     }
 
@@ -58,7 +58,7 @@ public class UserTest {
     @Timeout(value = 5, unit = TimeUnit.SECONDS)
     public void testGetSetEmail() {
         
-        User utente4 = new User("Maria", "Roma", 0612710122, "maria.roma@unisa.it");
+        User utente4 = new User("Maria", "Roma", "0612710122", "maria.roma@unisa.it");
         
         utente4.setEmail("maria.roma@studenti.unisa.it");
         
@@ -112,7 +112,7 @@ public class UserTest {
     @Timeout(value = 5, unit = TimeUnit.SECONDS)
     public void testEquals() {
         
-        User utente4 = new User("Andrea", "Bianchi", 1234567890, "andrea.bianchi@unisa.it");
+        User utente4 = new User("Andrea", "Bianchi", "1234567890", "andrea.bianchi@unisa.it");
         
         assertFalse(utente1.equals(utente2));
         assertTrue(utente2.equals(utente4));
@@ -123,7 +123,7 @@ public class UserTest {
     @Timeout(value = 5, unit = TimeUnit.SECONDS)
     public void testHashCode() {
         
-        User utente4 = new User("Andrea", "Bianchi", 1234567890, "andrea.bianchi@unisa.it");
+        User utente4 = new User("Andrea", "Bianchi", "1234567890", "andrea.bianchi@unisa.it");
         
         assertEquals(utente2.hashCode(), utente4.hashCode());
     }
@@ -133,7 +133,7 @@ public class UserTest {
     public void testCompareTo() {
         
         //utente3<utente2
-        User utente4 = new User("Andrea", "Bianchi", 1234567890, "andrea.bianchi@unisa.it");
+        User utente4 = new User("Andrea", "Bianchi", "1234567890", "andrea.bianchi@unisa.it");
         
         assertTrue(utente3.compareTo(utente2) < 0);
         assertTrue(utente2.compareTo(utente1) > 0);

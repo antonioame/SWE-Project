@@ -6,6 +6,9 @@ var hierarchy =
     [ "Comparable", null, [
       [ "it.campuslib.domain.users.User", "classit_1_1campuslib_1_1domain_1_1users_1_1_user.html", null ]
     ] ],
+    [ "Exception", null, [
+      [ "it.campuslib.domain.users.InvalidUserInfoException", "classit_1_1campuslib_1_1domain_1_1users_1_1_invalid_user_info_exception.html", null ]
+    ] ],
     [ "it.campuslib.collections.GivebackRegistry", "classit_1_1campuslib_1_1collections_1_1_giveback_registry.html", null ],
     [ "it.campuslib.collections.LoanRegistry", "classit_1_1campuslib_1_1collections_1_1_loan_registry.html", null ],
     [ "it.campuslib.domain.users.Person", "classit_1_1campuslib_1_1domain_1_1users_1_1_person.html", [

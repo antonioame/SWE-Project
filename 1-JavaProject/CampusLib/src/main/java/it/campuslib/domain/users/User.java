@@ -8,7 +8,7 @@ import it.campuslib.domain.transactions.Loan;
  * @see Person
  */
 public class User extends Person implements Comparable<User>{
-    private final int enrollmentID;
+    private final String enrollmentID;
     private String email;
     private UserStatus status;
     private int maxLoans;
@@ -22,7 +22,7 @@ public class User extends Person implements Comparable<User>{
      * @param[in] email E-mail dell'utente. 
      * @see Person.
      */
-    public User(String name, String surname, int enrollmentID, String email) /*throws InvalidUserInfoException*/ {
+    public User(String name, String surname, String enrollmentID, String email) /*throws InvalidUserInfoException*/ {
         
         super(surname, name);
         /*
@@ -46,7 +46,7 @@ public class User extends Person implements Comparable<User>{
      * @brief Restituisce la matricola dell'utente.
      * @return enrollmentID Matricola utente.
      */
-    public int getEnrollmentID() {
+    public String getEnrollmentID() {
     
         return enrollmentID;
     }
@@ -170,11 +170,11 @@ public class User extends Person implements Comparable<User>{
      * @param enrollmentID Matricola dell'utente su cui controllare il formato.
      * @return Valore booleano che indica se la matricola è scritta in un formato corretto
      * o meno.
-     * @see User(String name, String surname, int enrollmentID, String email)
+     * @see User(String name, String surname, String enrollmentID, String email)
      */
-    private boolean checkEnrollmentID(int enrollmentID) {
+    private boolean checkEnrollmentID(String enrollmentID) {
     
-        return String.valueOf(enrollmentID).length() == 10;
+        return enrollmentID != null && enrollmentID.length() == 10;
     }
     
     /**
@@ -214,7 +214,7 @@ public class User extends Person implements Comparable<User>{
         
         User u = (User) obj;
         
-        return Integer.valueOf(this.enrollmentID).equals(u.getEnrollmentID());
+        return this.enrollmentID.equals(u.getEnrollmentID());
     }
     
     /**
@@ -229,7 +229,7 @@ public class User extends Person implements Comparable<User>{
     @Override
     public int hashCode() {
     
-        return Integer.valueOf(this.enrollmentID).hashCode();
+        return this.enrollmentID.hashCode();
     }
     
     /**
@@ -243,7 +243,7 @@ public class User extends Person implements Comparable<User>{
     @Override
     public int compareTo(User other) {
     
-        return Integer.valueOf(this.enrollmentID).compareTo(other.getEnrollmentID());
+        return this.enrollmentID.compareTo(other.getEnrollmentID());
     }
     
     

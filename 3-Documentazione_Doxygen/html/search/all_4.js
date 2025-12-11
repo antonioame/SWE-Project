@@ -8,7 +8,7 @@ var searchData=
   ['getcopies_5',['getCopies',['../classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a5d734c11dce16fcc19526ffb31521d7d',1,'it::campuslib::domain::catalog::Book']]],
   ['getemail_6',['getEmail',['../classit_1_1campuslib_1_1domain_1_1users_1_1_user.html#aeda2bcb53b68c768a5e0a5abbcd7f85b',1,'it::campuslib::domain::users::User']]],
   ['getenddate_7',['getEndDate',['../classit_1_1campuslib_1_1domain_1_1transactions_1_1_giveback.html#acee7759b6009725604dc51c31b118801',1,'it::campuslib::domain::transactions::Giveback']]],
-  ['getenrollmentid_8',['getEnrollmentID',['../classit_1_1campuslib_1_1domain_1_1users_1_1_user.html#aa317a065084e2483002e701213ede9d7',1,'it::campuslib::domain::users::User']]],
+  ['getenrollmentid_8',['getEnrollmentID',['../classit_1_1campuslib_1_1domain_1_1users_1_1_user.html#aee1b93b9983b7137db375db9c4147520',1,'it::campuslib::domain::users::User']]],
   ['getexpectedreturndate_9',['getExpectedReturnDate',['../classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan.html#ad05c2e7ad5e97f5b566d486d8f3cd401',1,'it::campuslib::domain::transactions::Loan']]],
   ['getid_10',['getId',['../classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction.html#a32233168c25c0265a9689ccf00464af6',1,'it::campuslib::domain::transactions::Transaction']]],
   ['getisbn_11',['getIsbn',['../classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a8ebd1c0798c899be83b8a860f83b3629',1,'it::campuslib::domain::catalog::Book']]],

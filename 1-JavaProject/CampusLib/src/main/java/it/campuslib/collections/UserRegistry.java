@@ -8,7 +8,7 @@ import java.util.LinkedList;
  * @brief Il registro degli utenti della biblioteca.
  */
 public class UserRegistry {
-    private HashMap<Integer, User> registry;
+    private HashMap<String, User> registry;
 
     /**
      * @brief Costruttore.
@@ -35,7 +35,7 @@ public class UserRegistry {
      * @post
      * Se presente, l'utente viene rimosso dal registro, altrimenti restituisce false.
      */
-    public boolean removeUser(int enrollmentID) {
+    public boolean removeUser(String enrollmentID) {
         return false;
     }
 
@@ -54,7 +54,7 @@ public class UserRegistry {
      * @param[in] enrollmentID ID di iscrizione da cercare.
      * @return Utente trovato o null se non presente.
      */
-    public User searchByEnrollmentID(int enrollmentID) {
+    public User searchByEnrollmentID(String enrollmentID) {
         return null;
     }
 

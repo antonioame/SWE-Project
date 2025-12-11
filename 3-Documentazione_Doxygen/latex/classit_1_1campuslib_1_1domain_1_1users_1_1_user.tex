@@ -14,9 +14,9 @@ Inheritance diagram for it.\+campuslib.\+domain.\+users.\+User\+:\begin{figure}[
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user_af2abd94287454bbe8b0f9c031392cb7e}{User}} (String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_person_a36d1e033a0cd7f5728a3a5946f622771}{name}}, String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_person_a88cb766e8476d0c8853ec7622d88df54}{surname}}, int \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user_ab72a490e966475feafbb96b375e1df60}{enrollment\+ID}}, String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user_a78f01787d286882a8238e95fcda2658e}{email}})
+\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user_a2139204b1bf52e1bf3cc3b6f8ad5513e}{User}} (String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_person_a36d1e033a0cd7f5728a3a5946f622771}{name}}, String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_person_a88cb766e8476d0c8853ec7622d88df54}{surname}}, String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user_a5155972225f5d933d4292f9e43c6b53f}{enrollment\+ID}}, String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user_a78f01787d286882a8238e95fcda2658e}{email}})
 \begin{DoxyCompactList}\small\item\em Costruttore dell\textquotesingle{}utente (studente). \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user_aa317a065084e2483002e701213ede9d7}{get\+Enrollment\+ID}} ()
+String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user_aee1b93b9983b7137db375db9c4147520}{get\+Enrollment\+ID}} ()
 \begin{DoxyCompactList}\small\item\em Restituisce la matricola dell\textquotesingle{}utente. \end{DoxyCompactList}\item 
 String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user_aeda2bcb53b68c768a5e0a5abbcd7f85b}{get\+Email}} ()
 \begin{DoxyCompactList}\small\item\em Restituisce l\textquotesingle{}e-\/mail dell\textquotesingle{}utente. \end{DoxyCompactList}\item 
@@ -58,16 +58,16 @@ void \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_person_ab770dd
 \doxysubsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-Linked\+List$<$ Loan $>$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user_aca29748c94b63be98056843bbd159019}{get\+Active\+Loans}} ()
+Linked\+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan}{Loan}} $>$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user_aca29748c94b63be98056843bbd159019}{get\+Active\+Loans}} ()
 \begin{DoxyCompactList}\small\item\em Ottiene una collezione contenente i prestiti attivi dell\textquotesingle{}utente. \end{DoxyCompactList}\item 
 boolean \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user_a1b617890dd8282dec6da6def19570168}{check\+Email}} (String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user_a78f01787d286882a8238e95fcda2658e}{email}})
 \begin{DoxyCompactList}\small\item\em Controllo sul formato dell\textquotesingle{}e-\/mail dell\textquotesingle{}utente da effettuare nel costruttore di questo. \end{DoxyCompactList}\item 
-boolean \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user_ae8c761c233220b4c6de4aa813748d2b1}{check\+Enrollment\+ID}} (int \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user_ab72a490e966475feafbb96b375e1df60}{enrollment\+ID}})
+boolean \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user_ae8a00fe9806b675c1ff421e9801de2ae}{check\+Enrollment\+ID}} (String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user_a5155972225f5d933d4292f9e43c6b53f}{enrollment\+ID}})
 \begin{DoxyCompactList}\small\item\em Controllo sul formato della matricola dell\textquotesingle{}utente da effettuare nel costruttore di questo. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-final int \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user_ab72a490e966475feafbb96b375e1df60}{enrollment\+ID}}
+final String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user_a5155972225f5d933d4292f9e43c6b53f}{enrollment\+ID}}
 \item 
 String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user_a78f01787d286882a8238e95fcda2658e}{email}}
 \item 
@@ -88,11 +88,11 @@ Rappresenta Utente, specializzando \doxylink{classit_1_1campuslib_1_1domain_1_1u
 \label{doc-constructors}
 \Hypertarget{classit_1_1campuslib_1_1domain_1_1users_1_1_user_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classit_1_1campuslib_1_1domain_1_1users_1_1_user_af2abd94287454bbe8b0f9c031392cb7e}\index{it.campuslib.domain.users.User@{it.campuslib.domain.users.User}!User@{User}}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1users_1_1_user_a2139204b1bf52e1bf3cc3b6f8ad5513e}\index{it.campuslib.domain.users.User@{it.campuslib.domain.users.User}!User@{User}}
 \index{User@{User}!it.campuslib.domain.users.User@{it.campuslib.domain.users.User}}
 \doxysubsubsection{\texorpdfstring{User()}{User()}}
-{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1users_1_1_user_af2abd94287454bbe8b0f9c031392cb7e} 
-it.\+campuslib.\+domain.\+users.\+User.\+User (\begin{DoxyParamCaption}\item[{String}]{name}{, }\item[{String}]{surname}{, }\item[{int}]{enrollment\+ID}{, }\item[{String}]{email}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1users_1_1_user_a2139204b1bf52e1bf3cc3b6f8ad5513e} 
+it.\+campuslib.\+domain.\+users.\+User.\+User (\begin{DoxyParamCaption}\item[{String}]{name}{, }\item[{String}]{surname}{, }\item[{String}]{enrollment\+ID}{, }\item[{String}]{email}{}\end{DoxyParamCaption})}
 
 
 
@@ -149,13 +149,13 @@ Controllo sul formato dell\textquotesingle{}e-\/mail dell\textquotesingle{}utent
 Valore booleano che indica se l\textquotesingle{}e-\/mail è scritta in un formato corretto o meno. 
 \end{DoxyReturn}
 \begin{DoxySeeAlso}{See also}
-\doxylink{classit_1_1campuslib_1_1domain_1_1users_1_1_user_af2abd94287454bbe8b0f9c031392cb7e}{User(\+String name, String surname, int enrollment\+ID, String email)} 
+User(\+String name, String surname, int enrollment\+ID, String email) 
 \end{DoxySeeAlso}
-\Hypertarget{classit_1_1campuslib_1_1domain_1_1users_1_1_user_ae8c761c233220b4c6de4aa813748d2b1}\index{it.campuslib.domain.users.User@{it.campuslib.domain.users.User}!checkEnrollmentID@{checkEnrollmentID}}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1users_1_1_user_ae8a00fe9806b675c1ff421e9801de2ae}\index{it.campuslib.domain.users.User@{it.campuslib.domain.users.User}!checkEnrollmentID@{checkEnrollmentID}}
 \index{checkEnrollmentID@{checkEnrollmentID}!it.campuslib.domain.users.User@{it.campuslib.domain.users.User}}
 \doxysubsubsection{\texorpdfstring{checkEnrollmentID()}{checkEnrollmentID()}}
-{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1users_1_1_user_ae8c761c233220b4c6de4aa813748d2b1} 
-boolean it.\+campuslib.\+domain.\+users.\+User.\+check\+Enrollment\+ID (\begin{DoxyParamCaption}\item[{int}]{enrollment\+ID}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1users_1_1_user_ae8a00fe9806b675c1ff421e9801de2ae} 
+boolean it.\+campuslib.\+domain.\+users.\+User.\+check\+Enrollment\+ID (\begin{DoxyParamCaption}\item[{String}]{enrollment\+ID}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -170,7 +170,7 @@ Controllo sul formato della matricola dell\textquotesingle{}utente da effettuare
 Valore booleano che indica se la matricola è scritta in un formato corretto o meno. 
 \end{DoxyReturn}
 \begin{DoxySeeAlso}{See also}
-\doxylink{classit_1_1campuslib_1_1domain_1_1users_1_1_user_af2abd94287454bbe8b0f9c031392cb7e}{User(\+String name, String surname, int enrollment\+ID, String email)} 
+\doxylink{classit_1_1campuslib_1_1domain_1_1users_1_1_user_a2139204b1bf52e1bf3cc3b6f8ad5513e}{User(\+String name, String surname, String enrollment\+ID, String email)} 
 \end{DoxySeeAlso}
 \Hypertarget{classit_1_1campuslib_1_1domain_1_1users_1_1_user_a497ca356e69f364b80cb2935ddb99257}\index{it.campuslib.domain.users.User@{it.campuslib.domain.users.User}!compareTo@{compareTo}}
 \index{compareTo@{compareTo}!it.campuslib.domain.users.User@{it.campuslib.domain.users.User}}
@@ -214,7 +214,7 @@ Valore booleano che indica la relazione di uguaglianza tra i due oggetti.
 \index{getActiveLoans@{getActiveLoans}!it.campuslib.domain.users.User@{it.campuslib.domain.users.User}}
 \doxysubsubsection{\texorpdfstring{getActiveLoans()}{getActiveLoans()}}
 {\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1users_1_1_user_aca29748c94b63be98056843bbd159019} 
-Linked\+List$<$ Loan $>$ it.\+campuslib.\+domain.\+users.\+User.\+get\+Active\+Loans (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+Linked\+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan}{Loan}} $>$ it.\+campuslib.\+domain.\+users.\+User.\+get\+Active\+Loans (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -255,11 +255,11 @@ Restituisce l\textquotesingle{}e-\/mail dell\textquotesingle{}utente.
 \begin{DoxyReturn}{Returns}
 email E-\/mail utente. 
 \end{DoxyReturn}
-\Hypertarget{classit_1_1campuslib_1_1domain_1_1users_1_1_user_aa317a065084e2483002e701213ede9d7}\index{it.campuslib.domain.users.User@{it.campuslib.domain.users.User}!getEnrollmentID@{getEnrollmentID}}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1users_1_1_user_aee1b93b9983b7137db375db9c4147520}\index{it.campuslib.domain.users.User@{it.campuslib.domain.users.User}!getEnrollmentID@{getEnrollmentID}}
 \index{getEnrollmentID@{getEnrollmentID}!it.campuslib.domain.users.User@{it.campuslib.domain.users.User}}
 \doxysubsubsection{\texorpdfstring{getEnrollmentID()}{getEnrollmentID()}}
-{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1users_1_1_user_aa317a065084e2483002e701213ede9d7} 
-int it.\+campuslib.\+domain.\+users.\+User.\+get\+Enrollment\+ID (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1users_1_1_user_aee1b93b9983b7137db375db9c4147520} 
+String it.\+campuslib.\+domain.\+users.\+User.\+get\+Enrollment\+ID (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
@@ -383,11 +383,11 @@ Reimplemented from \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_
 {\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1users_1_1_user_a78f01787d286882a8238e95fcda2658e} 
 String it.\+campuslib.\+domain.\+users.\+User.\+email\hspace{0.3cm}{\ttfamily [private]}}
 
-\Hypertarget{classit_1_1campuslib_1_1domain_1_1users_1_1_user_ab72a490e966475feafbb96b375e1df60}\index{it.campuslib.domain.users.User@{it.campuslib.domain.users.User}!enrollmentID@{enrollmentID}}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1users_1_1_user_a5155972225f5d933d4292f9e43c6b53f}\index{it.campuslib.domain.users.User@{it.campuslib.domain.users.User}!enrollmentID@{enrollmentID}}
 \index{enrollmentID@{enrollmentID}!it.campuslib.domain.users.User@{it.campuslib.domain.users.User}}
 \doxysubsubsection{\texorpdfstring{enrollmentID}{enrollmentID}}
-{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1users_1_1_user_ab72a490e966475feafbb96b375e1df60} 
-final int it.\+campuslib.\+domain.\+users.\+User.\+enrollment\+ID\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1users_1_1_user_a5155972225f5d933d4292f9e43c6b53f} 
+final String it.\+campuslib.\+domain.\+users.\+User.\+enrollment\+ID\hspace{0.3cm}{\ttfamily [private]}}
 
 \Hypertarget{classit_1_1campuslib_1_1domain_1_1users_1_1_user_ad3b09e60d5c452b6749cae7bca658439}\index{it.campuslib.domain.users.User@{it.campuslib.domain.users.User}!maxLoans@{maxLoans}}
 \index{maxLoans@{maxLoans}!it.campuslib.domain.users.User@{it.campuslib.domain.users.User}}

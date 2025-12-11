@@ -20,7 +20,7 @@ public class LoanTest {
     @BeforeAll
     public void setUp() {
         Book borrowedBook = new Book("9788836018123", "Programmazione Java", "Claudio De Sio Cesari", 2025, 1 );
-        BorrowerUser borrowerUser = new User("Giovanni", "Rossi", 0612709852, "g.rossi36@studenti.unisa.it");
+        BorrowerUser borrowerUser = new User("Giovanni", "Rossi", "0612709852", "g.rossi36@studenti.unisa.it");
         LocalDate startDate = new LocalDate(2025, 12, 1); 
         LocalDate expectedReturnDate = new LocalDate(2025, 12, 15); 
     }

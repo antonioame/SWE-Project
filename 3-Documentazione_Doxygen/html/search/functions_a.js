@@ -4,7 +4,7 @@ var searchData=
   ['searchbyauthor_1',['searchByAuthor',['../classit_1_1campuslib_1_1collections_1_1_book_catalog.html#a6eebdd83ec2c4bf68d76f131076b1177',1,'it::campuslib::collections::BookCatalog']]],
   ['searchbybook_2',['searchByBook',['../classit_1_1campuslib_1_1collections_1_1_loan_registry.html#a712fdda8cc3ef8300df1c9c9e7538386',1,'it::campuslib::collections::LoanRegistry']]],
   ['searchbydate_3',['searchByDate',['../classit_1_1campuslib_1_1collections_1_1_loan_registry.html#a1bffaad8d91780c995d8e853ae120d9a',1,'it::campuslib::collections::LoanRegistry']]],
-  ['searchbyenrollmentid_4',['searchByEnrollmentID',['../classit_1_1campuslib_1_1collections_1_1_user_registry.html#a970bbc97330534dca7038cd93b033161',1,'it::campuslib::collections::UserRegistry']]],
+  ['searchbyenrollmentid_4',['searchByEnrollmentID',['../classit_1_1campuslib_1_1collections_1_1_user_registry.html#a0b91825e9e5cf7325a620a8b27763836',1,'it::campuslib::collections::UserRegistry']]],
   ['searchbyisbn_5',['searchByIsbn',['../classit_1_1campuslib_1_1collections_1_1_book_catalog.html#a045893c0c6860e8f2f095177790cead3',1,'it::campuslib::collections::BookCatalog']]],
   ['searchbyname_6',['searchByName',['../classit_1_1campuslib_1_1collections_1_1_user_registry.html#a8940d710f8c7bf5df8883c3a813a3d4e',1,'it::campuslib::collections::UserRegistry']]],
   ['searchbytitle_7',['searchByTitle',['../classit_1_1campuslib_1_1collections_1_1_book_catalog.html#ac0a6c471306c1a5d990006ce888f50b9',1,'it::campuslib::collections::BookCatalog']]],
