@@ -2,10 +2,11 @@ package it.campuslib.domain.catalog;
 
 import java.util.ArrayList;
 
+
 /**
  * @brief Rappresenta un Libro.
  */
-public class Book {
+public class Book implements Comparable<Book>{
     private final String isbn;
     private String title;
     private ArrayList<Author> authors;
@@ -25,7 +26,23 @@ public class Book {
      * @return Un nuovo oggetto Book.
      * @see checkISBN(String isbn)
      */
-    public Book(String isbn, String title, ArrayList<Author> authors, int publishingYear, int copies) {
+    public Book(String isbn, String title, ArrayList<Author> authors, int publishingYear, int copies)/*throws IllegalArgumentException*/ {
+        /*if(!checkIsbn(isbn)){
+            throw new IllegalArgumentException("Isbn non valido: " + isbn);
+        }*/
+        
+        this.isbn = isbn;
+        this.title = title;
+        if(authors == null){
+            this.authors = new ArrayList<>();
+        }else{
+            this.authors = new ArrayList<>(authors);
+        }
+        this.publishingYear = publishingYear;
+        this.copies = copies;
+        this.status = AdoptionStatus.ADOPTED;
+        
+      
     }
     
     // Metodi Getter
@@ -35,7 +52,7 @@ public class Book {
      */
     public String getIsbn() {
     
-        return null;
+        return isbn;
     }
     
     /**
@@ -44,7 +61,7 @@ public class Book {
      */
     public String getTitle() {
     
-        return null;
+        return title;
     }
     
     /**
@@ -53,7 +70,9 @@ public class Book {
      */ 
     public ArrayList<Author> getAuthors() {
     
-        return null;
+        return authors; 
+        //oppure, per prevenire modifiche esterne:
+        // return new ArrayList<>(authors);
     }
     
     /**
@@ -62,7 +81,7 @@ public class Book {
      */
     public int getPublishingYear() {
     
-        return 0;
+        return publishingYear;
     }
         
     /**
@@ -71,7 +90,7 @@ public class Book {
      */
     public int getCopies() {
     
-        return 0;
+        return copies;
     }
     
     /**
@@ -79,8 +98,8 @@ public class Book {
      * @return true se il libro è in adozione, false altrimenti.
      */
     public boolean isAdopted() {
-    
-        return false;
+        
+        return this.status == AdoptionStatus.ADOPTED;
     }
     
     /**
@@ -92,8 +111,12 @@ public class Book {
      */
     public boolean checkAvailability() {
     
+        //private LinkedList<Loan> getAssociatedLoans();??
+
         return false;
     }
+    
+    
     
     // Metodi Setter
     /**
@@ -101,6 +124,7 @@ public class Book {
      * @param[in] title Il nuovo titolo del libro. 
      */
     public void setTitle(String title) {
+        this.title = title;
     }
     
     /**
@@ -108,6 +132,7 @@ public class Book {
      * @param[in] status Il nuovo stato di adozione del libro. 
      */
     public void setStatus(AdoptionStatus status) {
+        this.status = status;
     }
 
     /**
@@ -115,6 +140,7 @@ public class Book {
      * @param[in] year Il nuovo anno di pubblicazione del libro. 
      */
     public void setPublishingYear(int year) {
+        this.publishingYear = year;
     }
 
     /**
@@ -122,6 +148,7 @@ public class Book {
      * @param[in] copies Il nuovo numero di copie totali del libro.
      */
     public void setCopies(int copies) {
+        this.copies = copies;
     }
 
     // Altri metodi
@@ -131,7 +158,9 @@ public class Book {
      * @return true se l'autore è stato aggiunto con successo, false altrimenti. 
      */
     public boolean addAuthor(Author author) {
-    
+     if (author != null && !authors.contains(author)) {
+            return authors.add(author);
+        }
         return false;
     }
     
@@ -142,8 +171,20 @@ public class Book {
      * @see Book(String isbn, String title, ArrayList<Author> authors, int publishingYear, int copies)
      */
     private boolean checkIsbn(String isbn) {
-    
+        if(isbn == null){
         return false;
+        }    
+        if(isbn.length()!=13){
+         return false;
+        }else{
+        //check sul formato:cifre
+        for(int i=0; i<isbn.length(); i++){
+            if(!Character.isDigit(isbn.charAt(i))){
+                return false;
+            }
+        }
+        return true;
+        }
     } 
     
     /**
@@ -151,8 +192,19 @@ public class Book {
      * @return Una stringa contenente le informazioni relative al libro.
      */
     public String toString() {
+    /*    StringBuffer sb = new StringBuffer();
+        
+        sb.append("\n");
+        sb.append("Isbn: "+isbn);
+        sb.append("Titolo: " + title);
+        sb.append("Autori: " + authors);
+        sb.append("Anno di Pubblicazione: " + publishingYear);
+        sb.append("Stato: " + status);
+        sb.append("copie totali: " + copies);
+        sb.append("\n");
     
-        return null;
+    return sb.toString();
+        */
     }
 
     /**
@@ -160,9 +212,16 @@ public class Book {
      * @param[in] obj L'oggetto da confrontare con il libro corrente.
      * @return true se gli oggetti sono uguali, false altrimenti.
      */
+    @Override
     public boolean equals(Object obj) {
-    
-        return false;
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Book book = (Book) obj;
+        return this.isbn.equals(book.isbn);
     }
 
     /**
@@ -171,17 +230,25 @@ public class Book {
      * @return Un valore negativo, zero o positivo se il libro corrente
      * è rispettivamente minore, uguale o maggiore dell'altro libro.
      */
+    @Override
     public int compareTo(Book other) {
-    
-        return 0;
+     /*   // Ordinamento primario per ISBN
+        int comp = this.isbn.compareTo(other.isbn);
+        if (comp != 0) {
+            return comp;
+        }
+        // Ordinamento secondario per Title
+        return this.title.compareTo(other.title);
+     */
     }
 
     /**
      * @brief Restituisce il codice hash dell'oggetto Book.
      * @return Il codice hash calcolato in base all'ISBN del libro.
      */
+    @Override
     public int hashCode() {
-    
-        return 0;
+       //  return this.isbn.hashCode();
+        
     }
 }
