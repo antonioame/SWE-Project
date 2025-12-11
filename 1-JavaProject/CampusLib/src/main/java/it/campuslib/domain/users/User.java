@@ -1,6 +1,7 @@
 package it.campuslib.domain.users;
 
 import java.util.LinkedList;
+import it.campuslib.domain.transactions.Loan;
 
 /**
  * @brief Rappresenta Utente, specializzando Person.
@@ -21,7 +22,24 @@ public class User extends Person implements Comparable<User>{
      * @param[in] email E-mail dell'utente. 
      * @see Person.
      */
-    public User(String name, String surname, int enrollmentID, String email) {
+    public User(String name, String surname, int enrollmentID, String email) /*throws InvalidUserInfoException*/ {
+        
+        super(surname, name);
+        /*
+        if(!checkEnrollmentID(enrollmentID)) {
+        
+            throw new InvalidUserInfoException("Formato della matricola non valido.");
+        }
+        //NOTA: gestire l'eccezione al momento dell'istanza dell'oggetto User.
+        if(!checkEmail(email)) {
+        
+            throw new InvalidUserInfoException("Formato dell'e-mail non valido.");
+        }
+        */
+        this.enrollmentID = enrollmentID;
+        this.email = email;
+        this.maxLoans = 3;
+        
     }
     
     /**
@@ -30,7 +48,7 @@ public class User extends Person implements Comparable<User>{
      */
     public int getEnrollmentID() {
     
-        return 0;
+        return enrollmentID;
     }
     
     /**
@@ -39,7 +57,7 @@ public class User extends Person implements Comparable<User>{
      */
     public String getEmail() {
     
-        return null;
+        return email;
     }
     
     /**
@@ -48,7 +66,7 @@ public class User extends Person implements Comparable<User>{
      */
     public UserStatus getStatus() {
     
-        return null;
+        return status;
     }
     
     /**
@@ -59,7 +77,7 @@ public class User extends Person implements Comparable<User>{
      */
     public int getMaxLoans() {
     
-        return 0;
+        return maxLoans;
     }
     
     /**
@@ -67,6 +85,8 @@ public class User extends Person implements Comparable<User>{
      * @param[in] email E-mail utente. 
      */
     public void setEmail(String email) {
+        
+        this.email = email;
     }
     
     /**
@@ -74,6 +94,8 @@ public class User extends Person implements Comparable<User>{
      * @param[in] status Stato utente.
      */
     public void setStatus(UserStatus status) {
+        
+        this.status = status;
     }
     
     /**
@@ -82,7 +104,7 @@ public class User extends Person implements Comparable<User>{
      */
     public boolean isActive() {
     
-        return false;
+        return this.status == status.ACTIVE;
     }
     
     /**
@@ -128,7 +150,17 @@ public class User extends Person implements Comparable<User>{
      */
     private boolean checkEmail(String email) {
     
-        return false;
+        String s1 = "studenti.unisa.it";
+        String s2 = "unisa.it";
+        if(email.contains("@")) {
+        
+            String parts[] = email.split("@", 2);
+            String dominio = parts[1];
+            
+            if(dominio.equals(s1) || dominio.equals(s2)) return true;
+            else return false;
+        }
+        else return false;
     }
     
     /**
@@ -142,7 +174,7 @@ public class User extends Person implements Comparable<User>{
      */
     private boolean checkEnrollmentID(int enrollmentID) {
     
-        return false;
+        return String.valueOf(enrollmentID).length() == 10;
     }
     
     /**
@@ -152,7 +184,17 @@ public class User extends Person implements Comparable<User>{
     @Override
     public String toString() {
     
-        return null;
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append(super.toString());
+        
+        sb.append("\n");
+        sb.append("Matricola: ").append(enrollmentID);
+        sb.append(" E-mail: ").append(email);
+        sb.append(" È attivo: ").append(isActive());
+        sb.append(" Numero massimo di prestiti: ").append(maxLoans);
+        
+        return sb.toString();
     }
     
     /**
@@ -164,7 +206,15 @@ public class User extends Person implements Comparable<User>{
     @Override
     public boolean equals(Object obj) {
     
-        return false;
+        if(this == obj) return true;
+        
+        if(obj == null) return false;
+        
+        if(this.getClass() != obj.getClass()) return false;
+        
+        User u = (User) obj;
+        
+        return Integer.valueOf(this.enrollmentID).equals(u.getEnrollmentID());
     }
     
     /**
@@ -179,7 +229,7 @@ public class User extends Person implements Comparable<User>{
     @Override
     public int hashCode() {
     
-        return 0;
+        return Integer.valueOf(this.enrollmentID).hashCode();
     }
     
     /**
@@ -193,7 +243,7 @@ public class User extends Person implements Comparable<User>{
     @Override
     public int compareTo(User other) {
     
-        return 0;
+        return Integer.valueOf(this.enrollmentID).compareTo(other.getEnrollmentID());
     }
     
     

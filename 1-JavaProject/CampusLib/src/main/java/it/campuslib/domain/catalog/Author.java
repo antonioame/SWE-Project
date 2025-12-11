@@ -17,6 +17,8 @@ public class Author extends Person {
      * @see Person
      */
     public Author(String surname, String name) {
+        
+        super(surname, name);
     }
 }
 

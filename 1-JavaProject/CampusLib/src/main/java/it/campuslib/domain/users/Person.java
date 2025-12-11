@@ -17,6 +17,9 @@ public abstract class Person {
     * @param[in] name Nome della persona.
     */
     public Person(String surname, String name) {
+        
+        this.surname = surname;
+        this.name = name;
     }
     
     /**
@@ -25,7 +28,7 @@ public abstract class Person {
      */
     public String getName() {
     
-        return null;
+        return name;
     }
     
     /**
@@ -34,7 +37,7 @@ public abstract class Person {
      */
     public String getSurname() {
     
-        return null;
+        return surname;
     }
     
     /**
@@ -42,6 +45,8 @@ public abstract class Person {
      * @param[in] name Nome persona.
      */
     public void setName(String name) {
+        
+        this.name = name;
     }
     
     /**
@@ -49,6 +54,8 @@ public abstract class Person {
      * @param[in] surname Cognome persona.
      */
     public void setSurname(String surname) {
+        
+        this.surname = surname;
     }
     
     /**
@@ -58,7 +65,7 @@ public abstract class Person {
     @Override
     public String toString() {
     
-        return null;
+        return "Nome: " + name + " Cognome: " + surname;
     }
     
     
