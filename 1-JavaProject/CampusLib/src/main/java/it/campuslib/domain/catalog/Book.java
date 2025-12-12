@@ -1,12 +1,13 @@
 package it.campuslib.domain.catalog;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
 /**
  * @brief Rappresenta un Libro.
  */
-public class Book implements Comparable<Book>{
+public class Book implements Comparable<Book>, Serializable {
     private final String isbn;
     private String title;
     private ArrayList<Author> authors;

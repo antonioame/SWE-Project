@@ -10,7 +10,7 @@ import it.campuslib.domain.users.User;
  * Estende Transaction aggiungendo la data prevista di restituzione.
  * @see Transaction
  */
-public class Loan extends Transaction {
+public class Loan extends Transaction implements Comparable<Loan> {
     private LocalDate expectedReturnDate;
     
     /**

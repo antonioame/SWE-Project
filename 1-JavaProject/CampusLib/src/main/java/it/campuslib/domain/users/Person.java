@@ -1,12 +1,14 @@
 package it.campuslib.domain.users;
 
+import java.io.Serializable;
+
 /**
  * @brief Rappresenta una Persona.
  * Superclasse per Author e User
  * @see Author
  * @see User
  */
-public abstract class Person {
+public abstract class Person implements Serializable {
     private String surname;
     private String name;
     

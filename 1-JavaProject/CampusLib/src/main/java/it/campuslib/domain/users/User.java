@@ -1,5 +1,6 @@
 package it.campuslib.domain.users;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import it.campuslib.domain.transactions.Loan;
 
@@ -7,7 +8,7 @@ import it.campuslib.domain.transactions.Loan;
  * @brief Rappresenta Utente, specializzando Person.
  * @see Person
  */
-public class User extends Person implements Comparable<User>{
+public class User extends Person implements Comparable<User>, Serializable {
     private final String enrollmentID;
     private String email;
     private UserStatus status;
