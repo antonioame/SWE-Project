@@ -30,6 +30,11 @@ public class Book implements Comparable<Book>{
         /*if(!checkIsbn(isbn)){
             throw new IllegalArgumentException("Isbn non valido: " + isbn);
         }*/
+        //gestire in loco anche il controllo formato sull'anno di pubblicazione o creare un metodo a parte? 
+        //Considerando il secondo caso:
+        /*if(!checkPublYear(publishingYear)){
+            throw new IllegalArgumentException("Anno di pubblicazione non valido: " + publishingYear);
+        }*/
         
         this.isbn = isbn;
         this.title = title;
@@ -177,34 +182,40 @@ public class Book implements Comparable<Book>{
         if(isbn.length()!=13){
          return false;
         }else{
-        //check sul formato:cifre
-        for(int i=0; i<isbn.length(); i++){
-            if(!Character.isDigit(isbn.charAt(i))){
-                return false;
+            for(int i=0; i<isbn.length(); i++){
+                if(!Character.isDigit(isbn.charAt(i))){
+                    return false;
+                }
             }
-        }
         return true;
         }
     } 
-    
+    /*
+    private boolean checkPublYear(int publishingYear){
+        if(publishingYear < 1000 || publishingYear > 2025){  //Nota, sto vincolando il software ad un aggiornamento annuale del codice..come risolvo? Tolgo il maggiore?
+            return false;
+        }else{
+            return true;
+        }
+    }
+    */
     /**
      * @brief Restituisce una rappresentazione testuale dell'oggetto Book.
      * @return Una stringa contenente le informazioni relative al libro.
      */
     public String toString() {
-    /*    StringBuffer sb = new StringBuffer();
+        StringBuffer sb = new StringBuffer();
         
         sb.append("\n");
         sb.append("Isbn: "+isbn);
-        sb.append("Titolo: " + title);
-        sb.append("Autori: " + authors);
-        sb.append("Anno di Pubblicazione: " + publishingYear);
-        sb.append("Stato: " + status);
-        sb.append("copie totali: " + copies);
+        sb.append(" Titolo: " + title);
+        sb.append(" Autori: " + authors);
+        sb.append(" Anno di Pubblicazione: " + publishingYear);
+        sb.append(" Stato: " + status);
+        sb.append(" Copie totali: " + copies);
         sb.append("\n");
     
-    return sb.toString();
-        */
+        return sb.toString();
     }
 
     /**
@@ -232,14 +243,7 @@ public class Book implements Comparable<Book>{
      */
     @Override
     public int compareTo(Book other) {
-     /*   // Ordinamento primario per ISBN
-        int comp = this.isbn.compareTo(other.isbn);
-        if (comp != 0) {
-            return comp;
-        }
-        // Ordinamento secondario per Title
-        return this.title.compareTo(other.title);
-     */
+        return this.isbn.compareTo(other.isbn);
     }
 
     /**
@@ -248,7 +252,6 @@ public class Book implements Comparable<Book>{
      */
     @Override
     public int hashCode() {
-       //  return this.isbn.hashCode();
-        
+        return this.isbn.hashCode();
     }
 }
