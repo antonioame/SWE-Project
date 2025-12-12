@@ -27,6 +27,14 @@ public class GivebackRegistry {
     }
 
     /**
+     * @brief Restituisce il numero di restituzioni nel registro.
+     * @return Numero di restituzioni presenti nel registro.
+     */
+    public int getSize() {
+        return 0;
+    }
+
+    /**
      * @brief Restituisce una rappresentazione testuale del registro.
      * @return Rappresentazione testuale del registro.
      */

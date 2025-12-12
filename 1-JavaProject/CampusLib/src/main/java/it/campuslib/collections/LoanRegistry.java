@@ -43,6 +43,25 @@ public class LoanRegistry {
     }
 
     /**
+     * @brief Restituisce il numero di prestiti nel registro.
+     * @return Numero di prestiti presenti.
+     */
+    public int getSize() {
+        return 0;
+    }
+
+    /**
+     * @brief Estrae un prestito dal registro e lo restituisce come restituzione.
+     * Se presente, rimuove il prestito dal registro e crea l'oggetto Giveback corrispondente.
+     * @param[in] loan Prestito da estrarre e convertire in restituzione.
+     * @return Nuova istanza per Giveback o null se il prestito non è presente nel registro.
+     * @see removeLoan
+     */
+    public Giveback pullAsGiveback(Loan loan) {
+        return null;
+    }
+
+    /**
      * @brief Converte un prestito in una restituzione.
      * Se presente, rimuove il prestito dal registro e crea l'oggetto Giveback corrispondente.
      * @param[in] loan Prestito da convertire in restituzione.
