@@ -2,6 +2,8 @@ package it.campuslib.domain.transactions;
 
 import it.campuslib.domain.catalog.Book;
 import it.campuslib.domain.users.User;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
@@ -10,7 +12,7 @@ import java.time.LocalDate;
  * @see Loan
  * @see Giveback
  */
-public abstract class Transaction {
+public abstract class Transaction implements Serializable {
     private static int nextId = 1;
     private final int id;
     private final Book borrowedBook;
@@ -33,6 +35,22 @@ public abstract class Transaction {
         this.borrowerUser = borrowerUser;
         this.startDate = startDate;
     
+    }
+
+    /**
+     * @brief Istanzia un nuovo oggetto Transaction con un ID specifico.
+     * Consente di preservare l'ID quando si converte un tipo (sottoclasse) di transazione in un altro.
+     * @param[in] id L'ID da assegnare alla transazione.
+     * @param[in] borrowedBook Il libro preso in prestito.
+     * @param[in] borrowerUser L'utente che ha preso in prestito il libro.
+     * @param[in] startDate La data di inizio del prestito.
+     * @return Il nuovo oggetto Transaction, con ID specificato.
+     */
+    protected Transaction(int id, Book borrowedBook, User borrowerUser, LocalDate startDate) {
+        this.id = id;
+        this.borrowedBook = borrowedBook;
+        this.borrowerUser = borrowerUser;
+        this.startDate = startDate;
     }
 
     /**

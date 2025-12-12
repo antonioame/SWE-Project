@@ -31,6 +31,22 @@ public class Giveback extends Transaction {
         this.endDate = endDate;
     }
 
+    /**
+     * @brief Instanzia un nuovo oggetto GiveBack preservando l'ID del prestito originale.
+     * Utilizzato per convertire un Loan in Giveback mantenendo lo stesso ID.
+     * @param[in] id L'ID del prestito originale da preservare.
+     * @param[in] borrowedBook Il libro restituito.
+     * @param[in] borrowerUser L'utente che ha effettuato la restituzione.
+     * @param[in] startDate La data di inizio del prestito.
+     * @param[in] endDate La data di restituzione del libro.
+     * @return Il nuovo oggetto GiveBack, con ID specificato.
+     * @see Transaction
+     */
+    public Giveback(int id, Book borrowedBook, User borrowerUser, LocalDate startDate, LocalDate endDate) {
+        super(id, borrowedBook, borrowerUser, startDate);
+        this.endDate = endDate;
+    }
+
     
     /**
      * @brief Restituisce l'effettiva data di restituzione del libro.
