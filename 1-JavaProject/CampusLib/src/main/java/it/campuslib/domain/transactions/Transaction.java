@@ -28,7 +28,10 @@ public abstract class Transaction {
      * - l'utente deve essere attivo.
      */
     public Transaction(Book borrowedBook, User borrowerUser, LocalDate startDate) {
-   
+        this.id = nextId++;
+        this.borrowedBook = borrowedBook;
+        this.borrowerUser = borrowerUser;
+        this.startDate = startDate;
     
     }
 
@@ -38,7 +41,7 @@ public abstract class Transaction {
      */
     public int getId() {
         
-        return 0;
+        return this.id;
     }
     /**
      * @brief Restituisce il libro preso in prestito.
@@ -46,7 +49,7 @@ public abstract class Transaction {
      */
     public Book getBorrowedBook() {
 
-        return null;
+        return this.borrowedBook;
     }
     /**
      * @brief Restituisce l'utente che ha preso in prestito il libro.
@@ -54,7 +57,7 @@ public abstract class Transaction {
      */
     public User getBorrowerUser() {
         
-        return null;
+        return this.borrowerUser;
     }
 
     /**
@@ -63,7 +66,7 @@ public abstract class Transaction {
      */
     public LocalDate getStartDate() {
         
-        return null;
+        return this.startDate;
     }
 
 }

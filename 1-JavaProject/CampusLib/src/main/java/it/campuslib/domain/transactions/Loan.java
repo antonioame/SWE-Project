@@ -2,6 +2,9 @@ package it.campuslib.domain.transactions;
 
 import java.time.LocalDate;
 
+import it.campuslib.domain.catalog.Book;
+import it.campuslib.domain.users.User;
+
 /**
  * @brief Rappresenta un prestito di un libro.
  * Estende Transaction aggiungendo la data prevista di restituzione.
@@ -21,7 +24,8 @@ public class Loan extends Transaction {
      * @see Transaction
      */
     public Loan(Book borrowedBook, User borrowerUser, LocalDate startDate, LocalDate expectedReturnDate) {
-        
+        super(borrowedBook, borrowerUser, startDate);
+        this.expectedReturnDate=expectedReturnDate;
     }
 
 
@@ -31,7 +35,7 @@ public class Loan extends Transaction {
      */
     public LocalDate getExpectedReturnDate() {
         
-        return null;
+        return expectedReturnDate;
     }
 
     /**
@@ -39,7 +43,7 @@ public class Loan extends Transaction {
      * @param[in] newDate La nuova data di restituzione prevista del prestito.
      */
     public void setExpectedReturnDate(LocalDate expectedReturnDate) {
-        
+        this.expectedReturnDate = expectedReturnDate;
     }
 
     /**
@@ -59,6 +63,16 @@ public class Loan extends Transaction {
      */
     public boolean equals(Object obj) {
         
+        if(obj == null) return false;   
+        
+        if(this == obj) return true;  
+        
+        if( this.getClass() != obj.getClass()) return false;   
+        
+        Loan l = (Loan) obj;
+        
+        if(this.expectedReturnDate.equals(l.expectedReturnDate)) return true;
+    
         return false;
     }
 
@@ -70,7 +84,8 @@ public class Loan extends Transaction {
      */
     public int compareTo(Loan other) {
         
-        return 0;
+       return this.expectedReturnDate.compareTo(other.expectedReturnDate);
+       
     }
 
     /**
@@ -84,6 +99,7 @@ public class Loan extends Transaction {
      */
     public boolean isOverdue() {
     
-        return false;
+        return this.expectedReturnDate.isAfter(LocalDate.now());
+
     }
 }
