@@ -1,20 +1,17 @@
 package it.campuslib.collections;
 
-import it.campuslib.domain.catalog.Author;
-import it.campuslib.domain.catalog.Book;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
+
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.BeforeEach;
 
-/**
- *
- * @author Seren
- */
+import it.campuslib.domain.catalog.Author;
+import it.campuslib.domain.catalog.Book;
+
 public class BookCatalogTest {
     private BookCatalog catalog;
     private Book book1, book2;
@@ -29,7 +26,6 @@ public class BookCatalogTest {
     @BeforeEach
     void setUp() {
         catalog = new BookCatalog();
-
         author1 = new Author("Italo", "Calvino");
         ArrayList<Author> authors1 = new ArrayList<>();
         authors1.add(author1);
@@ -143,7 +139,7 @@ public class BookCatalogTest {
         assertEquals(1, catalog.search("rAgno").size()); // Dovrebbe trovare book1 per titolo parziale
         
         // Ricerca per Autore parziale (assumendo che toString() includa il cognome)
-        assertEquals(2, catalog.search("calvino").size()); // "Dovrebbe trovare entrambi i libri per autore
+        assertEquals(2, catalog.search("calvino").size()); // Dovrebbe trovare entrambi i libri per autore
     }
 
     @Test
@@ -152,9 +148,7 @@ public class BookCatalogTest {
         
         // Verifica che contenga il riassunto e i titoli dei libri
         assertTrue(result.contains("Catalogo Libri (Totale: 2 libri distinti)"));
-                   
         assertTrue(result.contains("Il Sentiero Dei Nidi Di Ragno"));
-                   
         assertTrue(result.contains("Marcovaldo"));
         
         // Verifica un elemento chiave del contenuto del libro (es. ISBN o Stato)
@@ -196,7 +190,7 @@ public class BookCatalogTest {
     }
 
     @Test
-    public void testImportFromNonExistentFile(){
+    public void testImportFromNonExistentFile() {
         //File Inesistente
         assertNull(BookCatalog.importFromFile("file_inesistente_xyz.ser")); // L'importazione deve restituire null se il file non esiste
     }

@@ -1,18 +1,15 @@
 package it.campuslib.domain.transactions;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 import it.campuslib.domain.catalog.Author;
 import it.campuslib.domain.catalog.Book;
 import it.campuslib.domain.users.User;
-
-import static org.junit.jupiter.api.Assertions.*;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
-
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 
 
 public class LoanTest {
@@ -72,7 +69,7 @@ public class LoanTest {
 
     @Test
     /*Uguaglianza non verificata */
-    public void testEquals2(){
+    public void testEquals2() {
         LocalDate startDate = LocalDate.of(2025, 11, 1);
         Loan l1 = new Loan(borrowedBook, borrowerUser, startDate, LocalDate.now());
         Loan l3 = new Loan(borrowedBook, borrowerUser, startDate, LocalDate.now().plusDays(1));
@@ -93,7 +90,7 @@ public class LoanTest {
 
     @Test
     //Caso di not overdue
-    public void testIsOverdue1(){
+    public void testIsOverdue1() {
         LocalDate startDate=LocalDate.of(2025, 12, 1);
         LocalDate expectedReturnDate=LocalDate.now().minusDays(5);
         Loan l= new Loan(borrowedBook, borrowerUser, startDate, expectedReturnDate);
@@ -101,7 +98,7 @@ public class LoanTest {
     }
     @Test
     //Caso limite
-       public void testIsOverdue2(){
+    public void testIsOverdue2() {
         LocalDate startDate=LocalDate.of(2025, 12, 1);
         LocalDate expectedReturnDateDate=LocalDate.now();
         Loan l = new Loan(borrowedBook, borrowerUser, startDate, expectedReturnDateDate);
@@ -110,12 +107,10 @@ public class LoanTest {
 
     @Test
     //Caso di overdue
-       public void testIsOverdue3(){
+    public void testIsOverdue3() {
         LocalDate startDate=LocalDate.of(2025 , 12, 1);
         LocalDate expectedReturnDate=LocalDate.now().plusDays(5);
         Loan l= new Loan(borrowedBook, borrowerUser, startDate, expectedReturnDate);
-        assertTrue(l.isOverdue());
-
-
-       }
+        assertTrue(l.isOverdue());  
+    }
 }

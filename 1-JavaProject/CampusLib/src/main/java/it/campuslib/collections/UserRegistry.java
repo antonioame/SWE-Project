@@ -1,8 +1,9 @@
 package it.campuslib.collections;
 
-import it.campuslib.domain.users.User;
 import java.util.HashMap;
 import java.util.LinkedList;
+
+import it.campuslib.domain.users.User;
 
 /**
  * @brief Il registro degli utenti della biblioteca.

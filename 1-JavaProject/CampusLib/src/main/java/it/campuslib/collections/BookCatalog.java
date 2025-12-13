@@ -1,8 +1,5 @@
 package it.campuslib.collections;
 
-import it.campuslib.domain.catalog.Author;
-import it.campuslib.domain.catalog.Book;
-import it.campuslib.domain.catalog.AdoptionStatus;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -13,6 +10,10 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.stream.Collectors;
+
+import it.campuslib.domain.catalog.Author;
+import it.campuslib.domain.catalog.Book;
+import it.campuslib.domain.catalog.AdoptionStatus;
 
 /**
  * @brief Il catalogo dei libri della biblioteca.
@@ -37,12 +38,11 @@ public class BookCatalog implements Serializable{
      * Il libro è aggiunto se rispetta il formato per ISBN, altrimenti restituisce false.
      */
     public boolean addBook(Book book) {
-        if(book==null || book.getIsbn() == null){
+        if (book == null || book.getIsbn() == null) {
             return false;
         }
         
         String isbn = book.getIsbn();
-        
         catalog.put(isbn, book);
         return true;
     }
@@ -55,14 +55,13 @@ public class BookCatalog implements Serializable{
      * Il libro viene rimosso se presente nel catalogo, altrimenti restituisce false.
      */
     public boolean removeBook(String isbn) {
-        if(isbn == null){
+        if (isbn == null) {
             return false;
         }
-        
         Book bookToRemove = catalog.get(isbn);
         
         /*Precondizione da aggiungere: Libro registrato
-        if(bookToRemove == null){  //libro non trovato
+        if (bookToRemove == null) {  //libro non trovato
             return false;
         }
         */
@@ -79,14 +78,12 @@ public class BookCatalog implements Serializable{
      */
     public LinkedList<Book> searchByTitle(String title) {
         //Se il titolo è vuoto o contiene solo spazi restituisce una lista vuota
-        if(title == null || title.trim().isEmpty()){        
+        if (title == null || title.trim().isEmpty()) {
             return new LinkedList<>();
         }
-        
-        final String searchTitle = title.trim().replaceAll("\\s+", " ").toLowerCase();  
-        
-        return catalog.values().stream()             
-                .filter(book -> book.getTitle().toLowerCase().contains(searchTitle))  
+        final String searchTitle = title.trim().replaceAll("\\s+", " ").toLowerCase();
+        return catalog.values().stream()
+                .filter(book -> book.getTitle().toLowerCase().contains(searchTitle))
                 .collect(Collectors.toCollection(LinkedList::new));
     }
 
@@ -96,7 +93,7 @@ public class BookCatalog implements Serializable{
      * @return Lista di libri trovati (vuota se nessun libro corrisponde al criterio di ricerca).
      */
     public LinkedList<Book> searchByAuthor(Author author) {
-        if(author == null){
+        if (author == null) {
             return new LinkedList<>();
         }
         
@@ -111,7 +108,7 @@ public class BookCatalog implements Serializable{
      * @return Libro trovato o null se non presente.
      */
     public Book searchByIsbn(String isbn) {
-        if(isbn ==null){
+        if (isbn == null) {
             return null;
         }
         return catalog.get(isbn);
@@ -153,13 +150,13 @@ public class BookCatalog implements Serializable{
      * @return Rappresentazione testuale del catalogo.
      */
     public String toString() {
-        if(catalog.isEmpty()){
+        if (catalog.isEmpty()) {
             return "Il catalogo è attualmente vuoto.\n";
         }
         StringBuilder sb = new StringBuilder();
         sb.append("\n Catalogo Libri (Totale: ").append(catalog.size()).append(" libri distinti) \n");
         
-        for (Book book : catalog.values()){
+        for (Book book : catalog.values()) {
             sb.append(book.toString());
         }
         sb.append("\n");
@@ -175,7 +172,7 @@ public class BookCatalog implements Serializable{
      * In caso di errore, il metodo termina senza sollevare eccezioni.
      */
     public void exportOnFile(String fileName) {
-        if(fileName == null || fileName.isEmpty()){
+        if (fileName == null || fileName.isEmpty()) {
             // System.err.println("Errore: Il nome del file non può essere vuoto.");
             return;
         }
@@ -211,7 +208,11 @@ public class BookCatalog implements Serializable{
             return null;
         }
     }
-    
+
+    /**
+     * Restituisce il numero di libri presenti nel catalogo.
+     * @return Numero di libri presenti nel catalogo.
+     */
     public int getCatalogSize() {
         return this.catalog.size();
     }

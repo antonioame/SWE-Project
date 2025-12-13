@@ -1,20 +1,22 @@
 package it.campuslib.collections;
 
-import it.campuslib.domain.transactions.Giveback;
-import it.campuslib.domain.users.User;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
-import java.io.ObjectInputStream;
-import java.io.FileOutputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
+
+import it.campuslib.domain.transactions.Giveback;
+import it.campuslib.domain.users.User;
 
 /**
  * @brief Il registro delle restituzioni della biblioteca.

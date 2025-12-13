@@ -19,26 +19,23 @@ public abstract class Person implements Serializable {
     * @param[in] name Nome della persona.
     */
     public Person(String surname, String name) {
-        
         this.surname = surname;
         this.name = name;
     }
     
     /**
      * @brief Restituisce il nome della persona.
-     * @return name Nome persona.
+     * @return Il nome della persona.
      */
     public String getName() {
-    
         return name;
     }
     
     /**
      * @brief Restituisce il cognome della persona.
-     * @return surname Cognome persona.
+     * @return Il cognome della persona.
      */
     public String getSurname() {
-    
         return surname;
     }
     
@@ -47,7 +44,6 @@ public abstract class Person implements Serializable {
      * @param[in] name Nome persona.
      */
     public void setName(String name) {
-        
         this.name = name;
     }
     
@@ -56,7 +52,6 @@ public abstract class Person implements Serializable {
      * @param[in] surname Cognome persona.
      */
     public void setSurname(String surname) {
-        
         this.surname = surname;
     }
     
@@ -66,10 +61,6 @@ public abstract class Person implements Serializable {
      */
     @Override
     public String toString() {
-    
         return "Nome: " + name + " Cognome: " + surname;
     }
-    
-    
 }
-

@@ -1,14 +1,11 @@
 package it.campuslib.domain.catalog;
 
-import it.campuslib.collections.LoanRegistry;
-import it.campuslib.domain.transactions.Loan;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.Set;
-import java.util.TreeSet;
 
+import it.campuslib.collections.LoanRegistry;
+import it.campuslib.domain.transactions.Loan;
 
 /**
  * @brief Rappresenta un Libro.
@@ -30,34 +27,30 @@ public class Book implements Comparable<Book>, Serializable {
      * @param[in] authors La lista degli autori del libro.
      * @param[in] publishingYear L'anno di pubblicazione del libro.
      * @param[in] copies Il numero totale di copie del libro.
-     * @return Un nuovo oggetto Book.
-     * @see checkISBN(String isbn)
+     * @see checkIsbn(String isbn)
      */
     public Book(String isbn, String title, ArrayList<Author> authors, int publishingYear, int copies)/*throws IllegalArgumentException*/ {
-        /*if(!checkIsbn(isbn)){
+        /*if(!checkIsbn(isbn)) {
             throw new IllegalArgumentException("Isbn non valido: " + isbn);
         }*/
    
         this.isbn = isbn;
         this.title = title;
-        if(authors == null){
+        if (authors == null) {
             this.authors = new ArrayList<>();
-        }else{
+        } else {
             this.authors = new ArrayList<>(authors);
         }
         this.publishingYear = publishingYear;
         this.copies = copies;
         this.status = AdoptionStatus.ADOPTED;
-        
     }
     
-    // Metodi Getter
     /**
      * @brief Restituisce il codice ISBN del libro.
      * @return Il codice ISBN del libro.
      */
     public String getIsbn() {
-    
         return isbn;
     }
     
@@ -66,7 +59,6 @@ public class Book implements Comparable<Book>, Serializable {
      * @return Il titolo del libro.
      */
     public String getTitle() {
-    
         return title;
     }
     
@@ -75,8 +67,7 @@ public class Book implements Comparable<Book>, Serializable {
      * @return La lista degli autori del libro.
      */ 
     public ArrayList<Author> getAuthors() {
-    
-        return authors; 
+        return authors;
     }
     
     /**
@@ -84,7 +75,6 @@ public class Book implements Comparable<Book>, Serializable {
      * @return L'anno di pubblicazione del libro.
      */
     public int getPublishingYear() {
-    
         return publishingYear;
     }
         
@@ -93,7 +83,6 @@ public class Book implements Comparable<Book>, Serializable {
      * @return Il numero totale di copie del libro.
      */
     public int getCopies() {
-    
         return copies;
     }
     
@@ -102,7 +91,6 @@ public class Book implements Comparable<Book>, Serializable {
      * @return true se il libro è in adozione, false altrimenti.
      */
     public boolean isAdopted() {
-        
         return this.status == AdoptionStatus.ADOPTED;
     }
     
@@ -114,20 +102,14 @@ public class Book implements Comparable<Book>, Serializable {
      * @see getAssociatedLoans()
      */
     public boolean checkAvailability(LoanRegistry registry) {
-    
         LinkedList<Loan> l = new LinkedList<>();
         l = registry.searchByBook(isbn);
-        
         return (this.copies > l.size());
-        
     }
     
-    
-    
-    // Metodi Setter
     /**
      * @brief Imposta il titolo del libro.
-     * @param[in] title Il nuovo titolo del libro. 
+     * @param[in] title Il nuovo titolo del libro.
      */
     public void setTitle(String title) {
         this.title = title;
@@ -135,7 +117,7 @@ public class Book implements Comparable<Book>, Serializable {
     
     /**
      * @brief Imposta lo stato di adozione del libro.
-     * @param[in] status Il nuovo stato di adozione del libro. 
+     * @param[in] status Il nuovo stato di adozione del libro.
      */
     public void setStatus(AdoptionStatus status) {
         this.status = status;
@@ -143,7 +125,7 @@ public class Book implements Comparable<Book>, Serializable {
 
     /**
      * @brief Imposta l'anno di pubblicazione del libro.
-     * @param[in] year Il nuovo anno di pubblicazione del libro. 
+     * @param[in] year Il nuovo anno di pubblicazione del libro.
      */
     public void setPublishingYear(int year) {
         this.publishingYear = year;
@@ -161,7 +143,7 @@ public class Book implements Comparable<Book>, Serializable {
     /**
      * @brief Aggiunge un autore alla lista degli autori del libro.
      * @param[in] author L'autore da aggiungere.
-     * @return true se l'autore è stato aggiunto con successo, false altrimenti. 
+     * @return true se l'autore è stato aggiunto con successo, false altrimenti.
      */
     public boolean addAuthor(Author author) {
      if (author != null && !authors.contains(author)) {
@@ -172,26 +154,23 @@ public class Book implements Comparable<Book>, Serializable {
     
     /**
      * @brief Verifica se il formato dell'ISBN fornito è valido.
-     * @param[in] isbn L'Isbn da controllare.
-     * @return true se l'Isbn è valido, false altrimenti.
+     * @param[in] isbn L'ISBN da controllare.
+     * @return true se l'ISBN è valido, false altrimenti.
      * @see Book(String isbn, String title, ArrayList<Author> authors, int publishingYear, int copies)
      */
-    private boolean checkIsbn(String isbn) {
-        if(isbn == null){
-        return false;
-        }    
-        if(isbn.length()!=13){
-         return false;
-        }else{
-            for(int i=0; i<isbn.length(); i++){
-                if(!Character.isDigit(isbn.charAt(i))){
+    private static boolean checkIsbn(String isbn) {
+        if (isbn == null) {
+            return false;
+        }
+        if (isbn.length() != 13) {
+            return false;
+        } else {
+            for (int i = 0; i < isbn.length(); i++) {
+                if (!Character.isDigit(isbn.charAt(i))) {
                     return false;
                 }
             }
-        if(isbn.startsWith("978") || isbn.startsWith("979")){
-            return true;
-        }
-        return false;
+            return (isbn.startsWith("978") || isbn.startsWith("979"));
         }
     } 
 
@@ -203,7 +182,7 @@ public class Book implements Comparable<Book>, Serializable {
         StringBuffer sb = new StringBuffer();
         
         sb.append("\n");
-        sb.append("Isbn: "+isbn);
+        sb.append("Isbn: " + isbn);
         sb.append(" Titolo: " + title);
         sb.append(" Autori: " + authors);
         sb.append(" Anno di Pubblicazione: " + publishingYear);

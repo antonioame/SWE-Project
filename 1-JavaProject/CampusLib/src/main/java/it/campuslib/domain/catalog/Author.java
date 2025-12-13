@@ -1,6 +1,7 @@
 package it.campuslib.domain.catalog;
 
 import it.campuslib.domain.users.Person;
+
 /**
  * @brief Rappresenta un Autore, specializzando Person.
  * @see Person
@@ -17,8 +18,6 @@ public class Author extends Person {
      * @see Person
      */
     public Author(String surname, String name) {
-        
         super(surname, name);
     }
 }
-

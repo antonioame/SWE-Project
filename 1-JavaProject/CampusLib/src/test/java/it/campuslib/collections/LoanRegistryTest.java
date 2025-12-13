@@ -1,19 +1,19 @@
 package it.campuslib.collections;
 
-import it.campuslib.domain.catalog.Author;
-import it.campuslib.domain.catalog.Book;
-import it.campuslib.domain.transactions.Giveback;
-import it.campuslib.domain.transactions.Loan;
-import it.campuslib.domain.users.User;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import java.io.File;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+
+import it.campuslib.domain.catalog.Author;
+import it.campuslib.domain.catalog.Book;
+import it.campuslib.domain.transactions.Giveback;
+import it.campuslib.domain.transactions.Loan;
+import it.campuslib.domain.users.User;
 
 /**
  * Classe di test per LoanRegistry

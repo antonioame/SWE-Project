@@ -1,14 +1,14 @@
 package it.campuslib.domain.users;
 
-import java.io.Serializable;
 import java.util.LinkedList;
+
 import it.campuslib.domain.transactions.Loan;
 
 /**
  * @brief Rappresenta Utente, specializzando Person.
  * @see Person
  */
-public class User extends Person implements Comparable<User>, Serializable {
+public class User extends Person implements Comparable<User> {
     private final String enrollmentID;
     private String email;
     private UserStatus status;
@@ -20,11 +20,10 @@ public class User extends Person implements Comparable<User>, Serializable {
      * @param[in] name Nome dell'utente.
      * @param[in] surname Cognome dell'utente.
      * @param[in] enrollmentID Matricola dell'utente.
-     * @param[in] email E-mail dell'utente. 
+     * @param[in] email E-mail dell'utente.
      * @see Person.
      */
     public User(String name, String surname, String enrollmentID, String email) /*throws InvalidUserInfoException*/ {
-        
         super(surname, name);
         /*
         if(!checkEnrollmentID(enrollmentID)) {
@@ -40,53 +39,47 @@ public class User extends Person implements Comparable<User>, Serializable {
         this.enrollmentID = enrollmentID;
         this.email = email;
         this.maxLoans = 3;
-        
     }
     
     /**
      * @brief Restituisce la matricola dell'utente.
-     * @return enrollmentID Matricola utente.
+     * @return La matricola dell'utente.
      */
     public String getEnrollmentID() {
-    
         return enrollmentID;
     }
     
     /**
      * @brief Restituisce l'e-mail dell'utente.
-     * @return email E-mail utente.
+     * @return L'e-mail dell'utente.
      */
     public String getEmail() {
-    
         return email;
     }
     
     /**
      * @brief Restituisce lo stato dell'utente.
-     * @return status Stato utente.
+     * @return Lo stato dell'utente.
      */
     public UserStatus getStatus() {
-    
         return status;
     }
     
     /**
      * @brief Restituisce il numero massimo di prestiti
      * che può effettuare l'utente.
-     * 
-     * @return maxLoans Numero massimo di prestiti utente. 
+     *
+     * @return Il numero massimo di prestiti che può effettuare l'utente.
      */
     public int getMaxLoans() {
-    
         return maxLoans;
     }
     
     /**
      * @brief Imposta l'e-mail dell'utente.
-     * @param[in] email E-mail utente. 
+     * @param[in] email E-mail utente.
      */
     public void setEmail(String email) {
-        
         this.email = email;
     }
     
@@ -95,7 +88,6 @@ public class User extends Person implements Comparable<User>, Serializable {
      * @param[in] status Stato utente.
      */
     public void setStatus(UserStatus status) {
-        
         this.status = status;
     }
     
@@ -104,8 +96,7 @@ public class User extends Person implements Comparable<User>, Serializable {
      * @return Valore booleano che indica lo stato dell'utente.
      */
     public boolean isActive() {
-    
-        return this.status == status.ACTIVE;
+        return this.status == UserStatus.ACTIVE;
     }
     
     /**
@@ -113,7 +104,6 @@ public class User extends Person implements Comparable<User>, Serializable {
      * @return Lista contenente tutti i presti associati all'utente.
      */
     private LinkedList<Loan> getActiveLoans() {
-    
         return null;
     }
     
@@ -127,7 +117,6 @@ public class User extends Person implements Comparable<User>, Serializable {
      * @see getActiveLoans()
      */
     public int getAvailableLoanSlots() {
-    
         return 0;
     }
     
@@ -136,45 +125,45 @@ public class User extends Person implements Comparable<User>, Serializable {
      * @return Valore booleano che indica se l'utente può effettuare nuovi prestiti.
      */
     public boolean canBorrow() {
-    
         return false;
     }
     
+    /*
+     * FIXME: Metodi checkEmail(String email) e checkEnrollmentID(String enrollmentID) non sono da rendere metodi di istanza
+     * I metodi, così definiti, non accedono a campi di istanza, quindi sono almeno da rendere static
+     */
+
     /**
-     * @brief Controllo sul formato dell'e-mail dell'utente da effettuare nel costruttore
-     * di questo. 
-     * 
-     * @param email E-mail dell'utente su cui controllare il formato.
-     * @return Valore booleano che indica se l'e-mail è scritta in un formato corretto
-     * o meno.
+     * @brief Controllo sul formato dell'e-mail dell'utente da effettuare nel costruttore di questo.
+     * @param[in] email E-mail dell'utente su cui controllare il formato.
+     * @return Valore booleano che indica se l'e-mail è scritta in un formato corretto o meno.
      * @see User(String name, String surname, int enrollmentID, String email)
      */
-    private boolean checkEmail(String email) {
-    
+    private static boolean checkEmail(String email) {
         String s1 = "studenti.unisa.it";
         String s2 = "unisa.it";
-        if(email.contains("@")) {
-        
+        if (email.contains("@")) {
             String parts[] = email.split("@", 2);
             String dominio = parts[1];
-            
-            if(dominio.equals(s1) || dominio.equals(s2)) return true;
-            else return false;
+            if (dominio.equals(s1) || dominio.equals(s2)) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
         }
-        else return false;
     }
     
     /**
      * @brief Controllo sul formato della matricola dell'utente da effettuare nel costruttore
      * di questo.
      * 
-     * @param enrollmentID Matricola dell'utente su cui controllare il formato.
-     * @return Valore booleano che indica se la matricola è scritta in un formato corretto
-     * o meno.
+     * @param[in] enrollmentID Matricola dell'utente su cui controllare il formato.
+     * @return Valore booleano che indica se la matricola è scritta in un formato corretto o meno.
      * @see User(String name, String surname, String enrollmentID, String email)
      */
-    private boolean checkEnrollmentID(String enrollmentID) {
-    
+    private static boolean checkEnrollmentID(String enrollmentID) {
         return enrollmentID != null && enrollmentID.length() == 10;
     }
     
@@ -184,11 +173,9 @@ public class User extends Person implements Comparable<User>, Serializable {
      */
     @Override
     public String toString() {
-    
         StringBuilder sb = new StringBuilder();
-        
+
         sb.append(super.toString());
-        
         sb.append("\n");
         sb.append("Matricola: ").append(enrollmentID);
         sb.append(" E-mail: ").append(email);
@@ -206,15 +193,10 @@ public class User extends Person implements Comparable<User>, Serializable {
      */
     @Override
     public boolean equals(Object obj) {
-    
-        if(this == obj) return true;
-        
-        if(obj == null) return false;
-        
-        if(this.getClass() != obj.getClass()) return false;
-        
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (this.getClass() != obj.getClass()) return false;
         User u = (User) obj;
-        
         return this.enrollmentID.equals(u.getEnrollmentID());
     }
     
@@ -229,7 +211,6 @@ public class User extends Person implements Comparable<User>, Serializable {
      */
     @Override
     public int hashCode() {
-    
         return this.enrollmentID.hashCode();
     }
     
@@ -243,13 +224,6 @@ public class User extends Person implements Comparable<User>, Serializable {
      */   
     @Override
     public int compareTo(User other) {
-    
         return this.enrollmentID.compareTo(other.getEnrollmentID());
     }
-    
-    
-    
-    
-    
-    
 }

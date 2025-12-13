@@ -1,10 +1,10 @@
 package it.campuslib.domain.transactions;
 
-import it.campuslib.domain.catalog.Book;
-import it.campuslib.domain.users.User;
-
 import java.io.Serializable;
 import java.time.LocalDate;
+
+import it.campuslib.domain.catalog.Book;
+import it.campuslib.domain.users.User;
 
 /**
  * @brief Classe astratta che rappresenta una transazione nella biblioteca.
@@ -24,7 +24,6 @@ public abstract class Transaction implements Serializable {
      * @param[in] borrowedBook Il libro preso in prestito.
      * @param[in] borrowerUser L'utente che ha preso in prestito il libro.
      * @param[in] startDate La data di inizio del prestito.
-     * @return Un nuovo oggetto Transaction.
      * @pre
      * - il libro deve trovarsi nello stato "ADOPTED".
      * - l'utente deve essere attivo.
@@ -34,7 +33,6 @@ public abstract class Transaction implements Serializable {
         this.borrowedBook = borrowedBook;
         this.borrowerUser = borrowerUser;
         this.startDate = startDate;
-    
     }
 
     /**
@@ -44,7 +42,6 @@ public abstract class Transaction implements Serializable {
      * @param[in] borrowedBook Il libro preso in prestito.
      * @param[in] borrowerUser L'utente che ha preso in prestito il libro.
      * @param[in] startDate La data di inizio del prestito.
-     * @return Il nuovo oggetto Transaction, con ID specificato.
      */
     protected Transaction(int id, Book borrowedBook, User borrowerUser, LocalDate startDate) {
         this.id = id;
@@ -54,27 +51,26 @@ public abstract class Transaction implements Serializable {
     }
 
     /**
-     * @brief restituisce l'ID univoco del prestito.
+     * @brief Restituisce l'ID univoco del prestito.
      * @return L'ID univoco del prestito.
      */
     public int getId() {
-        
         return this.id;
     }
+
     /**
      * @brief Restituisce il libro preso in prestito.
      * @return Il libro preso in prestito.
      */
     public Book getBorrowedBook() {
-
         return this.borrowedBook;
     }
+
     /**
      * @brief Restituisce l'utente che ha preso in prestito il libro.
      * @return L'utente che ha preso in prestito il libro.
      */
     public User getBorrowerUser() {
-        
         return this.borrowerUser;
     }
 
@@ -83,8 +79,11 @@ public abstract class Transaction implements Serializable {
      * @return La data di inizio del prestito.
      */
     public LocalDate getStartDate() {
-        
         return this.startDate;
     }
 
+    /*
+     * FIXME: Implementare metodo equals basato su ID univoco della transazione
+     * Nonché sulla verifica della classe dell'oggetto istanziato
+     */
 }

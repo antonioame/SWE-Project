@@ -20,12 +20,11 @@ public class Loan extends Transaction implements Comparable<Loan> {
      * @param[in] startDate La data di inizio del prestito.
      * @param[in] borrowedBook Il libro preso in prestito.
      * @param[in] borrowerUser L'utente che ha preso in prestito il libro.
-     * @return Un nuovo oggetto Loan.
      * @see Transaction
      */
     public Loan(Book borrowedBook, User borrowerUser, LocalDate startDate, LocalDate expectedReturnDate) {
         super(borrowedBook, borrowerUser, startDate);
-        this.expectedReturnDate=expectedReturnDate;
+        this.expectedReturnDate = expectedReturnDate;
     }
 
 
@@ -34,7 +33,6 @@ public class Loan extends Transaction implements Comparable<Loan> {
      * @return La data di restituzione prevista del prestito.
      */
     public LocalDate getExpectedReturnDate() {
-        
         return expectedReturnDate;
     }
 
@@ -50,30 +48,26 @@ public class Loan extends Transaction implements Comparable<Loan> {
      * @brief Restituisce una rappresentazione testuale dell'oggetto Loan.
      * @return Una stringa contenente le informazioni del prestito.
      */
+    // FIXME: Implementare toString
     public String toString() {
-        
         return null;
     }
 
     /**
      * @brief Confronta l'oggetto Loan corrente con un altro oggetto per verificarne l'uguaglianza.
-     * L'uguaglianza è verificata se entrambi gli oggetti sono di tipo Loan e hanno stessa data di restituzione prevista.
+     * L'uguaglianza è verificata se entrambi gli oggetti sono di tipo Loan e hanno stesso ID.
      * @param[in] obj L'oggetto da confrontare con il prestito corrente.
      * @return true se l'oggetto specificato è uguale all'oggetto corrente, false altrimenti.
      */
+    // FIXME: Implementare equals su confronto per ID
+    // FIXME: Implementare hashCode consistente
     public boolean equals(Object obj) {
-        
-        if(obj == null) return false;   
-        
-        if(this == obj) return true;  
-        
-        if( this.getClass() != obj.getClass()) return false;   
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (this.getClass() != obj.getClass()) return false;
         
         Loan l = (Loan) obj;
-        
-        if(this.expectedReturnDate.equals(l.expectedReturnDate)) return true;
-    
-        return false;
+        return this.expectedReturnDate.equals(l.expectedReturnDate);
     }
 
     /**
@@ -83,14 +77,12 @@ public class Loan extends Transaction implements Comparable<Loan> {
      * @return Un valore negativo, zero o positivo se il prestito corrente è minore, uguale o maggiore dell'altro prestito.
      */
     public int compareTo(Loan other) {
-        
-       return this.expectedReturnDate.compareTo(other.expectedReturnDate);
-       
+        return this.expectedReturnDate.compareTo(other.expectedReturnDate);
     }
 
     /**
      * @brief Verifica se il prestito è in ritardo.
-     * La funzione confronta la data di restituezione prevista con la data corrente
+     * La funzione confronta la data di restituzione prevista con la data corrente
      * per determinare se il prestito è in ritardo.
      * @return true se il prestito è in ritardo, false altrimenti.
      * @pre 
@@ -98,8 +90,6 @@ public class Loan extends Transaction implements Comparable<Loan> {
      * @see getExpectedReturnDate()
      */
     public boolean isOverdue() {
-    
         return this.expectedReturnDate.isAfter(LocalDate.now());
-
     }
 }

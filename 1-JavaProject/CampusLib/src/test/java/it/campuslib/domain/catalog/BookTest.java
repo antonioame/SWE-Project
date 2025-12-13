@@ -1,14 +1,15 @@
 package it.campuslib.domain.catalog;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
 import it.campuslib.collections.LoanRegistry;
 import it.campuslib.domain.transactions.Loan;
 import it.campuslib.domain.users.User;
-import java.time.LocalDate;
-
-import java.util.ArrayList;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.BeforeEach;
 
 /**
  *
@@ -164,9 +165,9 @@ public class BookTest {
         defaultBook2 = new Book("9771234567890", "Robinson Crusoe", defaultAuthors, 1719, 5);
         CloneB2 = new Book("9771234567890", "Robinson Crusoe", defaultAuthors, 1719, 5);
         defaultBook3 = new Book("9871234567890", "Robinson Crusoe", defaultAuthors, 1719, 5);
-        assertTrue(defaultBook1.compareTo(defaultBook2)>0);
-        assertTrue(defaultBook1.compareTo(defaultBook3)<0);
-        assertTrue(defaultBook2.compareTo(CloneB2)==0);
+        assertTrue(defaultBook1.compareTo(defaultBook2) > 0);
+        assertTrue(defaultBook1.compareTo(defaultBook3) < 0);
+        assertTrue(defaultBook2.compareTo(CloneB2) == 0);
     }
    
     @Test
