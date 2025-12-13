@@ -95,7 +95,7 @@ public class LoanTest {
     //Caso di not overdue
     public void testIsOverdue1(){
         LocalDate startDate=LocalDate.of(2025, 12, 1);
-        LocalDate expectedReturnDate=LocalDate.now().minusDays(5);
+        LocalDate expectedReturnDate=LocalDate.now().plusDays(5);
         Loan l= new Loan(borrowedBook, borrowerUser, startDate, expectedReturnDate);
         assertFalse(l.isOverdue());
     }
@@ -112,10 +112,20 @@ public class LoanTest {
     //Caso di overdue
        public void testIsOverdue3(){
         LocalDate startDate=LocalDate.of(2025 , 12, 1);
-        LocalDate expectedReturnDate=LocalDate.now().plusDays(5);
+        LocalDate expectedReturnDate=LocalDate.now().minusDays(5);
         Loan l= new Loan(borrowedBook, borrowerUser, startDate, expectedReturnDate);
         assertTrue(l.isOverdue());
 
 
        }
+
+    @Test
+    public void testToString() {
+        LocalDate startDate = LocalDate.of(2025, 12, 1);
+        LocalDate expectedReturnDate = LocalDate.of(2025, 12, 15);
+        Loan loan = new Loan(borrowedBook, borrowerUser, startDate, expectedReturnDate);
+        String expectedString = "ID: " + loan.getId() + " Libro: " + loan.getBorrowedBook().getTitle() + " Utente: " + loan.getBorrowerUser().toString() +" Data inizio prestito: " + loan.getStartDate().toString() + " Data restituzione prevista: " + loan.getExpectedReturnDate().toString() + "\n";
+        assertNotNull(loan.toString());
+        assertEquals(expectedString, loan.toString());
+    }
 }

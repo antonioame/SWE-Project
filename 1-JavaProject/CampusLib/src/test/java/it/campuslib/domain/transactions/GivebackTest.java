@@ -60,4 +60,15 @@ public class GivebackTest {
         assertEquals(endDate, giveback.getEndDate());
     }
 
+    @Test
+    public void testToString() {
+        LocalDate startDate = LocalDate.of(2025, 12, 1);
+        LocalDate endDate = LocalDate.of(2025, 12, 15);
+        Loan loan = new Loan(borrowedBook, borrowerUser, startDate, endDate);
+        Giveback giveback = new Giveback(loan.getId(), borrowedBook, borrowerUser, startDate, endDate);
+        String expectedString = "ID: " + giveback.getId() + " Libro restituito: " + giveback.getBorrowedBook().getTitle() + " Utente: " + borrowerUser.toString() + " Data inizio prestito: " + giveback.getStartDate().toString() + " Data restituzione: " + giveback.getEndDate().toString() + "\n";
+        assertNotNull(giveback.toString());
+        assertEquals(expectedString, giveback.toString());
+        
+    }
 }

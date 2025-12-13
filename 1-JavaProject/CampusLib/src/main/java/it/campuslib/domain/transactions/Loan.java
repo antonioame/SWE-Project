@@ -51,8 +51,14 @@ public class Loan extends Transaction implements Comparable<Loan> {
      * @return Una stringa contenente le informazioni del prestito.
      */
     public String toString() {
+        StringBuffer sb = new StringBuffer();
+        sb.append("ID: ").append(getId());
+        sb.append(" Libro: ").append(getBorrowedBook().getTitle());
+        sb.append(" Utente: ").append(getBorrowerUser().toString());
+        sb.append(" Data inizio prestito: ").append(getStartDate().toString());
+        sb.append(" Data restituzione prevista: ").append(expectedReturnDate.toString()).append("\n");
+        return sb.toString();
         
-        return null;
     }
 
     /**
@@ -90,7 +96,7 @@ public class Loan extends Transaction implements Comparable<Loan> {
 
     /**
      * @brief Verifica se il prestito è in ritardo.
-     * La funzione confronta la data di restituezione prevista con la data corrente
+     * La funzione confronta la data di restituzione prevista con la data corrente
      * per determinare se il prestito è in ritardo.
      * @return true se il prestito è in ritardo, false altrimenti.
      * @pre 
@@ -99,7 +105,7 @@ public class Loan extends Transaction implements Comparable<Loan> {
      */
     public boolean isOverdue() {
     
-        return this.expectedReturnDate.isAfter(LocalDate.now());
+        return this.expectedReturnDate.isBefore(LocalDate.now());
 
     }
 }

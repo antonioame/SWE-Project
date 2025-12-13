@@ -63,6 +63,13 @@ public class Giveback extends Transaction {
      */
     @Override
     public String toString() {
-       return null;
+        StringBuffer sb = new StringBuffer();
+        sb.append("ID: ").append(getId());
+        sb.append(" Libro restituito: ").append(getBorrowedBook().getTitle());
+        sb.append(" Utente: ").append(getBorrowerUser().toString());
+        sb.append(" Data inizio prestito: ").append(getStartDate().toString());
+        sb.append(" Data restituzione: ").append(endDate.toString()).append("\n");
+        return sb.toString();
+       
     }
 }
