@@ -3,14 +3,25 @@ package it.campuslib.collections;
 import it.campuslib.domain.transactions.Giveback;
 import it.campuslib.domain.transactions.Loan;
 import it.campuslib.domain.users.User;
+
+import java.util.Set;
 import java.util.TreeSet;
 import java.util.LinkedList;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.io.ObjectInputStream;
+import java.io.FileOutputStream;
+import java.io.FileInputStream;
 
 /**
  * @brief Il registro dei prestiti attivi della biblioteca.
  */
-public class LoanRegistry {
-    private TreeSet<Loan> registry;
+public class LoanRegistry implements Serializable {
+    private Set<Loan> registry;
 
     /**
      * @brief Costruttore.
@@ -18,17 +29,19 @@ public class LoanRegistry {
      * Il registro prestiti è vuoto.
      */
     public LoanRegistry() {
+        this.registry = new TreeSet<>();
     }
 
     /**
      * @brief Aggiunge un prestito al registro.
      * @param[in] loan Prestito da aggiungere.
      * @return Esito aggiunta.
-     * @post
-     * Il prestito è aggiunto al registro.
      */
     public boolean addLoan(Loan loan) {
-        return false;
+        if (loan == null) {
+            return false;
+        }
+        return registry.add(loan);
     }
 
     /**
@@ -39,7 +52,10 @@ public class LoanRegistry {
      * Se presente, il prestito viene rimosso dal registro, altrimenti restituisce false.
      */
     public boolean removeLoan(Loan loan) {
-        return false;
+        if (loan == null) {
+            return false;
+        }
+        return registry.remove(loan);
     }
 
     /**
@@ -47,7 +63,7 @@ public class LoanRegistry {
      * @return Numero di prestiti presenti.
      */
     public int getSize() {
-        return 0;
+        return registry.size();
     }
 
     /**
@@ -58,18 +74,19 @@ public class LoanRegistry {
      * @see removeLoan
      */
     public Giveback pullAsGiveback(Loan loan) {
-        return null;
-    }
+        if (loan == null || !registry.contains(loan)) {
+            return null;
+        }
+        registry.remove(loan);
 
-    /**
-     * @brief Converte un prestito in una restituzione.
-     * Se presente, rimuove il prestito dal registro e crea l'oggetto Giveback corrispondente.
-     * @param[in] loan Prestito da convertire in restituzione.
-     * @return Nuova istanza per Giveback o null se il prestito non è presente nel registro.
-     * @see removeLoan
-     */
-    public Giveback convertToGiveback(Loan loan) {
-        return null;
+        // Istanziare e restituire Giveback preservando l'ID del prestito originale
+        return new Giveback(
+            loan.getId(),
+            loan.getBorrowedBook(),
+            loan.getBorrowerUser(),
+            loan.getStartDate(),
+            LocalDate.now()
+        );
     }
 
     /**
@@ -78,7 +95,18 @@ public class LoanRegistry {
      * @return Lista di prestiti dell'utente (vuota se nessun prestito corrisponde al criterio di ricerca).
      */
     public LinkedList<Loan> searchByUser(User user) {
-        return null;
+        LinkedList<Loan> result = new LinkedList<>();
+        if (user == null) {
+            return result;
+        }
+        
+        for (Loan loan : registry) {
+            if (loan.getBorrowerUser() != null &&
+                loan.getBorrowerUser().equals(user)) {
+                result.add(loan);
+            }
+        }
+        return result;
     }
 
     /**
@@ -87,16 +115,48 @@ public class LoanRegistry {
      * @return Lista di prestiti del libro (vuota se nessun prestito corrisponde al criterio di ricerca).
      */
     public LinkedList<Loan> searchByBook(String isbn) {
-        return null;
+        LinkedList<Loan> result = new LinkedList<>();
+        if (isbn == null) {
+            return result;
+        }
+        
+        for (Loan loan : registry) {
+            if (loan.getBorrowedBook() != null && 
+                loan.getBorrowedBook().getIsbn() != null &&
+                loan.getBorrowedBook().getIsbn().equals(isbn)) {
+                result.add(loan);
+            }
+        }
+        return result;
     }
 
     /**
      * @brief Cerca prestiti per data.
      * @param[in] date Data da cercare.
-     * @return Lista di prestiti della data specificata (vuota se nessun prestito corrisponde al criterio di ricerca).
+     * @return Lista di prestiti della data specificata.
+     * Restituisce lista vuota se nessun prestito corrisponde al criterio di ricerca o se la data inserita non è valida.
      */
     public LinkedList<Loan> searchByDate(String date) {
-        return null;
+        LinkedList<Loan> result = new LinkedList<>();
+        if (date == null) {
+            return result;
+        }
+        
+        try {
+            // Converte la stringa della data in un oggetto LocalDate utilizzando il formato ISO
+            LocalDate searchDate = LocalDate.parse(date, DateTimeFormatter.ISO_LOCAL_DATE);
+
+            for (Loan loan : registry) {
+                if (loan.getStartDate() != null && 
+                    loan.getStartDate().equals(searchDate)) {
+                    result.add(loan);
+                }
+            }
+        } catch (DateTimeParseException e) {
+            // Se la data non è valida, restituisce lista vuota
+            return result;
+        }
+        return result;
     }
 
     /**
@@ -104,7 +164,17 @@ public class LoanRegistry {
      * @return Rappresentazione testuale del registro.
      */
     public String toString() {
-        return null;
+        if (registry.isEmpty()) {
+            return "Registro prestiti è vuoto.";
+        }
+        
+        StringBuilder sb = new StringBuilder();
+        sb.append(" * === Stampa Registro Prestiti === * \n");
+
+        for (Loan loan : registry) {
+            sb.append(loan.toString()).append("\n");
+        }
+        return sb.toString();
     }
 
     /**
@@ -112,8 +182,20 @@ public class LoanRegistry {
      * @param[in] fileName Nome del file da scrivere.
      * @post
      * Il registro viene salvato sul file specificato.
+     * Termina senza effettuare operazioni se la stringa non è passata correttamente.
+     * Termina stampando messaggio di errore se l'esportazione non è riuscita.
      */
     public void exportOnFile(String fileName) {
+        if (fileName == null || fileName.isEmpty()) {
+            return;
+        }
+        
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
+            oos.writeObject(registry);
+        } catch (IOException e) {
+            // In caso di errore, il metodo termina senza sollevare eccezioni
+            System.err.println("ERR. Esportazione Non Riuscita: " + e.getMessage());
+        }
     }
     
     /**
@@ -122,6 +204,20 @@ public class LoanRegistry {
      * @return Registro importato o null se il file non è valido.
      */
     public static LoanRegistry importFromFile(String fileName) {
-        return null;
+        if (fileName == null || fileName.isEmpty()) {
+            return null;
+        }
+        
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
+            // Notazione per sopprimere l'avviso del compilatore per il cast non controllato dell'oggetto da Object Input Stream a Set<Loan>
+            @SuppressWarnings("unchecked")
+            
+            Set<Loan> loadedRegistry = (Set<Loan>) ois.readObject();
+            LoanRegistry registry = new LoanRegistry();
+            registry.registry = loadedRegistry;
+            return registry;
+        } catch (IOException | ClassNotFoundException e) {
+            return null;
+        }
     }
 }
