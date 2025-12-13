@@ -26,7 +26,7 @@ public class Giveback extends Transaction {
      * @post
      * Il prestito corrispondente viene aggiunto alla lista delle restituzioni.
      */
-    public GiveBack(Book borrowedBook, User borrowerUser, LocalDate startDate, LocalDate endDate) {
+    public Giveback(Book borrowedBook, User borrowerUser, LocalDate startDate, LocalDate endDate) {
     }
 
     
