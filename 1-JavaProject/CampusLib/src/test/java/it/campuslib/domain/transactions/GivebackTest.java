@@ -10,14 +10,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.time.LocalDate;
-import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
 
-
 public class GivebackTest {
-    
 
     private Book borrowedBook;
     private User borrowerUser;
@@ -27,14 +23,14 @@ public class GivebackTest {
     public GivebackTest() {
     }
 
-     @BeforeEach
+    @BeforeEach
     public void setUp() {
         authors = new ArrayList<>();
         authors.add(new Author("Claudio", "De Sio Cesari"));
-        Book borrowedBook = new Book("978-88-360-1812-3", "Programmazione Java", authors, 2025, 1 );
-        User borrowerUser = new User("Giovanni", "Rossi", "0612709852", "g.rossi36@studenti.unisa.it");
-        LocalDate startDate = LocalDate.of(2025, 12, 1); 
-         
+        borrowedBook = new Book("9788836018123", "Programmazione Java", authors, 2025, 1);
+        borrowerUser = new User("Giovanni", "Rossi", "0612709852", "g.rossi36@studenti.unisa.it");
+        startDate = LocalDate.of(2025, 12, 1);
+
     }
 
     @Test
@@ -42,7 +38,7 @@ public class GivebackTest {
     }
 
     @Test
-    public void testConstructor(){
+    public void testConstructor() {
         Giveback giveback = new Giveback(borrowedBook, borrowerUser, startDate, LocalDate.now());
         assertNotNull(giveback);
         assertEquals(borrowedBook, giveback.getBorrowedBook());
@@ -51,6 +47,17 @@ public class GivebackTest {
         assertEquals(LocalDate.now(), giveback.getEndDate());
     }
 
-   
-    
+    @Test
+    public void testConstructorWithId() {
+        int testId = 42;
+        LocalDate endDate = LocalDate.of(2025, 12, 15);
+        Giveback giveback = new Giveback(testId, borrowedBook, borrowerUser, startDate, endDate);
+        assertNotNull(giveback);
+        assertEquals(testId, giveback.getId());
+        assertEquals(borrowedBook, giveback.getBorrowedBook());
+        assertEquals(borrowerUser, giveback.getBorrowerUser());
+        assertEquals(startDate, giveback.getStartDate());
+        assertEquals(endDate, giveback.getEndDate());
+    }
+
 }
