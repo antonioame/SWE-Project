@@ -11,9 +11,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -23,20 +20,24 @@ import javafx.scene.control.TextField;
  *
  * @author ecoll
  */
-public class FXMLController implements Initializable {
+public class GivebackViewController implements Initializable {
 
     @FXML
-    private Tab tabUsers;
+    private TextField returnDateField;
     @FXML
-    private Tab tabBooks;
+    private Button btnAddGb;
     @FXML
-    private Label lastSaveLabel;
+    private TableView<?> tableGiveback;
     @FXML
-    private Button btnExit;
+    private TableColumn<?, ?> clmIdGb;
     @FXML
-    private TabPane tabLoans;
+    private TableColumn<?, ?> clmBookGb;
     @FXML
-    private Tab tabGiveback;
+    private TableColumn<?, ?> clmUserGb;
+    @FXML
+    private TableColumn<?, ?> clmStartGb;
+    @FXML
+    private TableColumn<?, ?> clmReturnGb;
 
     /**
      * Initializes the controller class.
@@ -44,12 +45,10 @@ public class FXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
     }    
 
     @FXML
-    private void exitApp(ActionEvent event) {
+    private void addGiveBack(ActionEvent event) {
     }
-
     
 }

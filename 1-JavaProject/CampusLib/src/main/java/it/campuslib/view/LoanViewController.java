@@ -11,9 +11,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -23,20 +20,26 @@ import javafx.scene.control.TextField;
  *
  * @author ecoll
  */
-public class FXMLController implements Initializable {
+public class LoanViewController implements Initializable {
 
     @FXML
-    private Tab tabUsers;
+    private TextField startLoanField;
     @FXML
-    private Tab tabBooks;
+    private TextField returnLoanField;
     @FXML
-    private Label lastSaveLabel;
+    private Button btnAddLoan;
     @FXML
-    private Button btnExit;
+    private TableView<?> tableLoan;
     @FXML
-    private TabPane tabLoans;
+    private TableColumn<?, ?> clmIdLoan;
     @FXML
-    private Tab tabGiveback;
+    private TableColumn<?, ?> clmBookLoan;
+    @FXML
+    private TableColumn<?, ?> clmUserLoan;
+    @FXML
+    private TableColumn<?, ?> clmStartLoan;
+    @FXML
+    private TableColumn<?, ?> clmReturnLoan;
 
     /**
      * Initializes the controller class.
@@ -44,12 +47,14 @@ public class FXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
     }    
 
     @FXML
-    private void exitApp(ActionEvent event) {
+    private void addLoan(ActionEvent event) {
     }
 
+    @FXML
+    private void updateExptGbLoan(TableColumn.CellEditEvent<S, T> event) {
+    }
     
 }
