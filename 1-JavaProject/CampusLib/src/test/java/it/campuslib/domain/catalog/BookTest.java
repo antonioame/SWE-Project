@@ -1,5 +1,10 @@
 package it.campuslib.domain.catalog;
 
+import it.campuslib.collections.LoanRegistry;
+import it.campuslib.domain.transactions.Loan;
+import it.campuslib.domain.users.User;
+import java.time.LocalDate;
+
 import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -19,6 +24,10 @@ public class BookTest {
     private Book defaultBook3;
     private Book CloneB2;
     
+    //per testare la checkAvailability()
+    private LoanRegistry testRegistry;
+    private User testUser;
+    
     @BeforeEach
     public void setUp() {
        
@@ -30,6 +39,9 @@ public class BookTest {
         defaultBook1 = new Book("9781234567890", "L'Odissea", defaultAuthors, 2025, 7);
         CloneB1 = new Book("9781234567890", "L'Odissea", defaultAuthors, 2025, 7);
         
+        //checkAvailability
+        testRegistry = new LoanRegistry();
+        testUser = new User("Mario", "Rossi", "1112701345", "mario.rossi@studenti.unisa.it");
     }
 
     @Test
@@ -67,9 +79,26 @@ public class BookTest {
     }
 
     @Test
-    public void testCheckAvailability() {
+    public void testCheckAvailability_Available() {
+        //7 copie e 0 prestiti
+        assertTrue(defaultBook1.checkAvailability(testRegistry));
+        
+        //aggiungiamo 4 prestiti
+        testRegistry.addLoan(new Loan( defaultBook1, testUser, LocalDate.now(), LocalDate.now().plusMonths(1)));
+        testRegistry.addLoan(new Loan( defaultBook1, testUser, LocalDate.now(), LocalDate.now().plusMonths(2)));
+        testRegistry.addLoan(new Loan( defaultBook1, testUser, LocalDate.now(), LocalDate.now().plusMonths(3)));
+        testRegistry.addLoan(new Loan( defaultBook1, testUser, LocalDate.now(), LocalDate.now().plusMonths(4)));
 
-    }
+        assertTrue(defaultBook1.checkAvailability(testRegistry));
+        
+        //aggiungiamo altri 4 prestiti
+        testRegistry.addLoan(new Loan( defaultBook1, testUser, LocalDate.now(), LocalDate.now().plusMonths(5)));
+        testRegistry.addLoan(new Loan( defaultBook1, testUser, LocalDate.now(), LocalDate.now().plusMonths(6)));
+        testRegistry.addLoan(new Loan( defaultBook1, testUser, LocalDate.now(), LocalDate.now().plusMonths(7)));
+        testRegistry.addLoan(new Loan( defaultBook1, testUser, LocalDate.now(), LocalDate.now().plusMonths(8)));
+
+        assertFalse(defaultBook1.checkAvailability(testRegistry));
+        }
     
     
     @Test
@@ -96,8 +125,7 @@ public class BookTest {
     public void testSetCopies() {
         int newCopies = 36;
         defaultBook1.setCopies(newCopies);
-        assertEquals(newCopies, defaultBook1.getCopies());
-   
+        assertEquals(newCopies, defaultBook1.getCopies());   
     }
 
     @Test
@@ -109,7 +137,7 @@ public class BookTest {
 
     @Test
     public void testToString() {
-        String expectedAuthorString = "Nome: Omero Cognome: Poeta";
+        String expectedAuthorString = "[Nome: Omero Cognome: Poeta]";
         String expected = new StringBuilder()
             .append("\n")
             .append("Isbn: 9781234567890")
@@ -145,5 +173,4 @@ public class BookTest {
     public void testHashCode() {
         assertEquals(defaultBook1.hashCode(), CloneB1.hashCode());
     }
-    
 }

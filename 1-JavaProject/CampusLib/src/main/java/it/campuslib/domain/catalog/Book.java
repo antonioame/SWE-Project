@@ -1,7 +1,13 @@
 package it.campuslib.domain.catalog;
 
+import it.campuslib.collections.LoanRegistry;
+import it.campuslib.domain.transactions.Loan;
+
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Set;
+import java.util.TreeSet;
 
 
 /**
@@ -31,12 +37,7 @@ public class Book implements Comparable<Book>, Serializable {
         /*if(!checkIsbn(isbn)){
             throw new IllegalArgumentException("Isbn non valido: " + isbn);
         }*/
-        //gestire in loco anche il controllo formato sull'anno di pubblicazione o creare un metodo a parte? 
-        //Considerando il secondo caso:
-        /*if(!checkPublYear(publishingYear)){
-            throw new IllegalArgumentException("Anno di pubblicazione non valido: " + publishingYear);
-        }*/
-        
+   
         this.isbn = isbn;
         this.title = title;
         if(authors == null){
@@ -48,7 +49,6 @@ public class Book implements Comparable<Book>, Serializable {
         this.copies = copies;
         this.status = AdoptionStatus.ADOPTED;
         
-      
     }
     
     // Metodi Getter
@@ -77,8 +77,6 @@ public class Book implements Comparable<Book>, Serializable {
     public ArrayList<Author> getAuthors() {
     
         return authors; 
-        //oppure, per prevenire modifiche esterne:
-        // return new ArrayList<>(authors);
     }
     
     /**
@@ -115,11 +113,13 @@ public class Book implements Comparable<Book>, Serializable {
      * @return true se il libro è disponibile, false altrimenti.
      * @see getAssociatedLoans()
      */
-    public boolean checkAvailability() {
+    public boolean checkAvailability(LoanRegistry registry) {
     
-        //private LinkedList<Loan> getAssociatedLoans();??
-
-        return false;
+        LinkedList<Loan> l = new LinkedList<>();
+        l = registry.searchByBook(isbn);
+        
+        return (this.copies > l.size());
+        
     }
     
     
@@ -188,18 +188,13 @@ public class Book implements Comparable<Book>, Serializable {
                     return false;
                 }
             }
-        return true;
-        }
-    } 
-    /*
-    private boolean checkPublYear(int publishingYear){
-        if(publishingYear < 1000 || publishingYear > 2025){  //Nota, sto vincolando il software ad un aggiornamento annuale del codice..come risolvo? Tolgo il maggiore?
-            return false;
-        }else{
+        if(isbn.startsWith("978") || isbn.startsWith("979")){
             return true;
         }
-    }
-    */
+        return false;
+        }
+    } 
+
     /**
      * @brief Restituisce una rappresentazione testuale dell'oggetto Book.
      * @return Una stringa contenente le informazioni relative al libro.

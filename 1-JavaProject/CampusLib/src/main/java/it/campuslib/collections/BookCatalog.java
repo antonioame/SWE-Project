@@ -2,13 +2,22 @@ package it.campuslib.collections;
 
 import it.campuslib.domain.catalog.Author;
 import it.campuslib.domain.catalog.Book;
+import it.campuslib.domain.catalog.AdoptionStatus;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.stream.Collectors;
 
 /**
  * @brief Il catalogo dei libri della biblioteca.
  */
-public class BookCatalog {
+public class BookCatalog implements Serializable{
     private HashMap<String, Book> catalog;
 
     /**
@@ -17,6 +26,7 @@ public class BookCatalog {
      * Il catalogo libri è vuoto.
      */
     public BookCatalog() {
+        this.catalog = new HashMap<>();
     }
 
     /**
@@ -27,7 +37,14 @@ public class BookCatalog {
      * Il libro è aggiunto se rispetta il formato per ISBN, altrimenti restituisce false.
      */
     public boolean addBook(Book book) {
-        return false;
+        if(book==null || book.getIsbn() == null){
+            return false;
+        }
+        
+        String isbn = book.getIsbn();
+        
+        catalog.put(isbn, book);
+        return true;
     }
 
     /**
@@ -38,7 +55,21 @@ public class BookCatalog {
      * Il libro viene rimosso se presente nel catalogo, altrimenti restituisce false.
      */
     public boolean removeBook(String isbn) {
-        return false;
+        if(isbn == null){
+            return false;
+        }
+        
+        Book bookToRemove = catalog.get(isbn);
+        
+        /*Precondizione da aggiungere: Libro registrato
+        if(bookToRemove == null){  //libro non trovato
+            return false;
+        }
+        */
+        
+        //Aggiornamento stato libro
+        bookToRemove.setStatus(AdoptionStatus.NOT_ADOPTED);
+        return true;
     }
 
     /**
@@ -47,7 +78,16 @@ public class BookCatalog {
      * @return Lista di libri trovati (vuota se nessun libro corrisponde al criterio di ricerca).
      */
     public LinkedList<Book> searchByTitle(String title) {
-        return null;
+        //Se il titolo è vuoto o contiene solo spazi restituisce una lista vuota
+        if(title == null || title.trim().isEmpty()){        
+            return new LinkedList<>();
+        }
+        
+        final String searchTitle = title.trim().replaceAll("\\s+", " ").toLowerCase();  
+        
+        return catalog.values().stream()             
+                .filter(book -> book.getTitle().toLowerCase().contains(searchTitle))  
+                .collect(Collectors.toCollection(LinkedList::new));
     }
 
     /**
@@ -56,7 +96,13 @@ public class BookCatalog {
      * @return Lista di libri trovati (vuota se nessun libro corrisponde al criterio di ricerca).
      */
     public LinkedList<Book> searchByAuthor(Author author) {
-        return null;
+        if(author == null){
+            return new LinkedList<>();
+        }
+        
+        return catalog.values().stream()
+                .filter(book -> book.getAuthors().contains(author))
+                .collect(Collectors.toCollection(LinkedList::new));
     }
 
     /**
@@ -65,7 +111,10 @@ public class BookCatalog {
      * @return Libro trovato o null se non presente.
      */
     public Book searchByIsbn(String isbn) {
-        return null;
+        if(isbn ==null){
+            return null;
+        }
+        return catalog.get(isbn);
     }
 
     /**
@@ -76,7 +125,27 @@ public class BookCatalog {
      * @return Lista di libri che corrispondono alla query (vuota se nessun libro corrisponde al criterio di ricerca).
      */
     public LinkedList<Book> search(String query) {
-        return null;
+        if (query == null || query.trim().isEmpty()) {
+            return new LinkedList<>();
+        }
+
+        final String searchQuery = query.toLowerCase();
+        
+        return catalog.values().stream()
+                .filter(book -> {
+                    // Criterio 1: Titolo
+                    if (book.getTitle().toLowerCase().contains(searchQuery)) return true;
+
+                    // Criterio 2: ISBN (lo confrontiamo come stringa)
+                    if (book.getIsbn().contains(searchQuery)) return true;
+
+                    // Criterio 3: Anno di pubblicazione
+                    if (String.valueOf(book.getPublishingYear()).contains(searchQuery)) return true;
+
+                    // Criterio 4: Autori
+                    return book.getAuthors().stream()
+                            .anyMatch(author -> author.toString().toLowerCase().contains(searchQuery));
+                }).collect(Collectors.toCollection(LinkedList::new));
     }
 
     /**
@@ -84,7 +153,18 @@ public class BookCatalog {
      * @return Rappresentazione testuale del catalogo.
      */
     public String toString() {
-        return null;
+        if(catalog.isEmpty()){
+            return "Il catalogo è attualmente vuoto.\n";
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n Catalogo Libri (Totale: ").append(catalog.size()).append(" libri distinti) \n");
+        
+        for (Book book : catalog.values()){
+            sb.append(book.toString());
+        }
+        sb.append("\n");
+        
+        return sb.toString();
     }
 
     /**
@@ -92,16 +172,47 @@ public class BookCatalog {
      * @param[in] fileName Nome del file da scrivere.
      * @post
      * Il catalogo viene salvato sul file specificato.
+     * In caso di errore, il metodo termina senza sollevare eccezioni.
      */
     public void exportOnFile(String fileName) {
+        if(fileName == null || fileName.isEmpty()){
+            // System.err.println("Errore: Il nome del file non può essere vuoto.");
+            return;
+        }
+        
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
+            oos.writeObject(catalog);
+            // System.out.println("Catalogo esportato con successo in " + fileName);
+        } catch (IOException e) {
+            // In caso di errore, il metodo termina senza sollevare eccezioni
+            System.err.println("ERR. Esportazione Non Riuscita: " + e.getMessage());
+        }
     }
 
     /**
      * @brief Importa un catalogo da file.
      * @param[in] fileName Nome del file da cui importare.
-     * @return Catalogo importato o null se il file non è valido.
+     * @return Il catalogo importato se il file è valido, null altrimenti.
      */
     public static BookCatalog importFromFile(String fileName) {
-        return null;
+        if (fileName == null || fileName.isEmpty()) {
+            return null;
+        }
+        
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
+            // Notazione per sopprimere l'avviso del compilatore per il cast non controllato dell'oggetto da Object Input Stream a Set<Loan>
+            @SuppressWarnings("unchecked")
+            
+            HashMap<String, Book> loadedCatalog = (HashMap<String, Book>) ois.readObject();
+            BookCatalog newCatalog = new BookCatalog();
+            newCatalog.catalog = loadedCatalog;
+            return newCatalog;
+        } catch (IOException | ClassNotFoundException e) {
+            return null;
+        }
+    }
+    
+    public int getCatalogSize() {
+        return this.catalog.size();
     }
 }
