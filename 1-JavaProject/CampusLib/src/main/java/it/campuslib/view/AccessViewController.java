@@ -7,7 +7,9 @@ package it.campuslib.view;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 
 /**
  * FXML Controller class
@@ -15,6 +17,15 @@ import javafx.fxml.Initializable;
  * @author ecoll
  */
 public class AccessViewController implements Initializable {
+
+    @FXML
+    private Button btnLoanList;
+    @FXML
+    private Button btnGbList;
+    @FXML
+    private Button btnUserList;
+    @FXML
+    private Button btnBookCat;
 
     /**
      * Initializes the controller class.

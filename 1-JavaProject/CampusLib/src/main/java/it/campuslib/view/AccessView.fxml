@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -10,7 +11,7 @@
    <children>
       <BorderPane layoutX="153.0" layoutY="154.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <bottom>
-            <HBox alignment="CENTER" prefHeight="242.0" prefWidth="1000.0" spacing="50.0" BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER" prefHeight="234.0" prefWidth="1000.0" spacing="50.0" BorderPane.alignment="CENTER">
                <children>
                   <Button fx:id="btnLoanList" maxWidth="300.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="130.0" text="Lista Prestiti" />
                   <Button fx:id="btnGbList" maxWidth="300.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="130.0" text="Lista Restituzioni" />
@@ -20,7 +21,10 @@
             </HBox>
          </bottom>
          <center>
-            <ImageView fitHeight="406.0" fitWidth="437.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+            <ImageView fitHeight="461.0" fitWidth="486.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../../../../resources/Documento_SRS.jpg" />
+               </image></ImageView>
          </center>
       </BorderPane>
    </children>
