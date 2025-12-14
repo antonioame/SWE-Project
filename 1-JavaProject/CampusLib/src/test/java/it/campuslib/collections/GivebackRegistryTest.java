@@ -2,14 +2,12 @@ package it.campuslib.collections;
 
 import java.io.File;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import it.campuslib.domain.catalog.Author;
 import it.campuslib.domain.catalog.Book;
 import it.campuslib.domain.catalog.InvalidBookInfoException;
 import it.campuslib.domain.transactions.Giveback;
@@ -33,17 +31,8 @@ public class GivebackRegistryTest {
         
         registry = new GivebackRegistry();
         
-        Author author1 = new Author("Antonio", "Rossi");
-        ArrayList<Author> authors1 = new ArrayList<>();
-        authors1.add(author1);
-
-        Author author2 = new Author("Gianmarco", "Verdi");
-        ArrayList<Author> authors2 = new ArrayList<>();
-        authors2.add(author1);
-        authors2.add(author2);
-
-        book1 = new Book("9780123456789", "Object Oriented Programming", authors1, 2020, 3);
-        book2 = new Book("9780987654321", "Data Structures and Algorithms", authors2, 2022, 2);
+        book1 = new Book("9780123456789", "Object Oriented Programming", "Antonio Rossi", 2020, 3);
+        book2 = new Book("9780987654321", "Data Structures and Algorithms", "Antonio Rossi, Gianmarco Verdi", 2022, 2);
 
         student = new User("Luca", "Martini", "0612710777", "luca.martini@studenti.unisa.it");
         user = new User("Maria", "Ferrari", "0000054321", "mferrari@unisa.it");

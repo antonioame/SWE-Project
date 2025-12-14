@@ -6,7 +6,6 @@
 package it.campuslib.view;
 
 import it.campuslib.collections.GivebackRegistry;
-import it.campuslib.domain.catalog.Author;
 import it.campuslib.domain.catalog.Book;
 import it.campuslib.domain.transactions.Giveback;
 import it.campuslib.domain.users.User;

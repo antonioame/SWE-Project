@@ -4,8 +4,7 @@ import java.io.Serializable;
 
 /**
  * @brief Rappresenta una Persona.
- * Superclasse per Author e User
- * @see Author
+ * Superclasse per User
  * @see User
  */
 public abstract class Person implements Serializable {

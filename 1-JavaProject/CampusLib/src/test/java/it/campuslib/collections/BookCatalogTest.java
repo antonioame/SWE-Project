@@ -1,7 +1,6 @@
 package it.campuslib.collections;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 import org.junit.jupiter.api.AfterEach;
@@ -9,14 +8,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import it.campuslib.domain.catalog.Author;
 import it.campuslib.domain.catalog.Book;
 import it.campuslib.domain.catalog.InvalidBookInfoException;
 
 public class BookCatalogTest {
     private BookCatalog catalog;
     private Book book1, book2;
-    private Author author1;
     
     //File temporaneo per i test di serializzazione
     private static final String TEST_FILENAME = "testCatalog.ser";
@@ -27,13 +24,9 @@ public class BookCatalogTest {
     @BeforeEach
     void setUp() throws InvalidBookInfoException {
         catalog = new BookCatalog();
-        author1 = new Author("Italo", "Calvino");
-        ArrayList<Author> authors1 = new ArrayList<>();
-        authors1.add(author1);
         
-        // Supponiamo che il costruttore Book sia: (isbn, title, authors, publishingYear, copies)
-        book1 = new Book("9788804368581", "Il Sentiero Dei Nidi Di Ragno", authors1, 1947, 5);
-        book2 = new Book("9788804685715", "Marcovaldo", authors1, 1963, 10);
+        book1 = new Book("9788804368581", "Il Sentiero Dei Nidi Di Ragno", "Italo Calvino", 1947, 5);
+        book2 = new Book("9788804685715", "Marcovaldo", "Italo Calvino", 1963, 10);
         
         // Aggiungo i libri al catalogo iniziale
         catalog.addBook(book1);
@@ -51,7 +44,7 @@ public class BookCatalogTest {
     
     @Test
     void testAddBook_Success() throws InvalidBookInfoException {
-        Book newBook = new Book("9788804603610", "Se Una Notte d'Inverno Un Viaggiatore", new ArrayList<>(), 1979, 3);
+        Book newBook = new Book("9788804603610", "Se Una Notte d'Inverno Un Viaggiatore", "", 1979, 3);
         assertEquals(2, catalog.getCatalogSize()); 
         
         assertTrue(catalog.addBook(newBook));
@@ -103,16 +96,15 @@ public class BookCatalogTest {
 
     @Test
     void testSearchByAuthor_Success() {
-        // author1 è autore di book1 e book2
-        LinkedList<Book> results = catalog.searchByAuthor(author1);
+        // "Italo Calvino" è autore di book1 e book2
+        LinkedList<Book> results = catalog.searchByAuthor("Italo Calvino");
         assertEquals(2, results.size());
         assertTrue(results.contains(book1) && results.contains(book2));
     }
     
     @Test
     void testSearchByAuthor_NoResult() {
-        Author authorUnknown = new Author("Ciccio", "Graziani");
-        LinkedList<Book> results = catalog.searchByAuthor(authorUnknown);
+        LinkedList<Book> results = catalog.searchByAuthor("Ciccio Graziani");
         assertTrue(results.isEmpty());
     }
 
@@ -202,7 +194,7 @@ public class BookCatalogTest {
         assertEquals(2, catalog.getCatalogSize());
         
         // Aggiunge un libro e verifica l'incremento
-        Book newBook = new Book("9780000000000", "Nuovo", new ArrayList<>(), 2024, 1);
+        Book newBook = new Book("9780000000000", "Nuovo", "", 2024, 1);
         catalog.addBook(newBook);
         assertEquals(3, catalog.getCatalogSize());
     }

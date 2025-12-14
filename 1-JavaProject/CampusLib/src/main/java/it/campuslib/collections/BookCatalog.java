@@ -11,7 +11,6 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.stream.Collectors;
 
-import it.campuslib.domain.catalog.Author;
 import it.campuslib.domain.catalog.Book;
 import it.campuslib.domain.catalog.AdoptionStatus;
 
@@ -89,16 +88,16 @@ public class BookCatalog implements Serializable{
 
     /**
      * @brief Cerca libri nel catalogo per autore.
-     * @param[in] author Autore del libro da cercare.
+     * @param[in] authorName Nome dell'autore del libro da cercare.
      * @return Lista di libri trovati (vuota se nessun libro corrisponde al criterio di ricerca).
      */
-    public LinkedList<Book> searchByAuthor(Author author) {
-        if (author == null) {
+    public LinkedList<Book> searchByAuthor(String authorName) {
+        if (authorName == null || authorName.trim().isEmpty()) {
             return new LinkedList<>();
         }
         
         return catalog.values().stream()
-                .filter(book -> book.getAuthors().contains(author))
+                .filter(book -> book.getAuthors().contains(authorName))
                 .collect(Collectors.toCollection(LinkedList::new));
     }
 
@@ -140,8 +139,7 @@ public class BookCatalog implements Serializable{
                     if (String.valueOf(book.getPublishingYear()).contains(searchQuery)) return true;
 
                     // Criterio 4: Autori
-                    return book.getAuthors().stream()
-                            .anyMatch(author -> author.toString().toLowerCase().contains(searchQuery));
+                    return book.getAuthors().toLowerCase().contains(searchQuery);
                 }).collect(Collectors.toCollection(LinkedList::new));
     }
 

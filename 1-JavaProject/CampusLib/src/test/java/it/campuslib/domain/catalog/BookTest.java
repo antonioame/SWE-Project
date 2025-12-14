@@ -1,7 +1,6 @@
 package it.campuslib.domain.catalog;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,15 +12,8 @@ import it.campuslib.domain.transactions.Loan;
 import it.campuslib.domain.users.InvalidUserInfoException;
 import it.campuslib.domain.users.User;
 
-/**
- *
- * @author Seren
- */
 public class BookTest {
-    private Author author1;
-    private Author author2;
     private Book defaultBook1;
-    private ArrayList<Author> defaultAuthors;
     private Book CloneB1;
     private Book defaultBook2;
     private Book defaultBook3;
@@ -30,17 +22,14 @@ public class BookTest {
     //per testare la checkAvailability()
     private LoanRegistry testRegistry;
     private User testUser;
+    private String defaultAuthors = "Test Author";
     
     @BeforeEach
     public void setUp() throws InvalidBookInfoException, InvalidUserInfoException {
        
-        author1 = new Author("Poeta", "Omero");
-        author2 = new Author("Daniel", "Defoe");
-                
-        defaultAuthors = new ArrayList<>();
-        defaultAuthors.add(author1);
-        defaultBook1 = new Book("9781234567890", "L'Odissea", defaultAuthors, 2025, 7);
-        CloneB1 = new Book("9781234567890", "L'Odissea", defaultAuthors, 2025, 7);
+        String authors = "Omero Poeta";
+        defaultBook1 = new Book("9781234567890", "L'Odissea", authors, 2025, 7);
+        CloneB1 = new Book("9781234567890", "L'Odissea", authors, 2025, 7);
         
         //checkAvailability
         testRegistry = new LoanRegistry();
@@ -59,9 +48,9 @@ public class BookTest {
 
     @Test
     public void testGetAuthors() {
-        ArrayList<Author> authors = defaultBook1.getAuthors();
-        assertFalse(authors.isEmpty());           // La lista autori non dovrebbe essere vuota
-        assertTrue(authors.contains(author1));    //  La lista autori deve contenere l'author1. [Se la get fallisce,controllare prima che la testAdd abbia avuto successo]
+        String authors = defaultBook1.getAuthors();
+        assertNotNull(authors);
+        assertEquals("Omero Poeta", authors);
     }
 
     @Test
@@ -133,14 +122,14 @@ public class BookTest {
 
     @Test
     public void testAddAuthor() {
-        assertTrue(defaultBook1.addAuthor(author2));
-        assertTrue(defaultBook1.getAuthors().contains(author2));
-        assertEquals(2, defaultBook1.getAuthors().size());
+        assertTrue(defaultBook1.addAuthor("Daniel Defoe"));
+        assertTrue(defaultBook1.getAuthors().contains("Daniel Defoe"));
+        assertEquals("Omero Poeta, Daniel Defoe", defaultBook1.getAuthors());
     }
 
     @Test
     public void testToString() {
-        String expectedAuthorString = "[Nome: Omero Cognome: Poeta]";
+        String expectedAuthorString = "Omero Poeta";
         String expected = new StringBuilder()
             .append("\n")
             .append("Isbn: 9781234567890")
@@ -156,17 +145,17 @@ public class BookTest {
 
     @Test
     public void testEquals() throws InvalidBookInfoException {
-        CloneB1.addAuthor(author2); 
+        CloneB1.addAuthor("Daniel Defoe"); 
         assertTrue(defaultBook1.equals(CloneB1));
-        defaultBook2 = new Book("9781234597890", "Robinson Crusoe", defaultAuthors, 1719, 5);
+        defaultBook2 = new Book("9781234597890", "Robinson Crusoe", "Daniel Defoe", 1719, 5);
         assertFalse(defaultBook1.equals(defaultBook2));
     }
 
     @Test
     public void testCompareTo() throws InvalidBookInfoException {
-        defaultBook2 = new Book("9781134497890", "Robinson Crusoe", defaultAuthors, 1719, 5);
-        CloneB2 = new Book("9781134497890", "Robinson Crusoe", defaultAuthors, 1719, 5);
-        defaultBook3 = new Book("9789234569890", "Robinson Crusoe", defaultAuthors, 1719, 5);
+        defaultBook2 = new Book("9781134497890", "Robinson Crusoe", "Daniel Defoe", 1719, 5);
+        CloneB2 = new Book("9781134497890", "Robinson Crusoe", "Daniel Defoe", 1719, 5);
+        defaultBook3 = new Book("9789234569890", "Robinson Crusoe", "Daniel Defoe", 1719, 5);
         assertTrue(defaultBook1.compareTo(defaultBook2) > 0);
         assertTrue(defaultBook1.compareTo(defaultBook3) < 0);
         assertTrue(defaultBook2.compareTo(CloneB2) == 0);

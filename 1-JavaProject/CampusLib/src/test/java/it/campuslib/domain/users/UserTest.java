@@ -14,7 +14,11 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.LinkedList;
- 
+
+// FIXME: La classe non passa correttamente i test, già da prima del commit di refactoring per l'eliminazione della Classe Author
+// Sono state effettuate le necessarie modifiche relative a Author, perché la classe è stata eliminata
+// Questa classe non ha dirette dipendenze da Author ma sono state corrette le nuove istanze per Book, presenti sotto
+
 /**
  *
  * @author luca
@@ -285,23 +289,10 @@ public class UserTest {
         Loan loan1, loan2, loan3, loan4, loan5, loan6;
         Book book1, book2, book3;
         LoanRegistry registry = new LoanRegistry();
-        Author author1, author2, author3;
         
-        author1 = new Author("Focault", "Michel");
-        author2 = new Author("Steinbeck", "John");
-        author3 = new Author("Camilleri", "Andrea");
-        
-        ArrayList<Author> a1 = new ArrayList<>();
-        ArrayList<Author> a2 = new ArrayList<>();
-        ArrayList<Author> a3 = new ArrayList<>();
-        
-        a1.add(author1);
-        a2.add(author2);
-        a3.add(author3);
-        
-        book1 = new Book("9784567890123", "Sorvegliare e punire", a1, 1976, 2);
-        book2 = new Book("9783131313131", "Furore", a2, 1939, 5);
-        book3 = new Book("9780202020202", "Il cane di terracotta", a3, 1996, 1);
+        book1 = new Book("9784567890123", "Sorvegliare e punire", "Michel Focault", 1976, 2);
+        book2 = new Book("9783131313131", "Furore", "John Steinbeck", 1939, 5);
+        book3 = new Book("9780202020202", "Il cane di terracotta", "Andrea Camilleri", 1996, 1);
         
         loan1 = new Loan(book1, utente1, LocalDate.now(), LocalDate.of(2026, 3, 12));
         loan2 = new Loan(book2, utente2, LocalDate.of(2025, 5, 18), LocalDate.now());
@@ -347,26 +338,13 @@ public class UserTest {
      @Timeout(value = 15, unit = TimeUnit.SECONDS)
      public void testCanBorrow() throws InvalidLoanInfoException, InvalidBookInfoException {
      
-         Loan loan1, loan2, loan3, loan4, loan5, loan6;
+        Loan loan1, loan2, loan3, loan4, loan5, loan6;
         Book book1, book2, book3;
         LoanRegistry registry = new LoanRegistry();
-        Author author1, author2, author3;
         
-        author1 = new Author("Focault", "Michel");
-        author2 = new Author("Steinbeck", "John");
-        author3 = new Author("Camilleri", "Andrea");
-        
-        ArrayList<Author> a1 = new ArrayList<>();
-        ArrayList<Author> a2 = new ArrayList<>();
-        ArrayList<Author> a3 = new ArrayList<>();
-        
-        a1.add(author1);
-        a2.add(author2);
-        a3.add(author3);
-        
-        book1 = new Book("9784567890123", "Sorvegliare e punire", a1, 1976, 2);
-        book2 = new Book("9783131313131", "Furore", a2, 1939, 5);
-        book3 = new Book("9780202020202", "Il cane di terracotta", a3, 1996, 1);
+        book1 = new Book("9784567890123", "Sorvegliare e punire", "Michel Focault", 1976, 2);
+        book2 = new Book("9783131313131", "Furore", "John Steinbeck", 1939, 5);
+        book3 = new Book("9780202020202", "Il cane di terracotta", "Andrea Camilleri", 1996, 1);
         
         loan1 = new Loan(book1, utente1, LocalDate.now(), LocalDate.of(2026, 3, 12));
         loan2 = new Loan(book2, utente2, LocalDate.of(2025, 5, 18), LocalDate.now());
@@ -396,23 +374,10 @@ public class UserTest {
         Loan loan1, loan2, loan3, loan4, loan5, loan6;
         Book book1, book2, book3;
         LoanRegistry registry = new LoanRegistry();
-        Author author1, author2, author3;
         
-        author1 = new Author("Focault", "Michel");
-        author2 = new Author("Steinbeck", "John");
-        author3 = new Author("Camilleri", "Andrea");
-        
-        ArrayList<Author> a1 = new ArrayList<>();
-        ArrayList<Author> a2 = new ArrayList<>();
-        ArrayList<Author> a3 = new ArrayList<>();
-        
-        a1.add(author1);
-        a2.add(author2);
-        a3.add(author3);
-        
-        book1 = new Book("9784567890123", "Sorvegliare e punire", a1, 1976, 2);
-        book2 = new Book("9783131313131", "Furore", a2, 1939, 5);
-        book3 = new Book("9780202020202", "Il cane di terracotta", a3, 1996, 1);
+        book1 = new Book("9784567890123", "Sorvegliare e punire", "Michel Focault", 1976, 2);
+        book2 = new Book("9783131313131", "Furore", "John Steinbeck", 1939, 5);
+        book3 = new Book("9780202020202", "Il cane di terracotta", "Andrea Camilleri", 1996, 1);
         
         loan1 = new Loan(book1, utente1, LocalDate.now(), LocalDate.of(2026, 3, 12));
         loan2 = new Loan(book2, utente2, LocalDate.of(2025, 5, 18), LocalDate.now());
@@ -445,23 +410,10 @@ public class UserTest {
         Loan loan1, loan2, loan3, loan4, loan5, loan6;
         Book book1, book2, book3;
         LoanRegistry registry = new LoanRegistry();
-        Author author1, author2, author3;
         
-        author1 = new Author("Focault", "Michel");
-        author2 = new Author("Steinbeck", "John");
-        author3 = new Author("Camilleri", "Andrea");
-        
-        ArrayList<Author> a1 = new ArrayList<>();
-        ArrayList<Author> a2 = new ArrayList<>();
-        ArrayList<Author> a3 = new ArrayList<>();
-        
-        a1.add(author1);
-        a2.add(author2);
-        a3.add(author3);
-        
-        book1 = new Book("9784567890123", "Sorvegliare e punire", a1, 1976, 2);
-        book2 = new Book("9783131313131", "Furore", a2, 1939, 5);
-        book3 = new Book("9780202020202", "Il cane di terracotta", a3, 1996, 1);
+        book1 = new Book("9784567890123", "Sorvegliare e punire", "Michel Focault", 1976, 2);
+        book2 = new Book("9783131313131", "Furore", "John Steinbeck", 1939, 5);
+        book3 = new Book("9780202020202", "Il cane di terracotta", "Andrea Camilleri", 1996, 1);
         
         loan1 = new Loan(book1, utente1, LocalDate.now(), LocalDate.of(2026, 3, 12));
         loan2 = new Loan(book2, utente2, LocalDate.of(2025, 5, 18), LocalDate.now());

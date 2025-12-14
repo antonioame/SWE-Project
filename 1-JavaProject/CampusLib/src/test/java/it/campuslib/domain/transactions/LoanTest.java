@@ -7,7 +7,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import it.campuslib.domain.catalog.Author;
 import it.campuslib.domain.catalog.Book;
 import it.campuslib.domain.catalog.InvalidBookInfoException;
 import it.campuslib.domain.users.User;
@@ -17,15 +16,12 @@ public class LoanTest {
     
     private Book borrowedBook;
     private User borrowerUser;
-    private ArrayList<Author> authors;
     public LoanTest() {
     }
 
     @BeforeEach
     public void setUp() throws InvalidUserInfoException, InvalidBookInfoException {
-        authors = new ArrayList<>();
-        authors.add(new Author("Claudio", "De Sio Cesari"));
-        borrowedBook = new Book("9788836018123", "Programmazione Java", authors, 2025, 1 );
+        borrowedBook = new Book("9788836018123", "Programmazione Java", "Claudio De Sio Cesari", 2025, 1 );
         borrowerUser = new User("Giovanni", "Rossi", "1612709852", "g.rossi36@studenti.unisa.it");
         
     }

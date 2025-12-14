@@ -1,7 +1,6 @@
 package it.campuslib.domain.catalog;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 import it.campuslib.collections.LoanRegistry;
@@ -13,7 +12,7 @@ import it.campuslib.domain.transactions.Loan;
 public class Book implements Comparable<Book>, Serializable {
     private final String isbn;
     private String title;
-    private ArrayList<Author> authors;
+    private String authors;
     private int publishingYear;
     private AdoptionStatus status;
     private int copies;
@@ -24,23 +23,19 @@ public class Book implements Comparable<Book>, Serializable {
      * implementando un controllo sul formato dell'ISBN.
      * @param[in] isbn Il codice ISBN del libro.
      * @param[in] title Il titolo del libro.
-     * @param[in] authors La lista degli autori del libro.
+     * @param[in] authors Gli autori del libro come stringa.
      * @param[in] publishingYear L'anno di pubblicazione del libro.
      * @param[in] copies Il numero totale di copie del libro.
      * @see checkIsbn(String isbn)
      */
-    public Book(String isbn, String title, ArrayList<Author> authors, int publishingYear, int copies) throws InvalidBookInfoException {
+    public Book(String isbn, String title, String authors, int publishingYear, int copies) throws InvalidBookInfoException {
         if(!checkIsbn(isbn)) {
             throw new InvalidBookInfoException("Isbn non valido: " + isbn);
         }
    
         this.isbn = isbn;
         this.title = title;
-        if (authors == null) {
-            this.authors = new ArrayList<>();
-        } else {
-            this.authors = new ArrayList<>(authors);
-        }
+        this.authors = authors != null ? authors : "";
         this.publishingYear = publishingYear;
         this.copies = copies;
         this.status = AdoptionStatus.ADOPTED;
@@ -63,10 +58,10 @@ public class Book implements Comparable<Book>, Serializable {
     }
     
     /**
-     * @brief Restituisce la lista degli autori del libro.
-     * @return La lista degli autori del libro.
+     * @brief Restituisce la stringa degli autori del libro.
+     * @return La stringa degli autori del libro.
      */ 
-    public ArrayList<Author> getAuthors() {
+    public String getAuthors() {
         return authors;
     }
     
@@ -139,15 +134,19 @@ public class Book implements Comparable<Book>, Serializable {
         this.copies = copies;
     }
 
-    // Altri metodi
     /**
-     * @brief Aggiunge un autore alla lista degli autori del libro.
+     * @brief Aggiunge un autore alla stringa degli autori del libro.
      * @param[in] author L'autore da aggiungere.
      * @return true se l'autore è stato aggiunto con successo, false altrimenti.
      */
-    public boolean addAuthor(Author author) {
-     if (author != null && !authors.contains(author)) {
-            return authors.add(author);
+    public boolean addAuthor(String author) {
+        if (author != null && !author.trim().isEmpty() && !authors.contains(author)) {
+            if (authors.isEmpty()) {
+                this.authors = author;
+            } else {
+                this.authors += ", " + author;
+            }
+            return true;
         }
         return false;
     }
@@ -156,7 +155,7 @@ public class Book implements Comparable<Book>, Serializable {
      * @brief Verifica se il formato dell'ISBN fornito è valido.
      * @param[in] isbn L'ISBN da controllare.
      * @return true se l'ISBN è valido, false altrimenti.
-     * @see Book(String isbn, String title, ArrayList<Author> authors, int publishingYear, int copies)
+     * @see Book(String isbn, String title, String authors, int publishingYear, int copies)
      */
     private static boolean checkIsbn(String isbn) {
         

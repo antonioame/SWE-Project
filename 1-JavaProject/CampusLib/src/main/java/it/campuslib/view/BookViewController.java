@@ -6,10 +6,8 @@
 package it.campuslib.view;
 
 import it.campuslib.domain.catalog.AdoptionStatus;
-import it.campuslib.domain.catalog.Author;
 import it.campuslib.domain.catalog.Book;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -45,7 +43,7 @@ public class BookViewController implements Initializable {
     @FXML
     private TableColumn<Book, String> clmTitle;
     @FXML
-    private TableColumn<Book, ArrayList<Author>> clmAuthors;
+    private TableColumn<Book, String> clmAuthors;
     @FXML
     private TableColumn<Book, Integer> clmYear;
     @FXML
@@ -74,7 +72,7 @@ public class BookViewController implements Initializable {
     }
 
     @FXML
-    private void updateAuthors(TableColumn.CellEditEvent<Book, ArrayList<Author>> event) {
+    private void updateAuthors(TableColumn.CellEditEvent<Book, String> event) {
     }
 
     @FXML
