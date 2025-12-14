@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import it.campuslib.domain.catalog.Author;
 import it.campuslib.domain.catalog.Book;
+import it.campuslib.domain.catalog.InvalidBookInfoException;
 import it.campuslib.domain.users.User;
 import it.campuslib.domain.users.InvalidUserInfoException;
 
@@ -21,7 +22,7 @@ public class LoanTest {
     }
 
     @BeforeEach
-    public void setUp() throws InvalidUserInfoException{
+    public void setUp() throws InvalidUserInfoException, InvalidBookInfoException {
         authors = new ArrayList<>();
         authors.add(new Author("Claudio", "De Sio Cesari"));
         borrowedBook = new Book("9788836018123", "Programmazione Java", authors, 2025, 1 );
@@ -31,7 +32,7 @@ public class LoanTest {
 
     @Test 
     /*Test per il costruttore e per i metodi di get */
-    public void testConstructor() {       
+    public void testConstructor() throws InvalidLoanInfoException {       
         LocalDate startDate = LocalDate.of(2025, 12, 1);
         LocalDate expectedReturnDate = LocalDate.of(2025, 12, 15);
         Loan loan = new Loan(borrowedBook, borrowerUser, startDate, expectedReturnDate);
@@ -56,7 +57,7 @@ public class LoanTest {
 
 
     @Test
-    public void testEquals() {
+    public void testEquals() throws InvalidLoanInfoException {
 
         /*l1 e mockLoan hanno ID diversi, quindi non sono uguali anche se hanno stessa data di restituzione */
         LocalDate startDate = LocalDate.of(2025, 12, 1);
@@ -69,7 +70,7 @@ public class LoanTest {
 
     @Test
     /*Uguaglianza non verificata */
-    public void testEquals2() {
+    public void testEquals2() throws InvalidLoanInfoException {
         LocalDate startDate = LocalDate.of(2025, 11, 1);
         Loan l1 = new Loan(borrowedBook, borrowerUser, startDate, LocalDate.now());
         Loan l3 = new Loan(borrowedBook, borrowerUser, startDate, LocalDate.now().plusDays(1));
@@ -106,7 +107,7 @@ public class LoanTest {
     }
     
     @Test
-    public void testCompareTo() throws InvalidUserInfoException{
+    public void testCompareTo() throws InvalidUserInfoException, InvalidLoanInfoException {
         Loan l1= new Loan(borrowedBook, borrowerUser, LocalDate.of(2025, 12, 1), LocalDate.now());
         Loan l2= new Loan(borrowedBook, borrowerUser, LocalDate.of(2025, 12, 3), LocalDate.now().plusDays(5));
         Loan l3= new Loan(borrowedBook, borrowerUser, LocalDate.of(2025, 12, 5), LocalDate.now().minusDays(2));
@@ -120,7 +121,7 @@ public class LoanTest {
 
     @Test
     //Caso di not overdue
-    public void testIsOverdue1() {
+    public void testIsOverdue1() throws InvalidLoanInfoException {
         LocalDate startDate=LocalDate.of(2025, 12, 1);
         LocalDate expectedReturnDate=LocalDate.now().minusDays(5);
         Loan l= new Loan(borrowedBook, borrowerUser, startDate, expectedReturnDate);
@@ -128,7 +129,7 @@ public class LoanTest {
     }
     @Test
     //Caso limite
-    public void testIsOverdue2() {
+    public void testIsOverdue2() throws InvalidLoanInfoException {
         LocalDate startDate=LocalDate.of(2025, 12, 1);
         LocalDate expectedReturnDateDate=LocalDate.now();
         Loan l = new Loan(borrowedBook, borrowerUser, startDate, expectedReturnDateDate);
@@ -137,7 +138,7 @@ public class LoanTest {
 
     @Test
     //Caso di overdue
-    public void testIsOverdue3() {
+    public void testIsOverdue3() throws InvalidLoanInfoException {
         LocalDate startDate=LocalDate.of(2025 , 12, 1);
         LocalDate expectedReturnDate=LocalDate.now().plusDays(5);
         Loan l= new Loan(borrowedBook, borrowerUser, startDate, expectedReturnDate);

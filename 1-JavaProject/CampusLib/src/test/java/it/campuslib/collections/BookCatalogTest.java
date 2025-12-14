@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import it.campuslib.domain.catalog.Author;
 import it.campuslib.domain.catalog.Book;
+import it.campuslib.domain.catalog.InvalidBookInfoException;
 
 public class BookCatalogTest {
     private BookCatalog catalog;
@@ -24,7 +25,7 @@ public class BookCatalogTest {
     }
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws InvalidBookInfoException {
         catalog = new BookCatalog();
         author1 = new Author("Italo", "Calvino");
         ArrayList<Author> authors1 = new ArrayList<>();
@@ -49,7 +50,7 @@ public class BookCatalogTest {
     }
     
     @Test
-    void testAddBook_Success() {
+    void testAddBook_Success() throws InvalidBookInfoException {
         Book newBook = new Book("9788804603610", "Se Una Notte d'Inverno Un Viaggiatore", new ArrayList<>(), 1979, 3);
         assertEquals(2, catalog.getCatalogSize()); 
         
@@ -196,7 +197,7 @@ public class BookCatalogTest {
     }
     
     @Test
-    public void testGetCatalogSize() {
+    public void testGetCatalogSize() throws InvalidBookInfoException {
         // Verifica la dimensione dopo il setUp (2 libri)
         assertEquals(2, catalog.getCatalogSize());
         

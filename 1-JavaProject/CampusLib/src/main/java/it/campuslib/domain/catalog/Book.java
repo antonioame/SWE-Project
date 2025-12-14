@@ -29,10 +29,10 @@ public class Book implements Comparable<Book>, Serializable {
      * @param[in] copies Il numero totale di copie del libro.
      * @see checkIsbn(String isbn)
      */
-    public Book(String isbn, String title, ArrayList<Author> authors, int publishingYear, int copies)/*throws IllegalArgumentException*/ {
-        /*if(!checkIsbn(isbn)) {
-            throw new IllegalArgumentException("Isbn non valido: " + isbn);
-        }*/
+    public Book(String isbn, String title, ArrayList<Author> authors, int publishingYear, int copies) throws InvalidBookInfoException {
+        if(!checkIsbn(isbn)) {
+            throw new InvalidBookInfoException("Isbn non valido: " + isbn);
+        }
    
         this.isbn = isbn;
         this.title = title;
@@ -159,9 +159,18 @@ public class Book implements Comparable<Book>, Serializable {
      * @see Book(String isbn, String title, ArrayList<Author> authors, int publishingYear, int copies)
      */
     private static boolean checkIsbn(String isbn) {
+        
+        
         if (isbn == null) {
             return false;
         }
+        
+        //Rimuove spazi bianchi iniziali e finali
+        isbn=isbn.trim();
+        if(isbn.isEmpty()) {
+            return false;
+        }
+        
         if (isbn.length() != 13) {
             return false;
         } else {

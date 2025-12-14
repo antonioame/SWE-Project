@@ -210,7 +210,7 @@ public class BookCatalog implements Serializable{
     }
 
     /**
-     * Restituisce il numero di libri presenti nel catalogo.
+     * @brief Restituisce il numero di libri presenti nel catalogo.
      * @return Numero di libri presenti nel catalogo.
      */
     public int getCatalogSize() {

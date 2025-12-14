@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import it.campuslib.collections.LoanRegistry;
+import it.campuslib.domain.transactions.InvalidLoanInfoException;
 import it.campuslib.domain.transactions.Loan;
 import it.campuslib.domain.users.InvalidUserInfoException;
 import it.campuslib.domain.users.User;
@@ -31,7 +32,7 @@ public class BookTest {
     private User testUser;
     
     @BeforeEach
-    public void setUp() throws InvalidUserInfoException {
+    public void setUp() throws InvalidBookInfoException, InvalidUserInfoException {
        
         author1 = new Author("Poeta", "Omero");
         author2 = new Author("Daniel", "Defoe");
@@ -81,7 +82,7 @@ public class BookTest {
     }
 
     @Test
-    public void testCheckAvailability_Available() {
+    public void testCheckAvailability_Available() throws InvalidLoanInfoException {
         //7 copie e 0 prestiti
         assertTrue(defaultBook1.checkAvailability(testRegistry));
         
@@ -154,18 +155,18 @@ public class BookTest {
     }
 
     @Test
-    public void testEquals() {
+    public void testEquals() throws InvalidBookInfoException {
         CloneB1.addAuthor(author2); 
         assertTrue(defaultBook1.equals(CloneB1));
-        defaultBook2 = new Book("9771234567890", "Robinson Crusoe", defaultAuthors, 1719, 5);
+        defaultBook2 = new Book("9781234597890", "Robinson Crusoe", defaultAuthors, 1719, 5);
         assertFalse(defaultBook1.equals(defaultBook2));
     }
 
     @Test
-    public void testCompareTo() {
-        defaultBook2 = new Book("9771234567890", "Robinson Crusoe", defaultAuthors, 1719, 5);
-        CloneB2 = new Book("9771234567890", "Robinson Crusoe", defaultAuthors, 1719, 5);
-        defaultBook3 = new Book("9871234567890", "Robinson Crusoe", defaultAuthors, 1719, 5);
+    public void testCompareTo() throws InvalidBookInfoException {
+        defaultBook2 = new Book("9781134497890", "Robinson Crusoe", defaultAuthors, 1719, 5);
+        CloneB2 = new Book("9781134497890", "Robinson Crusoe", defaultAuthors, 1719, 5);
+        defaultBook3 = new Book("9789234569890", "Robinson Crusoe", defaultAuthors, 1719, 5);
         assertTrue(defaultBook1.compareTo(defaultBook2) > 0);
         assertTrue(defaultBook1.compareTo(defaultBook3) < 0);
         assertTrue(defaultBook2.compareTo(CloneB2) == 0);
@@ -174,5 +175,60 @@ public class BookTest {
     @Test
     public void testHashCode() {
         assertEquals(defaultBook1.hashCode(), CloneB1.hashCode());
+    }
+    
+    @Test
+    public void testCheckIsbn_Success_ValidPrefix() throws InvalidBookInfoException {
+        // 1. Prefisso 978, isbn valido, non deve lanciare eccezioni.
+        assertDoesNotThrow(() -> {
+            new Book("9781234567890", "Titolo", defaultAuthors, 2020, 1);
+        }); 
+
+        // 2. Prefisso 979, isbn valido, non deve lanciare eccezioni.
+        assertDoesNotThrow(() -> {
+            new Book("9791234567890", "Titolo", defaultAuthors, 2020, 1);
+        });
+    }
+    
+    @Test
+    public void testCheckIsbn_Fail_NullOrEmpty() {
+        // 1. ISBN Nullo, dovrebbe lanciare eccezione.
+        assertThrows(InvalidBookInfoException.class, () -> {
+            new Book(null, "Titolo", defaultAuthors, 2020, 1);
+        });
+
+        // 2. ISBN Vuoto, dovrebbe lanciare eccezione
+        assertThrows(InvalidBookInfoException.class, () -> {
+            new Book("", "Titolo", defaultAuthors, 2020, 1);
+        });
+    }
+    
+    @Test
+    public void testCheckIsbn_Fail_InvalidLength() {
+        // 1. Troppo Corto (9 caratteri), dovrebbe lanciare eccezione
+        assertThrows(InvalidBookInfoException.class, () -> {
+            new Book("978123456", "Titolo", defaultAuthors, 2020, 1);
+        });
+
+        // 2. Troppo Lungo (16 caratteri), dovrebbe lanciare eccezione
+        assertThrows(InvalidBookInfoException.class, () -> {
+            new Book("9781234567890861", "Titolo", defaultAuthors, 2020, 1);
+        });
+    }
+    
+    @Test
+    public void testCheckIsbn_Fail_NonNumeric() {
+        // Carattere non numerico, dovrebbe lanciare eccezione
+        assertThrows(InvalidBookInfoException.class, () -> {
+            new Book("978A234567890", "Titolo", defaultAuthors, 2020, 1);
+        });
+    }
+    
+    @Test
+    public void testCheckIsbn_Fail_InvalidPrefix() {
+        // Prefisso valido, dovrebbe lanciare eccezione
+        assertThrows(InvalidBookInfoException.class, () -> {
+            new Book("1231234567890", "Bad Prefix", defaultAuthors, 2020, 1);
+        });
     }
 }

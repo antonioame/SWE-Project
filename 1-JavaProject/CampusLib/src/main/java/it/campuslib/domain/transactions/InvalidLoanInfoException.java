@@ -1,9 +1,5 @@
 package it.campuslib.domain.transactions;
 
-/**
- *
- * @author luca
- */
 public class InvalidLoanInfoException extends Exception{
 
     

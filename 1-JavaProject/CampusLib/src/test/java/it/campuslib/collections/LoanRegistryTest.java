@@ -11,7 +11,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import it.campuslib.domain.catalog.Author;
 import it.campuslib.domain.catalog.Book;
+import it.campuslib.domain.catalog.InvalidBookInfoException;
 import it.campuslib.domain.transactions.Giveback;
+import it.campuslib.domain.transactions.InvalidLoanInfoException;
 import it.campuslib.domain.transactions.Loan;
 import it.campuslib.domain.users.User;
 import it.campuslib.domain.users.InvalidUserInfoException;
@@ -27,7 +29,7 @@ public class LoanRegistryTest {
     private Loan loan1, loan2, loan3;
 
     @BeforeEach
-    void setUp() throws InvalidUserInfoException{
+    void setUp() throws InvalidUserInfoException, InvalidBookInfoException, InvalidLoanInfoException {
         // Creazione directory per i file di test I/O, se inesistente:
         new File(TEST_FILES_DIR).mkdirs();
         

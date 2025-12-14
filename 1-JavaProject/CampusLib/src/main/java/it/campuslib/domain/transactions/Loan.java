@@ -22,13 +22,13 @@ public class Loan extends Transaction implements Comparable<Loan> {
      * @param[in] borrowerUser L'utente che ha preso in prestito il libro.
      * @see Transaction
      */
-    public Loan(Book borrowedBook, User borrowerUser, LocalDate startDate, LocalDate expectedReturnDate) /*throws InvalidLoanInfoException*/{
+    public Loan(Book borrowedBook, User borrowerUser, LocalDate startDate, LocalDate expectedReturnDate) throws InvalidLoanInfoException{
         super(borrowedBook, borrowerUser, startDate);
-        /*
+        
         if(!checkDate(startDate, expectedReturnDate)) {
         
             throw new InvalidLoanInfoException("La data di inizio del prestito deve essere precedente alla data prevista di restituzione");
-        }*/
+        }
         this.expectedReturnDate = expectedReturnDate;
     }
 

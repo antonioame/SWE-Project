@@ -280,7 +280,7 @@ public class UserTest {
    
     @Test
     @Timeout(value = 15, unit = TimeUnit.SECONDS)
-    public void testActiveLoans() throws InvalidLoanInfoException{
+    public void testActiveLoans() throws InvalidLoanInfoException, InvalidBookInfoException{
     
         Loan loan1, loan2, loan3, loan4, loan5, loan6;
         Book book1, book2, book3;
@@ -299,9 +299,9 @@ public class UserTest {
         a2.add(author2);
         a3.add(author3);
         
-        book1 = new Book("1234567890123", "Sorvegliare e punire", a1, 1976, 2);
-        book2 = new Book("1313131313131", "Furore", a2, 1939, 5);
-        book3 = new Book("2020202020202", "Il cane di terracotta", a3, 1996, 1);
+        book1 = new Book("9784567890123", "Sorvegliare e punire", a1, 1976, 2);
+        book2 = new Book("9783131313131", "Furore", a2, 1939, 5);
+        book3 = new Book("9780202020202", "Il cane di terracotta", a3, 1996, 1);
         
         loan1 = new Loan(book1, utente1, LocalDate.now(), LocalDate.of(2026, 3, 12));
         loan2 = new Loan(book2, utente2, LocalDate.of(2025, 5, 18), LocalDate.now());
@@ -345,7 +345,7 @@ public class UserTest {
     
      @Test
      @Timeout(value = 15, unit = TimeUnit.SECONDS)
-     public void testCanBorrow() throws InvalidLoanInfoException {
+     public void testCanBorrow() throws InvalidLoanInfoException, InvalidBookInfoException {
      
          Loan loan1, loan2, loan3, loan4, loan5, loan6;
         Book book1, book2, book3;
@@ -364,9 +364,9 @@ public class UserTest {
         a2.add(author2);
         a3.add(author3);
         
-        book1 = new Book("1234567890123", "Sorvegliare e punire", a1, 1976, 2);
-        book2 = new Book("1313131313131", "Furore", a2, 1939, 5);
-        book3 = new Book("2020202020202", "Il cane di terracotta", a3, 1996, 1);
+        book1 = new Book("9784567890123", "Sorvegliare e punire", a1, 1976, 2);
+        book2 = new Book("9783131313131", "Furore", a2, 1939, 5);
+        book3 = new Book("9780202020202", "Il cane di terracotta", a3, 1996, 1);
         
         loan1 = new Loan(book1, utente1, LocalDate.now(), LocalDate.of(2026, 3, 12));
         loan2 = new Loan(book2, utente2, LocalDate.of(2025, 5, 18), LocalDate.now());
@@ -391,7 +391,7 @@ public class UserTest {
      
      @Test
      @Timeout(value = 15, unit = TimeUnit.SECONDS)
-     public void testCannotBorrow() throws InvalidLoanInfoException{
+     public void testCannotBorrow() throws InvalidLoanInfoException, InvalidBookInfoException {
      
         Loan loan1, loan2, loan3, loan4, loan5, loan6;
         Book book1, book2, book3;
@@ -410,9 +410,9 @@ public class UserTest {
         a2.add(author2);
         a3.add(author3);
         
-        book1 = new Book("1234567890123", "Sorvegliare e punire", a1, 1976, 2);
-        book2 = new Book("1313131313131", "Furore", a2, 1939, 5);
-        book3 = new Book("2020202020202", "Il cane di terracotta", a3, 1996, 1);
+        book1 = new Book("9784567890123", "Sorvegliare e punire", a1, 1976, 2);
+        book2 = new Book("9783131313131", "Furore", a2, 1939, 5);
+        book3 = new Book("9780202020202", "Il cane di terracotta", a3, 1996, 1);
         
         loan1 = new Loan(book1, utente1, LocalDate.now(), LocalDate.of(2026, 3, 12));
         loan2 = new Loan(book2, utente2, LocalDate.of(2025, 5, 18), LocalDate.now());
@@ -440,7 +440,7 @@ public class UserTest {
      
      @Test
      @Timeout(value = 15, unit = TimeUnit.SECONDS)
-     public void testGetAvailableLoanSlots() throws InvalidLoanInfoException{
+     public void testGetAvailableLoanSlots() throws InvalidLoanInfoException, InvalidBookInfoException {
      
         Loan loan1, loan2, loan3, loan4, loan5, loan6;
         Book book1, book2, book3;
@@ -459,9 +459,9 @@ public class UserTest {
         a2.add(author2);
         a3.add(author3);
         
-        book1 = new Book("1234567890123", "Sorvegliare e punire", a1, 1976, 2);
-        book2 = new Book("1313131313131", "Furore", a2, 1939, 5);
-        book3 = new Book("2020202020202", "Il cane di terracotta", a3, 1996, 1);
+        book1 = new Book("9784567890123", "Sorvegliare e punire", a1, 1976, 2);
+        book2 = new Book("9783131313131", "Furore", a2, 1939, 5);
+        book3 = new Book("9780202020202", "Il cane di terracotta", a3, 1996, 1);
         
         loan1 = new Loan(book1, utente1, LocalDate.now(), LocalDate.of(2026, 3, 12));
         loan2 = new Loan(book2, utente2, LocalDate.of(2025, 5, 18), LocalDate.now());

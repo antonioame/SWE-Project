@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import it.campuslib.domain.catalog.Author;
 import it.campuslib.domain.catalog.Book;
+import it.campuslib.domain.catalog.InvalidBookInfoException;
 import it.campuslib.domain.users.User;
 import it.campuslib.domain.users.InvalidUserInfoException;
 
@@ -23,7 +24,7 @@ public class GivebackTest {
     }
 
     @BeforeEach
-    public void setUp() throws InvalidUserInfoException{
+    public void setUp() throws InvalidUserInfoException, InvalidBookInfoException {
         authors = new ArrayList<>();
         authors.add(new Author("Claudio", "De Sio Cesari"));
         borrowedBook = new Book("9788836018123", "Programmazione Java", authors, 2025, 1);
