@@ -1,28 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.campuslib.view.AccessViewController">
-
+<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.campuslib.view.AccessViewController" style="-fx-background-color: rgb(252,252,252);">
+<!-- colore di sfondo scelto per coerenza allo sfondo del logo -->
    <children>
-      <BorderPane layoutX="153.0" layoutY="154.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" style="-fx-padding: 40 20 20 20;">
          <bottom>
-            <HBox alignment="CENTER" prefHeight="234.0" prefWidth="1000.0" spacing="50.0" BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER" spacing="50.0" style="-fx-padding: 20;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="btnAccess" maxWidth="300.0" mnemonicParsing="false" onAction="#goToMain" prefHeight="80.0" prefWidth="130.0" text="Accedi" />
+                  <Button fx:id="btnAccess" maxWidth="300.0" mnemonicParsing="false" onAction="#goToMain" style="-fx-background-color: linear-gradient(to right, #003895, #001a66); -fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold; -fx-padding: 10 20; -fx-background-radius: 25;" text="Accedi" />
                </children>
             </HBox>
          </bottom>
          <center>
-            <ImageView fitHeight="461.0" fitWidth="486.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-               <image>
-                  <Image url="@../Logo.jpg" />
-               </image></ImageView>
+            <VBox alignment="CENTER" BorderPane.alignment="CENTER" spacing="20.0">
+               <children>
+                  <Label style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #003895;" text="CampusLib" />
+                  <ImageView fitWidth="500" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Logo.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
          </center>
       </BorderPane>
    </children>    

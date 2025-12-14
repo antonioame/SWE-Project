@@ -39,7 +39,7 @@ public class AccessViewController implements Initializable {
 
     @FXML
     private void goToMain(ActionEvent event) throws IOException {
-           
+        try {
             String fxmlFile = "/fxml/MainView.fxml"; 
             
             Parent root = FXMLLoader.load(getClass().getResource(fxmlFile));
@@ -48,7 +48,8 @@ public class AccessViewController implements Initializable {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-
-    
 }
