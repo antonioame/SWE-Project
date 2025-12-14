@@ -5,6 +5,7 @@
  */
 package it.campuslib.view;
 
+import it.campuslib.collections.GivebackRegistry;
 import it.campuslib.domain.catalog.Book;
 import it.campuslib.domain.transactions.Giveback;
 import it.campuslib.domain.users.User;
@@ -37,9 +38,9 @@ public class GivebackViewController implements Initializable {
     @FXML
     private TableColumn<Giveback, Integer> clmIdGb;
     @FXML
-    private TableColumn<Giveback, Book> clmBookGb;
+    private TableColumn<Giveback, String> clmBookGb;
     @FXML
-    private TableColumn<Giveback, User> clmUserGb;
+    private TableColumn<Giveback, String> clmUserGb;
     @FXML
     private TableColumn<Giveback, LocalDate> clmStartGb;
     @FXML
@@ -52,7 +53,18 @@ public class GivebackViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        GivebackRegistry gReg = GivebackRegistry.getInstance();
+        gbList = gReg.getRegistry();
+        tableGiveback.setItems(gbList);
+        
+        clmIdGb.setCellValueFactory(cellData -> new javafx.beans.property.SimpleObjectProperty<>(cellData.getValue().getId()));
+        clmBookGb.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(
+        cellData.getValue().getBorrowedBook().getIsbn() + " - " + cellData.getValue().getBorrowedBook().getTitle()));
+        clmUserGb.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(
+        cellData.getValue().getBorrowerUser().getEnrollmentID() + " - " +
+        cellData.getValue().getBorrowerUser().getSurname() + " " + cellData.getValue().getBorrowerUser().getName()));
+        clmStartGb.setCellValueFactory(cellData -> new javafx.beans.property.SimpleObjectProperty<>(cellData.getValue().getStartDate()));
+        clmReturnGb.setCellValueFactory(cellData -> new javafx.beans.property.SimpleObjectProperty<>(cellData.getValue().getEndDate()));
         
     }    
 

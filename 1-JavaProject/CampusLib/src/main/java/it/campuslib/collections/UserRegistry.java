@@ -4,6 +4,8 @@ import it.campuslib.domain.users.User;
 import it.campuslib.domain.users.UserStatus;
 
 import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 
@@ -40,11 +42,11 @@ public class UserRegistry implements Serializable{
      */
     public boolean addUser(User user) {
         if(user == null) return false;
-        
-        User u = registry.put(user.getEnrollmentID(), user);
-        
-        if(u != null) return true;
-        else return false;
+        String id = user.getEnrollmentID();
+        if (id == null) return false;
+        if (registry.containsKey(id)) return false;
+        registry.put(id, user);
+        return true;
     }
 
     /**
@@ -211,6 +213,14 @@ public class UserRegistry implements Serializable{
     }
 
     private static UserRegistry instance = null;
+
+    /**
+     * Restituisce tutti gli utenti presenti nel registro.
+     * @return Lista di utenti (non modificabile direttamente il registro interno)
+     */
+    public List<User> getAllUsers() {
+        return new ArrayList<>(this.registry.values());
+    }
 
     public static UserRegistry getInstance() {
         if (instance == null) {

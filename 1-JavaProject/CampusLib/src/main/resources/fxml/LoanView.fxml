@@ -20,13 +20,13 @@
                         <VBox spacing="15.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                             <children>
                                 <Label text="Seleziona Libro" />
-                                <ComboBox fx:id="bookCombo" promptText="Scegli un libro dalla lista" />
+                                <ComboBox fx:id="bookCombo" promptText="Scegli un libro dalla lista" VBox.vgrow="ALWAYS" prefWidth="400.0" maxWidth="Infinity" />
 
                                 <Label text="Seleziona Utente" />
-                                <ComboBox fx:id="userCombo" />
+                                <ComboBox fx:id="userCombo" promptText="Scegli un utente dalla lista" VBox.vgrow="ALWAYS" prefWidth="400.0" maxWidth="Infinity" />
 
                                 <Label text="Data inizio prestito" />
-                                <TextField fx:id="startLoanField" promptText="es. 2025-12-14" />
+                                <Label fx:id="startLoanLabel" />
 
                                 <Label text="Data prevista restituzione" />
                                 <TextField fx:id="returnLoanField" promptText="es. 2025-12-14" />
@@ -34,6 +34,11 @@
                                 <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
                                     <children>
                                         <Button fx:id="btnAddLoan" mnemonicParsing="false" onAction="#addLoan" text="Nuovo Prestito" />
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER" spacing="10.0" VBox.vgrow="ALWAYS">
+                                    <children>
+                                        <Button fx:id="btnRegisterReturn" mnemonicParsing="false" onAction="#registerReturn" text="Registra Restituzione" disable="true" />
                                     </children>
                                 </HBox>
                             </children>

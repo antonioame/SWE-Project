@@ -49,7 +49,7 @@
                             <columns>
                                 <TableColumn fx:id="clmName" onEditCommit="#updateName" sortable="false" text="NOME" />
                                 <TableColumn fx:id="clmSurname" onEditCommit="#updateSurname" text="COGNOME" />
-                                <TableColumn editable="false" text="ID" />
+                                <TableColumn fx:id="clmId" editable="false" text="ID" />
                                 <TableColumn fx:id="clmEmail" editable="false" onEditCommit="#updateEmail" sortable="false" text="EMAIL" />
                                 <TableColumn fx:id="clmUserLoan" editable="false" sortable="false" text="PRESTITI ATTIVI" />
                                 <TableColumn fx:id="clmMaxLoans" sortable="false" text="MAX" />

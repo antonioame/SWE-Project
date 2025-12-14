@@ -24,7 +24,12 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 import javafx.util.StringConverter;
+import it.campuslib.collections.LoanRegistry;
+import it.campuslib.collections.GivebackRegistry;
+import it.campuslib.domain.transactions.Giveback;
+import javafx.collections.ObservableSet;
 
 /**
  * FXML Controller class
@@ -39,13 +44,17 @@ public class LoanViewController implements Initializable {
     private ObservableList<User> allUsers;
     private ObservableList<User> filteredUsers;
     private ObservableList<Loan> loans;
+    private LoanRegistry loanRegistry;
+    private GivebackRegistry givebackRegistry;
+    @FXML
+    private Button btnRegisterReturn;
 
     @FXML
     private ComboBox<Book> bookCombo;
     @FXML
     private ComboBox<User> userCombo;
     @FXML
-    private TextField startLoanField;
+    private Label startLoanLabel;
     @FXML
     private TextField returnLoanField;
     @FXML
@@ -55,9 +64,9 @@ public class LoanViewController implements Initializable {
     @FXML
     private TableColumn<Loan, Integer> clmIdLoan;
     @FXML
-    private TableColumn<Loan, Book> clmBookLoan;
+    private TableColumn<Loan, String> clmBookLoan;
     @FXML
-    private TableColumn<Loan, User> clmUserLoan;
+    private TableColumn<Loan, String> clmUserLoan;
     @FXML
     private TableColumn<Loan, LocalDate> clmStartLoan;
     @FXML
@@ -85,19 +94,50 @@ public class LoanViewController implements Initializable {
             }
         });
         
-        allUsers = FXCollections.observableArrayList();
-        filteredUsers = FXCollections.observableArrayList(allUsers);
-        userCombo.setItems(filteredUsers);
+        allUsers = FXCollections.observableArrayList(userRegistry.getAllUsers());
+        filteredUsers = allUsers;
+        userCombo.setItems(allUsers);
+        userCombo.setConverter(new StringConverter<User>() {
+            @Override
+            public String toString(User user) {
+                return user != null ? (user.getName() + " " + user.getSurname() + " - " + user.getEnrollmentID()) : "";
+            }
+
+            @Override
+            public User fromString(String string) {
+                return null;
+            }
+        });
         
         loans = FXCollections.observableArrayList();
+        loanRegistry = LoanRegistry.getInstance();
+        givebackRegistry = GivebackRegistry.getInstance();
+        loans = FXCollections.observableArrayList(loanRegistry.getRegistry());
         tableLoan.setItems(loans);
+
+        tableLoan.getSelectionModel().selectedItemProperty().addListener((obs, oldSel, newSel) -> {
+            btnRegisterReturn.setDisable(newSel == null);
+        });
+
+        clmIdLoan.setCellValueFactory(cellData -> new javafx.beans.property.SimpleObjectProperty<>(cellData.getValue().getId()));
+        clmBookLoan.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(
+        cellData.getValue().getBorrowedBook().getIsbn() + " - " + cellData.getValue().getBorrowedBook().getTitle()));
+        clmUserLoan.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(
+        cellData.getValue().getBorrowerUser().getEnrollmentID() + " - " +
+        cellData.getValue().getBorrowerUser().getSurname() + " " + cellData.getValue().getBorrowerUser().getName()));
+        clmStartLoan.setCellValueFactory(cellData -> new javafx.beans.property.SimpleObjectProperty<>(cellData.getValue().getStartDate()));
+        clmReturnLoan.setCellValueFactory(cellData -> new javafx.beans.property.SimpleObjectProperty<>(cellData.getValue().getExpectedReturnDate()));
+
+        java.time.LocalDate today = java.time.LocalDate.now();
+        startLoanLabel.setText(today.toString());
+        returnLoanField.setText(today.plusDays(20).toString());
     }    
 
     @FXML
     private void addLoan(ActionEvent event) {
         Book selectedBook = bookCombo.getValue();
         User selectedUser = userCombo.getValue();
-        String startDateStr = startLoanField.getText().trim();
+        String startDateStr = startLoanLabel.getText().trim();
         String returnDateStr = returnLoanField.getText().trim();
         
         if (selectedBook == null || selectedUser == null || startDateStr.isEmpty() || returnDateStr.isEmpty()) {
@@ -107,13 +147,38 @@ public class LoanViewController implements Initializable {
         try {
             LocalDate startDate = LocalDate.parse(startDateStr);
             LocalDate returnDate = LocalDate.parse(returnDateStr);
-            
-            bookCombo.setValue(null);
-            userCombo.setValue(null);
-            startLoanField.clear();
-            returnLoanField.clear();
-            
+
+            Loan loan = new Loan(selectedBook, selectedUser, startDate, returnDate);
+            if (loanRegistry.addLoan(loan)) {
+                loans.add(loan);
+                loanRegistry.exportOnFile("personal-files/io-binary-files/loans.dat");
+
+                bookCombo.setValue(null);
+                userCombo.setValue(null);
+                java.time.LocalDate now = java.time.LocalDate.now();
+                startLoanLabel.setText(now.toString());
+                returnLoanField.setText(now.plusDays(20).toString());
+            }
         } catch (Exception e) {
+            return;
+        }
+    }
+
+    @FXML
+    private void registerReturn(ActionEvent event) {
+        Loan selected = tableLoan.getSelectionModel().getSelectedItem();
+        if (selected == null) return;
+
+        Giveback gb = loanRegistry.pullAsGiveback(selected);
+        if (gb != null) {
+            givebackRegistry.addGiveback(gb);
+            loanRegistry.exportOnFile("personal-files/io-binary-files/loans.dat");
+            givebackRegistry.exportOnFile("personal-files/io-binary-files/givebacks.dat");
+
+            loans.remove(selected);
+            tableLoan.refresh();
+
+            btnRegisterReturn.setDisable(true);
         }
     }
 }
