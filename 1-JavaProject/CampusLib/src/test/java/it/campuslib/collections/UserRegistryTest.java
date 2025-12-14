@@ -54,10 +54,13 @@ public class UserRegistryTest {
     public void testAddUser() throws InvalidUserInfoException {
         User user4 = new User("Anna", "Verdi", "4444444444", "anna.verdi@studenti.unisa.it");
         
-        assertFalse(registry.addUser(user4));
+        assertTrue(registry.addUser(user4));
         
         // Verifica che l'utente sia stato aggiunto
         assertNotNull(registry.searchByEnrollmentID("4444444444"));
+
+        // Tentativo di aggiungere lo stesso utente nuovamente
+        assertFalse(registry.addUser(user4));
 
         // Aggiunta di utente nullo
         assertFalse(registry.addUser(null));

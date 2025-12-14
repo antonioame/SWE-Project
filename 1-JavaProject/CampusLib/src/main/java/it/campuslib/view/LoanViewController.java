@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package it.campuslib.view;
 
 import it.campuslib.domain.catalog.AdoptionStatus;
@@ -44,8 +39,11 @@ public class LoanViewController implements Initializable {
     private ObservableList<User> allUsers;
     private ObservableList<User> filteredUsers;
     private ObservableList<Loan> loans;
+    private ObservableList<Loan> allLoans;
     private LoanRegistry loanRegistry;
     private GivebackRegistry givebackRegistry;
+    @FXML
+    private TextField searchField;
     @FXML
     private Button btnRegisterReturn;
 
@@ -72,9 +70,43 @@ public class LoanViewController implements Initializable {
     @FXML
     private TableColumn<Loan, LocalDate> clmReturnLoan;
 
-    /**
-     * Initializes the controller class.
-     */
+    private void filterLoans() {
+        String q = searchField.getText().trim().toLowerCase();
+        if (q.isEmpty()) {
+            tableLoan.setItems(allLoans);
+            return;
+        }
+
+        ObservableList<Loan> filtered = FXCollections.observableArrayList();
+        for (Loan l : allLoans) {
+            if (l == null) continue;
+            boolean match = false;
+            
+            if (String.valueOf(l.getId()).contains(q)) match = true;
+            
+            Book b = l.getBorrowedBook();
+            if (!match && b != null) {
+                if (b.getIsbn() != null && b.getIsbn().toLowerCase().contains(q)) match = true;
+                if (!match && b.getTitle() != null && b.getTitle().toLowerCase().contains(q)) match = true;
+            }
+            
+            User u = l.getBorrowerUser();
+            if (!match && u != null) {
+                if (u.getEnrollmentID() != null && u.getEnrollmentID().toLowerCase().contains(q)) match = true;
+                if (!match && u.getName() != null && u.getName().toLowerCase().contains(q)) match = true;
+                if (!match && u.getSurname() != null && u.getSurname().toLowerCase().contains(q)) match = true;
+            }
+            
+            LocalDate sd = l.getStartDate();
+            LocalDate ed = l.getExpectedReturnDate();
+            if (!match && sd != null && sd.toString().contains(q)) match = true;
+            if (!match && ed != null && ed.toString().contains(q)) match = true;
+
+            if (match) filtered.add(l);
+        }
+        tableLoan.setItems(filtered);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         bookCatalog = BookCatalog.getInstance();
@@ -109,11 +141,13 @@ public class LoanViewController implements Initializable {
             }
         });
         
-        loans = FXCollections.observableArrayList();
+    loans = FXCollections.observableArrayList();
         loanRegistry = LoanRegistry.getInstance();
         givebackRegistry = GivebackRegistry.getInstance();
         loans = FXCollections.observableArrayList(loanRegistry.getRegistry());
-        tableLoan.setItems(loans);
+        allLoans = FXCollections.observableArrayList(loanRegistry.getRegistry());
+        loans = allLoans;
+        tableLoan.setItems(allLoans);
 
         tableLoan.getSelectionModel().selectedItemProperty().addListener((obs, oldSel, newSel) -> {
             btnRegisterReturn.setDisable(newSel == null);
@@ -131,6 +165,17 @@ public class LoanViewController implements Initializable {
         java.time.LocalDate today = java.time.LocalDate.now();
         startLoanLabel.setText(today.toString());
         returnLoanField.setText(today.plusDays(20).toString());
+
+        if (searchField != null) {
+            searchField.textProperty().addListener((obs, oldV, newV) -> filterLoans());
+        }
+
+        if (loanRegistry != null && loanRegistry.getRegistry() != null) {
+            loanRegistry.getRegistry().addListener((javafx.collections.SetChangeListener<Loan>) change -> {
+                allLoans.setAll(loanRegistry.getRegistry());
+                filterLoans();
+            });
+        }
     }    
 
     @FXML
@@ -150,7 +195,7 @@ public class LoanViewController implements Initializable {
 
             Loan loan = new Loan(selectedBook, selectedUser, startDate, returnDate);
             if (loanRegistry.addLoan(loan)) {
-                loans.add(loan);
+                allLoans.add(loan);
                 loanRegistry.exportOnFile("personal-files/io-binary-files/loans.dat");
 
                 bookCombo.setValue(null);
@@ -175,7 +220,7 @@ public class LoanViewController implements Initializable {
             loanRegistry.exportOnFile("personal-files/io-binary-files/loans.dat");
             givebackRegistry.exportOnFile("personal-files/io-binary-files/givebacks.dat");
 
-            loans.remove(selected);
+                allLoans.remove(selected);
             tableLoan.refresh();
 
             btnRegisterReturn.setDisable(true);

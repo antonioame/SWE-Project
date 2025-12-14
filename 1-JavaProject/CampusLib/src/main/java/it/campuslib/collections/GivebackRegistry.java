@@ -19,6 +19,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import it.campuslib.domain.transactions.Giveback;
+import it.campuslib.domain.transactions.Transaction;
 import it.campuslib.domain.users.User;
 
 /**
@@ -190,6 +191,13 @@ public class GivebackRegistry implements Serializable {
             List<Giveback> loadedRegistry = (List<Giveback>) ois.readObject();
             GivebackRegistry registry = new GivebackRegistry();
             registry.registry.addAll(loadedRegistry);
+            int maxId = 0;
+            for (Giveback g : loadedRegistry) {
+                if (g != null && g.getId() > maxId) {
+                    maxId = g.getId();
+                }
+            }
+            Transaction.ensureNextIdAtLeast(maxId + 1);
             return registry;
         } catch (IOException | ClassNotFoundException e) {
             return null;

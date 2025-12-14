@@ -20,6 +20,7 @@ import javafx.collections.ObservableSet;
 
 import it.campuslib.domain.transactions.Giveback;
 import it.campuslib.domain.transactions.Loan;
+import it.campuslib.domain.transactions.Transaction;
 import it.campuslib.domain.users.User;
 
 /**
@@ -228,6 +229,13 @@ public class LoanRegistry implements Serializable {
             Set<Loan> loadedRegistry = (Set<Loan>) ois.readObject();
             LoanRegistry registry = new LoanRegistry();
             registry.registry.addAll(loadedRegistry);
+            int maxId = 0;
+            for (Loan l : loadedRegistry) {
+                if (l != null && l.getId() > maxId) {
+                    maxId = l.getId();
+                }
+            }
+            Transaction.ensureNextIdAtLeast(maxId + 1);
             return registry;
         } catch (IOException | ClassNotFoundException e) {
             return null;

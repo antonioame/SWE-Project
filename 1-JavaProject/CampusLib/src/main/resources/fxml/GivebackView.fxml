@@ -18,14 +18,7 @@
                     <children>
                         <VBox spacing="15.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                             <children>
-                                <Label text="Data restituzione" />
-                                <TextField fx:id="returnDateField" />
-                                
-                                <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
-                                    <children>
-                                        <Button fx:id="btnAddGb" mnemonicParsing="false" onAction="#addGiveBack" text="Nuova Restituzione" />
-                                    </children>
-                                </HBox>
+                                <TextField fx:id="searchField" promptText="Cerca restituzioni (ISBN, titolo, matricola, nome, cognome, date, ID)" />
                             </children>
                         </VBox>
                     </children>

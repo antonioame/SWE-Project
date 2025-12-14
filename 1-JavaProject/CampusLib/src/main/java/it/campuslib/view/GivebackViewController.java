@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package it.campuslib.view;
 
 import it.campuslib.collections.GivebackRegistry;
@@ -22,17 +17,14 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
-/**
- * FXML Controller class
- *
- * @author ecoll
- */
 public class GivebackViewController implements Initializable {
 
     @FXML
     private TextField returnDateField;
     @FXML
     private Button btnAddGb;
+    @FXML
+    private TextField searchField;
     @FXML
     private TableView<Giveback> tableGiveback;
     @FXML
@@ -47,15 +39,14 @@ public class GivebackViewController implements Initializable {
     private TableColumn<Giveback, LocalDate> clmReturnGb;
     
     private ObservableList<Giveback> gbList;
+    private ObservableList<Giveback> allGb;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         GivebackRegistry gReg = GivebackRegistry.getInstance();
         gbList = gReg.getRegistry();
-        tableGiveback.setItems(gbList);
+        allGb = gbList;
+        tableGiveback.setItems(allGb);
         
         clmIdGb.setCellValueFactory(cellData -> new javafx.beans.property.SimpleObjectProperty<>(cellData.getValue().getId()));
         clmBookGb.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(
@@ -65,8 +56,48 @@ public class GivebackViewController implements Initializable {
         cellData.getValue().getBorrowerUser().getSurname() + " " + cellData.getValue().getBorrowerUser().getName()));
         clmStartGb.setCellValueFactory(cellData -> new javafx.beans.property.SimpleObjectProperty<>(cellData.getValue().getStartDate()));
         clmReturnGb.setCellValueFactory(cellData -> new javafx.beans.property.SimpleObjectProperty<>(cellData.getValue().getEndDate()));
+        if (searchField != null) {
+            searchField.textProperty().addListener((obs, oldV, newV) -> filterGivebacks());
+        }
         
     }    
+
+    private void filterGivebacks() {
+        String q = searchField.getText().trim().toLowerCase();
+        if (q.isEmpty()) {
+            tableGiveback.setItems(allGb);
+            return;
+        }
+
+        ObservableList<Giveback> filtered = FXCollections.observableArrayList();
+        for (Giveback g : allGb) {
+            if (g == null) continue;
+            boolean match = false;
+            // ID
+            if (String.valueOf(g.getId()).contains(q)) match = true;
+            // Book: isbn and title
+            Book b = g.getBorrowedBook();
+            if (!match && b != null) {
+                if (b.getIsbn() != null && b.getIsbn().toLowerCase().contains(q)) match = true;
+                if (!match && b.getTitle() != null && b.getTitle().toLowerCase().contains(q)) match = true;
+            }
+            // User: enrollment, name, surname
+            User u = g.getBorrowerUser();
+            if (!match && u != null) {
+                if (u.getEnrollmentID() != null && u.getEnrollmentID().toLowerCase().contains(q)) match = true;
+                if (!match && u.getName() != null && u.getName().toLowerCase().contains(q)) match = true;
+                if (!match && u.getSurname() != null && u.getSurname().toLowerCase().contains(q)) match = true;
+            }
+            // Dates
+            LocalDate sd = g.getStartDate();
+            LocalDate ed = g.getEndDate();
+            if (!match && sd != null && sd.toString().contains(q)) match = true;
+            if (!match && ed != null && ed.toString().contains(q)) match = true;
+
+            if (match) filtered.add(g);
+        }
+        tableGiveback.setItems(filtered);
+    }
 
     @FXML
     private void addGiveBack(ActionEvent event) {

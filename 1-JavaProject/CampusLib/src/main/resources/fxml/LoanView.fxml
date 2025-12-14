@@ -31,6 +31,8 @@
                                 <Label text="Data prevista restituzione" />
                                 <TextField fx:id="returnLoanField" promptText="es. 2025-12-14" />
 
+                                <TextField fx:id="searchField" promptText="Cerca prestiti (ID, ISBN, titolo, matricola, nome, cognome, date)" />
+
                                 <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
                                     <children>
                                         <Button fx:id="btnAddLoan" mnemonicParsing="false" onAction="#addLoan" text="Nuovo Prestito" />

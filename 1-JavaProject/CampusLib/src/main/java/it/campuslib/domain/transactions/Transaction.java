@@ -51,6 +51,33 @@ public abstract class Transaction implements Serializable, Comparable<Transactio
     }
 
     /**
+     * @brief Restituisce il prossimo ID che sarà assegnato.
+     * Metodo thread-safe.
+     * @return il prossimo ID disponibile
+     */
+    public static synchronized int getNextId() {
+        return nextId;
+    }
+
+    /**
+     * @brief Imposta il valore del prossimo ID da assegnare se maggiore dell'attuale.
+     * Metodo thread-safe e non decrementa mai il contatore.
+     * @param newNext il valore minimo che `nextId` deve assumere
+     */
+    public static synchronized void ensureNextIdAtLeast(int newNext) {
+        if (newNext > nextId) {
+            nextId = newNext;
+        }
+    }
+
+    /**
+     * @brief Resetta il contatore degli ID (usare solo per test se necessario).
+     */
+    public static synchronized void resetNextIdForTests() {
+        nextId = 1;
+    }
+
+    /**
      * @brief Restituisce l'ID univoco del prestito.
      * @return L'ID univoco del prestito.
      */
