@@ -233,4 +233,16 @@ public class LoanRegistry implements Serializable {
             return null;
         }
     }
+
+    private static LoanRegistry instance = null;
+
+    public static LoanRegistry getInstance() {
+        if (instance == null) {
+            instance = importFromFile("personal-files/io-binary-files/loans.dat");
+            if (instance == null) {
+                instance = new LoanRegistry();
+            }
+        }
+        return instance;
+    }
 }

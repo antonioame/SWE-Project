@@ -93,4 +93,16 @@ public class UserRegistry {
     public static UserRegistry importFromFile(String fileName) {
         return null;
     }
+
+    private static UserRegistry instance = null;
+
+    public static UserRegistry getInstance() {
+        if (instance == null) {
+            instance = importFromFile("personal-files/io-binary-files/users.dat");
+            if (instance == null) {
+                instance = new UserRegistry();
+            }
+        }
+        return instance;
+    }
 }

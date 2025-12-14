@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.campuslib.view.MainViewController">
+<BorderPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.campuslib.view.MainViewController">
     <center>
         <TabPane fx:id="tabLoans" tabClosingPolicy="UNAVAILABLE">
             <tabs>
@@ -40,12 +40,13 @@
     </center>
 
     <bottom>
-        <HBox alignment="CENTER_LEFT" prefHeight="30.0" spacing="20.0" style="-fx-padding: 0 15 0 15; -fx-background-color: #EAEAEA;">
+        <HBox alignment="CENTER_LEFT" spacing="20.0" style="-fx-padding: 0 15 0 15; -fx-background-color: #EAEAEA;">
             <children>
                 <Label fx:id="lastSaveLabel" text="Stato: Ultimo salvataggio non disponibile" />
                 
                 <Region HBox.hgrow="ALWAYS" /> 
                 
+                <Button fx:id="btnSaveState" mnemonicParsing="false" onAction="#saveState" text="Salva Stato" />
                 <Button fx:id="btnExit" mnemonicParsing="false" onAction="#exitApp" text="Arresta Sistema" />
             </children>
         </HBox>
