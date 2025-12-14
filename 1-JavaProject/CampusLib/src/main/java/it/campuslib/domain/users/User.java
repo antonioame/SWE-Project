@@ -3,7 +3,7 @@ package it.campuslib.domain.users;
 import java.util.LinkedList;
 
 import it.campuslib.domain.transactions.Loan;
-
+import it.campuslib.collections.LoanRegistry;
 /**
  * @brief Rappresenta Utente, specializzando Person.
  * @see Person
@@ -23,19 +23,19 @@ public class User extends Person implements Comparable<User> {
      * @param[in] email E-mail dell'utente.
      * @see Person.
      */
-    public User(String name, String surname, String enrollmentID, String email) /*throws InvalidUserInfoException*/ {
+    public User(String name, String surname, String enrollmentID, String email) throws InvalidUserInfoException {
         super(surname, name);
-        /*
+        
         if(!checkEnrollmentID(enrollmentID)) {
         
             throw new InvalidUserInfoException("Formato della matricola non valido.");
         }
-        //NOTA: gestire l'eccezione al momento dell'istanza dell'oggetto User.
+  
         if(!checkEmail(email)) {
         
             throw new InvalidUserInfoException("Formato dell'e-mail non valido.");
         }
-        */
+        
         this.enrollmentID = enrollmentID;
         this.email = email;
         this.maxLoans = 3;
@@ -92,6 +92,15 @@ public class User extends Person implements Comparable<User> {
     }
     
     /**
+     * @brief Imposta il numero massimo di prestiti dell'utente
+     * @param[in] maxLoans Numero massimo prestiti utente.
+     */
+    public void setMaxLoans(int maxLoans) {
+    
+        this.maxLoans = maxLoans;
+    }
+    
+    /**
      * @brief Indica se l'utente è attivo o meno.
      * @return Valore booleano che indica lo stato dell'utente.
      */
@@ -103,35 +112,52 @@ public class User extends Person implements Comparable<User> {
      * @brief Ottiene una collezione contenente i prestiti attivi dell'utente.
      * @return Lista contenente tutti i presti associati all'utente.
      */
-    private LinkedList<Loan> getActiveLoans() {
-        return null;
+    public LinkedList<Loan> getActiveLoans(LoanRegistry registry) {
+        
+        if(registry == null) return null;
+        
+        LinkedList<Loan> associatedLoans = new LinkedList<>();
+        
+        associatedLoans = registry.searchByUser(this);
+        
+        return associatedLoans;
+        
     }
     
     /**
      * @brief Utilizza la lista dei suoi prestiti associati, e l'attributo maxLoans,
-     * per determinare il numero di prestiti attualmente associati.
+     * per determinare il numero di prestiti che possono essere ancora effettuati.
      * 
-     * @return Numero di prestiti attualmente associati.
-     * @post Il numero di prestiti associati non deve essere minore di zero né
+     * @return Numero di prestiti ancora disponibili.
+     * @post Il numero di prestiti disponibili non deve essere minore di zero né
      * maggiore del massimo numero di prestiti possibili.
      * @see getActiveLoans()
      */
-    public int getAvailableLoanSlots() {
-        return 0;
+    public int getAvailableLoanSlots(LoanRegistry registry) {
+        
+        LinkedList<Loan> associatedLoans = this.getActiveLoans(registry);
+        
+        if(associatedLoans == null) return maxLoans;
+        
+        int avLoans = maxLoans - associatedLoans.size();
+        
+        if(avLoans<0) return 0;
+        else return avLoans;
+        
     }
     
     /**
      * @brief Indica se l'utente può effettuare nuovi prestiti o meno.
      * @return Valore booleano che indica se l'utente può effettuare nuovi prestiti.
      */
-    public boolean canBorrow() {
-        return false;
+    public boolean canBorrow(LoanRegistry registry) {
+        
+       int avLoans = getAvailableLoanSlots(registry);
+       
+       return (avLoans > 0);
+        
     }
     
-    /*
-     * FIXME: Metodi checkEmail(String email) e checkEnrollmentID(String enrollmentID) non sono da rendere metodi di istanza
-     * I metodi, così definiti, non accedono a campi di istanza, quindi sono almeno da rendere static
-     */
 
     /**
      * @brief Controllo sul formato dell'e-mail dell'utente da effettuare nel costruttore di questo.
