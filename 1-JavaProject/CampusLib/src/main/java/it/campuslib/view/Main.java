@@ -30,6 +30,9 @@ public class Main extends Application {
         Parent root = loader.load();
         Scene scene=new Scene(root);
         primaryStage.setScene(scene);
+        primaryStage.setMinWidth(600);
+        primaryStage.setMinHeight(500);
+        primaryStage.setTitle("CampusLib");
         primaryStage.show();
         
        /* GivebackRegistry gb=new GivebackRegistry();

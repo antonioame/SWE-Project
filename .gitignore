@@ -40,3 +40,6 @@ buildNumber.properties
 # File OS
 .DS_Store
 Thumbs.db
+
+# Personal files (anche per la gestione dei file binari dedicati a IO)
+1-JavaProject/CampusLib/personal-files/

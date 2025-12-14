@@ -12,7 +12,7 @@ import it.campuslib.domain.users.User;
  * @see Loan
  * @see Giveback
  */
-public abstract class Transaction implements Serializable {
+public abstract class Transaction implements Serializable, Comparable<Transaction> {
     private static int nextId = 1;
     private final int id;
     private final Book borrowedBook;
@@ -83,6 +83,12 @@ public abstract class Transaction implements Serializable {
     }
 
     /**
+     * @brief Restituisce la data utilizzata per l'ordinamento delle transazioni.
+     * @return La data di ordinamento (expectedReturnDate per Loan, endDate per Giveback).
+     */
+    public abstract LocalDate getSortingDate();
+
+    /**
      * @brief Confronta istanza di Transaction con un altro oggetto per uguaglianza.
      * Due oggetti Transaction sono considerati uguali se hanno lo stesso ID univoco e appartengono alla stessa classe.
      * @param[in] obj L'oggetto da confrontare.
@@ -108,6 +114,23 @@ public abstract class Transaction implements Serializable {
         return Integer.hashCode(this.id);
     }
 
+    /**
+     * @brief Confronta l'oggetto Transaction corrente con un altro oggetto Transaction per l'ordinamento.
+     * L'ordinamento è basato prima sulla data di ordinamento (getSortingDate), poi sull'ID della transazione per evitare collisioni.
+     * @param[in] other L'oggetto Transaction da confrontare con la transazione corrente.
+     * @return Un valore negativo, zero o positivo se la transazione corrente è minore, uguale o maggiore dell'altra transazione.
+     */
+    @Override
+    public int compareTo(Transaction other) {
+        int dateCompare = this.getSortingDate().compareTo(other.getSortingDate());
+        if (dateCompare != 0) {
+            return dateCompare;
+        } else {
+            return Integer.compare(this.getId(), other.getId());
+        }
+    }
+
+    // FIXME: Implementare toString
     @Override
     public String toString() {
     

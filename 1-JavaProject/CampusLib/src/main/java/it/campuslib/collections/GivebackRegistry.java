@@ -195,4 +195,16 @@ public class GivebackRegistry implements Serializable {
             return null;
         }
     }
+
+    private static GivebackRegistry instance = null;
+
+    public static GivebackRegistry getInstance() {
+        if (instance == null) {
+            instance = importFromFile("personal-files/io-binary-files/givebacks.dat");
+            if (instance == null) {
+                instance = new GivebackRegistry();
+            }
+        }
+        return instance;
+    }
 }

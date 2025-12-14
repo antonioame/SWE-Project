@@ -38,8 +38,6 @@ public class UserViewController implements Initializable {
     @FXML
     private Button btnAddUser;
     @FXML
-    private Button btnUserStatus;
-    @FXML
     private TextField searchUserField;
     @FXML
     private TableView<User> tableUsers;
@@ -70,10 +68,6 @@ public class UserViewController implements Initializable {
 
     @FXML
     private void addUser(ActionEvent event) {
-    }
-
-    @FXML
-    private void updateUserStatus(ActionEvent event) {
     }
 
     @FXML

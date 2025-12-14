@@ -13,12 +13,15 @@ import java.util.stream.Collectors;
 
 import it.campuslib.domain.catalog.Book;
 import it.campuslib.domain.catalog.AdoptionStatus;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  * @brief Il catalogo dei libri della biblioteca.
  */
 public class BookCatalog implements Serializable{
     private HashMap<String, Book> catalog;
+    private transient ObservableList<Book> books;
 
     /**
      * @brief Costruttore.
@@ -27,6 +30,7 @@ public class BookCatalog implements Serializable{
      */
     public BookCatalog() {
         this.catalog = new HashMap<>();
+        this.books = FXCollections.observableArrayList();
     }
 
     /**
@@ -43,6 +47,7 @@ public class BookCatalog implements Serializable{
         
         String isbn = book.getIsbn();
         catalog.put(isbn, book);
+        books.add(book);
         return true;
     }
 
@@ -201,6 +206,7 @@ public class BookCatalog implements Serializable{
             HashMap<String, Book> loadedCatalog = (HashMap<String, Book>) ois.readObject();
             BookCatalog newCatalog = new BookCatalog();
             newCatalog.catalog = loadedCatalog;
+            newCatalog.books.addAll(loadedCatalog.values());
             return newCatalog;
         } catch (IOException | ClassNotFoundException e) {
             return null;
@@ -213,5 +219,25 @@ public class BookCatalog implements Serializable{
      */
     public int getCatalogSize() {
         return this.catalog.size();
+    }
+
+    /**
+     * @brief Restituisce tutti i libri del catalogo.
+     * @return Lista di tutti i libri.
+     */
+    public ObservableList<Book> getAllBooks() {
+        return books;
+    }
+
+    private static BookCatalog instance = null;
+
+    public static BookCatalog getInstance() {
+        if (instance == null) {
+            instance = importFromFile("personal-files/io-binary-files/books.dat");
+            if (instance == null) {
+                instance = new BookCatalog();
+            }
+        }
+        return instance;
     }
 }

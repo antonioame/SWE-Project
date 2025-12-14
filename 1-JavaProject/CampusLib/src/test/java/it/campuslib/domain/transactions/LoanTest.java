@@ -109,10 +109,10 @@ public class LoanTest {
         Loan l3= new Loan(borrowedBook, borrowerUser, LocalDate.of(2025, 12, 5), LocalDate.now().minusDays(2));
         User u1= new User("Mario", "Verdi", "1234567890", "m.verdi@unisa.it");
         Loan l4= new Loan(borrowedBook, u1, LocalDate.of(2025, 12, 7), LocalDate.now());
-        //copre i tre casi di minore, maggiore e uguale
-        assertTrue(l1.compareTo(l2) < 0);
-        assertTrue(l1.compareTo(l3) > 0);
-        assertTrue(l1.compareTo(l4) == 0);
+        // Test ordinamento per data, e per ID in caso di date uguali
+        assertTrue(l1.compareTo(l2) < 0); // l1 data < l2 data
+        assertTrue(l1.compareTo(l3) > 0); // l1 data > l3 data
+        assertTrue(l1.compareTo(l4) < 0); // date uguali, ma ID l1 < ID l4
     }
 
     @Test

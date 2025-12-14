@@ -55,6 +55,16 @@ public class Giveback extends Transaction {
     }
 
     /**
+     * @brief Restituisce la data utilizzata per l'ordinamento delle transazioni.
+     * Per Giveback, è la data di restituzione effettiva.
+     * @return La data di ordinamento.
+     */
+    @Override
+    public LocalDate getSortingDate() {
+        return endDate;
+    }
+
+    /**
      * @brief Restituisce una rappresentazione testuale dell'oggetto Giveback.
      * @return Una stringa contenente le informazioni relative alla restituzione.
      */
