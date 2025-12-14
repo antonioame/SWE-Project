@@ -15,6 +15,9 @@ import java.util.LinkedList;
 import java.util.Set;
 import java.util.TreeSet;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableSet;
+
 import it.campuslib.domain.transactions.Giveback;
 import it.campuslib.domain.transactions.Loan;
 import it.campuslib.domain.users.User;
@@ -23,7 +26,7 @@ import it.campuslib.domain.users.User;
  * @brief Il registro dei prestiti attivi della biblioteca.
  */
 public class LoanRegistry implements Serializable {
-    private Set<Loan> registry;
+    private ObservableSet<Loan> registry;
 
     /**
      * @brief Costruttore.
@@ -31,7 +34,7 @@ public class LoanRegistry implements Serializable {
      * Il registro prestiti è vuoto.
      */
     public LoanRegistry() {
-        this.registry = new TreeSet<>();
+        this.registry = FXCollections.observableSet(new TreeSet<>());
     }
 
     /**
@@ -66,6 +69,14 @@ public class LoanRegistry implements Serializable {
      */
     public int getSize() {
         return registry.size();
+    }
+
+    /**
+     * @brief Restituisce il registro osservabile.
+     * @return Il registro dei prestiti come ObservableSet.
+     */
+    public ObservableSet<Loan> getRegistry() {
+        return registry;
     }
 
     /**
@@ -193,7 +204,7 @@ public class LoanRegistry implements Serializable {
         }
         
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
-            oos.writeObject(registry);
+            oos.writeObject(new TreeSet<>(registry));
         } catch (IOException e) {
             // In caso di errore, il metodo termina senza sollevare eccezioni
             System.err.println("ERR. Esportazione Non Riuscita: " + e.getMessage());
@@ -216,7 +227,7 @@ public class LoanRegistry implements Serializable {
             
             Set<Loan> loadedRegistry = (Set<Loan>) ois.readObject();
             LoanRegistry registry = new LoanRegistry();
-            registry.registry = loadedRegistry;
+            registry.registry.addAll(loadedRegistry);
             return registry;
         } catch (IOException | ClassNotFoundException e) {
             return null;

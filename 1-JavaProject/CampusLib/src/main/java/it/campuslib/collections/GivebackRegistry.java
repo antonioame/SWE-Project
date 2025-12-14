@@ -15,6 +15,9 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import it.campuslib.domain.transactions.Giveback;
 import it.campuslib.domain.users.User;
 
@@ -22,7 +25,7 @@ import it.campuslib.domain.users.User;
  * @brief Il registro delle restituzioni della biblioteca.
  */
 public class GivebackRegistry implements Serializable {
-    private List<Giveback> registry;
+    private ObservableList<Giveback> registry;
 
     /**
      * @brief Costruttore.
@@ -30,7 +33,7 @@ public class GivebackRegistry implements Serializable {
      * Il registro restituzioni è vuoto.
      */
     public GivebackRegistry() {
-        this.registry = new ArrayList<>();
+        this.registry = FXCollections.observableArrayList();
     }
 
     /**
@@ -43,6 +46,14 @@ public class GivebackRegistry implements Serializable {
             return false;
         }
         return registry.add(giveback);
+    }
+
+    /**
+     * @brief Restituisce il registro osservabile.
+     * @return Il registro delle restituzioni come ObservableList.
+     */
+    public ObservableList<Giveback> getRegistry() {
+        return registry;
     }
 
     /**
@@ -155,7 +166,7 @@ public class GivebackRegistry implements Serializable {
         }
         
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
-            oos.writeObject(registry);
+            oos.writeObject(new ArrayList<>(registry));
         } catch (IOException e) {
             // In caso di errore, il metodo termina senza sollevare eccezioni
             System.err.println("ERR. Esportazione Non Riuscita: " + e.getMessage());
@@ -178,7 +189,7 @@ public class GivebackRegistry implements Serializable {
             
             List<Giveback> loadedRegistry = (List<Giveback>) ois.readObject();
             GivebackRegistry registry = new GivebackRegistry();
-            registry.registry = loadedRegistry;
+            registry.registry.addAll(loadedRegistry);
             return registry;
         } catch (IOException | ClassNotFoundException e) {
             return null;
