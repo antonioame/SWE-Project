@@ -26,17 +26,38 @@ import java.util.LinkedList;
 public class UserTest {
     
     private User utente1, utente2, utente3;
-    
+    private Loan loan1, loan2, loan3, loan4, loan5, loan6;
+    private Book book1, book2, book3;
+    private LoanRegistry registry = new LoanRegistry();
     
     
 
     @BeforeEach
     @Timeout(value = 5, unit = TimeUnit.SECONDS)
-    public void setUp() throws InvalidUserInfoException{
+    public void setUp() throws InvalidUserInfoException, InvalidBookInfoException, InvalidLoanInfoException{
     
         utente1 = new User("Mario", "Rossi", "1112701345", "mario.rossi@studenti.unisa.it");
         utente2 = new User("Andrea", "Bianchi", "1234567890", "andrea.bianchi@unisa.it");
         utente3 = new User("Luca", "Verdi", "1000111222", "luca.verdi@studenti.unisa.it");
+        
+        book1 = new Book("9784567890123", "Sorvegliare e punire", "Michel Focault", 1976, 2);
+        book2 = new Book("9783131313131", "Furore", "John Steinbeck", 1939, 5);
+        book3 = new Book("9780202020202", "Il cane di terracotta", "Andrea Camilleri", 1996, 1);
+        
+        loan1 = new Loan(book1, utente1, LocalDate.now(), LocalDate.of(2026, 3, 12));
+        loan2 = new Loan(book2, utente2, LocalDate.of(2025, 5, 18), LocalDate.now());
+        loan3 = new Loan(book3, utente3, LocalDate.of(2025, 10, 17), LocalDate.of(2025, 12, 31));
+        loan4 = new Loan(book2, utente1, LocalDate.of(2025, 5, 18), LocalDate.of(2026, 4, 21));
+        loan5 = new Loan(book3, utente2, LocalDate.of(2025, 10, 17), LocalDate.of(2027, 5, 13));
+        loan6 = new Loan(book1, utente3, LocalDate.now(), LocalDate.of(2026, 3, 14));
+        
+        registry.addLoan(loan1);
+        registry.addLoan(loan4);
+        registry.addLoan(loan2);
+        registry.addLoan(loan5);
+        registry.addLoan(loan3);
+        registry.addLoan(loan6);
+                
     }
     
     
@@ -285,81 +306,28 @@ public class UserTest {
     @Test
     @Timeout(value = 15, unit = TimeUnit.SECONDS)
     public void testActiveLoans() throws InvalidLoanInfoException, InvalidBookInfoException{
-    
-        Loan loan1, loan2, loan3, loan4, loan5, loan6;
-        Book book1, book2, book3;
-        LoanRegistry registry = new LoanRegistry();
         
-        book1 = new Book("9784567890123", "Sorvegliare e punire", "Michel Focault", 1976, 2);
-        book2 = new Book("9783131313131", "Furore", "John Steinbeck", 1939, 5);
-        book3 = new Book("9780202020202", "Il cane di terracotta", "Andrea Camilleri", 1996, 1);
-        
-        loan1 = new Loan(book1, utente1, LocalDate.now(), LocalDate.of(2026, 3, 12));
-        loan2 = new Loan(book2, utente2, LocalDate.of(2025, 5, 18), LocalDate.now());
-        loan3 = new Loan(book3, utente3, LocalDate.of(2025, 10, 17), LocalDate.now());
-        loan4 = new Loan(book2, utente1, LocalDate.of(2025, 5, 18), LocalDate.now());
-        loan5 = new Loan(book3, utente2, LocalDate.of(2025, 10, 17), LocalDate.now());
-        loan6 = new Loan(book1, utente3, LocalDate.now(), LocalDate.of(2026, 3, 12));
-        
-        registry.addLoan(loan1);
-        registry.addLoan(loan2);
-        registry.addLoan(loan3);
-        registry.addLoan(loan4);
-        registry.addLoan(loan5);
-        registry.addLoan(loan6);
-        
-        LinkedList<Loan> associatedLoans = new LinkedList<>();
-        
-        associatedLoans = utente1.getActiveLoans(registry);
-        
-        for(Loan l : associatedLoans) {
-        
-            assertTrue((l.equals(loan1) && !l.equals(loan4)) || (!l.equals(loan1) || l.equals(loan4)));
-        }
-        
-        associatedLoans = utente2.getActiveLoans(registry);
-        
-        for(Loan l : associatedLoans) {
-        
-            assertTrue((l.equals(loan2) && !l.equals(loan5)) || (!l.equals(loan2) || l.equals(loan5)));
-        }
-        
-        
-        associatedLoans = utente3.getActiveLoans(registry);
-        
-        for(Loan l : associatedLoans) {
-        
-            assertTrue((l.equals(loan3) && !l.equals(loan6)) || (!l.equals(loan3) || l.equals(loan6)));
-        }
-           
+        LinkedList<Loan> associatedLoans1 = utente1.getActiveLoans(registry);
+        assertEquals(2, associatedLoans1.size());
+        assertTrue(associatedLoans1.contains(loan1));
+        assertTrue(associatedLoans1.contains(loan4));
+
+        LinkedList<Loan> associatedLoans2 = utente2.getActiveLoans(registry);
+        assertEquals(2, associatedLoans2.size());
+        assertTrue(associatedLoans2.contains(loan2));
+        assertTrue(associatedLoans2.contains(loan5));
+
+        LinkedList<Loan> associatedLoans3 = utente3.getActiveLoans(registry);
+        assertEquals(2, associatedLoans3.size());
+        assertTrue(associatedLoans3.contains(loan3));
+        assertTrue(associatedLoans3.contains(loan6));
+
     }
     
      @Test
      @Timeout(value = 15, unit = TimeUnit.SECONDS)
      public void testCanBorrow() throws InvalidLoanInfoException, InvalidBookInfoException {
      
-        Loan loan1, loan2, loan3, loan4, loan5, loan6;
-        Book book1, book2, book3;
-        LoanRegistry registry = new LoanRegistry();
-        
-        book1 = new Book("9784567890123", "Sorvegliare e punire", "Michel Focault", 1976, 2);
-        book2 = new Book("9783131313131", "Furore", "John Steinbeck", 1939, 5);
-        book3 = new Book("9780202020202", "Il cane di terracotta", "Andrea Camilleri", 1996, 1);
-        
-        loan1 = new Loan(book1, utente1, LocalDate.now(), LocalDate.of(2026, 3, 12));
-        loan2 = new Loan(book2, utente2, LocalDate.of(2025, 5, 18), LocalDate.now());
-        loan3 = new Loan(book3, utente3, LocalDate.of(2025, 10, 17), LocalDate.now());
-        loan4 = new Loan(book2, utente1, LocalDate.of(2025, 5, 18), LocalDate.now());
-        loan5 = new Loan(book3, utente2, LocalDate.of(2025, 10, 17), LocalDate.now());
-        loan6 = new Loan(book1, utente3, LocalDate.now(), LocalDate.of(2026, 3, 12));
-        
-        registry.addLoan(loan1);
-        registry.addLoan(loan2);
-        registry.addLoan(loan3);
-        registry.addLoan(loan4);
-        registry.addLoan(loan5);
-        registry.addLoan(loan6);
-        
         //Tutti e tre gli utenti hanno come numero massimo di prestiti 3
         
         assertTrue(utente1.canBorrow(registry));
@@ -371,28 +339,6 @@ public class UserTest {
      @Timeout(value = 15, unit = TimeUnit.SECONDS)
      public void testCannotBorrow() throws InvalidLoanInfoException, InvalidBookInfoException {
      
-        Loan loan1, loan2, loan3, loan4, loan5, loan6;
-        Book book1, book2, book3;
-        LoanRegistry registry = new LoanRegistry();
-        
-        book1 = new Book("9784567890123", "Sorvegliare e punire", "Michel Focault", 1976, 2);
-        book2 = new Book("9783131313131", "Furore", "John Steinbeck", 1939, 5);
-        book3 = new Book("9780202020202", "Il cane di terracotta", "Andrea Camilleri", 1996, 1);
-        
-        loan1 = new Loan(book1, utente1, LocalDate.now(), LocalDate.of(2026, 3, 12));
-        loan2 = new Loan(book2, utente2, LocalDate.of(2025, 5, 18), LocalDate.now());
-        loan3 = new Loan(book3, utente3, LocalDate.of(2025, 10, 17), LocalDate.now());
-        loan4 = new Loan(book2, utente1, LocalDate.of(2025, 5, 18), LocalDate.now());
-        loan5 = new Loan(book3, utente2, LocalDate.of(2025, 10, 17), LocalDate.now());
-        loan6 = new Loan(book1, utente3, LocalDate.now(), LocalDate.of(2026, 3, 12));
-        
-        registry.addLoan(loan1);
-        registry.addLoan(loan2);
-        registry.addLoan(loan3);
-        registry.addLoan(loan4);
-        registry.addLoan(loan5);
-        registry.addLoan(loan6);
-        
         //Tutti e tre gli utenti hanno come numero massimo di prestiti 2
         utente1.setMaxLoans(2);
         utente2.setMaxLoans(2);
@@ -403,47 +349,4 @@ public class UserTest {
         assertFalse(utente3.canBorrow(registry));
      }
      
-     @Test
-     @Timeout(value = 15, unit = TimeUnit.SECONDS)
-     public void testGetAvailableLoanSlots() throws InvalidLoanInfoException, InvalidBookInfoException {
-     
-        Loan loan1, loan2, loan3, loan4, loan5, loan6;
-        Book book1, book2, book3;
-        LoanRegistry registry = new LoanRegistry();
-        
-        book1 = new Book("9784567890123", "Sorvegliare e punire", "Michel Focault", 1976, 2);
-        book2 = new Book("9783131313131", "Furore", "John Steinbeck", 1939, 5);
-        book3 = new Book("9780202020202", "Il cane di terracotta", "Andrea Camilleri", 1996, 1);
-        
-        loan1 = new Loan(book1, utente1, LocalDate.now(), LocalDate.of(2026, 3, 12));
-        loan2 = new Loan(book2, utente2, LocalDate.of(2025, 5, 18), LocalDate.now());
-        loan3 = new Loan(book3, utente3, LocalDate.of(2025, 10, 17), LocalDate.now());
-        loan4 = new Loan(book2, utente1, LocalDate.of(2025, 5, 20), LocalDate.of(2027, 3, 15));
-        loan5 = new Loan(book3, utente2, LocalDate.of(2025, 6, 17), LocalDate.of(2025, 8, 17));
-        loan6 = new Loan(book1, utente3, LocalDate.now(), LocalDate.of(2026, 3, 12));
-        
-        registry.addLoan(loan1);
-        registry.addLoan(loan2);
-        registry.addLoan(loan3);
-        registry.addLoan(loan4);
-        registry.addLoan(loan5);
-        registry.addLoan(loan6);
-        
-        
-        //utente1 ha un numero massimo di prestiti pari a 3
-        utente1.setMaxLoans(3);
-        //utente2 e utente2 hanno un numero massimo di prestiti pari a 3
-        utente2.setMaxLoans(2);
-        utente3.setMaxLoans(2);
-        
-        /*
-        Dopo i due prestiti per ogni utente, utente1 potrà effettuare un altro
-        prestito, mentre utente2 e utente3 non ne potranno effettuare altri.
-        */
-        
-        assertEquals(1, utente1.getAvailableLoanSlots(registry));
-        assertEquals(0, utente2.getAvailableLoanSlots(registry));
-        assertEquals(0, utente3.getAvailableLoanSlots(registry));
-        
-     }
 }

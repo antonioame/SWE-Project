@@ -68,9 +68,14 @@ public class Giveback extends Transaction {
      * @brief Restituisce una rappresentazione testuale dell'oggetto Giveback.
      * @return Una stringa contenente le informazioni relative alla restituzione.
      */
-    // FIXME: Implementare toString
     @Override
     public String toString() {
-        return null;
+        
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append(super.toString());
+        sb.append("Data di effettiva restituzione: ").append(endDate).append("\n");
+        
+        return sb.toString();
     }
 }

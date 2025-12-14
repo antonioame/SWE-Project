@@ -119,7 +119,7 @@ public class LoanTest {
     //Caso di not overdue
     public void testIsOverdue1() throws InvalidLoanInfoException {
         LocalDate startDate=LocalDate.of(2025, 12, 1);
-        LocalDate expectedReturnDate=LocalDate.now().minusDays(5);
+        LocalDate expectedReturnDate=LocalDate.now().plusDays(5);
         Loan l= new Loan(borrowedBook, borrowerUser, startDate, expectedReturnDate);
         assertFalse(l.isOverdue());
     }
@@ -136,7 +136,7 @@ public class LoanTest {
     //Caso di overdue
     public void testIsOverdue3() throws InvalidLoanInfoException {
         LocalDate startDate=LocalDate.of(2025 , 12, 1);
-        LocalDate expectedReturnDate=LocalDate.now().plusDays(5);
+        LocalDate expectedReturnDate=LocalDate.now().minusDays(5);
         Loan l= new Loan(borrowedBook, borrowerUser, startDate, expectedReturnDate);
         assertTrue(l.isOverdue());  
     }

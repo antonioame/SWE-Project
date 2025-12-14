@@ -131,4 +131,16 @@ public abstract class Transaction implements Serializable, Comparable<Transactio
     }
 
     // FIXME: Implementare toString
+    @Override
+    public String toString() {
+    
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append("ID: ").append(id).append("\n");
+        sb.append("Libro preso in prestito: ").append(borrowedBook).append("\n");
+        sb.append("Utente che ha effettuato il prestito: ").append(borrowerUser).append("\n");
+        sb.append("Data di registrazione del prestito: ").append(startDate).append("\n");
+        
+        return sb.toString();
+    }
 }
