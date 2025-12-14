@@ -14,6 +14,7 @@ import it.campuslib.domain.catalog.Book;
 import it.campuslib.domain.transactions.Giveback;
 import it.campuslib.domain.transactions.Loan;
 import it.campuslib.domain.users.User;
+import it.campuslib.domain.users.InvalidUserInfoException;
 
 /**
  * Classe di test per LoanRegistry
@@ -26,7 +27,7 @@ public class LoanRegistryTest {
     private Loan loan1, loan2, loan3;
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws InvalidUserInfoException{
         // Creazione directory per i file di test I/O, se inesistente:
         new File(TEST_FILES_DIR).mkdirs();
         
@@ -109,7 +110,7 @@ public class LoanRegistryTest {
     }
 
     @Test
-    void testSearchByUser() {
+    void testSearchByUser() throws InvalidUserInfoException{
         registry.addLoan(loan1);
         registry.addLoan(loan2);
         registry.addLoan(loan3);

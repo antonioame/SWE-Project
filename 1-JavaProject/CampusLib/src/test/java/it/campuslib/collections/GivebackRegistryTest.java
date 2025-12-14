@@ -13,6 +13,7 @@ import it.campuslib.domain.catalog.Author;
 import it.campuslib.domain.catalog.Book;
 import it.campuslib.domain.transactions.Giveback;
 import it.campuslib.domain.users.User;
+import it.campuslib.domain.users.InvalidUserInfoException;
 
 /**
  * Classe di test per GivebackRegistry
@@ -25,7 +26,7 @@ public class GivebackRegistryTest {
     private Giveback giveback1, giveback2, giveback3;
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws InvalidUserInfoException{
         // Creazione directory per i file di test I/O, se inesistente:
         new File(TEST_FILES_DIR).mkdirs();
         
@@ -65,7 +66,7 @@ public class GivebackRegistryTest {
     }
 
     @Test
-    void testSearchByUser() {
+    void testSearchByUser() throws InvalidUserInfoException{
         registry.addGiveback(giveback1);
         registry.addGiveback(giveback2);
         registry.addGiveback(giveback3);

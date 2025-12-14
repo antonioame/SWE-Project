@@ -139,10 +139,10 @@ public class User extends Person implements Comparable<User> {
         
         if(associatedLoans == null) return maxLoans;
         
-        int avLoans = maxLoans - associatedLoans.size();
+        int numLoans = associatedLoans.size();
+        int avLoans = maxLoans - numLoans;
         
-        if(avLoans<0) return 0;
-        else return avLoans;
+        return avLoans;
         
     }
     
@@ -154,7 +154,8 @@ public class User extends Person implements Comparable<User> {
         
        int avLoans = getAvailableLoanSlots(registry);
        
-       return (avLoans > 0);
+       if(avLoans > 0) return true;
+       else return false;
         
     }
     

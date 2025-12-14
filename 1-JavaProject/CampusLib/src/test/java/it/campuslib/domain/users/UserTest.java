@@ -3,10 +3,14 @@ package it.campuslib.domain.users;
 import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
-import java.time.LocalDate;
+
+
+
 import it.campuslib.domain.transactions.Loan;
 import it.campuslib.domain.catalog.*;
 import it.campuslib.collections.LoanRegistry;
+import it.campuslib.domain.transactions.InvalidLoanInfoException;
+import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -20,8 +24,7 @@ public class UserTest {
     private User utente1, utente2, utente3;
     
     
-    public UserTest() {
-    }
+    
 
     @BeforeEach
     @Timeout(value = 5, unit = TimeUnit.SECONDS)
@@ -277,7 +280,7 @@ public class UserTest {
    
     @Test
     @Timeout(value = 15, unit = TimeUnit.SECONDS)
-    public void testActiveLoans() {
+    public void testActiveLoans() throws InvalidLoanInfoException{
     
         Loan loan1, loan2, loan3, loan4, loan5, loan6;
         Book book1, book2, book3;
@@ -342,7 +345,7 @@ public class UserTest {
     
      @Test
      @Timeout(value = 15, unit = TimeUnit.SECONDS)
-     public void testCanBorrow() {
+     public void testCanBorrow() throws InvalidLoanInfoException {
      
          Loan loan1, loan2, loan3, loan4, loan5, loan6;
         Book book1, book2, book3;
@@ -388,9 +391,9 @@ public class UserTest {
      
      @Test
      @Timeout(value = 15, unit = TimeUnit.SECONDS)
-     public void testCannotBorrow() {
+     public void testCannotBorrow() throws InvalidLoanInfoException{
      
-         Loan loan1, loan2, loan3, loan4, loan5, loan6;
+        Loan loan1, loan2, loan3, loan4, loan5, loan6;
         Book book1, book2, book3;
         LoanRegistry registry = new LoanRegistry();
         Author author1, author2, author3;
@@ -433,5 +436,62 @@ public class UserTest {
         assertFalse(utente1.canBorrow(registry));
         assertFalse(utente2.canBorrow(registry));
         assertFalse(utente3.canBorrow(registry));
+     }
+     
+     @Test
+     @Timeout(value = 15, unit = TimeUnit.SECONDS)
+     public void testGetAvailableLoanSlots() throws InvalidLoanInfoException{
+     
+        Loan loan1, loan2, loan3, loan4, loan5, loan6;
+        Book book1, book2, book3;
+        LoanRegistry registry = new LoanRegistry();
+        Author author1, author2, author3;
+        
+        author1 = new Author("Focault", "Michel");
+        author2 = new Author("Steinbeck", "John");
+        author3 = new Author("Camilleri", "Andrea");
+        
+        ArrayList<Author> a1 = new ArrayList<>();
+        ArrayList<Author> a2 = new ArrayList<>();
+        ArrayList<Author> a3 = new ArrayList<>();
+        
+        a1.add(author1);
+        a2.add(author2);
+        a3.add(author3);
+        
+        book1 = new Book("1234567890123", "Sorvegliare e punire", a1, 1976, 2);
+        book2 = new Book("1313131313131", "Furore", a2, 1939, 5);
+        book3 = new Book("2020202020202", "Il cane di terracotta", a3, 1996, 1);
+        
+        loan1 = new Loan(book1, utente1, LocalDate.now(), LocalDate.of(2026, 3, 12));
+        loan2 = new Loan(book2, utente2, LocalDate.of(2025, 5, 18), LocalDate.now());
+        loan3 = new Loan(book3, utente3, LocalDate.of(2025, 10, 17), LocalDate.now());
+        loan4 = new Loan(book2, utente1, LocalDate.of(2025, 5, 20), LocalDate.of(2027, 3, 15));
+        loan5 = new Loan(book3, utente2, LocalDate.of(2025, 6, 17), LocalDate.of(2025, 8, 17));
+        loan6 = new Loan(book1, utente3, LocalDate.now(), LocalDate.of(2026, 3, 12));
+        
+        registry.addLoan(loan1);
+        registry.addLoan(loan2);
+        registry.addLoan(loan3);
+        registry.addLoan(loan4);
+        registry.addLoan(loan5);
+        registry.addLoan(loan6);
+        
+        
+        //utente1 ha un numero massimo di prestiti pari a 3
+        utente1.setMaxLoans(3);
+        //utente2 e utente2 hanno un numero massimo di prestiti pari a 3
+        utente2.setMaxLoans(2);
+        utente3.setMaxLoans(2);
+        
+        /*
+        Dopo i due prestiti per ogni utente, utente1 potrà effettuare un altro
+        prestito, mentre utente2 e utente3 non ne potranno effettuare altri.
+        */
+        
+        assertEquals(1, utente1.getAvailableLoanSlots(registry));
+        assertEquals(0, utente2.getAvailableLoanSlots(registry));
+        assertEquals(0, utente3.getAvailableLoanSlots(registry));
+        
      }
 }

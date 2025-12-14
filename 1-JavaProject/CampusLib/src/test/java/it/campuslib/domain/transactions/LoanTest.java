@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import it.campuslib.domain.catalog.Author;
 import it.campuslib.domain.catalog.Book;
 import it.campuslib.domain.users.User;
-
+import it.campuslib.domain.users.InvalidUserInfoException;
 
 public class LoanTest {
     
@@ -21,7 +21,7 @@ public class LoanTest {
     }
 
     @BeforeEach
-    public void setUp() {
+    public void setUp() throws InvalidUserInfoException{
         authors = new ArrayList<>();
         authors.add(new Author("Claudio", "De Sio Cesari"));
         borrowedBook = new Book("9788836018123", "Programmazione Java", authors, 2025, 1 );
@@ -44,7 +44,7 @@ public class LoanTest {
 
     
     @Test
-    public void testSetExpectedReturnDate() {
+    public void testSetExpectedReturnDate() throws InvalidLoanInfoException{
         
         LocalDate startDate = LocalDate.of(2025, 12, 1);
         LocalDate expectedReturnDate = LocalDate.of(2025, 12, 15);
@@ -77,7 +77,7 @@ public class LoanTest {
     }
 
     @Test
-    public void testEqualsSameId() {
+    public void testEqualsSameId() throws InvalidLoanInfoException{
         /*Due Loan con stesso ID sono uguali */
         LocalDate startDate = LocalDate.of(2025, 12, 1);
         LocalDate expectedReturnDate = LocalDate.of(2025, 12, 15);
@@ -88,7 +88,7 @@ public class LoanTest {
     }
 
     @Test
-    public void testHashCode() {
+    public void testHashCode() throws InvalidLoanInfoException{
         /* HashCode dovrebbe essere consistente e uguale per oggetti uguali */
         LocalDate startDate = LocalDate.of(2025, 12, 1);
         LocalDate expectedReturnDate = LocalDate.of(2025, 12, 15);
@@ -106,7 +106,7 @@ public class LoanTest {
     }
     
     @Test
-    public void testCompareTo() {
+    public void testCompareTo() throws InvalidUserInfoException{
         Loan l1= new Loan(borrowedBook, borrowerUser, LocalDate.of(2025, 12, 1), LocalDate.now());
         Loan l2= new Loan(borrowedBook, borrowerUser, LocalDate.of(2025, 12, 3), LocalDate.now().plusDays(5));
         Loan l3= new Loan(borrowedBook, borrowerUser, LocalDate.of(2025, 12, 5), LocalDate.now().minusDays(2));

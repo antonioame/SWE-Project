@@ -22,8 +22,13 @@ public class Loan extends Transaction implements Comparable<Loan> {
      * @param[in] borrowerUser L'utente che ha preso in prestito il libro.
      * @see Transaction
      */
-    public Loan(Book borrowedBook, User borrowerUser, LocalDate startDate, LocalDate expectedReturnDate) {
+    public Loan(Book borrowedBook, User borrowerUser, LocalDate startDate, LocalDate expectedReturnDate) /*throws InvalidLoanInfoException*/{
         super(borrowedBook, borrowerUser, startDate);
+        /*
+        if(!checkDate(startDate, expectedReturnDate)) {
+        
+            throw new InvalidLoanInfoException("La data di inizio del prestito deve essere precedente alla data prevista di restituzione");
+        }*/
         this.expectedReturnDate = expectedReturnDate;
     }
 
@@ -37,8 +42,13 @@ public class Loan extends Transaction implements Comparable<Loan> {
      * @param[in] expectedReturnDate La data di restituzione prevista del prestito.
      * @see Transaction
      */
-    protected Loan(int id, Book borrowedBook, User borrowerUser, LocalDate startDate, LocalDate expectedReturnDate) {
+    protected Loan(int id, Book borrowedBook, User borrowerUser, LocalDate startDate, LocalDate expectedReturnDate) throws InvalidLoanInfoException{
         super(id, borrowedBook, borrowerUser, startDate);
+        
+        if(!checkDate(startDate, expectedReturnDate)) {
+        
+            throw new InvalidLoanInfoException("La data di inizio del prestito deve essere precedente alla data prevista di restituzione");
+        }
         this.expectedReturnDate = expectedReturnDate;
     }
 
@@ -54,7 +64,12 @@ public class Loan extends Transaction implements Comparable<Loan> {
      * @brief Imposta la data di restituzione prevista del prestito.
      * @param[in] newDate La nuova data di restituzione prevista del prestito.
      */
-    public void setExpectedReturnDate(LocalDate expectedReturnDate) {
+    public void setExpectedReturnDate(LocalDate expectedReturnDate) throws InvalidLoanInfoException{
+       
+        if(!checkDate(super.getStartDate(), expectedReturnDate)) {
+        
+            throw new InvalidLoanInfoException("La data di inizio del prestito deve essere precedente alla data prevista di restituzione");
+        }
         this.expectedReturnDate = expectedReturnDate;
     }
 
@@ -89,4 +104,11 @@ public class Loan extends Transaction implements Comparable<Loan> {
     public boolean isOverdue() {
         return this.expectedReturnDate.isAfter(LocalDate.now());
     }
+    
+    public static boolean checkDate(LocalDate startDate, LocalDate expectedReturnDate) {
+    
+        if(expectedReturnDate.isAfter(startDate)) return true;
+        else return false;
+    }
+           
 }

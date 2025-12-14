@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import it.campuslib.collections.LoanRegistry;
 import it.campuslib.domain.transactions.Loan;
+import it.campuslib.domain.users.InvalidUserInfoException;
 import it.campuslib.domain.users.User;
 
 /**
@@ -30,7 +31,7 @@ public class BookTest {
     private User testUser;
     
     @BeforeEach
-    public void setUp() {
+    public void setUp() throws InvalidUserInfoException {
        
         author1 = new Author("Poeta", "Omero");
         author2 = new Author("Daniel", "Defoe");
