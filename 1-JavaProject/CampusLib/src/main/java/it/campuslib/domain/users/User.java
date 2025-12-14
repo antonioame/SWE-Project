@@ -39,6 +39,7 @@ public class User extends Person implements Comparable<User> {
         this.enrollmentID = enrollmentID;
         this.email = email;
         this.maxLoans = 3;
+        this.status = UserStatus.ACTIVE;
     }
     
     /**
@@ -122,12 +123,10 @@ public class User extends Person implements Comparable<User> {
         LinkedList<Loan> associatedLoans = new LinkedList<>();
         
         if(registry == null) return associatedLoans;
-       
         associatedLoans = registry.searchByUser(this);
         
         return associatedLoans;
-        
-    }
+        }
     
     /**
      * @brief Indica se l'utente può effettuare nuovi prestiti o meno.
@@ -138,7 +137,6 @@ public class User extends Person implements Comparable<User> {
         LinkedList<Loan> associatedLoans = this.getActiveLoans(registry);
         
         if(associatedLoans == null) return maxLoans > 0;
-        
         int numLoans = associatedLoans.size();
         
         return ((maxLoans - numLoans) > 0);
@@ -190,9 +188,9 @@ public class User extends Person implements Comparable<User> {
         sb.append(super.toString());
         sb.append("\n");
         sb.append("Matricola: ").append(enrollmentID);
-        sb.append(" E-mail: ").append(email);
-        sb.append(" È attivo: ").append(isActive());
-        sb.append(" Numero massimo di prestiti: ").append(maxLoans);
+        sb.append("; E-mail: ").append(email);
+        sb.append("; È attivo: ").append(isActive());
+        sb.append("; Numero massimo di prestiti: ").append(maxLoans).append("\n");
         
         return sb.toString();
     }

@@ -77,9 +77,15 @@ public class Loan extends Transaction implements Comparable<Loan> {
      * @brief Restituisce una rappresentazione testuale dell'oggetto Loan.
      * @return Una stringa contenente le informazioni del prestito.
      */
-    // FIXME: Implementare toString
+    @Override
     public String toString() {
-        return null;
+        
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append(super.toString());
+        sb.append("Data di restituzione prevista: ").append(expectedReturnDate).append("\n");
+        
+        return sb.toString();
     }
 
     /**
@@ -102,7 +108,7 @@ public class Loan extends Transaction implements Comparable<Loan> {
      * @see getExpectedReturnDate()
      */
     public boolean isOverdue() {
-        return this.expectedReturnDate.isAfter(LocalDate.now());
+        return this.expectedReturnDate.isBefore(LocalDate.now());
     }
     
     public static boolean checkDate(LocalDate startDate, LocalDate expectedReturnDate) {

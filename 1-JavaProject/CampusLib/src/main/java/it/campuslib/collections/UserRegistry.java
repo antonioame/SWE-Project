@@ -1,15 +1,26 @@
 package it.campuslib.collections;
 
+import it.campuslib.domain.users.User;
+import it.campuslib.domain.users.UserStatus;
+
+import java.util.Map;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-import it.campuslib.domain.users.User;
+import java.io.Serializable;
+import java.io.FileOutputStream;
+import java.io.BufferedOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.IOException;
+import java.io.FileInputStream;
+import java.io.BufferedInputStream;
+import java.io.ObjectInputStream;
 
 /**
  * @brief Il registro degli utenti della biblioteca.
  */
-public class UserRegistry {
-    private HashMap<String, User> registry;
+public class UserRegistry implements Serializable{
+    private Map<String, User> registry;
 
     /**
      * @brief Costruttore.
@@ -17,6 +28,8 @@ public class UserRegistry {
      * Il registro utenti è vuoto.
      */
     public UserRegistry() {
+        
+        this.registry = new HashMap<>();
     }
 
     /**
@@ -26,7 +39,12 @@ public class UserRegistry {
      * @return Esito aggiunta.
      */
     public boolean addUser(User user) {
-        return false;
+        if(user == null) return false;
+        
+        User u = registry.put(user.getEnrollmentID(), user);
+        
+        if(u != null) return true;
+        else return false;
     }
 
     /**
@@ -37,7 +55,15 @@ public class UserRegistry {
      * Se presente, l'utente viene rimosso dal registro, altrimenti restituisce false.
      */
     public boolean removeUser(String enrollmentID) {
-        return false;
+        
+        User u = registry.get(enrollmentID);
+        
+        if(u == null) return false;
+        else {
+            
+        u.setStatus(UserStatus.INACTIVE);
+        return true;
+        }
     }
 
     /**
@@ -47,7 +73,20 @@ public class UserRegistry {
      * @return Lista di utenti trovati (vuota se nessun utente corrisponde al criterio di ricerca).
      */
     public LinkedList<User> searchByName(String name, String surname) {
-        return null;
+        
+        LinkedList<User> list = new LinkedList<>();
+        if(name == null || surname == null) return list;
+        
+        for(User u : registry.values()) {
+        
+            if(u.getName() != null && u.getSurname() != null && 
+               u.getName().equals(name) && 
+               u.getSurname().equals(surname)) {
+                list.add(u);
+            }
+        }
+        
+        return list;
     }
 
     /**
@@ -56,7 +95,14 @@ public class UserRegistry {
      * @return Utente trovato o null se non presente.
      */
     public User searchByEnrollmentID(String enrollmentID) {
-        return null;
+        
+        User user = null;
+        
+        if(enrollmentID == null) return null;
+        
+        if(registry.containsKey(enrollmentID)) user = registry.get(enrollmentID);
+        
+        return user;
     }
 
     /**
@@ -65,7 +111,33 @@ public class UserRegistry {
      * @return Lista di utenti che corrispondono alla query (vuota se nessun utente corrisponde al criterio di ricerca).
      */
     public LinkedList<User> search(String query) {
-        return null;
+        
+        LinkedList<User> lista = new LinkedList<>();
+        
+        if(query == null || query.isEmpty()) return lista;
+        
+        //Controlla se la query contiene la matricola:
+        User user = registry.get(query);
+        if(user != null) {
+        
+            lista.add(user);
+            return lista;
+        }
+        
+        //Controlla nei campi dei valori:
+        
+        String q = query.toLowerCase();
+        for(User u : registry.values()) {
+        
+            if(u.getName().equalsIgnoreCase(q) ||
+               u.getSurname().equalsIgnoreCase(q) ||
+               u.getEmail().equalsIgnoreCase(q)) {
+            
+                lista.add(u);
+            }
+            
+        }
+        return lista;
     }
 
     /**
@@ -73,7 +145,19 @@ public class UserRegistry {
      * @return Rappresentazione testuale del registro.
      */
     public String toString() {
-        return null;
+        
+        if(registry.isEmpty()) return "Registro utenti è vuoto";
+        
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append(" * === Stampa Registro Utenti === * \n");
+        
+        for(User user : registry.values()) {
+        
+            sb.append(user.toString()).append("\n");
+        }
+        
+        return sb.toString();
     }
 
     /**
@@ -83,6 +167,22 @@ public class UserRegistry {
      * Il registro viene salvato sul file specificato.
      */
     public void exportOnFile(String fileName) {
+        
+        if(fileName == null != fileName.isEmpty()) {
+        
+            return;
+        }
+        
+        try(ObjectOutputStream oos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(fileName)))) {
+        
+            oos.writeObject(registry);
+            
+        }
+        catch(IOException ex) {
+        
+            System.err.println("ERR. Esportazione Non Riuscita: " + ex.getMessage());
+        }
+        
     }
 
     /**
@@ -91,6 +191,22 @@ public class UserRegistry {
      * @return Registro importato o null se il file non è valido.
      */
     public static UserRegistry importFromFile(String fileName) {
-        return null;
+        
+        if(fileName == null || fileName.isEmpty()) return null;
+        
+        try(ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(fileName)))) {
+        
+            HashMap<String, User> registry = (HashMap<String, User>) ois.readObject();
+            UserRegistry userRegistry = new UserRegistry();
+            
+            userRegistry.registry = registry;
+            
+            return userRegistry;
+            
+        }
+        catch(IOException | ClassNotFoundException ex) {
+        
+            return null;
+        }
     }
 }
