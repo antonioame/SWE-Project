@@ -88,6 +88,22 @@ public class Book implements Comparable<Book>, Serializable {
     public boolean isAdopted() {
         return this.status == AdoptionStatus.ADOPTED;
     }
+
+    /**
+     * @brief Restituisce lo stato di adozione del libro.
+     * @return Lo stato di adozione.
+     */
+    public AdoptionStatus getStatus() {
+        return this.status;
+    }
+
+    /**
+     * @brief Restituisce una stringa essenziale per la visualizzazione in liste di selezione.
+     * @return Stringa nel formato "Titolo - Autore".
+     */
+    public String getDisplayString() {
+        return title + " - " + authors;
+    }
     
     /**
      * @brief Verifica la disponibilità del libro.
