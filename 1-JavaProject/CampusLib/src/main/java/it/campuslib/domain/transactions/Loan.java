@@ -10,7 +10,7 @@ import it.campuslib.domain.users.User;
  * Estende Transaction aggiungendo la data prevista di restituzione.
  * @see Transaction
  */
-public class Loan extends Transaction implements Comparable<Loan> {
+public class Loan extends Transaction {
     private LocalDate expectedReturnDate;
     
     /**
@@ -61,6 +61,16 @@ public class Loan extends Transaction implements Comparable<Loan> {
     }
 
     /**
+     * @brief Restituisce la data utilizzata per l'ordinamento delle transazioni.
+     * Per Loan, è la data di restituzione prevista.
+     * @return La data di ordinamento.
+     */
+    @Override
+    public LocalDate getSortingDate() {
+        return expectedReturnDate;
+    }
+
+    /**
      * @brief Imposta la data di restituzione prevista del prestito.
      * @param[in] newDate La nuova data di restituzione prevista del prestito.
      */
@@ -80,16 +90,6 @@ public class Loan extends Transaction implements Comparable<Loan> {
     // FIXME: Implementare toString
     public String toString() {
         return null;
-    }
-
-    /**
-     * @brief Confronta l'oggetto Loan corrente con un altro oggetto Loan per l'ordinamento.
-     * L'ordinamento è basato sulla data di restituzione prevista.
-     * @param[in] other L'oggetto Loan da confrontare con il prestito corrente.
-     * @return Un valore negativo, zero o positivo se il prestito corrente è minore, uguale o maggiore dell'altro prestito.
-     */
-    public int compareTo(Loan other) {
-        return this.expectedReturnDate.compareTo(other.expectedReturnDate);
     }
 
     /**
