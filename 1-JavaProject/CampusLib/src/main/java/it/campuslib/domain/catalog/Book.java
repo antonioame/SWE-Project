@@ -135,6 +135,14 @@ public class Book implements Comparable<Book>, Serializable {
     }
 
     /**
+     * @brief Imposta la stringa degli autori del libro.
+     * @param[in] authors La nuova stringa degli autori.
+     */
+    public void setAuthors(String authors) {
+        this.authors = authors != null ? authors : "";
+    }
+
+    /**
      * @brief Imposta l'anno di pubblicazione del libro.
      * @param[in] year Il nuovo anno di pubblicazione del libro.
      */

@@ -46,6 +46,11 @@ public class BookCatalog implements Serializable{
         }
         
         String isbn = book.getIsbn();
+        // Non sovrascrivere il libro se già esiste uno con stesso ISBN
+        if (catalog.containsKey(isbn)) {
+            return false;
+        }
+
         catalog.put(isbn, book);
         books.add(book);
         return true;
