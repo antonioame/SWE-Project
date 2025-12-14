@@ -45,6 +45,7 @@ public class Giveback extends Transaction {
         super(id, borrowedBook, borrowerUser, startDate);
         this.endDate = endDate;
     }
+    
     /**
      * @brief Restituisce l'effettiva data di restituzione del libro.
      * @return La data di restituzione del libro.

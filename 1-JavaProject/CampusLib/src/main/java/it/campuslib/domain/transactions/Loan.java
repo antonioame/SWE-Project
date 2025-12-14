@@ -27,6 +27,20 @@ public class Loan extends Transaction implements Comparable<Loan> {
         this.expectedReturnDate = expectedReturnDate;
     }
 
+    /**
+     * @brief Istanzia un nuovo oggetto Loan preservando l'ID del prestito originale.
+     * Utilizzato per test o conversioni mantenendo lo stesso ID.
+     * @param[in] id L'ID del prestito originale da preservare.
+     * @param[in] borrowedBook Il libro preso in prestito.
+     * @param[in] borrowerUser L'utente che ha preso in prestito il libro.
+     * @param[in] startDate La data di inizio del prestito.
+     * @param[in] expectedReturnDate La data di restituzione prevista del prestito.
+     * @see Transaction
+     */
+    protected Loan(int id, Book borrowedBook, User borrowerUser, LocalDate startDate, LocalDate expectedReturnDate) {
+        super(id, borrowedBook, borrowerUser, startDate);
+        this.expectedReturnDate = expectedReturnDate;
+    }
 
     /**
      * @brief Restituisce la data di restituzione prevista del prestito.
@@ -51,23 +65,6 @@ public class Loan extends Transaction implements Comparable<Loan> {
     // FIXME: Implementare toString
     public String toString() {
         return null;
-    }
-
-    /**
-     * @brief Confronta l'oggetto Loan corrente con un altro oggetto per verificarne l'uguaglianza.
-     * L'uguaglianza è verificata se entrambi gli oggetti sono di tipo Loan e hanno stesso ID.
-     * @param[in] obj L'oggetto da confrontare con il prestito corrente.
-     * @return true se l'oggetto specificato è uguale all'oggetto corrente, false altrimenti.
-     */
-    // FIXME: Implementare equals su confronto per ID
-    // FIXME: Implementare hashCode consistente
-    public boolean equals(Object obj) {
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (this.getClass() != obj.getClass()) return false;
-        
-        Loan l = (Loan) obj;
-        return this.expectedReturnDate.equals(l.expectedReturnDate);
     }
 
     /**

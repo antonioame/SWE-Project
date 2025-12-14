@@ -58,12 +58,12 @@ public class LoanTest {
     @Test
     public void testEquals() {
 
-        /*l1 e mockLoan hanno stessa data di restituzione, per cui mi aspetto che siano uguali  */
+        /*l1 e mockLoan hanno ID diversi, quindi non sono uguali anche se hanno stessa data di restituzione */
         LocalDate startDate = LocalDate.of(2025, 12, 1);
         LocalDate expectedReturnDate = LocalDate.of(2025, 12, 15);
         Loan l1 = new Loan(borrowedBook, borrowerUser, startDate, expectedReturnDate);
         Loan mockLoan = new Loan(borrowedBook, borrowerUser, LocalDate.of(2025, 12, 2), expectedReturnDate);
-        assertTrue(l1.equals(mockLoan));
+        assertFalse(l1.equals(mockLoan));
 
     }
 
@@ -75,6 +75,36 @@ public class LoanTest {
         Loan l3 = new Loan(borrowedBook, borrowerUser, startDate, LocalDate.now().plusDays(1));
         assertFalse(l1.equals(l3));
     }
+
+    @Test
+    public void testEqualsSameId() {
+        /*Due Loan con stesso ID sono uguali */
+        LocalDate startDate = LocalDate.of(2025, 12, 1);
+        LocalDate expectedReturnDate = LocalDate.of(2025, 12, 15);
+        int sameId = 100; // ID specifico per test
+        Loan l1 = new Loan(sameId, borrowedBook, borrowerUser, startDate, expectedReturnDate);
+        Loan l2 = new Loan(sameId, borrowedBook, borrowerUser, startDate, expectedReturnDate);
+        assertTrue(l1.equals(l2));
+    }
+
+    @Test
+    public void testHashCode() {
+        /* HashCode dovrebbe essere consistente e uguale per oggetti uguali */
+        LocalDate startDate = LocalDate.of(2025, 12, 1);
+        LocalDate expectedReturnDate = LocalDate.of(2025, 12, 15);
+        int sameId = 101;
+        Loan l1 = new Loan(sameId, borrowedBook, borrowerUser, startDate, expectedReturnDate);
+        Loan l2 = new Loan(sameId, borrowedBook, borrowerUser, startDate, expectedReturnDate);
+
+        // Oggetti uguali hanno stesso hashCode
+        assertEquals(l1.hashCode(), l2.hashCode());
+
+        // HashCode consistente per lo stesso oggetto
+        int hash1 = l1.hashCode();
+        int hash2 = l1.hashCode();
+        assertEquals(hash1, hash2);
+    }
+    
     @Test
     public void testCompareTo() {
         Loan l1= new Loan(borrowedBook, borrowerUser, LocalDate.of(2025, 12, 1), LocalDate.now());

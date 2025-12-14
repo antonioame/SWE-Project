@@ -82,8 +82,31 @@ public abstract class Transaction implements Serializable {
         return this.startDate;
     }
 
-    /*
-     * FIXME: Implementare metodo equals basato su ID univoco della transazione
-     * Nonché sulla verifica della classe dell'oggetto istanziato
+    /**
+     * @brief Confronta istanza di Transaction con un altro oggetto per uguaglianza.
+     * Due oggetti Transaction sono considerati uguali se hanno lo stesso ID univoco e appartengono alla stessa classe.
+     * @param[in] obj L'oggetto da confrontare.
+     * @return true se gli oggetti sono uguali, false altrimenti.
      */
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (this.getClass() != obj.getClass()) return false;
+        
+        Transaction t = (Transaction) obj;
+        return this.id == t.id;
+    }
+
+    /**
+     * @brief Restituisce il codice hash dell'oggetto.
+     * Il codice hash è basato sull'ID univoco della transazione.
+     * @return Il codice hash dell'oggetto.
+     */
+    @Override
+    public int hashCode() {
+        return Integer.hashCode(this.id);
+    }
+
+    // FIXME: Implementare toString
 }
