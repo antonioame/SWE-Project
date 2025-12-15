@@ -230,6 +230,15 @@ public class LoanViewController implements Initializable {
             alert.showAndWait();
             return;
         }
+        // Verificare che ci siano copie disponibili per il libro selezionato
+        if (loanRegistry != null && !selectedBook.checkAvailability(loanRegistry)) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Copie Non Disponibili");
+            alert.setHeaderText("Impossibile registrare prestito");
+            alert.setContentText("Attualmente non sono disponibili copie per il libro selezionato.");
+            alert.showAndWait();
+            return;
+        }
         
         try {
             LocalDate startDate = LocalDate.parse(startDateStr);

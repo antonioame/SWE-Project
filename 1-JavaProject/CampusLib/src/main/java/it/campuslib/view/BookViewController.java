@@ -206,9 +206,9 @@ public class BookViewController implements Initializable {
         // Se il nuovo valore non è valido, mostra popup e ripristina il valore originale
         if (newCopies <= 0) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Errore: Copie");
-            alert.setHeaderText("Numero copie non valido");
-            alert.setContentText("Il numero di copie deve essere maggiore di 0. La modifica verrà annullata.");
+            alert.setTitle("Errore: Numero di Copie");
+            alert.setHeaderText("Numero Copie Non Valido");
+            alert.setContentText("Non è possibile inserire un numero di copie totali minore o uguale a zero. Se il libro non è più disponibile in biblioteca, modifica il suo stato di adozione");
             alert.showAndWait();
             book.setCopies(oldCopies);
             tableBooks.refresh();
@@ -217,9 +217,9 @@ public class BookViewController implements Initializable {
 
         if (newCopies < activeLoans) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Avviso: Copie insufficienti");
-            alert.setHeaderText("Copie totali minori dei prestiti attivi");
-            alert.setContentText("Non ci sono abbastanza copie libere per questa modifica. La modifica verrà annullata.");
+            alert.setTitle("Erore: Copie Insufficienti");
+            alert.setHeaderText("Numero Copie Totali Minore del Numero di Copie Attualmente in Prestito");
+            alert.setContentText("Non è possibile inserire un numero totale di copie minore del numero di copie attualmente prese in prestito. La modifica verrà annullata.");
             alert.showAndWait();
             book.setCopies(oldCopies);
             tableBooks.refresh();
