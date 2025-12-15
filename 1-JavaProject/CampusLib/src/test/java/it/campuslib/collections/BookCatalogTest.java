@@ -42,6 +42,17 @@ public class BookCatalogTest {
         }
     }
 
+    
+    @Test
+    void testBookCatalogConstructor() {
+        //Istanzia un catalogo vuoto e verifica che la dimensione sia zero.
+        BookCatalog emptyCatalog = new BookCatalog();
+        assertEquals(0, emptyCatalog.getCatalogSize());
+
+        // 3. Verifica la rappresentazione testuale (opzionale, basato su toString())
+        assertEquals("Il catalogo è attualmente vuoto.\n", emptyCatalog.toString());
+    }    
+    
     @Test
     void testAddBook_Success() throws InvalidBookInfoException {
         Book newBook = new Book("9788804603610", "Se Una Notte d'Inverno Un Viaggiatore", "", 1979, 3);

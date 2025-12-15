@@ -36,6 +36,57 @@ public class BookTest {
         testUser = new User("Mario", "Rossi", "1112701345", "mario.rossi@studenti.unisa.it");
     }
 
+    
+    @Test
+    public void testBookConstructor_Success() {
+        // ISBN 978 valido, non dovrebbe lanciare eccezioni
+        assertDoesNotThrow(() -> {
+            new Book("9781234567890", "Titolo", defaultAuthors, 2020, 1);
+        });
+        assertDoesNotThrow(() -> {
+            new Book("9791234567890", "Titolo", defaultAuthors, 2020, 1);
+        });
+
+        // ISBN con spazi iniziali/finali, risolti dalla trim(): non dovrebbe lanciare eccezioni. 
+        assertDoesNotThrow(() -> {
+            new Book(" 9781234567890 ", "Titolo", defaultAuthors, 2020, 1);
+        });
+    }    
+    
+    
+    @Test
+    public void testBookConstructor_Fail_InvalidIsbn() {
+        String defaultTitle = "Titolo";
+        String defaultAuthors = "Autore";
+        int defaultYear = 2020;
+        int defaultCopies = 1;
+
+        // 1. ISBN Nullo, dovrebbe lanciare l'eccezione
+        assertThrows(InvalidBookInfoException.class, () -> {
+            new Book(null, defaultTitle, defaultAuthors, defaultYear, defaultCopies);
+        });
+
+        // 2. ISBN Vuoto, dovrebbe lanciare l'eccezione
+        assertThrows(InvalidBookInfoException.class, () -> {
+            new Book("", defaultTitle, defaultAuthors, defaultYear, defaultCopies);
+        });
+
+        // 3. Lunghezza Errata (troppo corta), dovrebbe lanciare l'eccezione
+        assertThrows(InvalidBookInfoException.class, () -> {
+            new Book("978123456789", defaultTitle, defaultAuthors, defaultYear, defaultCopies); // 12 cifre
+        });
+
+        // 4. Caratteri Non Numerici, dovrebbe lanciare l'eccezione
+        assertThrows(InvalidBookInfoException.class, () -> {
+            new Book("978123456789A", defaultTitle, defaultAuthors, defaultYear, defaultCopies);
+        });
+
+        // 5. Prefisso Non Valido, dovrebbe lanciare l'eccezione
+        assertThrows(InvalidBookInfoException.class, () -> {
+            new Book("1231234567890", defaultTitle, defaultAuthors, defaultYear, defaultCopies);
+        });
+    }
+    
     @Test
     public void testGetIsbn() {
         assertEquals("9781234567890", defaultBook1.getIsbn());
