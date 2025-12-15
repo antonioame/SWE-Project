@@ -18,6 +18,7 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,6 +26,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="campuslib-icon.png"/></td>
   <td id="projectalign">
    <div id="projectname">CampusLib
    </div>
@@ -101,13 +103,13 @@ Inheritance diagram for it.campuslib.domain.users.User:</div>
  <div class="center">
   <img src="classit_1_1campuslib_1_1domain_1_1users_1_1_user.png" usemap="#it_2Ecampuslib_2Edomain_2Eusers_2EUser_map" alt=""/>
   <map id="it_2Ecampuslib_2Edomain_2Eusers_2EUser_map" name="it_2Ecampuslib_2Edomain_2Eusers_2EUser_map">
-<area href="classit_1_1campuslib_1_1domain_1_1users_1_1_person.html" title="Rappresenta una Persona." alt="it.campuslib.domain.users.Person" shape="rect" coords="0,0,201,24"/>
+<area href="classit_1_1campuslib_1_1domain_1_1users_1_1_person.html" title="Rappresenta una Persona." alt="it.campuslib.domain.users.Person" shape="rect" coords="0,56,201,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2139204b1bf52e1bf3cc3b6f8ad5513e" id="r_a2139204b1bf52e1bf3cc3b6f8ad5513e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2139204b1bf52e1bf3cc3b6f8ad5513e">User</a> (String <a class="el" href="classit_1_1campuslib_1_1domain_1_1users_1_1_person.html#a36d1e033a0cd7f5728a3a5946f622771">name</a>, String <a class="el" href="classit_1_1campuslib_1_1domain_1_1users_1_1_person.html#a88cb766e8476d0c8853ec7622d88df54">surname</a>, String <a class="el" href="#a5155972225f5d933d4292f9e43c6b53f">enrollmentID</a>, String <a class="el" href="#a78f01787d286882a8238e95fcda2658e">email</a>)</td></tr>
+<tr class="memitem:a2139204b1bf52e1bf3cc3b6f8ad5513e" id="r_a2139204b1bf52e1bf3cc3b6f8ad5513e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2139204b1bf52e1bf3cc3b6f8ad5513e">User</a> (String <a class="el" href="classit_1_1campuslib_1_1domain_1_1users_1_1_person.html#a36d1e033a0cd7f5728a3a5946f622771">name</a>, String <a class="el" href="classit_1_1campuslib_1_1domain_1_1users_1_1_person.html#a88cb766e8476d0c8853ec7622d88df54">surname</a>, String <a class="el" href="#a5155972225f5d933d4292f9e43c6b53f">enrollmentID</a>, String <a class="el" href="#a78f01787d286882a8238e95fcda2658e">email</a>)  throws <a class="el" href="classit_1_1campuslib_1_1domain_1_1users_1_1_invalid_user_info_exception.html">InvalidUserInfoException</a> </td></tr>
 <tr class="memdesc:a2139204b1bf52e1bf3cc3b6f8ad5513e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Costruttore dell'utente (studente).  <br /></td></tr>
 <tr class="memitem:aee1b93b9983b7137db375db9c4147520" id="r_aee1b93b9983b7137db375db9c4147520"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee1b93b9983b7137db375db9c4147520">getEnrollmentID</a> ()</td></tr>
 <tr class="memdesc:aee1b93b9983b7137db375db9c4147520"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restituisce la matricola dell'utente.  <br /></td></tr>
@@ -117,16 +119,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ac8cf65698306a58533bfd72db9349b23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restituisce lo stato dell'utente.  <br /></td></tr>
 <tr class="memitem:a101e74d4f38cedf4eca0a3dcaf0f09f7" id="r_a101e74d4f38cedf4eca0a3dcaf0f09f7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a101e74d4f38cedf4eca0a3dcaf0f09f7">getMaxLoans</a> ()</td></tr>
 <tr class="memdesc:a101e74d4f38cedf4eca0a3dcaf0f09f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restituisce il numero massimo di prestiti che può effettuare l'utente.  <br /></td></tr>
-<tr class="memitem:af1b9fe3e5052cf83312db56546618fe7" id="r_af1b9fe3e5052cf83312db56546618fe7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1b9fe3e5052cf83312db56546618fe7">setEmail</a> (String <a class="el" href="#a78f01787d286882a8238e95fcda2658e">email</a>)</td></tr>
+<tr class="memitem:af1b9fe3e5052cf83312db56546618fe7" id="r_af1b9fe3e5052cf83312db56546618fe7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1b9fe3e5052cf83312db56546618fe7">setEmail</a> (String <a class="el" href="#a78f01787d286882a8238e95fcda2658e">email</a>)  throws <a class="el" href="classit_1_1campuslib_1_1domain_1_1users_1_1_invalid_user_info_exception.html">InvalidUserInfoException</a> </td></tr>
 <tr class="memdesc:af1b9fe3e5052cf83312db56546618fe7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imposta l'e-mail dell'utente.  <br /></td></tr>
 <tr class="memitem:ad6b097d430ad42823cbaed3d783d8139" id="r_ad6b097d430ad42823cbaed3d783d8139"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6b097d430ad42823cbaed3d783d8139">setStatus</a> (<a class="el" href="enumit_1_1campuslib_1_1domain_1_1users_1_1_user_status.html">UserStatus</a> <a class="el" href="#a77145a8ce4ebaa8af0f75bf0f3f1dc8c">status</a>)</td></tr>
 <tr class="memdesc:ad6b097d430ad42823cbaed3d783d8139"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imposta lo stato dell'utente.  <br /></td></tr>
+<tr class="memitem:a2150c9e5e65edd7fbcf2d72e057f60b3" id="r_a2150c9e5e65edd7fbcf2d72e057f60b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2150c9e5e65edd7fbcf2d72e057f60b3">setMaxLoans</a> (int <a class="el" href="#ad3b09e60d5c452b6749cae7bca658439">maxLoans</a>)  throws <a class="el" href="classit_1_1campuslib_1_1domain_1_1users_1_1_invalid_user_info_exception.html">InvalidUserInfoException</a> </td></tr>
+<tr class="memdesc:a2150c9e5e65edd7fbcf2d72e057f60b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imposta il numero massimo di prestiti dell'utente.  <br /></td></tr>
 <tr class="memitem:ab4a93fd25497138e9cb7dafb7f665a7c" id="r_ab4a93fd25497138e9cb7dafb7f665a7c"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4a93fd25497138e9cb7dafb7f665a7c">isActive</a> ()</td></tr>
 <tr class="memdesc:ab4a93fd25497138e9cb7dafb7f665a7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indica se l'utente è attivo o meno.  <br /></td></tr>
-<tr class="memitem:a40c81db5777b88bb5d18537f604196f5" id="r_a40c81db5777b88bb5d18537f604196f5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40c81db5777b88bb5d18537f604196f5">getAvailableLoanSlots</a> ()</td></tr>
-<tr class="memdesc:a40c81db5777b88bb5d18537f604196f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilizza la lista dei suoi prestiti associati, e l'attributo maxLoans, per determinare il numero di prestiti attualmente associati.  <br /></td></tr>
-<tr class="memitem:a29ee317af8f5c02611ad9c3784858c24" id="r_a29ee317af8f5c02611ad9c3784858c24"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29ee317af8f5c02611ad9c3784858c24">canBorrow</a> ()</td></tr>
-<tr class="memdesc:a29ee317af8f5c02611ad9c3784858c24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indica se l'utente può effettuare nuovi prestiti o meno.  <br /></td></tr>
+<tr class="memitem:adb225ec9b0e9156dd2dc5ab30510a0c4" id="r_adb225ec9b0e9156dd2dc5ab30510a0c4"><td class="memItemLeft" align="right" valign="top">LinkedList&lt; <a class="el" href="classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan.html">Loan</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb225ec9b0e9156dd2dc5ab30510a0c4">getActiveLoans</a> (<a class="el" href="classit_1_1campuslib_1_1collections_1_1_loan_registry.html">LoanRegistry</a> registry)</td></tr>
+<tr class="memdesc:adb225ec9b0e9156dd2dc5ab30510a0c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ottiene una collezione contenente i prestiti attivi dell'utente.  <br /></td></tr>
+<tr class="memitem:a8cf8ca7fbf0e91ca9e590c9f9646c5e2" id="r_a8cf8ca7fbf0e91ca9e590c9f9646c5e2"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8cf8ca7fbf0e91ca9e590c9f9646c5e2">canBorrow</a> (<a class="el" href="classit_1_1campuslib_1_1collections_1_1_loan_registry.html">LoanRegistry</a> registry)</td></tr>
+<tr class="memdesc:a8cf8ca7fbf0e91ca9e590c9f9646c5e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indica se l'utente può effettuare nuovi prestiti o meno.  <br /></td></tr>
 <tr class="memitem:ac776215f697c0c178ca1adfcb17dd02b" id="r_ac776215f697c0c178ca1adfcb17dd02b"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac776215f697c0c178ca1adfcb17dd02b">toString</a> ()</td></tr>
 <tr class="memdesc:ac776215f697c0c178ca1adfcb17dd02b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restituisce una rappresentazione testuale dell'oggetto <a class="el" href="classit_1_1campuslib_1_1domain_1_1users_1_1_user.html" title="Rappresenta Utente, specializzando Person.">User</a>.  <br /></td></tr>
 <tr class="memitem:a742bf16bae1712820374d8b547358bd6" id="r_a742bf16bae1712820374d8b547358bd6"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a742bf16bae1712820374d8b547358bd6">equals</a> (Object obj)</td></tr>
@@ -147,14 +151,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab770dda0c0dd41ac0e72c20757b9ef3e inherit pub_methods_classit_1_1campuslib_1_1domain_1_1users_1_1_person" id="r_ab770dda0c0dd41ac0e72c20757b9ef3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classit_1_1campuslib_1_1domain_1_1users_1_1_person.html#ab770dda0c0dd41ac0e72c20757b9ef3e">setSurname</a> (String <a class="el" href="classit_1_1campuslib_1_1domain_1_1users_1_1_person.html#a88cb766e8476d0c8853ec7622d88df54">surname</a>)</td></tr>
 <tr class="memdesc:ab770dda0c0dd41ac0e72c20757b9ef3e inherit pub_methods_classit_1_1campuslib_1_1domain_1_1users_1_1_person"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imposta il cognome della persona.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:aca29748c94b63be98056843bbd159019" id="r_aca29748c94b63be98056843bbd159019"><td class="memItemLeft" align="right" valign="top">LinkedList&lt; <a class="el" href="classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan.html">Loan</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aca29748c94b63be98056843bbd159019">getActiveLoans</a> ()</td></tr>
-<tr class="memdesc:aca29748c94b63be98056843bbd159019"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ottiene una collezione contenente i prestiti attivi dell'utente.  <br /></td></tr>
-<tr class="memitem:a1b617890dd8282dec6da6def19570168" id="r_a1b617890dd8282dec6da6def19570168"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b617890dd8282dec6da6def19570168">checkEmail</a> (String <a class="el" href="#a78f01787d286882a8238e95fcda2658e">email</a>)</td></tr>
-<tr class="memdesc:a1b617890dd8282dec6da6def19570168"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controllo sul formato dell'e-mail dell'utente da effettuare nel costruttore di questo.  <br /></td></tr>
-<tr class="memitem:ae8a00fe9806b675c1ff421e9801de2ae" id="r_ae8a00fe9806b675c1ff421e9801de2ae"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8a00fe9806b675c1ff421e9801de2ae">checkEnrollmentID</a> (String <a class="el" href="#a5155972225f5d933d4292f9e43c6b53f">enrollmentID</a>)</td></tr>
-<tr class="memdesc:ae8a00fe9806b675c1ff421e9801de2ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controllo sul formato della matricola dell'utente da effettuare nel costruttore di questo.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pri-static-methods" class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:a0d34c547486e30123f2e40a1e94c60ca" id="r_a0d34c547486e30123f2e40a1e94c60ca"><td class="memItemLeft" align="right" valign="top">static boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d34c547486e30123f2e40a1e94c60ca">checkEmail</a> (String <a class="el" href="#a78f01787d286882a8238e95fcda2658e">email</a>)</td></tr>
+<tr class="memdesc:a0d34c547486e30123f2e40a1e94c60ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controllo sul formato dell'e-mail dell'utente da effettuare nel costruttore di questo.  <br /></td></tr>
+<tr class="memitem:aaf74acfde723c2512f6be1f03c0ca977" id="r_aaf74acfde723c2512f6be1f03c0ca977"><td class="memItemLeft" align="right" valign="top">static boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf74acfde723c2512f6be1f03c0ca977">checkEnrollmentID</a> (String <a class="el" href="#a5155972225f5d933d4292f9e43c6b53f">enrollmentID</a>)</td></tr>
+<tr class="memdesc:aaf74acfde723c2512f6be1f03c0ca977"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controllo sul formato della matricola dell'utente da effettuare nel costruttore di questo.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -191,7 +193,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">String</td>          <td class="paramname"><span class="paramname"><em>email</em></span>&#160;)</td>
+          <td class="paramtype">String</td>          <td class="paramname"><span class="paramname"><em>email</em></span>&#160;) throws <a class="el" href="classit_1_1campuslib_1_1domain_1_1users_1_1_invalid_user_info_exception.html">InvalidUserInfoException</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -211,8 +213,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a29ee317af8f5c02611ad9c3784858c24" name="a29ee317af8f5c02611ad9c3784858c24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29ee317af8f5c02611ad9c3784858c24">&#9670;&#160;</a></span>canBorrow()</h2>
+<a id="a8cf8ca7fbf0e91ca9e590c9f9646c5e2" name="a8cf8ca7fbf0e91ca9e590c9f9646c5e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cf8ca7fbf0e91ca9e590c9f9646c5e2">&#9670;&#160;</a></span>canBorrow()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -220,7 +222,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">boolean it.campuslib.domain.users.User.canBorrow </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classit_1_1campuslib_1_1collections_1_1_loan_registry.html">LoanRegistry</a></td>          <td class="paramname"><span class="paramname"><em>registry</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -231,8 +233,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a1b617890dd8282dec6da6def19570168" name="a1b617890dd8282dec6da6def19570168"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b617890dd8282dec6da6def19570168">&#9670;&#160;</a></span>checkEmail()</h2>
+<a id="a0d34c547486e30123f2e40a1e94c60ca" name="a0d34c547486e30123f2e40a1e94c60ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d34c547486e30123f2e40a1e94c60ca">&#9670;&#160;</a></span>checkEmail()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -249,7 +251,7 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -257,7 +259,7 @@ Private Attributes</h2></td></tr>
 <p>Controllo sul formato dell'e-mail dell'utente da effettuare nel costruttore di questo. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">email</td><td>E-mail dell'utente su cui controllare il formato. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">email</td><td>E-mail dell'utente su cui controllare il formato. </td></tr>
   </table>
   </dd>
 </dl>
@@ -266,8 +268,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ae8a00fe9806b675c1ff421e9801de2ae" name="ae8a00fe9806b675c1ff421e9801de2ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8a00fe9806b675c1ff421e9801de2ae">&#9670;&#160;</a></span>checkEnrollmentID()</h2>
+<a id="aaf74acfde723c2512f6be1f03c0ca977" name="aaf74acfde723c2512f6be1f03c0ca977"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf74acfde723c2512f6be1f03c0ca977">&#9670;&#160;</a></span>checkEnrollmentID()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -284,7 +286,7 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -292,7 +294,7 @@ Private Attributes</h2></td></tr>
 <p>Controllo sul formato della matricola dell'utente da effettuare nel costruttore di questo. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">enrollmentID</td><td>Matricola dell'utente su cui controllare il formato. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">enrollmentID</td><td>Matricola dell'utente su cui controllare il formato. </td></tr>
   </table>
   </dd>
 </dl>
@@ -346,7 +348,7 @@ Private Attributes</h2></td></tr>
 <p>Confronta l'oggetto <a class="el" href="classit_1_1campuslib_1_1domain_1_1users_1_1_user.html" title="Rappresenta Utente, specializzando Person.">User</a> corrente con un altro oggetto <a class="el" href="classit_1_1campuslib_1_1domain_1_1users_1_1_user.html" title="Rappresenta Utente, specializzando Person.">User</a> per verificarne l'uguaglianza. </p>
 <p>L'uguaglianza è verificata se entrambi gli oggetti sono di tipo <a class="el" href="classit_1_1campuslib_1_1domain_1_1users_1_1_user.html" title="Rappresenta Utente, specializzando Person.">User</a> e hanno la stessa matricola. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">[i]</td><td>obj L'oggetto da confrontare con l'utente corrente. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">obj</td><td>L'oggetto da confrontare con l'utente corrente. </td></tr>
   </table>
   </dd>
 </dl>
@@ -354,53 +356,23 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aca29748c94b63be98056843bbd159019" name="aca29748c94b63be98056843bbd159019"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca29748c94b63be98056843bbd159019">&#9670;&#160;</a></span>getActiveLoans()</h2>
+<a id="adb225ec9b0e9156dd2dc5ab30510a0c4" name="adb225ec9b0e9156dd2dc5ab30510a0c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb225ec9b0e9156dd2dc5ab30510a0c4">&#9670;&#160;</a></span>getActiveLoans()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">LinkedList&lt; <a class="el" href="classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan.html">Loan</a> &gt; it.campuslib.domain.users.User.getActiveLoans </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classit_1_1campuslib_1_1collections_1_1_loan_registry.html">LoanRegistry</a></td>          <td class="paramname"><span class="paramname"><em>registry</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Ottiene una collezione contenente i prestiti attivi dell'utente. </p>
 <dl class="section return"><dt>Returns</dt><dd>Lista contenente tutti i presti associati all'utente. </dd></dl>
-
-</div>
-</div>
-<a id="a40c81db5777b88bb5d18537f604196f5" name="a40c81db5777b88bb5d18537f604196f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40c81db5777b88bb5d18537f604196f5">&#9670;&#160;</a></span>getAvailableLoanSlots()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int it.campuslib.domain.users.User.getAvailableLoanSlots </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Utilizza la lista dei suoi prestiti associati, e l'attributo maxLoans, per determinare il numero di prestiti attualmente associati. </p>
-<dl class="section return"><dt>Returns</dt><dd>Numero di prestiti attualmente associati. </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>Il numero di prestiti associati non deve essere minore di zero né maggiore del massimo numero di prestiti possibili. </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="#aca29748c94b63be98056843bbd159019" title="Ottiene una collezione contenente i prestiti attivi dell&#39;utente.">getActiveLoans()</a> </dd></dl>
 
 </div>
 </div>
@@ -420,7 +392,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Restituisce l'e-mail dell'utente. </p>
-<dl class="section return"><dt>Returns</dt><dd>email E-mail utente. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>L'e-mail dell'utente. </dd></dl>
 
 </div>
 </div>
@@ -440,7 +412,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Restituisce la matricola dell'utente. </p>
-<dl class="section return"><dt>Returns</dt><dd>enrollmentID Matricola utente. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>La matricola dell'utente. </dd></dl>
 
 </div>
 </div>
@@ -460,7 +432,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Restituisce il numero massimo di prestiti che può effettuare l'utente. </p>
-<dl class="section return"><dt>Returns</dt><dd>maxLoans Numero massimo di prestiti utente. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Il numero massimo di prestiti che può effettuare l'utente. </dd></dl>
 
 </div>
 </div>
@@ -480,7 +452,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Restituisce lo stato dell'utente. </p>
-<dl class="section return"><dt>Returns</dt><dd>status Stato utente. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Lo stato dell'utente. </dd></dl>
 
 </div>
 </div>
@@ -536,7 +508,7 @@ Private Attributes</h2></td></tr>
           <td class="memname">void it.campuslib.domain.users.User.setEmail </td>
           <td>(</td>
           <td class="paramtype">String</td>          <td class="paramname"><span class="paramname"><em>email</em></span></td><td>)</td>
-          <td></td>
+          <td> throws <a class="el" href="classit_1_1campuslib_1_1domain_1_1users_1_1_invalid_user_info_exception.html">InvalidUserInfoException</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -545,6 +517,31 @@ Private Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">email</td><td>E-mail utente. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2150c9e5e65edd7fbcf2d72e057f60b3" name="a2150c9e5e65edd7fbcf2d72e057f60b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2150c9e5e65edd7fbcf2d72e057f60b3">&#9670;&#160;</a></span>setMaxLoans()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void it.campuslib.domain.users.User.setMaxLoans </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>maxLoans</em></span></td><td>)</td>
+          <td> throws <a class="el" href="classit_1_1campuslib_1_1domain_1_1users_1_1_invalid_user_info_exception.html">InvalidUserInfoException</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Imposta il numero massimo di prestiti dell'utente. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">maxLoans</td><td>Numero massimo prestiti utente. </td></tr>
   </table>
   </dd>
 </dl>

@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['startdate_0',['startDate',['../classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction.html#ac28524950bcff672c08375866b688f3e',1,'it::campuslib::domain::transactions::Transaction']]],
-  ['status_1',['status',['../classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a7e7d749c4ee4c4a91665d857cba1f69a',1,'it.campuslib.domain.catalog.Book.status'],['../classit_1_1campuslib_1_1domain_1_1users_1_1_user.html#a77145a8ce4ebaa8af0f75bf0f3f1dc8c',1,'it.campuslib.domain.users.User.status']]],
-  ['surname_2',['surname',['../classit_1_1campuslib_1_1domain_1_1users_1_1_person.html#a88cb766e8476d0c8853ec7622d88df54',1,'it::campuslib::domain::users::Person']]]
+  ['registry_0',['registry',['../classit_1_1campuslib_1_1collections_1_1_giveback_registry.html#a9f4988b2e08adb9093cfbfe91b70a388',1,'it.campuslib.collections.GivebackRegistry.registry'],['../classit_1_1campuslib_1_1collections_1_1_loan_registry.html#a03d89ad81aab5731b8380e64b1c8910b',1,'it.campuslib.collections.LoanRegistry.registry'],['../classit_1_1campuslib_1_1collections_1_1_user_registry.html#a881750666475b8e4191f7271ffa65830',1,'it.campuslib.collections.UserRegistry.registry']]]
 ];

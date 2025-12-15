@@ -5,6 +5,12 @@
 Il registro degli utenti della biblioteca.  
 
 
+Inheritance diagram for it.\+campuslib.\+collections.\+User\+Registry\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classit_1_1campuslib_1_1collections_1_1_user_registry}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -23,16 +29,29 @@ Linked\+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_use
 String \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_user_registry_a6d529dbc4a18a1b034ec6fe2058bc1ff}{to\+String}} ()
 \begin{DoxyCompactList}\small\item\em Restituisce una rappresentazione testuale del registro. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_user_registry_af065b65c10d03f2984569640114c9a25}{export\+On\+File}} (String file\+Name)
-\begin{DoxyCompactList}\small\item\em Esporta il registro su file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Esporta il registro su file. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}} $>$ \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_user_registry_a685c2202f4e622a408ff0e4ef9cf4fd9}{get\+All\+Users}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce tutti gli utenti presenti nel registro. \end{DoxyCompactList}\item 
+Observable\+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}} $>$ \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_user_registry_a2359045af8e552214e6cf4eef8f4c2e5}{get\+All\+Users\+Observable}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce una Observable\+List osservabile degli utenti (aggiornabile automaticamente). \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_user_registry}{User\+Registry}} \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_user_registry_a987c9ad3589d325622fb25f803b2d0ec}{import\+From\+File}} (String file\+Name)
-\begin{DoxyCompactList}\small\item\em Importa un registro da file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Importa un registro da file. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_user_registry}{User\+Registry}} \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_user_registry_af9330bbb83db38f774fab9fad17f6550}{get\+Instance}} ()
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-Hash\+Map$<$ String, \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}} $>$ \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_user_registry_af466f802c2a47aae9172047328bb4c85}{registry}}
+Map$<$ String, \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}} $>$ \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_user_registry_a881750666475b8e4191f7271ffa65830}{registry}}
+\item 
+transient Observable\+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}} $>$ \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_user_registry_ac974cd0a2779f227719ba04f7474c8bd}{observable\+Users}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_user_registry}{User\+Registry}} \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_user_registry_a00e8287f9983fe7728b8315bd1948389}{instance}} = null
 \end{DoxyCompactItemize}
 
 
@@ -96,6 +115,38 @@ Esporta il registro su file.
 \begin{DoxyPostcond}{Postcondition}
 Il registro viene salvato sul file specificato. 
 \end{DoxyPostcond}
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_user_registry_a685c2202f4e622a408ff0e4ef9cf4fd9}\index{it.campuslib.collections.UserRegistry@{it.campuslib.collections.UserRegistry}!getAllUsers@{getAllUsers}}
+\index{getAllUsers@{getAllUsers}!it.campuslib.collections.UserRegistry@{it.campuslib.collections.UserRegistry}}
+\doxysubsubsection{\texorpdfstring{getAllUsers()}{getAllUsers()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_user_registry_a685c2202f4e622a408ff0e4ef9cf4fd9} 
+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}} $>$ it.\+campuslib.\+collections.\+User\+Registry.\+get\+All\+Users (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Restituisce tutti gli utenti presenti nel registro. 
+
+\begin{DoxyReturn}{Returns}
+Lista di utenti (non modificabile direttamente il registro interno) 
+\end{DoxyReturn}
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_user_registry_a2359045af8e552214e6cf4eef8f4c2e5}\index{it.campuslib.collections.UserRegistry@{it.campuslib.collections.UserRegistry}!getAllUsersObservable@{getAllUsersObservable}}
+\index{getAllUsersObservable@{getAllUsersObservable}!it.campuslib.collections.UserRegistry@{it.campuslib.collections.UserRegistry}}
+\doxysubsubsection{\texorpdfstring{getAllUsersObservable()}{getAllUsersObservable()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_user_registry_a2359045af8e552214e6cf4eef8f4c2e5} 
+Observable\+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}} $>$ it.\+campuslib.\+collections.\+User\+Registry.\+get\+All\+Users\+Observable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Restituisce una Observable\+List osservabile degli utenti (aggiornabile automaticamente). 
+
+\begin{DoxyReturn}{Returns}
+Observable\+List degli utenti 
+\end{DoxyReturn}
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_user_registry_af9330bbb83db38f774fab9fad17f6550}\index{it.campuslib.collections.UserRegistry@{it.campuslib.collections.UserRegistry}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!it.campuslib.collections.UserRegistry@{it.campuslib.collections.UserRegistry}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_user_registry_af9330bbb83db38f774fab9fad17f6550} 
+\mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_user_registry}{User\+Registry}} it.\+campuslib.\+collections.\+User\+Registry.\+get\+Instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
 \Hypertarget{classit_1_1campuslib_1_1collections_1_1_user_registry_a987c9ad3589d325622fb25f803b2d0ec}\index{it.campuslib.collections.UserRegistry@{it.campuslib.collections.UserRegistry}!importFromFile@{importFromFile}}
 \index{importFromFile@{importFromFile}!it.campuslib.collections.UserRegistry@{it.campuslib.collections.UserRegistry}}
 \doxysubsubsection{\texorpdfstring{importFromFile()}{importFromFile()}}
@@ -209,11 +260,23 @@ Rappresentazione testuale del registro.
 \label{doc-variable-members}
 \Hypertarget{classit_1_1campuslib_1_1collections_1_1_user_registry_doc-variable-members}
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classit_1_1campuslib_1_1collections_1_1_user_registry_af466f802c2a47aae9172047328bb4c85}\index{it.campuslib.collections.UserRegistry@{it.campuslib.collections.UserRegistry}!registry@{registry}}
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_user_registry_a00e8287f9983fe7728b8315bd1948389}\index{it.campuslib.collections.UserRegistry@{it.campuslib.collections.UserRegistry}!instance@{instance}}
+\index{instance@{instance}!it.campuslib.collections.UserRegistry@{it.campuslib.collections.UserRegistry}}
+\doxysubsubsection{\texorpdfstring{instance}{instance}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_user_registry_a00e8287f9983fe7728b8315bd1948389} 
+\mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_user_registry}{User\+Registry}} it.\+campuslib.\+collections.\+User\+Registry.\+instance = null\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_user_registry_ac974cd0a2779f227719ba04f7474c8bd}\index{it.campuslib.collections.UserRegistry@{it.campuslib.collections.UserRegistry}!observableUsers@{observableUsers}}
+\index{observableUsers@{observableUsers}!it.campuslib.collections.UserRegistry@{it.campuslib.collections.UserRegistry}}
+\doxysubsubsection{\texorpdfstring{observableUsers}{observableUsers}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_user_registry_ac974cd0a2779f227719ba04f7474c8bd} 
+transient Observable\+List$<$\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}}$>$ it.\+campuslib.\+collections.\+User\+Registry.\+observable\+Users\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_user_registry_a881750666475b8e4191f7271ffa65830}\index{it.campuslib.collections.UserRegistry@{it.campuslib.collections.UserRegistry}!registry@{registry}}
 \index{registry@{registry}!it.campuslib.collections.UserRegistry@{it.campuslib.collections.UserRegistry}}
 \doxysubsubsection{\texorpdfstring{registry}{registry}}
-{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_user_registry_af466f802c2a47aae9172047328bb4c85} 
-Hash\+Map$<$String, \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}}$>$ it.\+campuslib.\+collections.\+User\+Registry.\+registry\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_user_registry_a881750666475b8e4191f7271ffa65830} 
+Map$<$String, \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}}$>$ it.\+campuslib.\+collections.\+User\+Registry.\+registry\hspace{0.3cm}{\ttfamily [private]}}
 
 
 

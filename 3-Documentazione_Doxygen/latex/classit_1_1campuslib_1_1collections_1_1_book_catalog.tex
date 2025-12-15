@@ -5,6 +5,12 @@
 Il catalogo dei libri della biblioteca.  
 
 
+Inheritance diagram for it.\+campuslib.\+collections.\+Book\+Catalog\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classit_1_1campuslib_1_1collections_1_1_book_catalog}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -16,7 +22,7 @@ boolean \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_book_catalog_a8
 \begin{DoxyCompactList}\small\item\em Rimuove un libro dal catalogo. \end{DoxyCompactList}\item 
 Linked\+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}} $>$ \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_book_catalog_ac0a6c471306c1a5d990006ce888f50b9}{search\+By\+Title}} (String title)
 \begin{DoxyCompactList}\small\item\em Cerca libri nel catalogo per titolo. \end{DoxyCompactList}\item 
-Linked\+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}} $>$ \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_book_catalog_a6eebdd83ec2c4bf68d76f131076b1177}{search\+By\+Author}} (\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_author}{Author}} author)
+Linked\+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}} $>$ \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_book_catalog_a3f51c38e818549db8172eae9ef70ff8c}{search\+By\+Author}} (String author\+Name)
 \begin{DoxyCompactList}\small\item\em Cerca libri nel catalogo per autore. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}} \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_book_catalog_a045893c0c6860e8f2f095177790cead3}{search\+By\+Isbn}} (String isbn)
 \begin{DoxyCompactList}\small\item\em Cerca un libro nel catalogo per ISBN. \end{DoxyCompactList}\item 
@@ -25,16 +31,29 @@ Linked\+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_b
 String \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_book_catalog_ab1be89405ac3d45e2d89a0569e78e500}{to\+String}} ()
 \begin{DoxyCompactList}\small\item\em Restituisce una rappresentazione testuale del catalogo. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_book_catalog_a9c762a00daeffdade4b8ef894ec4fb81}{export\+On\+File}} (String file\+Name)
-\begin{DoxyCompactList}\small\item\em Esporta il catalogo su file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Esporta il catalogo su file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_book_catalog_aeee5f11d4d4c5d169318a85e6bef149d}{get\+Catalog\+Size}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce il numero di libri presenti nel catalogo. \end{DoxyCompactList}\item 
+Observable\+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}} $>$ \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_book_catalog_a6546d4fac9715c076e726c52be768c3f}{get\+All\+Books}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce tutti i libri del catalogo. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_book_catalog}{Book\+Catalog}} \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_book_catalog_a620c1477f18936a51bb47cde07ac367b}{import\+From\+File}} (String file\+Name)
-\begin{DoxyCompactList}\small\item\em Importa un catalogo da file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Importa un catalogo da file. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_book_catalog}{Book\+Catalog}} \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_book_catalog_ae43f7335ac708ba5ba4f93fae54ef334}{get\+Instance}} ()
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 Hash\+Map$<$ String, \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}} $>$ \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_book_catalog_a87a65ee0406212875c9c769534758f65}{catalog}}
+\item 
+transient Observable\+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}} $>$ \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_book_catalog_a9b78248ee9398b7ea3e41edb44f065d8}{books}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_book_catalog}{Book\+Catalog}} \mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_book_catalog_a5c6edeb0c1a78729896dd54562ac095d}{instance}} = null
 \end{DoxyCompactItemize}
 
 
@@ -99,8 +118,40 @@ Esporta il catalogo su file.
 \hline
 \end{DoxyParams}
 \begin{DoxyPostcond}{Postcondition}
-Il catalogo viene salvato sul file specificato. 
+Il catalogo viene salvato sul file specificato. In caso di errore, il metodo termina senza sollevare eccezioni. 
 \end{DoxyPostcond}
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_book_catalog_a6546d4fac9715c076e726c52be768c3f}\index{it.campuslib.collections.BookCatalog@{it.campuslib.collections.BookCatalog}!getAllBooks@{getAllBooks}}
+\index{getAllBooks@{getAllBooks}!it.campuslib.collections.BookCatalog@{it.campuslib.collections.BookCatalog}}
+\doxysubsubsection{\texorpdfstring{getAllBooks()}{getAllBooks()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_book_catalog_a6546d4fac9715c076e726c52be768c3f} 
+Observable\+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}} $>$ it.\+campuslib.\+collections.\+Book\+Catalog.\+get\+All\+Books (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Restituisce tutti i libri del catalogo. 
+
+\begin{DoxyReturn}{Returns}
+Lista di tutti i libri. 
+\end{DoxyReturn}
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_book_catalog_aeee5f11d4d4c5d169318a85e6bef149d}\index{it.campuslib.collections.BookCatalog@{it.campuslib.collections.BookCatalog}!getCatalogSize@{getCatalogSize}}
+\index{getCatalogSize@{getCatalogSize}!it.campuslib.collections.BookCatalog@{it.campuslib.collections.BookCatalog}}
+\doxysubsubsection{\texorpdfstring{getCatalogSize()}{getCatalogSize()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_book_catalog_aeee5f11d4d4c5d169318a85e6bef149d} 
+int it.\+campuslib.\+collections.\+Book\+Catalog.\+get\+Catalog\+Size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Restituisce il numero di libri presenti nel catalogo. 
+
+\begin{DoxyReturn}{Returns}
+Numero di libri presenti nel catalogo. 
+\end{DoxyReturn}
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_book_catalog_ae43f7335ac708ba5ba4f93fae54ef334}\index{it.campuslib.collections.BookCatalog@{it.campuslib.collections.BookCatalog}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!it.campuslib.collections.BookCatalog@{it.campuslib.collections.BookCatalog}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_book_catalog_ae43f7335ac708ba5ba4f93fae54ef334} 
+\mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_book_catalog}{Book\+Catalog}} it.\+campuslib.\+collections.\+Book\+Catalog.\+get\+Instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
 \Hypertarget{classit_1_1campuslib_1_1collections_1_1_book_catalog_a620c1477f18936a51bb47cde07ac367b}\index{it.campuslib.collections.BookCatalog@{it.campuslib.collections.BookCatalog}!importFromFile@{importFromFile}}
 \index{importFromFile@{importFromFile}!it.campuslib.collections.BookCatalog@{it.campuslib.collections.BookCatalog}}
 \doxysubsubsection{\texorpdfstring{importFromFile()}{importFromFile()}}
@@ -117,7 +168,7 @@ Importa un catalogo da file.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Catalogo importato o null se il file non è valido. 
+Il catalogo importato se il file è valido, null altrimenti. 
 \end{DoxyReturn}
 \Hypertarget{classit_1_1campuslib_1_1collections_1_1_book_catalog_a8ee01a56051e7fa1aeeb5c137af96916}\index{it.campuslib.collections.BookCatalog@{it.campuslib.collections.BookCatalog}!removeBook@{removeBook}}
 \index{removeBook@{removeBook}!it.campuslib.collections.BookCatalog@{it.campuslib.collections.BookCatalog}}
@@ -158,11 +209,11 @@ La ricerca viene effettuata su tutti gli attributi del libro\+: titolo, autori (
 \begin{DoxyReturn}{Returns}
 Lista di libri che corrispondono alla query (vuota se nessun libro corrisponde al criterio di ricerca). 
 \end{DoxyReturn}
-\Hypertarget{classit_1_1campuslib_1_1collections_1_1_book_catalog_a6eebdd83ec2c4bf68d76f131076b1177}\index{it.campuslib.collections.BookCatalog@{it.campuslib.collections.BookCatalog}!searchByAuthor@{searchByAuthor}}
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_book_catalog_a3f51c38e818549db8172eae9ef70ff8c}\index{it.campuslib.collections.BookCatalog@{it.campuslib.collections.BookCatalog}!searchByAuthor@{searchByAuthor}}
 \index{searchByAuthor@{searchByAuthor}!it.campuslib.collections.BookCatalog@{it.campuslib.collections.BookCatalog}}
 \doxysubsubsection{\texorpdfstring{searchByAuthor()}{searchByAuthor()}}
-{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_book_catalog_a6eebdd83ec2c4bf68d76f131076b1177} 
-Linked\+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}} $>$ it.\+campuslib.\+collections.\+Book\+Catalog.\+search\+By\+Author (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_author}{Author}}}]{author}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_book_catalog_a3f51c38e818549db8172eae9ef70ff8c} 
+Linked\+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}} $>$ it.\+campuslib.\+collections.\+Book\+Catalog.\+search\+By\+Author (\begin{DoxyParamCaption}\item[{String}]{author\+Name}{}\end{DoxyParamCaption})}
 
 
 
@@ -170,7 +221,7 @@ Cerca libri nel catalogo per autore.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{in}}  & {\em author} & Autore del libro da cercare. \\
+\mbox{\texttt{in}}  & {\em author\+Name} & Nome dell\textquotesingle{}autore del libro da cercare. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -230,11 +281,23 @@ Rappresentazione testuale del catalogo.
 \label{doc-variable-members}
 \Hypertarget{classit_1_1campuslib_1_1collections_1_1_book_catalog_doc-variable-members}
 \doxysubsection{Member Data Documentation}
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_book_catalog_a9b78248ee9398b7ea3e41edb44f065d8}\index{it.campuslib.collections.BookCatalog@{it.campuslib.collections.BookCatalog}!books@{books}}
+\index{books@{books}!it.campuslib.collections.BookCatalog@{it.campuslib.collections.BookCatalog}}
+\doxysubsubsection{\texorpdfstring{books}{books}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_book_catalog_a9b78248ee9398b7ea3e41edb44f065d8} 
+transient Observable\+List$<$\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}}$>$ it.\+campuslib.\+collections.\+Book\+Catalog.\+books\hspace{0.3cm}{\ttfamily [private]}}
+
 \Hypertarget{classit_1_1campuslib_1_1collections_1_1_book_catalog_a87a65ee0406212875c9c769534758f65}\index{it.campuslib.collections.BookCatalog@{it.campuslib.collections.BookCatalog}!catalog@{catalog}}
 \index{catalog@{catalog}!it.campuslib.collections.BookCatalog@{it.campuslib.collections.BookCatalog}}
 \doxysubsubsection{\texorpdfstring{catalog}{catalog}}
 {\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_book_catalog_a87a65ee0406212875c9c769534758f65} 
 Hash\+Map$<$String, \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}}$>$ it.\+campuslib.\+collections.\+Book\+Catalog.\+catalog\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classit_1_1campuslib_1_1collections_1_1_book_catalog_a5c6edeb0c1a78729896dd54562ac095d}\index{it.campuslib.collections.BookCatalog@{it.campuslib.collections.BookCatalog}!instance@{instance}}
+\index{instance@{instance}!it.campuslib.collections.BookCatalog@{it.campuslib.collections.BookCatalog}}
+\doxysubsubsection{\texorpdfstring{instance}{instance}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1collections_1_1_book_catalog_a5c6edeb0c1a78729896dd54562ac095d} 
+\mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_book_catalog}{Book\+Catalog}} it.\+campuslib.\+collections.\+Book\+Catalog.\+instance = null\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
 
 
 

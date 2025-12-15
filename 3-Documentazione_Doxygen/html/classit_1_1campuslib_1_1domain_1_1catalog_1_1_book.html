@@ -18,6 +18,7 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,6 +26,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="campuslib-icon.png"/></td>
   <td id="projectalign">
    <div id="projectname">CampusLib
    </div>
@@ -95,35 +97,47 @@ $(function(){initNavTree('classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.htm
 
 <p>Rappresenta un Libro.  
  <a href="#details">More...</a></p>
+<div class="dynheader">
+Inheritance diagram for it.campuslib.domain.catalog.Book:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.png" alt=""/>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a854ba6cf5e2d0fc29c94ea018a91e893" id="r_a854ba6cf5e2d0fc29c94ea018a91e893"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a854ba6cf5e2d0fc29c94ea018a91e893">Book</a> (String <a class="el" href="#a9fda446b7556d66c32514b2f64b0811d">isbn</a>, String <a class="el" href="#a6891b0f96e4df796ffa4ad4236dcadf7">title</a>, ArrayList&lt; <a class="el" href="classit_1_1campuslib_1_1domain_1_1catalog_1_1_author.html">Author</a> &gt; <a class="el" href="#ac69f8163404d3c5b270dcd0146f08761">authors</a>, int <a class="el" href="#aa4e879feb9d7eec39724d4f9fa848fd7">publishingYear</a>, int <a class="el" href="#a8f240bc9013417c2eb12cd90f607aea2">copies</a>)</td></tr>
-<tr class="memdesc:a854ba6cf5e2d0fc29c94ea018a91e893"><td class="mdescLeft">&#160;</td><td class="mdescRight">Istanzia un nuovo oggetto <a class="el" href="classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html" title="Rappresenta un Libro.">Book</a>.  <br /></td></tr>
+<tr class="memitem:a880bd95e93d51a0c238c4ef51646ee67" id="r_a880bd95e93d51a0c238c4ef51646ee67"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a880bd95e93d51a0c238c4ef51646ee67">Book</a> (String <a class="el" href="#a9fda446b7556d66c32514b2f64b0811d">isbn</a>, String <a class="el" href="#a6891b0f96e4df796ffa4ad4236dcadf7">title</a>, String <a class="el" href="#ac29348036d857f265e83def2ba9591bb">authors</a>, int <a class="el" href="#aa4e879feb9d7eec39724d4f9fa848fd7">publishingYear</a>, int <a class="el" href="#a8f240bc9013417c2eb12cd90f607aea2">copies</a>)  throws <a class="el" href="classit_1_1campuslib_1_1domain_1_1catalog_1_1_invalid_book_info_exception.html">InvalidBookInfoException</a> </td></tr>
+<tr class="memdesc:a880bd95e93d51a0c238c4ef51646ee67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Istanzia un nuovo oggetto <a class="el" href="classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html" title="Rappresenta un Libro.">Book</a>.  <br /></td></tr>
 <tr class="memitem:a8ebd1c0798c899be83b8a860f83b3629" id="r_a8ebd1c0798c899be83b8a860f83b3629"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ebd1c0798c899be83b8a860f83b3629">getIsbn</a> ()</td></tr>
 <tr class="memdesc:a8ebd1c0798c899be83b8a860f83b3629"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restituisce il codice ISBN del libro.  <br /></td></tr>
 <tr class="memitem:adfb93e1058e4b0fac6dd1a422734033d" id="r_adfb93e1058e4b0fac6dd1a422734033d"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfb93e1058e4b0fac6dd1a422734033d">getTitle</a> ()</td></tr>
 <tr class="memdesc:adfb93e1058e4b0fac6dd1a422734033d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restituisce il titolo del libro.  <br /></td></tr>
-<tr class="memitem:afbc031315b2fe7d86538c580e20f4ba6" id="r_afbc031315b2fe7d86538c580e20f4ba6"><td class="memItemLeft" align="right" valign="top">ArrayList&lt; <a class="el" href="classit_1_1campuslib_1_1domain_1_1catalog_1_1_author.html">Author</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afbc031315b2fe7d86538c580e20f4ba6">getAuthors</a> ()</td></tr>
-<tr class="memdesc:afbc031315b2fe7d86538c580e20f4ba6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restituisce la lista degli autori del libro.  <br /></td></tr>
+<tr class="memitem:aacfdb4de75fe3129e06ac78ed3240820" id="r_aacfdb4de75fe3129e06ac78ed3240820"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aacfdb4de75fe3129e06ac78ed3240820">getAuthors</a> ()</td></tr>
+<tr class="memdesc:aacfdb4de75fe3129e06ac78ed3240820"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restituisce la stringa degli autori del libro.  <br /></td></tr>
 <tr class="memitem:a6aac38fb12f03e2c945f4b0184dace55" id="r_a6aac38fb12f03e2c945f4b0184dace55"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6aac38fb12f03e2c945f4b0184dace55">getPublishingYear</a> ()</td></tr>
 <tr class="memdesc:a6aac38fb12f03e2c945f4b0184dace55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restituisce l'anno di pubblicazione del libro.  <br /></td></tr>
 <tr class="memitem:a5d734c11dce16fcc19526ffb31521d7d" id="r_a5d734c11dce16fcc19526ffb31521d7d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d734c11dce16fcc19526ffb31521d7d">getCopies</a> ()</td></tr>
 <tr class="memdesc:a5d734c11dce16fcc19526ffb31521d7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restituisce il numero totale di copie del libro.  <br /></td></tr>
 <tr class="memitem:acb5fb719084a57a35f44f2c81d225812" id="r_acb5fb719084a57a35f44f2c81d225812"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb5fb719084a57a35f44f2c81d225812">isAdopted</a> ()</td></tr>
 <tr class="memdesc:acb5fb719084a57a35f44f2c81d225812"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se il libro è in adozione.  <br /></td></tr>
-<tr class="memitem:acdd7f4eef381ee3ace4a91f3bff36457" id="r_acdd7f4eef381ee3ace4a91f3bff36457"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acdd7f4eef381ee3ace4a91f3bff36457">checkAvailability</a> ()</td></tr>
-<tr class="memdesc:acdd7f4eef381ee3ace4a91f3bff36457"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica la disponibilità del libro.  <br /></td></tr>
+<tr class="memitem:a26e67f4dedc838a74e4c66d94598fe62" id="r_a26e67f4dedc838a74e4c66d94598fe62"><td class="memItemLeft" align="right" valign="top"><a class="el" href="enumit_1_1campuslib_1_1domain_1_1catalog_1_1_adoption_status.html">AdoptionStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26e67f4dedc838a74e4c66d94598fe62">getStatus</a> ()</td></tr>
+<tr class="memdesc:a26e67f4dedc838a74e4c66d94598fe62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restituisce lo stato di adozione del libro.  <br /></td></tr>
+<tr class="memitem:a0dc3d48353c4f8306cfb0c58ffc9282e" id="r_a0dc3d48353c4f8306cfb0c58ffc9282e"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0dc3d48353c4f8306cfb0c58ffc9282e">getDisplayString</a> ()</td></tr>
+<tr class="memdesc:a0dc3d48353c4f8306cfb0c58ffc9282e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restituisce una stringa essenziale per la visualizzazione in liste di selezione.  <br /></td></tr>
+<tr class="memitem:a2c37b3a4bf2e87adc2f2a59013168a94" id="r_a2c37b3a4bf2e87adc2f2a59013168a94"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c37b3a4bf2e87adc2f2a59013168a94">checkAvailability</a> (<a class="el" href="classit_1_1campuslib_1_1collections_1_1_loan_registry.html">LoanRegistry</a> registry)</td></tr>
+<tr class="memdesc:a2c37b3a4bf2e87adc2f2a59013168a94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica la disponibilità del libro.  <br /></td></tr>
 <tr class="memitem:a28264c4a2c0b56aaffc3ebc21c09a1bd" id="r_a28264c4a2c0b56aaffc3ebc21c09a1bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28264c4a2c0b56aaffc3ebc21c09a1bd">setTitle</a> (String <a class="el" href="#a6891b0f96e4df796ffa4ad4236dcadf7">title</a>)</td></tr>
 <tr class="memdesc:a28264c4a2c0b56aaffc3ebc21c09a1bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imposta il titolo del libro.  <br /></td></tr>
 <tr class="memitem:aae83566a99ce9ecb83621c49456e29e0" id="r_aae83566a99ce9ecb83621c49456e29e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae83566a99ce9ecb83621c49456e29e0">setStatus</a> (<a class="el" href="enumit_1_1campuslib_1_1domain_1_1catalog_1_1_adoption_status.html">AdoptionStatus</a> <a class="el" href="#a7e7d749c4ee4c4a91665d857cba1f69a">status</a>)</td></tr>
 <tr class="memdesc:aae83566a99ce9ecb83621c49456e29e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imposta lo stato di adozione del libro.  <br /></td></tr>
+<tr class="memitem:a3989d795153c7da6da7c023bc192b2dd" id="r_a3989d795153c7da6da7c023bc192b2dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3989d795153c7da6da7c023bc192b2dd">setAuthors</a> (String <a class="el" href="#ac29348036d857f265e83def2ba9591bb">authors</a>)</td></tr>
+<tr class="memdesc:a3989d795153c7da6da7c023bc192b2dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imposta la stringa degli autori del libro.  <br /></td></tr>
 <tr class="memitem:a73121e9165490c5d9db028811c052a57" id="r_a73121e9165490c5d9db028811c052a57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73121e9165490c5d9db028811c052a57">setPublishingYear</a> (int year)</td></tr>
 <tr class="memdesc:a73121e9165490c5d9db028811c052a57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imposta l'anno di pubblicazione del libro.  <br /></td></tr>
 <tr class="memitem:a6538b4eb58a5233abd0d393f87eb0913" id="r_a6538b4eb58a5233abd0d393f87eb0913"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6538b4eb58a5233abd0d393f87eb0913">setCopies</a> (int <a class="el" href="#a8f240bc9013417c2eb12cd90f607aea2">copies</a>)</td></tr>
 <tr class="memdesc:a6538b4eb58a5233abd0d393f87eb0913"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imposta il numero di copie totali del libro.  <br /></td></tr>
-<tr class="memitem:a6208683e61bd4e7978a4c643c71b0d8f" id="r_a6208683e61bd4e7978a4c643c71b0d8f"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6208683e61bd4e7978a4c643c71b0d8f">addAuthor</a> (<a class="el" href="classit_1_1campuslib_1_1domain_1_1catalog_1_1_author.html">Author</a> author)</td></tr>
-<tr class="memdesc:a6208683e61bd4e7978a4c643c71b0d8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aggiunge un autore alla lista degli autori del libro.  <br /></td></tr>
+<tr class="memitem:ad09da46e26de49c643eeeb1a84cfe140" id="r_ad09da46e26de49c643eeeb1a84cfe140"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad09da46e26de49c643eeeb1a84cfe140">addAuthor</a> (String author)</td></tr>
+<tr class="memdesc:ad09da46e26de49c643eeeb1a84cfe140"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aggiunge un autore alla stringa degli autori del libro.  <br /></td></tr>
 <tr class="memitem:a303b5cfcd32d39f5e3645496965ba8f9" id="r_a303b5cfcd32d39f5e3645496965ba8f9"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a303b5cfcd32d39f5e3645496965ba8f9">toString</a> ()</td></tr>
 <tr class="memdesc:a303b5cfcd32d39f5e3645496965ba8f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restituisce una rappresentazione testuale dell'oggetto <a class="el" href="classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html" title="Rappresenta un Libro.">Book</a>.  <br /></td></tr>
 <tr class="memitem:aa1956669c38f514253842f4b89e7a115" id="r_aa1956669c38f514253842f4b89e7a115"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1956669c38f514253842f4b89e7a115">equals</a> (Object obj)</td></tr>
@@ -133,16 +147,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a15c5f18673d7960aaceb4ace4a2e9658" id="r_a15c5f18673d7960aaceb4ace4a2e9658"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15c5f18673d7960aaceb4ace4a2e9658">hashCode</a> ()</td></tr>
 <tr class="memdesc:a15c5f18673d7960aaceb4ace4a2e9658"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restituisce il codice hash dell'oggetto <a class="el" href="classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html" title="Rappresenta un Libro.">Book</a>.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a7336fc4d78be632dbfcd472b08e8d57f" id="r_a7336fc4d78be632dbfcd472b08e8d57f"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7336fc4d78be632dbfcd472b08e8d57f">checkIsbn</a> (String <a class="el" href="#a9fda446b7556d66c32514b2f64b0811d">isbn</a>)</td></tr>
-<tr class="memdesc:a7336fc4d78be632dbfcd472b08e8d57f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se il formato dell'ISBN fornito è valido.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pri-static-methods" class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:a2d73f89f4ed1fc173cd8f53d5da1e958" id="r_a2d73f89f4ed1fc173cd8f53d5da1e958"><td class="memItemLeft" align="right" valign="top">static boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d73f89f4ed1fc173cd8f53d5da1e958">checkIsbn</a> (String <a class="el" href="#a9fda446b7556d66c32514b2f64b0811d">isbn</a>)</td></tr>
+<tr class="memdesc:a2d73f89f4ed1fc173cd8f53d5da1e958"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se il formato dell'ISBN fornito è valido.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a9fda446b7556d66c32514b2f64b0811d" id="r_a9fda446b7556d66c32514b2f64b0811d"><td class="memItemLeft" align="right" valign="top">final String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9fda446b7556d66c32514b2f64b0811d">isbn</a></td></tr>
 <tr class="memitem:a6891b0f96e4df796ffa4ad4236dcadf7" id="r_a6891b0f96e4df796ffa4ad4236dcadf7"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6891b0f96e4df796ffa4ad4236dcadf7">title</a></td></tr>
-<tr class="memitem:ac69f8163404d3c5b270dcd0146f08761" id="r_ac69f8163404d3c5b270dcd0146f08761"><td class="memItemLeft" align="right" valign="top">ArrayList&lt; <a class="el" href="classit_1_1campuslib_1_1domain_1_1catalog_1_1_author.html">Author</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac69f8163404d3c5b270dcd0146f08761">authors</a></td></tr>
+<tr class="memitem:ac29348036d857f265e83def2ba9591bb" id="r_ac29348036d857f265e83def2ba9591bb"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac29348036d857f265e83def2ba9591bb">authors</a></td></tr>
 <tr class="memitem:aa4e879feb9d7eec39724d4f9fa848fd7" id="r_aa4e879feb9d7eec39724d4f9fa848fd7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4e879feb9d7eec39724d4f9fa848fd7">publishingYear</a></td></tr>
 <tr class="memitem:a7e7d749c4ee4c4a91665d857cba1f69a" id="r_a7e7d749c4ee4c4a91665d857cba1f69a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="enumit_1_1campuslib_1_1domain_1_1catalog_1_1_adoption_status.html">AdoptionStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e7d749c4ee4c4a91665d857cba1f69a">status</a></td></tr>
 <tr class="memitem:a8f240bc9013417c2eb12cd90f607aea2" id="r_a8f240bc9013417c2eb12cd90f607aea2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f240bc9013417c2eb12cd90f607aea2">copies</a></td></tr>
@@ -150,8 +164,8 @@ Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Rappresenta un Libro. </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a854ba6cf5e2d0fc29c94ea018a91e893" name="a854ba6cf5e2d0fc29c94ea018a91e893"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a854ba6cf5e2d0fc29c94ea018a91e893">&#9670;&#160;</a></span>Book()</h2>
+<a id="a880bd95e93d51a0c238c4ef51646ee67" name="a880bd95e93d51a0c238c4ef51646ee67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a880bd95e93d51a0c238c4ef51646ee67">&#9670;&#160;</a></span>Book()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -169,7 +183,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">ArrayList&lt; <a class="el" href="classit_1_1campuslib_1_1domain_1_1catalog_1_1_author.html">Author</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>authors</em></span>, </td>
+          <td class="paramtype">String</td>          <td class="paramname"><span class="paramname"><em>authors</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -179,7 +193,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>copies</em></span>&#160;)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>copies</em></span>&#160;) throws <a class="el" href="classit_1_1campuslib_1_1domain_1_1catalog_1_1_invalid_book_info_exception.html">InvalidBookInfoException</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -189,20 +203,19 @@ Private Attributes</h2></td></tr>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">isbn</td><td>Il codice ISBN del libro. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">title</td><td>Il titolo del libro. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">authors</td><td>La lista degli autori del libro. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">authors</td><td>Gli autori del libro come stringa. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">publishingYear</td><td>L'anno di pubblicazione del libro. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">copies</td><td>Il numero totale di copie del libro. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Un nuovo oggetto <a class="el" href="classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html" title="Rappresenta un Libro.">Book</a>. </dd></dl>
-<dl class="section see"><dt>See also</dt><dd>checkISBN(String isbn) </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a2d73f89f4ed1fc173cd8f53d5da1e958" title="Verifica se il formato dell&#39;ISBN fornito è valido.">checkIsbn(String isbn)</a> </dd></dl>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a6208683e61bd4e7978a4c643c71b0d8f" name="a6208683e61bd4e7978a4c643c71b0d8f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6208683e61bd4e7978a4c643c71b0d8f">&#9670;&#160;</a></span>addAuthor()</h2>
+<a id="ad09da46e26de49c643eeeb1a84cfe140" name="ad09da46e26de49c643eeeb1a84cfe140"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad09da46e26de49c643eeeb1a84cfe140">&#9670;&#160;</a></span>addAuthor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -210,13 +223,13 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">boolean it.campuslib.domain.catalog.Book.addAuthor </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classit_1_1campuslib_1_1domain_1_1catalog_1_1_author.html">Author</a></td>          <td class="paramname"><span class="paramname"><em>author</em></span></td><td>)</td>
+          <td class="paramtype">String</td>          <td class="paramname"><span class="paramname"><em>author</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Aggiunge un autore alla lista degli autori del libro. </p>
+<p>Aggiunge un autore alla stringa degli autori del libro. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">author</td><td>L'autore da aggiungere. </td></tr>
@@ -227,8 +240,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="acdd7f4eef381ee3ace4a91f3bff36457" name="acdd7f4eef381ee3ace4a91f3bff36457"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acdd7f4eef381ee3ace4a91f3bff36457">&#9670;&#160;</a></span>checkAvailability()</h2>
+<a id="a2c37b3a4bf2e87adc2f2a59013168a94" name="a2c37b3a4bf2e87adc2f2a59013168a94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c37b3a4bf2e87adc2f2a59013168a94">&#9670;&#160;</a></span>checkAvailability()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -236,7 +249,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">boolean it.campuslib.domain.catalog.Book.checkAvailability </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classit_1_1campuslib_1_1collections_1_1_loan_registry.html">LoanRegistry</a></td>          <td class="paramname"><span class="paramname"><em>registry</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -248,8 +261,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a7336fc4d78be632dbfcd472b08e8d57f" name="a7336fc4d78be632dbfcd472b08e8d57f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7336fc4d78be632dbfcd472b08e8d57f">&#9670;&#160;</a></span>checkIsbn()</h2>
+<a id="a2d73f89f4ed1fc173cd8f53d5da1e958" name="a2d73f89f4ed1fc173cd8f53d5da1e958"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d73f89f4ed1fc173cd8f53d5da1e958">&#9670;&#160;</a></span>checkIsbn()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -266,7 +279,7 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -274,12 +287,12 @@ Private Attributes</h2></td></tr>
 <p>Verifica se il formato dell'ISBN fornito è valido. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">isbn</td><td>L'Isbn da controllare. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">isbn</td><td>L'ISBN da controllare. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true se l'Isbn è valido, false altrimenti. </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a854ba6cf5e2d0fc29c94ea018a91e893" title="Istanzia un nuovo oggetto Book.">Book(String isbn, String title, ArrayList&lt;Author&gt; authors, int publishingYear, int copies)</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true se l'ISBN è valido, false altrimenti. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a880bd95e93d51a0c238c4ef51646ee67" title="Istanzia un nuovo oggetto Book.">Book(String isbn, String title, String authors, int publishingYear, int copies)</a> </dd></dl>
 
 </div>
 </div>
@@ -335,14 +348,14 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="afbc031315b2fe7d86538c580e20f4ba6" name="afbc031315b2fe7d86538c580e20f4ba6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afbc031315b2fe7d86538c580e20f4ba6">&#9670;&#160;</a></span>getAuthors()</h2>
+<a id="aacfdb4de75fe3129e06ac78ed3240820" name="aacfdb4de75fe3129e06ac78ed3240820"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacfdb4de75fe3129e06ac78ed3240820">&#9670;&#160;</a></span>getAuthors()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">ArrayList&lt; <a class="el" href="classit_1_1campuslib_1_1domain_1_1catalog_1_1_author.html">Author</a> &gt; it.campuslib.domain.catalog.Book.getAuthors </td>
+          <td class="memname">String it.campuslib.domain.catalog.Book.getAuthors </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -350,8 +363,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Restituisce la lista degli autori del libro. </p>
-<dl class="section return"><dt>Returns</dt><dd>La lista degli autori del libro. </dd></dl>
+<p>Restituisce la stringa degli autori del libro. </p>
+<dl class="section return"><dt>Returns</dt><dd>La stringa degli autori del libro. </dd></dl>
 
 </div>
 </div>
@@ -372,6 +385,26 @@ Private Attributes</h2></td></tr>
 
 <p>Restituisce il numero totale di copie del libro. </p>
 <dl class="section return"><dt>Returns</dt><dd>Il numero totale di copie del libro. </dd></dl>
+
+</div>
+</div>
+<a id="a0dc3d48353c4f8306cfb0c58ffc9282e" name="a0dc3d48353c4f8306cfb0c58ffc9282e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dc3d48353c4f8306cfb0c58ffc9282e">&#9670;&#160;</a></span>getDisplayString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String it.campuslib.domain.catalog.Book.getDisplayString </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Restituisce una stringa essenziale per la visualizzazione in liste di selezione. </p>
+<dl class="section return"><dt>Returns</dt><dd>Stringa nel formato "Titolo - Autore". </dd></dl>
 
 </div>
 </div>
@@ -412,6 +445,26 @@ Private Attributes</h2></td></tr>
 
 <p>Restituisce l'anno di pubblicazione del libro. </p>
 <dl class="section return"><dt>Returns</dt><dd>L'anno di pubblicazione del libro. </dd></dl>
+
+</div>
+</div>
+<a id="a26e67f4dedc838a74e4c66d94598fe62" name="a26e67f4dedc838a74e4c66d94598fe62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26e67f4dedc838a74e4c66d94598fe62">&#9670;&#160;</a></span>getStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="enumit_1_1campuslib_1_1domain_1_1catalog_1_1_adoption_status.html">AdoptionStatus</a> it.campuslib.domain.catalog.Book.getStatus </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Restituisce lo stato di adozione del libro. </p>
+<dl class="section return"><dt>Returns</dt><dd>Lo stato di adozione. </dd></dl>
 
 </div>
 </div>
@@ -472,6 +525,31 @@ Private Attributes</h2></td></tr>
 
 <p>Verifica se il libro è in adozione. </p>
 <dl class="section return"><dt>Returns</dt><dd>true se il libro è in adozione, false altrimenti. </dd></dl>
+
+</div>
+</div>
+<a id="a3989d795153c7da6da7c023bc192b2dd" name="a3989d795153c7da6da7c023bc192b2dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3989d795153c7da6da7c023bc192b2dd">&#9670;&#160;</a></span>setAuthors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void it.campuslib.domain.catalog.Book.setAuthors </td>
+          <td>(</td>
+          <td class="paramtype">String</td>          <td class="paramname"><span class="paramname"><em>authors</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Imposta la stringa degli autori del libro. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">authors</td><td>La nuova stringa degli autori. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -596,8 +674,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="ac69f8163404d3c5b270dcd0146f08761" name="ac69f8163404d3c5b270dcd0146f08761"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac69f8163404d3c5b270dcd0146f08761">&#9670;&#160;</a></span>authors</h2>
+<a id="ac29348036d857f265e83def2ba9591bb" name="ac29348036d857f265e83def2ba9591bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac29348036d857f265e83def2ba9591bb">&#9670;&#160;</a></span>authors</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -606,7 +684,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">ArrayList&lt;<a class="el" href="classit_1_1campuslib_1_1domain_1_1catalog_1_1_author.html">Author</a>&gt; it.campuslib.domain.catalog.Book.authors</td>
+          <td class="memname">String it.campuslib.domain.catalog.Book.authors</td>
         </tr>
       </table>
   </td>

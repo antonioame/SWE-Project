@@ -8,7 +8,7 @@ Classe astratta che rappresenta una transazione nella biblioteca.
 Inheritance diagram for it.\+campuslib.\+domain.\+transactions.\+Transaction\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction}
+\includegraphics[height=3.000000cm]{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
@@ -17,13 +17,35 @@ Inheritance diagram for it.\+campuslib.\+domain.\+transactions.\+Transaction\+:\
 \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_aa32b6942e0c77929b13aa98d5cd4ffef}{Transaction}} (\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}} \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a1cb772a968ba6efe9fc3d96e7075e075}{borrowed\+Book}}, \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}} \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a1d2a34e30b653900968b282ebc0467ea}{borrower\+User}}, Local\+Date \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_ac28524950bcff672c08375866b688f3e}{start\+Date}})
 \begin{DoxyCompactList}\small\item\em Istanzia un nuovo oggetto \doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction}{Transaction}. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a32233168c25c0265a9689ccf00464af6}{get\+Id}} ()
-\begin{DoxyCompactList}\small\item\em restituisce l\textquotesingle{}ID univoco del prestito. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Restituisce l\textquotesingle{}ID univoco del prestito. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}} \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a6d7bb48cb28dccf277db33ab978e67e5}{get\+Borrowed\+Book}} ()
 \begin{DoxyCompactList}\small\item\em Restituisce il libro preso in prestito. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}} \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a0b0ed2399d51699079d53646413b2a8e}{get\+Borrower\+User}} ()
 \begin{DoxyCompactList}\small\item\em Restituisce l\textquotesingle{}utente che ha preso in prestito il libro. \end{DoxyCompactList}\item 
 Local\+Date \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_aef13a66f82bfa2b88d84d3b944659b19}{get\+Start\+Date}} ()
-\begin{DoxyCompactList}\small\item\em Restituisce la data di inizio del prestito. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Restituisce la data di inizio del prestito. \end{DoxyCompactList}\item 
+abstract Local\+Date \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a2b2b0475bb5598c04f477709de3b806a}{get\+Sorting\+Date}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce la data utilizzata per l\textquotesingle{}ordinamento delle transazioni. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a5f4320d15a3f00c5667dd0664a07a233}{equals}} (Object obj)
+\begin{DoxyCompactList}\small\item\em Confronta istanza di \doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction}{Transaction} con un altro oggetto per uguaglianza. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_af9017f9fa22d3f870cc35e867f860a4a}{hash\+Code}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce il codice hash dell\textquotesingle{}oggetto. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a00daacd21f896263b4ff6fddfb791720}{compare\+To}} (\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction}{Transaction}} other)
+\begin{DoxyCompactList}\small\item\em Confronta l\textquotesingle{}oggetto \doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction}{Transaction} corrente con un altro oggetto \doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction}{Transaction} per l\textquotesingle{}ordinamento. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_aaa0c79543de08f5ec1ba914f6cc7fea9}{to\+String}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static synchronized int \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_ade41d48e3351b2751129d11baa1e316a}{get\+Next\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce il prossimo ID che sarà assegnato. \end{DoxyCompactList}\item 
+static synchronized void \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a9e1f3bd9c3d3f73f21788705f4dba590}{ensure\+Next\+Id\+At\+Least}} (int new\+Next)
+\begin{DoxyCompactList}\small\item\em Imposta il valore del prossimo ID da assegnare se maggiore dell\textquotesingle{}attuale. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_aaf6f07bac3ccb976fbe7968720f7b925}{Transaction}} (int \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a1fdd6a18d049e26a5562930c74c3d0e4}{id}}, \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}} \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a1cb772a968ba6efe9fc3d96e7075e075}{borrowed\+Book}}, \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}} \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a1d2a34e30b653900968b282ebc0467ea}{borrower\+User}}, Local\+Date \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_ac28524950bcff672c08375866b688f3e}{start\+Date}})
+\begin{DoxyCompactList}\small\item\em Istanzia un nuovo oggetto \doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction}{Transaction} con un ID specifico. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -57,7 +79,7 @@ Superclasse per \doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_loa
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_aa32b6942e0c77929b13aa98d5cd4ffef}\index{it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}!Transaction@{Transaction}}
 \index{Transaction@{Transaction}!it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}}
-\doxysubsubsection{\texorpdfstring{Transaction()}{Transaction()}}
+\doxysubsubsection{\texorpdfstring{Transaction()}{Transaction()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_aa32b6942e0c77929b13aa98d5cd4ffef} 
 it.\+campuslib.\+domain.\+transactions.\+Transaction.\+Transaction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}}}]{borrowed\+Book}{, }\item[{\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}}}]{borrower\+User}{, }\item[{Local\+Date}]{start\+Date}{}\end{DoxyParamCaption})}
 
@@ -74,9 +96,6 @@ Istanzia un nuovo oggetto \doxylink{classit_1_1campuslib_1_1domain_1_1transactio
 \mbox{\texttt{in}}  & {\em start\+Date} & La data di inizio del prestito. \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Un nuovo oggetto \doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction}{Transaction}. 
-\end{DoxyReturn}
 \begin{DoxyPrecond}{Precondition}
 
 \begin{DoxyItemize}
@@ -84,11 +103,83 @@ Un nuovo oggetto \doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_tr
 \item l\textquotesingle{}utente deve essere attivo. 
 \end{DoxyItemize}
 \end{DoxyPrecond}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_aaf6f07bac3ccb976fbe7968720f7b925}\index{it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}!Transaction@{Transaction}}
+\index{Transaction@{Transaction}!it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}}
+\doxysubsubsection{\texorpdfstring{Transaction()}{Transaction()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_aaf6f07bac3ccb976fbe7968720f7b925} 
+it.\+campuslib.\+domain.\+transactions.\+Transaction.\+Transaction (\begin{DoxyParamCaption}\item[{int}]{id}{, }\item[{\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}}}]{borrowed\+Book}{, }\item[{\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1users_1_1_user}{User}}}]{borrower\+User}{, }\item[{Local\+Date}]{start\+Date}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Istanzia un nuovo oggetto \doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction}{Transaction} con un ID specifico. 
+
+Consente di preservare l\textquotesingle{}ID quando si converte un tipo (sottoclasse) di transazione in un altro. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em id} & L\textquotesingle{}ID da assegnare alla transazione. \\
+\hline
+\mbox{\texttt{in}}  & {\em borrowed\+Book} & Il libro preso in prestito. \\
+\hline
+\mbox{\texttt{in}}  & {\em borrower\+User} & L\textquotesingle{}utente che ha preso in prestito il libro. \\
+\hline
+\mbox{\texttt{in}}  & {\em start\+Date} & La data di inizio del prestito. \\
+\hline
+\end{DoxyParams}
 
 
 \label{doc-func-members}
 \Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_doc-func-members}
 \doxysubsection{Member Function Documentation}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a00daacd21f896263b4ff6fddfb791720}\index{it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}!compareTo@{compareTo}}
+\index{compareTo@{compareTo}!it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}}
+\doxysubsubsection{\texorpdfstring{compareTo()}{compareTo()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a00daacd21f896263b4ff6fddfb791720} 
+int it.\+campuslib.\+domain.\+transactions.\+Transaction.\+compare\+To (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction}{Transaction}}}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Confronta l\textquotesingle{}oggetto \doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction}{Transaction} corrente con un altro oggetto \doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction}{Transaction} per l\textquotesingle{}ordinamento. 
+
+L\textquotesingle{}ordinamento è basato prima sulla data di ordinamento (get\+Sorting\+Date), poi sull\textquotesingle{}ID della transazione per evitare collisioni. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em other} & L\textquotesingle{}oggetto \doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction}{Transaction} da confrontare con la transazione corrente. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un valore negativo, zero o positivo se la transazione corrente è minore, uguale o maggiore dell\textquotesingle{}altra transazione. 
+\end{DoxyReturn}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a9e1f3bd9c3d3f73f21788705f4dba590}\index{it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}!ensureNextIdAtLeast@{ensureNextIdAtLeast}}
+\index{ensureNextIdAtLeast@{ensureNextIdAtLeast}!it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}}
+\doxysubsubsection{\texorpdfstring{ensureNextIdAtLeast()}{ensureNextIdAtLeast()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a9e1f3bd9c3d3f73f21788705f4dba590} 
+synchronized void it.\+campuslib.\+domain.\+transactions.\+Transaction.\+ensure\+Next\+Id\+At\+Least (\begin{DoxyParamCaption}\item[{int}]{new\+Next}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Imposta il valore del prossimo ID da assegnare se maggiore dell\textquotesingle{}attuale. 
+
+Metodo thread-\/safe e non decrementa mai il contatore. 
+\begin{DoxyParams}{Parameters}
+{\em new\+Next} & il valore minimo che {\ttfamily next\+Id} deve assumere \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a5f4320d15a3f00c5667dd0664a07a233}\index{it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}!equals@{equals}}
+\index{equals@{equals}!it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}}
+\doxysubsubsection{\texorpdfstring{equals()}{equals()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a5f4320d15a3f00c5667dd0664a07a233} 
+boolean it.\+campuslib.\+domain.\+transactions.\+Transaction.\+equals (\begin{DoxyParamCaption}\item[{Object}]{obj}{}\end{DoxyParamCaption})}
+
+
+
+Confronta istanza di \doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction}{Transaction} con un altro oggetto per uguaglianza. 
+
+Due oggetti \doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction}{Transaction} sono considerati uguali se hanno lo stesso ID univoco e appartengono alla stessa classe. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em obj} & L\textquotesingle{}oggetto da confrontare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se gli oggetti sono uguali, false altrimenti. 
+\end{DoxyReturn}
 \Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a6d7bb48cb28dccf277db33ab978e67e5}\index{it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}!getBorrowedBook@{getBorrowedBook}}
 \index{getBorrowedBook@{getBorrowedBook}!it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}}
 \doxysubsubsection{\texorpdfstring{getBorrowedBook()}{getBorrowedBook()}}
@@ -123,11 +214,41 @@ int it.\+campuslib.\+domain.\+transactions.\+Transaction.\+get\+Id (\begin{DoxyP
 
 
 
-restituisce l\textquotesingle{}ID univoco del prestito. 
+Restituisce l\textquotesingle{}ID univoco del prestito. 
 
 \begin{DoxyReturn}{Returns}
 L\textquotesingle{}ID univoco del prestito. 
 \end{DoxyReturn}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_ade41d48e3351b2751129d11baa1e316a}\index{it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}!getNextId@{getNextId}}
+\index{getNextId@{getNextId}!it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}}
+\doxysubsubsection{\texorpdfstring{getNextId()}{getNextId()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_ade41d48e3351b2751129d11baa1e316a} 
+synchronized int it.\+campuslib.\+domain.\+transactions.\+Transaction.\+get\+Next\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Restituisce il prossimo ID che sarà assegnato. 
+
+Metodo thread-\/safe. \begin{DoxyReturn}{Returns}
+il prossimo ID disponibile 
+\end{DoxyReturn}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a2b2b0475bb5598c04f477709de3b806a}\index{it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}!getSortingDate@{getSortingDate}}
+\index{getSortingDate@{getSortingDate}!it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}}
+\doxysubsubsection{\texorpdfstring{getSortingDate()}{getSortingDate()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_a2b2b0475bb5598c04f477709de3b806a} 
+abstract Local\+Date it.\+campuslib.\+domain.\+transactions.\+Transaction.\+get\+Sorting\+Date (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+
+
+Restituisce la data utilizzata per l\textquotesingle{}ordinamento delle transazioni. 
+
+\begin{DoxyReturn}{Returns}
+La data di ordinamento (expected\+Return\+Date per \doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan}{Loan}, end\+Date per \doxylink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_giveback}{Giveback}). 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_giveback_a1ea09d3ce362794fee94d16ca68be2a9}{it.\+campuslib.\+domain.\+transactions.\+Giveback}}, and \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan_a72bd98939daa22b980e66794fa274513}{it.\+campuslib.\+domain.\+transactions.\+Loan}}.
+
 \Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_aef13a66f82bfa2b88d84d3b944659b19}\index{it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}!getStartDate@{getStartDate}}
 \index{getStartDate@{getStartDate}!it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}}
 \doxysubsubsection{\texorpdfstring{getStartDate()}{getStartDate()}}
@@ -141,6 +262,29 @@ Restituisce la data di inizio del prestito.
 \begin{DoxyReturn}{Returns}
 La data di inizio del prestito. 
 \end{DoxyReturn}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_af9017f9fa22d3f870cc35e867f860a4a}\index{it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}!hashCode@{hashCode}}
+\index{hashCode@{hashCode}!it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}}
+\doxysubsubsection{\texorpdfstring{hashCode()}{hashCode()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_af9017f9fa22d3f870cc35e867f860a4a} 
+int it.\+campuslib.\+domain.\+transactions.\+Transaction.\+hash\+Code (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Restituisce il codice hash dell\textquotesingle{}oggetto. 
+
+Il codice hash è basato sull\textquotesingle{}ID univoco della transazione. \begin{DoxyReturn}{Returns}
+Il codice hash dell\textquotesingle{}oggetto. 
+\end{DoxyReturn}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_aaa0c79543de08f5ec1ba914f6cc7fea9}\index{it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}!toString@{toString}}
+\index{toString@{toString}!it.campuslib.domain.transactions.Transaction@{it.campuslib.domain.transactions.Transaction}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction_aaa0c79543de08f5ec1ba914f6cc7fea9} 
+String it.\+campuslib.\+domain.\+transactions.\+Transaction.\+to\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Reimplemented in \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_giveback_a985919cd58557a738165bf7a8d39ebbe}{it.\+campuslib.\+domain.\+transactions.\+Giveback}}, and \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan_aeedeab27611271973bb57b525048196a}{it.\+campuslib.\+domain.\+transactions.\+Loan}}.
+
 
 
 \label{doc-variable-members}

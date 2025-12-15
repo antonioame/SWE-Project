@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['canborrow_0',['canBorrow',['../classit_1_1campuslib_1_1domain_1_1users_1_1_user.html#a29ee317af8f5c02611ad9c3784858c24',1,'it::campuslib::domain::users::User']]],
-  ['checkavailability_1',['checkAvailability',['../classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#acdd7f4eef381ee3ace4a91f3bff36457',1,'it::campuslib::domain::catalog::Book']]],
-  ['checkemail_2',['checkEmail',['../classit_1_1campuslib_1_1domain_1_1users_1_1_user.html#a1b617890dd8282dec6da6def19570168',1,'it::campuslib::domain::users::User']]],
-  ['checkenrollmentid_3',['checkEnrollmentID',['../classit_1_1campuslib_1_1domain_1_1users_1_1_user.html#ae8a00fe9806b675c1ff421e9801de2ae',1,'it::campuslib::domain::users::User']]],
-  ['checkisbn_4',['checkIsbn',['../classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a7336fc4d78be632dbfcd472b08e8d57f',1,'it::campuslib::domain::catalog::Book']]],
-  ['compareto_5',['compareTo',['../classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a6afa823e710b385de32040d2355a6014',1,'it.campuslib.domain.catalog.Book.compareTo()'],['../classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan.html#a869c15b1b328307ec8731944263b7f0f',1,'it.campuslib.domain.transactions.Loan.compareTo()'],['../classit_1_1campuslib_1_1domain_1_1users_1_1_user.html#a497ca356e69f364b80cb2935ddb99257',1,'it.campuslib.domain.users.User.compareTo()']]],
-  ['converttogiveback_6',['convertToGiveback',['../classit_1_1campuslib_1_1collections_1_1_loan_registry.html#a12a9adf1287299e6e5023b5f5ba93157',1,'it::campuslib::collections::LoanRegistry']]]
+  ['canborrow_0',['canBorrow',['../classit_1_1campuslib_1_1domain_1_1users_1_1_user.html#a8cf8ca7fbf0e91ca9e590c9f9646c5e2',1,'it::campuslib::domain::users::User']]],
+  ['checkavailability_1',['checkAvailability',['../classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a2c37b3a4bf2e87adc2f2a59013168a94',1,'it::campuslib::domain::catalog::Book']]],
+  ['checkdate_2',['checkDate',['../classit_1_1campuslib_1_1domain_1_1transactions_1_1_loan.html#aa7a9ac35a11dee32747273fa4a517257',1,'it::campuslib::domain::transactions::Loan']]],
+  ['checkemail_3',['checkEmail',['../classit_1_1campuslib_1_1domain_1_1users_1_1_user.html#a0d34c547486e30123f2e40a1e94c60ca',1,'it::campuslib::domain::users::User']]],
+  ['checkenrollmentid_4',['checkEnrollmentID',['../classit_1_1campuslib_1_1domain_1_1users_1_1_user.html#aaf74acfde723c2512f6be1f03c0ca977',1,'it::campuslib::domain::users::User']]],
+  ['checkisbn_5',['checkIsbn',['../classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a2d73f89f4ed1fc173cd8f53d5da1e958',1,'it::campuslib::domain::catalog::Book']]],
+  ['compareto_6',['compareTo',['../classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#a6afa823e710b385de32040d2355a6014',1,'it.campuslib.domain.catalog.Book.compareTo()'],['../classit_1_1campuslib_1_1domain_1_1transactions_1_1_transaction.html#a00daacd21f896263b4ff6fddfb791720',1,'it.campuslib.domain.transactions.Transaction.compareTo()'],['../classit_1_1campuslib_1_1domain_1_1users_1_1_user.html#a497ca356e69f364b80cb2935ddb99257',1,'it.campuslib.domain.users.User.compareTo()']]]
 ];

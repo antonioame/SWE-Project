@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['registry_0',['registry',['../classit_1_1campuslib_1_1collections_1_1_giveback_registry.html#a0acd117f116c87921112383099f46622',1,'it.campuslib.collections.GivebackRegistry.registry'],['../classit_1_1campuslib_1_1collections_1_1_loan_registry.html#ad5eef91db457de1b8447b2771c8fb72f',1,'it.campuslib.collections.LoanRegistry.registry'],['../classit_1_1campuslib_1_1collections_1_1_user_registry.html#af466f802c2a47aae9172047328bb4c85',1,'it.campuslib.collections.UserRegistry.registry']]],
-  ['removebook_1',['removeBook',['../classit_1_1campuslib_1_1collections_1_1_book_catalog.html#a8ee01a56051e7fa1aeeb5c137af96916',1,'it::campuslib::collections::BookCatalog']]],
-  ['removeloan_2',['removeLoan',['../classit_1_1campuslib_1_1collections_1_1_loan_registry.html#a1a3b98cc51c6b00cc2a8490c2066cc9e',1,'it::campuslib::collections::LoanRegistry']]],
-  ['removeuser_3',['removeUser',['../classit_1_1campuslib_1_1collections_1_1_user_registry.html#a0943a3a88962daf5f1ce5bdda4ab9172',1,'it::campuslib::collections::UserRegistry']]]
+  ['person_0',['Person',['../classit_1_1campuslib_1_1domain_1_1users_1_1_person.html',1,'it.campuslib.domain.users.Person'],['../classit_1_1campuslib_1_1domain_1_1users_1_1_person.html#a2aaa76e7e282e6ca60acd0ed2cb9acb1',1,'it.campuslib.domain.users.Person.Person()']]],
+  ['person_2ejava_1',['Person.java',['../_person_8java.html',1,'']]],
+  ['publishingyear_2',['publishingYear',['../classit_1_1campuslib_1_1domain_1_1catalog_1_1_book.html#aa4e879feb9d7eec39724d4f9fa848fd7',1,'it::campuslib::domain::catalog::Book']]],
+  ['pullasgiveback_3',['pullAsGiveback',['../classit_1_1campuslib_1_1collections_1_1_loan_registry.html#af7171f45fd4149cf7f72577dfc2035be',1,'it::campuslib::collections::LoanRegistry']]]
 ];

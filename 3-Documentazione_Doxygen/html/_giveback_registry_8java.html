@@ -18,6 +18,7 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,6 +26,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="campuslib-icon.png"/></td>
   <td id="projectalign">
    <div id="projectname">CampusLib
    </div>
@@ -92,8 +94,23 @@ $(function(){initNavTree('_giveback_registry_8java.html','',''); });
   <div class="headertitle"><div class="title">GivebackRegistry.java File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>import it.campuslib.domain.transactions.Giveback;</code><br />
+<div class="textblock"><code>import java.io.FileInputStream;</code><br />
+<code>import java.io.FileOutputStream;</code><br />
+<code>import java.io.IOException;</code><br />
+<code>import java.io.ObjectInputStream;</code><br />
+<code>import java.io.ObjectOutputStream;</code><br />
+<code>import java.io.Serializable;</code><br />
+<code>import java.time.LocalDate;</code><br />
+<code>import java.time.format.DateTimeFormatter;</code><br />
+<code>import java.time.format.DateTimeParseException;</code><br />
 <code>import java.util.ArrayList;</code><br />
+<code>import java.util.LinkedList;</code><br />
+<code>import java.util.List;</code><br />
+<code>import javafx.collections.FXCollections;</code><br />
+<code>import javafx.collections.ObservableList;</code><br />
+<code>import it.campuslib.domain.transactions.Giveback;</code><br />
+<code>import it.campuslib.domain.transactions.Transaction;</code><br />
+<code>import it.campuslib.domain.users.User;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>

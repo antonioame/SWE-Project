@@ -5,35 +5,47 @@
 Rappresenta un Libro.  
 
 
+Inheritance diagram for it.\+campuslib.\+domain.\+catalog.\+Book\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a854ba6cf5e2d0fc29c94ea018a91e893}{Book}} (String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a9fda446b7556d66c32514b2f64b0811d}{isbn}}, String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a6891b0f96e4df796ffa4ad4236dcadf7}{title}}, Array\+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_author}{Author}} $>$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_ac69f8163404d3c5b270dcd0146f08761}{authors}}, int \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_aa4e879feb9d7eec39724d4f9fa848fd7}{publishing\+Year}}, int \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a8f240bc9013417c2eb12cd90f607aea2}{copies}})
+\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a880bd95e93d51a0c238c4ef51646ee67}{Book}} (String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a9fda446b7556d66c32514b2f64b0811d}{isbn}}, String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a6891b0f96e4df796ffa4ad4236dcadf7}{title}}, String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_ac29348036d857f265e83def2ba9591bb}{authors}}, int \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_aa4e879feb9d7eec39724d4f9fa848fd7}{publishing\+Year}}, int \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a8f240bc9013417c2eb12cd90f607aea2}{copies}})  throws \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_invalid_book_info_exception}{Invalid\+Book\+Info\+Exception}} 
 \begin{DoxyCompactList}\small\item\em Istanzia un nuovo oggetto \doxylink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}. \end{DoxyCompactList}\item 
 String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a8ebd1c0798c899be83b8a860f83b3629}{get\+Isbn}} ()
 \begin{DoxyCompactList}\small\item\em Restituisce il codice ISBN del libro. \end{DoxyCompactList}\item 
 String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_adfb93e1058e4b0fac6dd1a422734033d}{get\+Title}} ()
 \begin{DoxyCompactList}\small\item\em Restituisce il titolo del libro. \end{DoxyCompactList}\item 
-Array\+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_author}{Author}} $>$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_afbc031315b2fe7d86538c580e20f4ba6}{get\+Authors}} ()
-\begin{DoxyCompactList}\small\item\em Restituisce la lista degli autori del libro. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_aacfdb4de75fe3129e06ac78ed3240820}{get\+Authors}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce la stringa degli autori del libro. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a6aac38fb12f03e2c945f4b0184dace55}{get\+Publishing\+Year}} ()
 \begin{DoxyCompactList}\small\item\em Restituisce l\textquotesingle{}anno di pubblicazione del libro. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a5d734c11dce16fcc19526ffb31521d7d}{get\+Copies}} ()
 \begin{DoxyCompactList}\small\item\em Restituisce il numero totale di copie del libro. \end{DoxyCompactList}\item 
 boolean \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_acb5fb719084a57a35f44f2c81d225812}{is\+Adopted}} ()
 \begin{DoxyCompactList}\small\item\em Verifica se il libro è in adozione. \end{DoxyCompactList}\item 
-boolean \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_acdd7f4eef381ee3ace4a91f3bff36457}{check\+Availability}} ()
+\mbox{\hyperlink{enumit_1_1campuslib_1_1domain_1_1catalog_1_1_adoption_status}{Adoption\+Status}} \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a26e67f4dedc838a74e4c66d94598fe62}{get\+Status}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce lo stato di adozione del libro. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a0dc3d48353c4f8306cfb0c58ffc9282e}{get\+Display\+String}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce una stringa essenziale per la visualizzazione in liste di selezione. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a2c37b3a4bf2e87adc2f2a59013168a94}{check\+Availability}} (\mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_loan_registry}{Loan\+Registry}} registry)
 \begin{DoxyCompactList}\small\item\em Verifica la disponibilità del libro. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a28264c4a2c0b56aaffc3ebc21c09a1bd}{set\+Title}} (String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a6891b0f96e4df796ffa4ad4236dcadf7}{title}})
 \begin{DoxyCompactList}\small\item\em Imposta il titolo del libro. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_aae83566a99ce9ecb83621c49456e29e0}{set\+Status}} (\mbox{\hyperlink{enumit_1_1campuslib_1_1domain_1_1catalog_1_1_adoption_status}{Adoption\+Status}} \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a7e7d749c4ee4c4a91665d857cba1f69a}{status}})
 \begin{DoxyCompactList}\small\item\em Imposta lo stato di adozione del libro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a3989d795153c7da6da7c023bc192b2dd}{set\+Authors}} (String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_ac29348036d857f265e83def2ba9591bb}{authors}})
+\begin{DoxyCompactList}\small\item\em Imposta la stringa degli autori del libro. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a73121e9165490c5d9db028811c052a57}{set\+Publishing\+Year}} (int year)
 \begin{DoxyCompactList}\small\item\em Imposta l\textquotesingle{}anno di pubblicazione del libro. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a6538b4eb58a5233abd0d393f87eb0913}{set\+Copies}} (int \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a8f240bc9013417c2eb12cd90f607aea2}{copies}})
 \begin{DoxyCompactList}\small\item\em Imposta il numero di copie totali del libro. \end{DoxyCompactList}\item 
-boolean \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a6208683e61bd4e7978a4c643c71b0d8f}{add\+Author}} (\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_author}{Author}} author)
-\begin{DoxyCompactList}\small\item\em Aggiunge un autore alla lista degli autori del libro. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_ad09da46e26de49c643eeeb1a84cfe140}{add\+Author}} (String author)
+\begin{DoxyCompactList}\small\item\em Aggiunge un autore alla stringa degli autori del libro. \end{DoxyCompactList}\item 
 String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a303b5cfcd32d39f5e3645496965ba8f9}{to\+String}} ()
 \begin{DoxyCompactList}\small\item\em Restituisce una rappresentazione testuale dell\textquotesingle{}oggetto \doxylink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}. \end{DoxyCompactList}\item 
 boolean \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_aa1956669c38f514253842f4b89e7a115}{equals}} (Object obj)
@@ -42,10 +54,10 @@ int \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a6afa823
 \begin{DoxyCompactList}\small\item\em Confronta l\textquotesingle{}oggetto \doxylink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book} corrente con un altro oggetto \doxylink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book} per l\textquotesingle{}ordinamento. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a15c5f18673d7960aaceb4ace4a2e9658}{hash\+Code}} ()
 \begin{DoxyCompactList}\small\item\em Restituisce il codice hash dell\textquotesingle{}oggetto \doxylink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Private Member Functions}
+\doxysubsubsection*{Static Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-boolean \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a7336fc4d78be632dbfcd472b08e8d57f}{check\+Isbn}} (String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a9fda446b7556d66c32514b2f64b0811d}{isbn}})
+static boolean \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a2d73f89f4ed1fc173cd8f53d5da1e958}{check\+Isbn}} (String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a9fda446b7556d66c32514b2f64b0811d}{isbn}})
 \begin{DoxyCompactList}\small\item\em Verifica se il formato dell\textquotesingle{}ISBN fornito è valido. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -54,7 +66,7 @@ final String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book
 \item 
 String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a6891b0f96e4df796ffa4ad4236dcadf7}{title}}
 \item 
-Array\+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_author}{Author}} $>$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_ac69f8163404d3c5b270dcd0146f08761}{authors}}
+String \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_ac29348036d857f265e83def2ba9591bb}{authors}}
 \item 
 int \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_aa4e879feb9d7eec39724d4f9fa848fd7}{publishing\+Year}}
 \item 
@@ -70,11 +82,11 @@ Rappresenta un Libro.
 \label{doc-constructors}
 \Hypertarget{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a854ba6cf5e2d0fc29c94ea018a91e893}\index{it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}!Book@{Book}}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a880bd95e93d51a0c238c4ef51646ee67}\index{it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}!Book@{Book}}
 \index{Book@{Book}!it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}}
 \doxysubsubsection{\texorpdfstring{Book()}{Book()}}
-{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a854ba6cf5e2d0fc29c94ea018a91e893} 
-it.\+campuslib.\+domain.\+catalog.\+Book.\+Book (\begin{DoxyParamCaption}\item[{String}]{isbn}{, }\item[{String}]{title}{, }\item[{Array\+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_author}{Author}} $>$}]{authors}{, }\item[{int}]{publishing\+Year}{, }\item[{int}]{copies}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a880bd95e93d51a0c238c4ef51646ee67} 
+it.\+campuslib.\+domain.\+catalog.\+Book.\+Book (\begin{DoxyParamCaption}\item[{String}]{isbn}{, }\item[{String}]{title}{, }\item[{String}]{authors}{, }\item[{int}]{publishing\+Year}{, }\item[{int}]{copies}{}\end{DoxyParamCaption}) throws \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_invalid_book_info_exception}{Invalid\+Book\+Info\+Exception}}}
 
 
 
@@ -86,33 +98,30 @@ La funzione istanzia un nuovo oggetto \doxylink{classit_1_1campuslib_1_1domain_1
 \hline
 \mbox{\texttt{in}}  & {\em title} & Il titolo del libro. \\
 \hline
-\mbox{\texttt{in}}  & {\em authors} & La lista degli autori del libro. \\
+\mbox{\texttt{in}}  & {\em authors} & Gli autori del libro come stringa. \\
 \hline
 \mbox{\texttt{in}}  & {\em publishing\+Year} & L\textquotesingle{}anno di pubblicazione del libro. \\
 \hline
 \mbox{\texttt{in}}  & {\em copies} & Il numero totale di copie del libro. \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Un nuovo oggetto \doxylink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book}{Book}. 
-\end{DoxyReturn}
 \begin{DoxySeeAlso}{See also}
-check\+ISBN(\+String isbn) 
+\doxylink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a2d73f89f4ed1fc173cd8f53d5da1e958}{check\+Isbn(\+String isbn)} 
 \end{DoxySeeAlso}
 
 
 \label{doc-func-members}
 \Hypertarget{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a6208683e61bd4e7978a4c643c71b0d8f}\index{it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}!addAuthor@{addAuthor}}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_ad09da46e26de49c643eeeb1a84cfe140}\index{it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}!addAuthor@{addAuthor}}
 \index{addAuthor@{addAuthor}!it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}}
 \doxysubsubsection{\texorpdfstring{addAuthor()}{addAuthor()}}
-{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a6208683e61bd4e7978a4c643c71b0d8f} 
-boolean it.\+campuslib.\+domain.\+catalog.\+Book.\+add\+Author (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_author}{Author}}}]{author}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_ad09da46e26de49c643eeeb1a84cfe140} 
+boolean it.\+campuslib.\+domain.\+catalog.\+Book.\+add\+Author (\begin{DoxyParamCaption}\item[{String}]{author}{}\end{DoxyParamCaption})}
 
 
 
-Aggiunge un autore alla lista degli autori del libro. 
+Aggiunge un autore alla stringa degli autori del libro. 
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -122,11 +131,11 @@ Aggiunge un autore alla lista degli autori del libro.
 \begin{DoxyReturn}{Returns}
 true se l\textquotesingle{}autore è stato aggiunto con successo, false altrimenti. 
 \end{DoxyReturn}
-\Hypertarget{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_acdd7f4eef381ee3ace4a91f3bff36457}\index{it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}!checkAvailability@{checkAvailability}}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a2c37b3a4bf2e87adc2f2a59013168a94}\index{it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}!checkAvailability@{checkAvailability}}
 \index{checkAvailability@{checkAvailability}!it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}}
 \doxysubsubsection{\texorpdfstring{checkAvailability()}{checkAvailability()}}
-{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_acdd7f4eef381ee3ace4a91f3bff36457} 
-boolean it.\+campuslib.\+domain.\+catalog.\+Book.\+check\+Availability (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a2c37b3a4bf2e87adc2f2a59013168a94} 
+boolean it.\+campuslib.\+domain.\+catalog.\+Book.\+check\+Availability (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classit_1_1campuslib_1_1collections_1_1_loan_registry}{Loan\+Registry}}}]{registry}{}\end{DoxyParamCaption})}
 
 
 
@@ -138,11 +147,11 @@ true se il libro è disponibile, false altrimenti.
 \begin{DoxySeeAlso}{See also}
 get\+Associated\+Loans() 
 \end{DoxySeeAlso}
-\Hypertarget{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a7336fc4d78be632dbfcd472b08e8d57f}\index{it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}!checkIsbn@{checkIsbn}}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a2d73f89f4ed1fc173cd8f53d5da1e958}\index{it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}!checkIsbn@{checkIsbn}}
 \index{checkIsbn@{checkIsbn}!it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}}
 \doxysubsubsection{\texorpdfstring{checkIsbn()}{checkIsbn()}}
-{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a7336fc4d78be632dbfcd472b08e8d57f} 
-boolean it.\+campuslib.\+domain.\+catalog.\+Book.\+check\+Isbn (\begin{DoxyParamCaption}\item[{String}]{isbn}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a2d73f89f4ed1fc173cd8f53d5da1e958} 
+boolean it.\+campuslib.\+domain.\+catalog.\+Book.\+check\+Isbn (\begin{DoxyParamCaption}\item[{String}]{isbn}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
 
 
 
@@ -150,14 +159,14 @@ Verifica se il formato dell\textquotesingle{}ISBN fornito è valido.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{in}}  & {\em isbn} & L\textquotesingle{}Isbn da controllare. \\
+\mbox{\texttt{in}}  & {\em isbn} & L\textquotesingle{}ISBN da controllare. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-true se l\textquotesingle{}Isbn è valido, false altrimenti. 
+true se l\textquotesingle{}ISBN è valido, false altrimenti. 
 \end{DoxyReturn}
 \begin{DoxySeeAlso}{See also}
-\doxylink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a854ba6cf5e2d0fc29c94ea018a91e893}{Book(\+String isbn, String title, Array\+List$<$\+Author$>$ authors, int publishing\+Year, int copies)} 
+\doxylink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a880bd95e93d51a0c238c4ef51646ee67}{Book(\+String isbn, String title, String authors, int publishing\+Year, int copies)} 
 \end{DoxySeeAlso}
 \Hypertarget{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a6afa823e710b385de32040d2355a6014}\index{it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}!compareTo@{compareTo}}
 \index{compareTo@{compareTo}!it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}}
@@ -195,18 +204,18 @@ Confronta l\textquotesingle{}oggetto \doxylink{classit_1_1campuslib_1_1domain_1_
 \begin{DoxyReturn}{Returns}
 true se gli oggetti sono uguali, false altrimenti. 
 \end{DoxyReturn}
-\Hypertarget{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_afbc031315b2fe7d86538c580e20f4ba6}\index{it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}!getAuthors@{getAuthors}}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_aacfdb4de75fe3129e06ac78ed3240820}\index{it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}!getAuthors@{getAuthors}}
 \index{getAuthors@{getAuthors}!it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}}
 \doxysubsubsection{\texorpdfstring{getAuthors()}{getAuthors()}}
-{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_afbc031315b2fe7d86538c580e20f4ba6} 
-Array\+List$<$ \mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_author}{Author}} $>$ it.\+campuslib.\+domain.\+catalog.\+Book.\+get\+Authors (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_aacfdb4de75fe3129e06ac78ed3240820} 
+String it.\+campuslib.\+domain.\+catalog.\+Book.\+get\+Authors (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
-Restituisce la lista degli autori del libro. 
+Restituisce la stringa degli autori del libro. 
 
 \begin{DoxyReturn}{Returns}
-La lista degli autori del libro. 
+La stringa degli autori del libro. 
 \end{DoxyReturn}
 \Hypertarget{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a5d734c11dce16fcc19526ffb31521d7d}\index{it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}!getCopies@{getCopies}}
 \index{getCopies@{getCopies}!it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}}
@@ -220,6 +229,19 @@ Restituisce il numero totale di copie del libro.
 
 \begin{DoxyReturn}{Returns}
 Il numero totale di copie del libro. 
+\end{DoxyReturn}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a0dc3d48353c4f8306cfb0c58ffc9282e}\index{it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}!getDisplayString@{getDisplayString}}
+\index{getDisplayString@{getDisplayString}!it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}}
+\doxysubsubsection{\texorpdfstring{getDisplayString()}{getDisplayString()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a0dc3d48353c4f8306cfb0c58ffc9282e} 
+String it.\+campuslib.\+domain.\+catalog.\+Book.\+get\+Display\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Restituisce una stringa essenziale per la visualizzazione in liste di selezione. 
+
+\begin{DoxyReturn}{Returns}
+Stringa nel formato "{}\+Titolo -\/ Autore"{}. 
 \end{DoxyReturn}
 \Hypertarget{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a8ebd1c0798c899be83b8a860f83b3629}\index{it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}!getIsbn@{getIsbn}}
 \index{getIsbn@{getIsbn}!it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}}
@@ -246,6 +268,19 @@ Restituisce l\textquotesingle{}anno di pubblicazione del libro.
 
 \begin{DoxyReturn}{Returns}
 L\textquotesingle{}anno di pubblicazione del libro. 
+\end{DoxyReturn}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a26e67f4dedc838a74e4c66d94598fe62}\index{it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}!getStatus@{getStatus}}
+\index{getStatus@{getStatus}!it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}}
+\doxysubsubsection{\texorpdfstring{getStatus()}{getStatus()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a26e67f4dedc838a74e4c66d94598fe62} 
+\mbox{\hyperlink{enumit_1_1campuslib_1_1domain_1_1catalog_1_1_adoption_status}{Adoption\+Status}} it.\+campuslib.\+domain.\+catalog.\+Book.\+get\+Status (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Restituisce lo stato di adozione del libro. 
+
+\begin{DoxyReturn}{Returns}
+Lo stato di adozione. 
 \end{DoxyReturn}
 \Hypertarget{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_adfb93e1058e4b0fac6dd1a422734033d}\index{it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}!getTitle@{getTitle}}
 \index{getTitle@{getTitle}!it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}}
@@ -286,6 +321,21 @@ Verifica se il libro è in adozione.
 \begin{DoxyReturn}{Returns}
 true se il libro è in adozione, false altrimenti. 
 \end{DoxyReturn}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a3989d795153c7da6da7c023bc192b2dd}\index{it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}!setAuthors@{setAuthors}}
+\index{setAuthors@{setAuthors}!it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}}
+\doxysubsubsection{\texorpdfstring{setAuthors()}{setAuthors()}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a3989d795153c7da6da7c023bc192b2dd} 
+void it.\+campuslib.\+domain.\+catalog.\+Book.\+set\+Authors (\begin{DoxyParamCaption}\item[{String}]{authors}{}\end{DoxyParamCaption})}
+
+
+
+Imposta la stringa degli autori del libro. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em authors} & La nuova stringa degli autori. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a6538b4eb58a5233abd0d393f87eb0913}\index{it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}!setCopies@{setCopies}}
 \index{setCopies@{setCopies}!it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}}
 \doxysubsubsection{\texorpdfstring{setCopies()}{setCopies()}}
@@ -364,11 +414,11 @@ Una stringa contenente le informazioni relative al libro.
 \label{doc-variable-members}
 \Hypertarget{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_doc-variable-members}
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_ac69f8163404d3c5b270dcd0146f08761}\index{it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}!authors@{authors}}
+\Hypertarget{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_ac29348036d857f265e83def2ba9591bb}\index{it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}!authors@{authors}}
 \index{authors@{authors}!it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}}
 \doxysubsubsection{\texorpdfstring{authors}{authors}}
-{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_ac69f8163404d3c5b270dcd0146f08761} 
-Array\+List$<$\mbox{\hyperlink{classit_1_1campuslib_1_1domain_1_1catalog_1_1_author}{Author}}$>$ it.\+campuslib.\+domain.\+catalog.\+Book.\+authors\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \label{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_ac29348036d857f265e83def2ba9591bb} 
+String it.\+campuslib.\+domain.\+catalog.\+Book.\+authors\hspace{0.3cm}{\ttfamily [private]}}
 
 \Hypertarget{classit_1_1campuslib_1_1domain_1_1catalog_1_1_book_a8f240bc9013417c2eb12cd90f607aea2}\index{it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}!copies@{copies}}
 \index{copies@{copies}!it.campuslib.domain.catalog.Book@{it.campuslib.domain.catalog.Book}}
