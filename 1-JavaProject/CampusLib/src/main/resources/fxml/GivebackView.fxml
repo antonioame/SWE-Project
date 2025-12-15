@@ -12,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.campuslib.view.GivebackViewController">
      <children>
-        <SplitPane dividerPositions="0.25" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <SplitPane dividerPositions="0.30" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0">
                     <children>
@@ -28,7 +28,7 @@
                     <children>
                         <TableView fx:id="tableGiveback" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <columns>
-                                <TableColumn fx:id="clmIdGb" editable="false" sortable="false" text="ID" />
+                                <TableColumn fx:id="clmIdGb" editable="false" sortable="false" text="ID" prefWidth="15.0" minWidth="15.0" />
                                 <TableColumn fx:id="clmBookGb" editable="false" sortable="false" text="LIBRO" />
                                 <TableColumn fx:id="clmUserGb" editable="false" sortable="false" text="UTENTE" />
                                 <TableColumn fx:id="clmStartGb" editable="false" sortable="false" text="INZIO" />

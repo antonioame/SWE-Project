@@ -46,7 +46,9 @@ public class MainViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        lastSaveLabel.setText("App avviata: " + now.format(formatter));
     }    
 
     @FXML

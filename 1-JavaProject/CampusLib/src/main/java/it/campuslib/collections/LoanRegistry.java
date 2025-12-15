@@ -236,6 +236,7 @@ public class LoanRegistry implements Serializable {
                 }
             }
             Transaction.ensureNextIdAtLeast(maxId + 1);
+            instance = registry;
             return registry;
         } catch (IOException | ClassNotFoundException e) {
             return null;

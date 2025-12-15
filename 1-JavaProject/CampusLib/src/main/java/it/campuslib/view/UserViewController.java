@@ -14,10 +14,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.control.cell.ComboBoxTableCell;
+import javafx.util.converter.IntegerStringConverter;
 import javafx.collections.FXCollections;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.util.converter.DefaultStringConverter;
@@ -60,6 +64,8 @@ public class UserViewController implements Initializable {
     private TableColumn<User, Integer> clmMaxLoans;
     @FXML
     private TableColumn<User, UserStatus> clmStatus;
+    @FXML
+    private CheckBox showInactiveCheckbox;
     
     private ObservableList<User> userList;
     private UserRegistry userRegistry;
@@ -85,11 +91,24 @@ public class UserViewController implements Initializable {
         tableUsers.setEditable(true);
         clmName.setEditable(true);
         clmSurname.setEditable(true);
+        clmEmail.setEditable(true);
+        clmStatus.setEditable(true);
 
         clmName.setCellFactory(TextFieldTableCell.forTableColumn(new DefaultStringConverter()));
         clmSurname.setCellFactory(TextFieldTableCell.forTableColumn(new DefaultStringConverter()));
+        clmEmail.setCellFactory(TextFieldTableCell.forTableColumn(new DefaultStringConverter()));
+        clmStatus.setCellFactory(ComboBoxTableCell.forTableColumn(UserStatus.values()));
+        clmMaxLoans.setEditable(true);
+        clmMaxLoans.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+
+        clmId.setSortable(true);
+        clmSurname.setSortable(true);
+        clmName.setSortable(true);
+        
+        showInactiveCheckbox.selectedProperty().addListener((obs, oldV, newV) -> filterUsers());
 
         tableUsers.setItems(allUsers);
+        tableUsers.refresh();
 
         LoanRegistry lr = LoanRegistry.getInstance();
         if (lr != null && lr.getRegistry() != null) {
@@ -97,6 +116,8 @@ public class UserViewController implements Initializable {
         }
 
         searchUserField.textProperty().addListener((obs, oldV, newV) -> filterUsers());
+
+        filterUsers();
     }    
 
     @FXML
@@ -129,18 +150,17 @@ public class UserViewController implements Initializable {
 
     private void filterUsers() {
         String q = searchUserField.getText().trim().toLowerCase();
-        if (q.isEmpty()) {
-            tableUsers.setItems(allUsers);
-        } else {
-            ObservableList<User> filtered = FXCollections.observableArrayList();
-            for (User u : allUsers) {
-                if (u.getName().toLowerCase().contains(q) || u.getSurname().toLowerCase().contains(q)
-                        || u.getEnrollmentID().contains(q) || u.getEmail().toLowerCase().contains(q)) {
-                    filtered.add(u);
-                }
+        ObservableList<User> source = allUsers;
+        ObservableList<User> filtered = FXCollections.observableArrayList();
+        boolean showInactive = showInactiveCheckbox == null ? true : showInactiveCheckbox.isSelected();
+        for (User u : source) {
+            if (!showInactive && u.getStatus() != UserStatus.ACTIVE) continue;
+            if (q.isEmpty() || u.getName().toLowerCase().contains(q) || u.getSurname().toLowerCase().contains(q)
+                    || u.getEnrollmentID().contains(q) || u.getEmail().toLowerCase().contains(q)) {
+                filtered.add(u);
             }
-            tableUsers.setItems(filtered);
         }
+        tableUsers.setItems(filtered);
     }
 
     @FXML
@@ -181,6 +201,39 @@ public class UserViewController implements Initializable {
                 return;
             }
         }
+    }
+    
+    @FXML
+    private void updateStatus(TableColumn.CellEditEvent<User, UserStatus> event) {
+        User u = event.getRowValue();
+        UserStatus newStatus = event.getNewValue();
+        if (newStatus != null) {
+            u.setStatus(newStatus);
+            userRegistry.exportOnFile("personal-files/io-binary-files/users.dat");
+            tableUsers.refresh();
+            filterUsers();
+        }
+    }
+    
+    @FXML
+    private void updateMaxLoans(TableColumn.CellEditEvent<User, Integer> event) {
+        User u = event.getRowValue();
+        Integer newMax = event.getNewValue();
+        if (newMax == null) return;
+        if (newMax < 0 || newMax > 99) {
+            tableUsers.refresh();
+            return;
+        }
+        int activeLoans = LoanRegistry.getInstance().searchByUser(u).size();
+        if (newMax < activeLoans) {
+            // Non consentire un numero minore del numero di presiti attualmente attivi
+            tableUsers.refresh();
+            return;
+        }
+        u.setMaxLoans(newMax);
+        userRegistry.exportOnFile("personal-files/io-binary-files/users.dat");
+        tableUsers.refresh();
+        filterUsers();
     }
     
 }

@@ -42,13 +42,13 @@
     <bottom>
         <HBox alignment="CENTER_LEFT" spacing="20.0" style="-fx-padding: 0 15 0 15; -fx-background-color: #EAEAEA;">
             <children>
-                <Label fx:id="lastSaveLabel" text="Stato: Ultimo salvataggio non disponibile" />
+                <Label fx:id="lastSaveLabel" text="App avviata: --" />
                 
                 <Region HBox.hgrow="ALWAYS" /> 
                 
                 <Button fx:id="btnReloadState" mnemonicParsing="false" onAction="#reloadState" text="Ricarica" />
                 <Button fx:id="btnSaveState" mnemonicParsing="false" onAction="#saveState" text="Salva Stato" />
-                <Button fx:id="btnExit" mnemonicParsing="false" onAction="#exitApp" text="Arresta Sistema" />
+                <Button fx:id="btnExit" mnemonicParsing="false" onAction="#exitApp" text="Chiudi Applicazione" />
             </children>
         </HBox>
     </bottom>

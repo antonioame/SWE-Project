@@ -212,6 +212,7 @@ public class BookCatalog implements Serializable{
             BookCatalog newCatalog = new BookCatalog();
             newCatalog.catalog = loadedCatalog;
             newCatalog.books.addAll(loadedCatalog.values());
+            instance = newCatalog;
             return newCatalog;
         } catch (IOException | ClassNotFoundException e) {
             return null;

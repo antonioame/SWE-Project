@@ -203,6 +203,7 @@ public class UserRegistry implements Serializable{
             
             userRegistry.registry = registry;
             
+            instance = userRegistry;
             return userRegistry;
             
         }

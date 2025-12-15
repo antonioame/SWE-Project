@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -12,12 +13,14 @@
 
 <AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.campuslib.view.BookViewController">
     <children>
-        <SplitPane dividerPositions="0.25" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <SplitPane dividerPositions="0.30" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0">
                     <children>
                         <VBox spacing="15.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                             <children>
+                                <TextField fx:id="searchField" promptText="Cerca libri (ISBN, titolo, autore)" />
+                                <Separator />
                                 <Label text="ISBN" />
                                 <TextField fx:id="isbnField" />
                                 <Label text="Titolo" />
@@ -26,16 +29,10 @@
                                 <TextField fx:id="authorsField" />
                                 <Label text="Anno" />
                                 <TextField fx:id="yearField" />
-                                
+
                                 <HBox alignment="CENTER" spacing="15.0" VBox.vgrow="NEVER">
                                     <children>
                                         <Button fx:id="btnAddBook" mnemonicParsing="false" onAction="#addBook" text="Nuovo Libro" />
-                                    </children>
-                                </HBox>
-                                <HBox alignment="CENTER" spacing="15.0" VBox.vgrow="ALWAYS">
-                                    <children>
-                                        <Label text="Cerca" />
-                                        <TextField fx:id="searchField" HBox.hgrow="ALWAYS" />
                                     </children>
                                 </HBox>
                             </children>
