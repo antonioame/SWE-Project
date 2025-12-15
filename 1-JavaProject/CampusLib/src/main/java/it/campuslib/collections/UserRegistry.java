@@ -168,7 +168,7 @@ public class UserRegistry implements Serializable {
      * Il registro viene salvato sul file specificato.
      */
     public void exportOnFile(String fileName) {
-        if (fileName == null != fileName.isEmpty()) {
+        if (fileName == null || fileName.isEmpty()) {
             return;
         }
 
