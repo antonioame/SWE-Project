@@ -1,6 +1,8 @@
 package it.campuslib.view;
 
+import java.io.File;
 import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,6 +13,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
+        // Verificare che la cartella per i file di IO esista, altrimenti crearla
+        File dataDir = new File("personal-files/io-binary-files");
+        if (!dataDir.exists()) {
+            dataDir.mkdirs();
+        }
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/AccessView.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
