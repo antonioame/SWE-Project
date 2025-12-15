@@ -24,6 +24,11 @@ import javafx.scene.control.Label;
 import javafx.util.StringConverter;
 import it.campuslib.collections.LoanRegistry;
 import it.campuslib.collections.GivebackRegistry;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.ButtonBar;
+import java.util.Optional;
+import it.campuslib.domain.users.InvalidUserInfoException;
 import it.campuslib.domain.transactions.Giveback;
 import javafx.collections.ObservableSet;
 
@@ -224,6 +229,35 @@ public class LoanViewController implements Initializable {
     private void registerReturn(ActionEvent event) {
         Loan selected = tableLoan.getSelectionModel().getSelectedItem();
         if (selected == null) return;
+        java.time.LocalDate expected = selected.getExpectedReturnDate();
+        java.time.LocalDate today = java.time.LocalDate.now();
+
+        if (expected != null && expected.isBefore(today)) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Restituzione in ritardo");
+            alert.setHeaderText("Data prevista di restituzione antecedente alla data odierna");
+            alert.setContentText("Vuoi ridurre di 1 il numero massimo di prestiti per l'utente?");
+
+            ButtonType reduceBtn = new ButtonType("Riduci Numero di Prestiti per Utente", ButtonBar.ButtonData.OK_DONE);
+            ButtonType cancelBtn = new ButtonType("Annulla", ButtonBar.ButtonData.CANCEL_CLOSE);
+            alert.getButtonTypes().setAll(reduceBtn, cancelBtn);
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent() && result.get() == reduceBtn) {
+                User borrower = selected.getBorrowerUser();
+                if (borrower != null) {
+                    int cur = borrower.getMaxLoans();
+                    int next = Math.max(0, cur - 1);
+                    try {
+                        borrower.setMaxLoans(next);
+                        userRegistry.exportOnFile("personal-files/io-binary-files/users.dat");
+                        allUsers.setAll(userRegistry.getAllUsers());
+                    } catch (InvalidUserInfoException ex) {
+                        // L'eccezione mostrerà il pop-up
+                    }
+                }
+            }
+        }
 
         Giveback gb = loanRegistry.pullAsGiveback(selected);
         if (gb != null) {

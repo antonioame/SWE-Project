@@ -2,7 +2,6 @@ package it.campuslib.view;
 
 import it.campuslib.domain.transactions.Loan;
 import it.campuslib.domain.users.InvalidUserInfoException;
-import it.campuslib.domain.users.InvalidUserInfoException;
 import it.campuslib.domain.users.User;
 import it.campuslib.domain.users.UserStatus;
 import java.net.URL;
@@ -228,20 +227,23 @@ public class UserViewController implements Initializable {
         User u = event.getRowValue();
         Integer newMax = event.getNewValue();
         if (newMax == null) return;
-        if (newMax < 0 || newMax > 99) {
-            tableUsers.refresh();
-            return;
-        }
         int activeLoans = LoanRegistry.getInstance().searchByUser(u).size();
-        if (newMax < activeLoans) {
+        if (newMax < 0 || newMax < activeLoans) {
             // Non consentire un numero minore del numero di presiti attualmente attivi
             tableUsers.refresh();
             return;
         }
-        u.setMaxLoans(newMax);
-        userRegistry.exportOnFile("personal-files/io-binary-files/users.dat");
-        tableUsers.refresh();
-        filterUsers();
+        try {
+            u.setMaxLoans(newMax);
+            userRegistry.exportOnFile("personal-files/io-binary-files/users.dat");
+            tableUsers.refresh();
+            filterUsers();
+        } catch (InvalidUserInfoException e) {
+            // Il costruttore dell'eccezione mostrerà il pop-up
+            tableUsers.refresh();
+            filterUsers();
+            return;
+        }
     }
     
 }

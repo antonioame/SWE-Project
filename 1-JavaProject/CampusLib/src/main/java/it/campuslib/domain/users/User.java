@@ -101,8 +101,10 @@ public class User extends Person implements Comparable<User> {
      * @brief Imposta il numero massimo di prestiti dell'utente
      * @param[in] maxLoans Numero massimo prestiti utente.
      */
-    public void setMaxLoans(int maxLoans) {
-    
+    public void setMaxLoans(int maxLoans) throws InvalidUserInfoException {
+        if (maxLoans < 0 || maxLoans > 3) {
+            throw new InvalidUserInfoException("Numero massimo di prestiti non valido.");
+        }
         this.maxLoans = maxLoans;
     }
     

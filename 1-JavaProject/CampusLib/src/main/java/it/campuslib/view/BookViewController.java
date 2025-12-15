@@ -26,6 +26,7 @@ import javafx.util.converter.IntegerStringConverter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import it.campuslib.domain.catalog.InvalidPublicationYearException;
+import it.campuslib.domain.catalog.InvalidBookInfoException;
 
 /**
  * FXML Controller class
@@ -152,10 +153,13 @@ public class BookViewController implements Initializable {
 
                 bookCatalog.exportOnFile("personal-files/io-binary-files/books.dat");
             } else {
-                // TODO: Gestire errore
+                throw new InvalidBookInfoException("ISBN già presente nel catalogo: " + isbn);
             }
         } catch (NumberFormatException e) {
             // TODO: Gestire eccezione
+        } catch (InvalidBookInfoException e) {
+            // L'eccezione mostrerà il pop-up all'utente tramite il suo costruttore
+            return;
         } catch (Exception e) {
             // TODO: Gestire eccezione
         }
