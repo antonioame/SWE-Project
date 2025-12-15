@@ -34,7 +34,7 @@ public class UserTest {
         
         book1 = new Book("9784567890123", "Sorvegliare e punire", "Michel Focault", 1976, 2);
         book2 = new Book("9783131313131", "Furore", "John Steinbeck", 1939, 5);
-        book3 = new Book("9780202020202", "Il cane di terracotta", "Andrea Camilleri", 1996, 1);
+        book3 = new Book("9780202020202", "Il cane di terracotta", "Andrea Camilleri", 1996, 2);
         
         loan1 = new Loan(book1, utente1, LocalDate.now(), LocalDate.of(2026, 3, 12));
         loan2 = new Loan(book2, utente2, LocalDate.of(2025, 5, 18), LocalDate.now());

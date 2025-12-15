@@ -27,12 +27,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import it.campuslib.domain.catalog.InvalidPublicationYearException;
 import it.campuslib.domain.catalog.InvalidBookInfoException;
+import it.campuslib.collections.LoanRegistry;
+import javafx.scene.control.Alert;
 
-/**
- * FXML Controller class
- *
- * @author ecoll
- */
 public class BookViewController implements Initializable {
 
     private BookCatalog bookCatalog;
@@ -86,11 +83,14 @@ public class BookViewController implements Initializable {
         clmTitle.setEditable(true);
         clmAuthors.setEditable(true);
         clmYear.setEditable(true);
+        clmCopies.setEditable(true);
         clmStatus.setEditable(true);
         
         clmTitle.setCellFactory(TextFieldTableCell.forTableColumn());
         clmAuthors.setCellFactory(TextFieldTableCell.forTableColumn());
         clmYear.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        clmCopies.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        clmCopies.setOnEditCommit(event -> updateCopies(event));
         clmStatus.setCellFactory(ComboBoxTableCell.forTableColumn(AdoptionStatus.values()));
         
         allBooks = bookCatalog.getAllBooks();
@@ -190,8 +190,51 @@ public class BookViewController implements Initializable {
     }
 
     @FXML
-    // FIXME: Correggere nome metodo
-    private void updatYear(TableColumn.CellEditEvent<Book, Integer> event) {
+    private void updateCopies(TableColumn.CellEditEvent<Book, Integer> event) {
+        Book book = event.getRowValue();
+        Integer newCopies = event.getNewValue();
+        // Salva il valore precedente per ripristinarlo in caso di input non valido
+        int oldCopies = book.getCopies();
+        if (newCopies == null) {
+            tableBooks.refresh();
+            return;
+        }
+
+        // Calcola il numero di prestiti attivi associati a questo libro
+        int activeLoans = LoanRegistry.getInstance().searchByBook(book.getIsbn()).size();
+
+        // Se il nuovo valore non è valido, mostra popup e ripristina il valore originale
+        if (newCopies <= 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Errore: Copie");
+            alert.setHeaderText("Numero copie non valido");
+            alert.setContentText("Il numero di copie deve essere maggiore di 0. La modifica verrà annullata.");
+            alert.showAndWait();
+            book.setCopies(oldCopies);
+            tableBooks.refresh();
+            return;
+        }
+
+        if (newCopies < activeLoans) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Avviso: Copie insufficienti");
+            alert.setHeaderText("Copie totali minori dei prestiti attivi");
+            alert.setContentText("Non ci sono abbastanza copie libere per questa modifica. La modifica verrà annullata.");
+            alert.showAndWait();
+            book.setCopies(oldCopies);
+            tableBooks.refresh();
+            return;
+        }
+
+        // Valido: applica la modifica
+        book.setCopies(newCopies);
+        filterBooks();
+        bookCatalog.exportOnFile("personal-files/io-binary-files/books.dat");
+        tableBooks.refresh();
+    }
+
+    @FXML
+    private void updateYear(TableColumn.CellEditEvent<Book, Integer> event) {
         Book book = event.getRowValue();
         Integer newYear = event.getNewValue();
         if (newYear != null && newYear > 0) {

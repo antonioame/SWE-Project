@@ -25,7 +25,7 @@ public class InvalidLoanInfoException extends Exception{
                 alert.showAndWait();
             });
         } catch (IllegalStateException ex) {
-            System.err.println("InvalidLoanInfoException: " + msg);
+            // Test: non mostrare popup né stampare messaggi
         }
     }
 }

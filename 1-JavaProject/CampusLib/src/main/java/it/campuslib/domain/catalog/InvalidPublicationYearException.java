@@ -26,7 +26,7 @@ public class InvalidPublicationYearException extends RuntimeException {
                 alert.showAndWait();
             });
         } catch (IllegalStateException ex) {
-            System.err.println("InvalidPublicationYearException: " + msg);
+            // Test: non mostrare popup né stampare messaggi
         }
     }
 }

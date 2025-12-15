@@ -49,7 +49,7 @@
                                 <TableColumn fx:id="clmIsbn" editable="false" text="ISBN" />
                                 <TableColumn fx:id="clmTitle" onEditCommit="#updateTitle" text="TITOLO" />
                                 <TableColumn fx:id="clmAuthors" onEditCommit="#updateAuthors" sortable="false" text="AUTORI" />
-                                <TableColumn fx:id="clmYear" onEditCommit="#updatYear" sortable="false" text="ANNO" />
+                                <TableColumn fx:id="clmYear" onEditCommit="#updateYear" sortable="false" text="ANNO" />
                                 <TableColumn fx:id="clmCopies" sortable="false" text="COPIE" />
                                 <TableColumn fx:id="clmStatus" onEditCommit="#updateStatus" sortable="false" text="STATUS" />
                             </columns>

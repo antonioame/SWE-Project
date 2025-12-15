@@ -47,6 +47,14 @@ public class LoanRegistry implements Serializable {
         if (loan == null) {
             return false;
         }
+        // Verifica la disponibilità delle copie prima di aggiungere il prestito
+        if (loan.getBorrowedBook() == null) {
+            return false;
+        }
+        if (!loan.getBorrowedBook().checkAvailability(this)) {
+            // Nessuna copia disponibile: non aggiunge il prestito
+            return false;
+        }
         return registry.add(loan);
     }
 
