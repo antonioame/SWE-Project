@@ -139,12 +139,11 @@ public class GivebackRegistry implements Serializable {
      */
     public String toString() {
         if (registry.isEmpty()) {
-            return "Registro restituzioni vuoto";
+            return "Registro restituzioni è vuoto.";
         }
         
         StringBuilder sb = new StringBuilder();
-        sb.append("Registro Restituzioni:\n");
-        sb.append("=======================\n");
+        sb.append(" * === Stampa Registro Restituzioni === * \n");
         
         for (Giveback giveback : registry) {
             sb.append(giveback.toString()).append("\n");
