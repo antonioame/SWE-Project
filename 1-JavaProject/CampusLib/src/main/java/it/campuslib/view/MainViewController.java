@@ -36,9 +36,6 @@ public class MainViewController implements Initializable {
     @FXML
     private Tab tabUsers;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         LocalDateTime now = LocalDateTime.now();

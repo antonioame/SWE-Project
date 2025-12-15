@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package it.campuslib.view;
 
 import it.campuslib.domain.catalog.AdoptionStatus;
@@ -45,6 +40,8 @@ public class BookViewController implements Initializable {
     @FXML
     private TextField yearField;
     @FXML
+    private TextField copiesField;
+    @FXML
     private Button btnAddBook;
     @FXML
     private TableView<Book> tableBooks;
@@ -65,9 +62,6 @@ public class BookViewController implements Initializable {
     @FXML
     private TableColumn<Book, AdoptionStatus> clmStatus;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         bookCatalog = BookCatalog.getInstance();
@@ -110,6 +104,16 @@ public class BookViewController implements Initializable {
             return null;
         };
         isbnField.setTextFormatter(new TextFormatter<>(isbnFilter));
+        if (copiesField != null) {
+            UnaryOperator<TextFormatter.Change> copiesFilter = change -> {
+                String newText = change.getControlNewText();
+                if (newText.matches("\\d{0,6}")) {
+                    return change;
+                }
+                return null;
+            };
+            copiesField.setTextFormatter(new TextFormatter<>(copiesFilter));
+        }
     }
     
     private void filterBooks() {
@@ -142,6 +146,35 @@ public class BookViewController implements Initializable {
             
             int year = Integer.parseInt(yearText);
             int copies = 1;
+            if (copiesField != null) {
+                String copiesText = copiesField.getText().trim();
+                if (copiesText.isEmpty()) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Errore: Copie");
+                    alert.setHeaderText("Numero copie non valido");
+                    alert.setContentText("Inserire un numero di copie maggiore o uguale a 1.");
+                    alert.showAndWait();
+                    return;
+                }
+                try {
+                    copies = Integer.parseInt(copiesText);
+                    if (copies < 1) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Errore: Copie");
+                        alert.setHeaderText("Numero copie non valido");
+                        alert.setContentText("Il numero di copie deve essere almeno 1.");
+                        alert.showAndWait();
+                        return;
+                    }
+                } catch (NumberFormatException ex) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Errore: Copie");
+                    alert.setHeaderText("Numero copie non valido");
+                    alert.setContentText("Inserire un numero intero valido per le copie.");
+                    alert.showAndWait();
+                    return;
+                }
+            }
             
             Book newBook = new Book(isbn, title, authors, year, copies);
             if (bookCatalog.addBook(newBook)) {
@@ -150,6 +183,7 @@ public class BookViewController implements Initializable {
                 titleField.clear();
                 authorsField.clear();
                 yearField.clear();
+                if (copiesField != null) copiesField.clear();
 
                 bookCatalog.exportOnFile("personal-files/io-binary-files/books.dat");
             } else {
@@ -208,7 +242,7 @@ public class BookViewController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Errore: Numero di Copie");
             alert.setHeaderText("Numero Copie Non Valido");
-            alert.setContentText("Non è possibile inserire un numero di copie totali minore o uguale a zero. Se il libro non è più disponibile in biblioteca, modifica il suo stato di adozione");
+            alert.setContentText("Non è possibile inserire un numero di copie totali minore o uguale a zero. Se il libro non è più disponibile in biblioteca, modifica il suo stato di adozione.");
             alert.showAndWait();
             book.setCopies(oldCopies);
             tableBooks.refresh();
