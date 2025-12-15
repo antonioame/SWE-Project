@@ -110,6 +110,10 @@ public class UserViewController implements Initializable {
         tableUsers.setItems(allUsers);
         tableUsers.refresh();
 
+        if (emailField != null) {
+            emailField.setPromptText("example@studenti.unisa.it o example@unisa.it");
+        }
+
         LoanRegistry lr = LoanRegistry.getInstance();
         if (lr != null && lr.getRegistry() != null) {
             lr.getRegistry().addListener((SetChangeListener<Loan>) change -> tableUsers.refresh());
@@ -198,6 +202,10 @@ public class UserViewController implements Initializable {
                 tableUsers.refresh();
                 filterUsers();
             } catch (InvalidUserInfoException e) {
+                // L'eccezione mostrerà pop-up
+                // è sufficiente tornare al valore precedente (modello non aggiornato) e aggiornare la vista.
+                tableUsers.refresh();
+                filterUsers();
                 return;
             }
         }

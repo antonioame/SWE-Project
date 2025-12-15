@@ -21,6 +21,7 @@
                         <VBox spacing="15.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                             <children>
                                 <TextField fx:id="searchUserField" alignment="CENTER_LEFT" onAction="#searchUser" promptText="Cerca utenti (nome, cognome, matricola, email)" HBox.hgrow="ALWAYS" />
+                                <CheckBox fx:id="showInactiveCheckbox" text="Visualizza studenti inattivi" selected="true" />
                                 <Separator />
                                 <Label text="Nome" />
                                 <TextField fx:id="nameField" />
@@ -36,8 +37,6 @@
                                         <Button fx:id="btnAddUser" mnemonicParsing="false" onAction="#addUser" text="Nuovo Utente" />
                                     </children>
                                 </HBox>
-                                <Separator />
-                                <CheckBox fx:id="showInactiveCheckbox" text="Visualizza studenti inattivi" selected="true" />
                             </children>
                         </VBox>
                     </children>

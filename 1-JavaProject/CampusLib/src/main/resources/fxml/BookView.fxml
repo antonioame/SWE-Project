@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -20,6 +21,7 @@
                         <VBox spacing="15.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                             <children>
                                 <TextField fx:id="searchField" promptText="Cerca libri (ISBN, titolo, autore)" />
+                                <CheckBox fx:id="showNotAdoptedCheckbox" text="Mostra anche libri non in adozione" selected="true" />
                                 <Separator />
                                 <Label text="ISBN" />
                                 <TextField fx:id="isbnField" />

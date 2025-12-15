@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -147,7 +148,10 @@ public class LoanViewController implements Initializable {
         loans = FXCollections.observableArrayList(loanRegistry.getRegistry());
         allLoans = FXCollections.observableArrayList(loanRegistry.getRegistry());
         loans = allLoans;
-        tableLoan.setItems(allLoans);
+
+        SortedList<Loan> sortedLoans = new SortedList<>(allLoans);
+        sortedLoans.comparatorProperty().bind(tableLoan.comparatorProperty());
+        tableLoan.setItems(sortedLoans);
 
         tableLoan.getSelectionModel().selectedItemProperty().addListener((obs, oldSel, newSel) -> {
             btnRegisterReturn.setDisable(newSel == null);
@@ -161,6 +165,14 @@ public class LoanViewController implements Initializable {
         cellData.getValue().getBorrowerUser().getSurname() + " " + cellData.getValue().getBorrowerUser().getName()));
         clmStartLoan.setCellValueFactory(cellData -> new javafx.beans.property.SimpleObjectProperty<>(cellData.getValue().getStartDate()));
         clmReturnLoan.setCellValueFactory(cellData -> new javafx.beans.property.SimpleObjectProperty<>(cellData.getValue().getExpectedReturnDate()));
+
+        clmStartLoan.setSortable(true);
+        clmReturnLoan.setSortable(true);
+
+        if (tableLoan.getSortOrder().isEmpty()) {
+            tableLoan.getSortOrder().add(clmReturnLoan);
+            tableLoan.sort();
+        }
 
         java.time.LocalDate today = java.time.LocalDate.now();
         startLoanLabel.setText(today.toString());
@@ -195,7 +207,6 @@ public class LoanViewController implements Initializable {
 
             Loan loan = new Loan(selectedBook, selectedUser, startDate, returnDate);
             if (loanRegistry.addLoan(loan)) {
-                allLoans.add(loan);
                 loanRegistry.exportOnFile("personal-files/io-binary-files/loans.dat");
 
                 bookCombo.setValue(null);

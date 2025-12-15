@@ -11,6 +11,7 @@ import javafx.scene.control.Alert;
  */
 public class InvalidUserInfoException extends Exception{
     public InvalidUserInfoException() {
+        this("Formato dell'e-mail o dei dati utente non valido.");
     }
 
     public InvalidUserInfoException(String msg) {

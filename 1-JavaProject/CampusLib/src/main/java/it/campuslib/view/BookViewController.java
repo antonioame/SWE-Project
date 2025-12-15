@@ -15,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -51,6 +52,8 @@ public class BookViewController implements Initializable {
     private TableView<Book> tableBooks;
     @FXML
     private TextField searchField;
+    @FXML
+    private CheckBox showNotAdoptedCheckbox;
     @FXML
     private TableColumn<Book, String> clmIsbn;
     @FXML
@@ -90,12 +93,13 @@ public class BookViewController implements Initializable {
         clmStatus.setCellFactory(ComboBoxTableCell.forTableColumn(AdoptionStatus.values()));
         
         allBooks = bookCatalog.getAllBooks();
-        tableBooks.setItems(allBooks);
         filteredBooks = allBooks;
+        tableBooks.setItems(allBooks);
+        if (showNotAdoptedCheckbox != null) {
+            showNotAdoptedCheckbox.selectedProperty().addListener((obs, oldV, newV) -> filterBooks());
+        }
         
-        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
-            filterBooks();
-        });
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> filterBooks());
         
         UnaryOperator<TextFormatter.Change> isbnFilter = change -> {
             String newText = change.getControlNewText();
@@ -109,19 +113,18 @@ public class BookViewController implements Initializable {
     
     private void filterBooks() {
         String query = searchField.getText().trim().toLowerCase();
-        if (query.isEmpty()) {
-            tableBooks.setItems(allBooks);
-        } else {
-            ObservableList<Book> filtered = FXCollections.observableArrayList();
-            for (Book book : allBooks) {
-                if (book.getTitle().toLowerCase().contains(query) || 
+        ObservableList<Book> source = allBooks;
+        ObservableList<Book> filtered = FXCollections.observableArrayList();
+        boolean showNotAdopted = showNotAdoptedCheckbox == null ? true : showNotAdoptedCheckbox.isSelected();
+        for (Book book : source) {
+            if (!showNotAdopted && book.getStatus() == AdoptionStatus.NOT_ADOPTED) continue;
+            if (query.isEmpty() || book.getTitle().toLowerCase().contains(query) || 
                     book.getAuthors().toLowerCase().contains(query) || 
                     book.getIsbn().contains(query)) {
-                    filtered.add(book);
-                }
+                filtered.add(book);
             }
-            tableBooks.setItems(filtered);
         }
+        tableBooks.setItems(filtered);
     }
 
     @FXML
