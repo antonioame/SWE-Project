@@ -27,6 +27,7 @@ import javafx.util.converter.DefaultStringConverter;
 import it.campuslib.collections.UserRegistry;
 import it.campuslib.collections.LoanRegistry;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 
 public class UserViewController implements Initializable {
 
@@ -139,9 +140,19 @@ public class UserViewController implements Initializable {
                 idField.clear();
                 emailField.clear();
                 filterUsers();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Errore: Matricola Già Presente");
+                alert.setHeaderText("Utente già Registrato con la Matricola Inserita");
+                alert.setContentText("Impossibile aggiungere l'utente: esiste già un utente con la matricola " + id + ".");
+                alert.showAndWait();
+                idField.requestFocus();
+                return;
             }
+        } catch (InvalidUserInfoException e) {
+            // Il costruttore dell'eccezione mostrerà il pop-up
+            return;
         } catch (Exception e) {
-            // ID Duplicato
             return;
         }
     }

@@ -46,7 +46,7 @@
                     <children>
                         <TableView fx:id="tableUsers" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <columns>
-                                <TableColumn fx:id="clmId" editable="false" text="ID" prefWidth="68.0" minWidth="40.0" />
+                                <TableColumn fx:id="clmId" editable="false" text="MATRICOLA" prefWidth="68.0" minWidth="40.0" />
                                 <TableColumn fx:id="clmSurname" onEditCommit="#updateSurname" text="COGNOME" />
                                 <TableColumn fx:id="clmName" onEditCommit="#updateName" sortable="false" text="NOME" />
                                 <TableColumn fx:id="clmEmail" editable="false" onEditCommit="#updateEmail" sortable="false" text="EMAIL" />
