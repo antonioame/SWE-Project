@@ -190,12 +190,12 @@ public class BookViewController implements Initializable {
                 throw new InvalidBookInfoException("ISBN già presente nel catalogo: " + isbn);
             }
         } catch (NumberFormatException e) {
-            // TODO: Gestire eccezione
+            return;
         } catch (InvalidBookInfoException e) {
             // L'eccezione mostrerà il pop-up all'utente tramite il suo costruttore
             return;
         } catch (Exception e) {
-            // TODO: Gestire eccezione
+            return;
         }
     }
 

@@ -12,6 +12,7 @@ import javafx.scene.control.Alert;
 public class InvalidLoanInfoException extends Exception{
 
     public InvalidLoanInfoException() {
+        super();
     }
 
     public InvalidLoanInfoException(String msg) {

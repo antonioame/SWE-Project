@@ -2,7 +2,6 @@ package it.campuslib.collections;
 
 import java.io.File;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 import org.junit.jupiter.api.BeforeEach;

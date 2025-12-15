@@ -1,7 +1,6 @@
 package it.campuslib.domain.transactions;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

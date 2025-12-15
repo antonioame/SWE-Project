@@ -71,13 +71,6 @@ public abstract class Transaction implements Serializable, Comparable<Transactio
     }
 
     /**
-     * @brief Resetta il contatore degli ID (usare solo per test se necessario).
-     */
-    public static synchronized void resetNextIdForTests() {
-        nextId = 1;
-    }
-
-    /**
      * @brief Restituisce l'ID univoco del prestito.
      * @return L'ID univoco del prestito.
      */

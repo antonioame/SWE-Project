@@ -189,6 +189,8 @@ public class UserRegistry implements Serializable {
             return null;
 
         try (ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(fileName)))) {
+            // Notazione per sopprimere l'avviso del compilatore per il cast non controllato dell'oggetto
+            @SuppressWarnings("unchecked")
             HashMap<String, User> registry = (HashMap<String, User>) ois.readObject();
             UserRegistry userRegistry = new UserRegistry();
 

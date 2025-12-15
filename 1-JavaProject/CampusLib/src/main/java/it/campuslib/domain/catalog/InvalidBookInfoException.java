@@ -12,6 +12,7 @@ import javafx.scene.control.Alert;
 public class InvalidBookInfoException extends Exception {
 
     public InvalidBookInfoException() {
+        super();
     }
     
     public InvalidBookInfoException(String msg) {
