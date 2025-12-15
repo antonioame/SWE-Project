@@ -46,8 +46,7 @@
                 
                 <Region HBox.hgrow="ALWAYS" /> 
                 
-                <Button fx:id="btnReloadState" mnemonicParsing="false" onAction="#reloadState" text="Ricarica" />
-                <Button fx:id="btnSaveState" mnemonicParsing="false" onAction="#saveState" text="Salva Stato" />
+                <Button fx:id="btnSaveState" mnemonicParsing="false" onAction="#saveState" text="Salva Tutto" />
                 <Button fx:id="btnExit" mnemonicParsing="false" onAction="#exitApp" text="Chiudi Applicazione" />
             </children>
         </HBox>

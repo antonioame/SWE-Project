@@ -22,8 +22,6 @@ public class MainViewController implements Initializable {
     @FXML
     private Label lastSaveLabel;
     @FXML
-    private Button btnReloadState;
-    @FXML
     private Button btnSaveState;
     @FXML
     private Button btnExit;
@@ -63,20 +61,5 @@ public class MainViewController implements Initializable {
             lastSaveLabel.setText("Errore durante il salvataggio");
         }
     }
-
-    @FXML
-    private void reloadState(ActionEvent event) {
-        try {
-            BookCatalog reloadedBooks = BookCatalog.importFromFile("personal-files/io-binary-files/books.dat");
-            UserRegistry reloadedUsers = UserRegistry.importFromFile("personal-files/io-binary-files/users.dat");
-            LoanRegistry reloadedLoans = LoanRegistry.importFromFile("personal-files/io-binary-files/loans.dat");
-            GivebackRegistry reloadedGivebacks = GivebackRegistry.importFromFile("personal-files/io-binary-files/givebacks.dat");
-
-            LocalDateTime now = LocalDateTime.now();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-            lastSaveLabel.setText("Stato: Ricaricato con successo " + now.format(formatter));
-        } catch (Exception e) {
-            lastSaveLabel.setText("Errore durante il ricaricamento");
-        }
-    }
+    
 }
