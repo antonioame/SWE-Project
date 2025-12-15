@@ -56,7 +56,7 @@
                                 <TableColumn fx:id="clmIdLoan" editable="false" text="ID" prefWidth="15.0" minWidth="15.0" />
                                 <TableColumn fx:id="clmBookLoan" editable="false" sortable="false" text="LIBRO" />
                                 <TableColumn fx:id="clmUserLoan" editable="false" sortable="false" text="UTENTE" />
-                                <TableColumn fx:id="clmStartLoan" editable="false" sortable="false" text="INIZIO" />
+                                <TableColumn fx:id="clmStartLoan" editable="false" sortable="false" text="DATA REGISTRAZIONE" />
                                 <TableColumn fx:id="clmReturnLoan" editable="false" sortable="false" text="RESTITUZIONE ATTESA" />
                             </columns>
                             <columnResizePolicy>

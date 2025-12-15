@@ -1,6 +1,7 @@
 package it.campuslib.view;
 
 import it.campuslib.domain.catalog.AdoptionStatus;
+import it.campuslib.domain.users.UserStatus;
 import it.campuslib.domain.catalog.Book;
 import it.campuslib.domain.transactions.Loan;
 import it.campuslib.domain.users.User;
@@ -132,7 +133,7 @@ public class LoanViewController implements Initializable {
             }
         });
         
-        allUsers = FXCollections.observableArrayList(userRegistry.getAllUsers());
+        allUsers = userRegistry.getAllUsersObservable();
         filteredUsers = allUsers;
         userCombo.setItems(allUsers);
         userCombo.setConverter(new StringConverter<User>() {
@@ -205,6 +206,35 @@ public class LoanViewController implements Initializable {
         if (selectedBook == null || selectedUser == null || startDateStr.isEmpty() || returnDateStr.isEmpty()) {
             return;
         }
+        // Verificare che l'utente sia attivo
+        if (selectedUser.getStatus() != UserStatus.ACTIVE) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Utente Inattivo");
+            alert.setHeaderText("Impossibile registrare prestito");
+            alert.setContentText("L'utente selezionato è contrassegnato come inattivo.");
+            alert.showAndWait();
+            return;
+        }
+        // Verificare che il libro sia in adozione
+        if (!selectedBook.isAdopted()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Libro Non Disponibile");
+            alert.setHeaderText("Impossibile registrare prestito");
+            alert.setContentText("Il libro selezionato non è in adozione e non è possibile registrare nuovi presiti associati.");
+            alert.showAndWait();
+            return;
+        }
+        // Verificare che l'utente non abbia già raggiunto il numero massimo di prestiti attivi
+        if (loanRegistry != null && !selectedUser.canBorrow(loanRegistry)) {
+            int max = selectedUser.getMaxLoans();
+            int current = selectedUser.getActiveLoans(loanRegistry).size();
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Limite Prestiti Raggiunto");
+            alert.setHeaderText("Impossibile registrare prestito");
+            alert.setContentText("L'utente ha già " + current + " prestiti attivi (max personale: " + max + ") e non può prenderne altri.");
+            alert.showAndWait();
+            return;
+        }
         
         try {
             LocalDate startDate = LocalDate.parse(startDateStr);
@@ -234,7 +264,7 @@ public class LoanViewController implements Initializable {
 
         if (expected != null && expected.isBefore(today)) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Restituzione in ritardo");
+            alert.setTitle("Restituzione in Ritardo");
             alert.setHeaderText("Data prevista di restituzione antecedente alla data odierna");
             alert.setContentText("Vuoi ridurre di 1 il numero massimo di prestiti per l'utente?");
 
@@ -265,7 +295,7 @@ public class LoanViewController implements Initializable {
             loanRegistry.exportOnFile("personal-files/io-binary-files/loans.dat");
             givebackRegistry.exportOnFile("personal-files/io-binary-files/givebacks.dat");
 
-                allLoans.remove(selected);
+            allLoans.remove(selected);
             tableLoan.refresh();
 
             btnRegisterReturn.setDisable(true);

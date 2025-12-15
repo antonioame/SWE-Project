@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.io.Serializable;
 import java.io.FileOutputStream;
@@ -23,6 +25,7 @@ import java.io.ObjectInputStream;
  */
 public class UserRegistry implements Serializable{
     private Map<String, User> registry;
+    private transient ObservableList<User> observableUsers;
 
     /**
      * @brief Costruttore.
@@ -32,6 +35,7 @@ public class UserRegistry implements Serializable{
     public UserRegistry() {
         
         this.registry = new HashMap<>();
+        this.observableUsers = FXCollections.observableArrayList();
     }
 
     /**
@@ -46,6 +50,8 @@ public class UserRegistry implements Serializable{
         if (id == null) return false;
         if (registry.containsKey(id)) return false;
         registry.put(id, user);
+        if (observableUsers == null) observableUsers = FXCollections.observableArrayList(registry.values());
+        observableUsers.add(user);
         return true;
     }
 
@@ -202,6 +208,7 @@ public class UserRegistry implements Serializable{
             UserRegistry userRegistry = new UserRegistry();
             
             userRegistry.registry = registry;
+            userRegistry.observableUsers = FXCollections.observableArrayList(registry.values());
             
             instance = userRegistry;
             return userRegistry;
@@ -221,6 +228,17 @@ public class UserRegistry implements Serializable{
      */
     public List<User> getAllUsers() {
         return new ArrayList<>(this.registry.values());
+    }
+
+    /**
+     * Restituisce una ObservableList osservabile degli utenti (aggiornabile automaticamente).
+     * @return ObservableList degli utenti
+     */
+    public ObservableList<User> getAllUsersObservable() {
+        if (observableUsers == null) {
+            observableUsers = FXCollections.observableArrayList(registry.values());
+        }
+        return observableUsers;
     }
 
     public static UserRegistry getInstance() {
