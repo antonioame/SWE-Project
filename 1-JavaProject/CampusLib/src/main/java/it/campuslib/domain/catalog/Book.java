@@ -2,6 +2,7 @@ package it.campuslib.domain.catalog;
 
 import java.io.Serializable;
 import java.util.LinkedList;
+import java.time.Year;
 
 import it.campuslib.collections.LoanRegistry;
 import it.campuslib.domain.transactions.Loan;
@@ -31,6 +32,9 @@ public class Book implements Comparable<Book>, Serializable {
     public Book(String isbn, String title, String authors, int publishingYear, int copies) throws InvalidBookInfoException {
         if(!checkIsbn(isbn)) {
             throw new InvalidBookInfoException("Isbn non valido: " + isbn);
+        }
+        if (publishingYear > Year.now().getValue()) {
+            throw new InvalidPublicationYearException("Anno di pubblicazione non può essere maggiore dell'anno corrente: " + publishingYear);
         }
    
         this.isbn = isbn;
@@ -147,6 +151,9 @@ public class Book implements Comparable<Book>, Serializable {
      * @param[in] year Il nuovo anno di pubblicazione del libro.
      */
     public void setPublishingYear(int year) {
+        if (year > Year.now().getValue()) {
+            throw new InvalidPublicationYearException("Anno di pubblicazione non può essere maggiore dell'anno corrente: " + year);
+        }
         this.publishingYear = year;
     }
 

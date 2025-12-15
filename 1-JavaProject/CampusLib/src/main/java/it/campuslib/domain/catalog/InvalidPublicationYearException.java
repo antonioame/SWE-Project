@@ -4,29 +4,29 @@ import javafx.application.Platform;
 import javafx.scene.control.Alert;
 
 /**
- * @brief Eccezione lanciata quando i dati del libro non sono validi.
+ * @brief Eccezione lanciata se l'anno di pubblicazione > anno corrente.
  *
  * Crea un Alert JavaFX di tipo ERROR e lo mostra
  * Usa showAndWait() per attendere la chiusura del pop-up generato
  */
-public class InvalidBookInfoException extends Exception {
-
-    public InvalidBookInfoException() {
+public class InvalidPublicationYearException extends RuntimeException {
+    
+    public InvalidPublicationYearException() {
+        super();
     }
     
-    public InvalidBookInfoException (String msg) {
+    public InvalidPublicationYearException(String msg) {
         super(msg);
         try {
             Platform.runLater(() -> {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Errore: Dati libro");
-                alert.setHeaderText("Dati libro non validi");
+                alert.setTitle("Errore: Anno di pubblicazione");
+                alert.setHeaderText("Anno di pubblicazione non valido");
                 alert.setContentText(msg);
                 alert.showAndWait();
             });
         } catch (IllegalStateException ex) {
-            System.err.println("InvalidBookInfoException: " + msg);
+            System.err.println("InvalidPublicationYearException: " + msg);
         }
     }
 }
-

@@ -24,6 +24,7 @@ import javafx.scene.control.TextFormatter;
 import javafx.util.converter.IntegerStringConverter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import it.campuslib.domain.catalog.InvalidPublicationYearException;
 
 /**
  * FXML Controller class
@@ -182,14 +183,20 @@ public class BookViewController implements Initializable {
     }
 
     @FXML
+    // FIXME: Correggere nome metodo
     private void updatYear(TableColumn.CellEditEvent<Book, Integer> event) {
         Book book = event.getRowValue();
         Integer newYear = event.getNewValue();
         if (newYear != null && newYear > 0) {
-            book.setPublishingYear(newYear);
-            filterBooks();
-            bookCatalog.exportOnFile("personal-files/io-binary-files/books.dat");
-            tableBooks.refresh();
+            try {
+                book.setPublishingYear(newYear);
+                filterBooks();
+                bookCatalog.exportOnFile("personal-files/io-binary-files/books.dat");
+            } catch (InvalidPublicationYearException ex) {
+                // L'eccezione genererà pop-up
+            } finally {
+                tableBooks.refresh();
+            }
         }
     }
 
