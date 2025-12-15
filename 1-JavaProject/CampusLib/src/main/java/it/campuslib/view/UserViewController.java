@@ -28,11 +28,6 @@ import it.campuslib.collections.UserRegistry;
 import it.campuslib.collections.LoanRegistry;
 import javafx.collections.ObservableList;
 
-/**
- * FXML Controller class
- *
- * @author ecoll
- */
 public class UserViewController implements Initializable {
 
     @FXML
@@ -65,7 +60,7 @@ public class UserViewController implements Initializable {
     private TableColumn<User, UserStatus> clmStatus;
     @FXML
     private CheckBox showInactiveCheckbox;
-    
+
     private ObservableList<User> userList;
     private UserRegistry userRegistry;
     private ObservableList<User> allUsers;
@@ -82,7 +77,7 @@ public class UserViewController implements Initializable {
         clmId.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEnrollmentID()));
         clmEmail.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEmail()));
         clmUserLoan.setCellValueFactory(cellData -> new javafx.beans.property.SimpleObjectProperty<>(
-            LoanRegistry.getInstance().searchByUser(cellData.getValue()).size()
+                LoanRegistry.getInstance().searchByUser(cellData.getValue()).size()
         ));
         clmMaxLoans.setCellValueFactory(cellData -> new javafx.beans.property.SimpleObjectProperty<>(cellData.getValue().getMaxLoans()));
         clmStatus.setCellValueFactory(cellData -> new javafx.beans.property.SimpleObjectProperty<>(cellData.getValue().getStatus()));
@@ -103,7 +98,7 @@ public class UserViewController implements Initializable {
         clmId.setSortable(true);
         clmSurname.setSortable(true);
         clmName.setSortable(true);
-        
+
         showInactiveCheckbox.selectedProperty().addListener((obs, oldV, newV) -> filterUsers());
 
         tableUsers.setItems(allUsers);
@@ -121,7 +116,7 @@ public class UserViewController implements Initializable {
         searchUserField.textProperty().addListener((obs, oldV, newV) -> filterUsers());
 
         filterUsers();
-    }    
+    }
 
     @FXML
     private void addUser(ActionEvent event) {
@@ -130,14 +125,19 @@ public class UserViewController implements Initializable {
         String id = idField.getText().trim();
         String email = emailField.getText().trim();
 
-        if (name.isEmpty() || surname.isEmpty() || id.isEmpty() || email.isEmpty()) return;
+        if (name.isEmpty() || surname.isEmpty() || id.isEmpty() || email.isEmpty()) {
+            return;
+        }
 
         try {
             User u = new User(name, surname, id, email);
             if (userRegistry.addUser(u)) {
                 allUsers.add(u);
                 userRegistry.exportOnFile("personal-files/io-binary-files/users.dat");
-                nameField.clear(); surnameField.clear(); idField.clear(); emailField.clear();
+                nameField.clear();
+                surnameField.clear();
+                idField.clear();
+                emailField.clear();
                 filterUsers();
             }
         } catch (Exception e) {
@@ -157,7 +157,9 @@ public class UserViewController implements Initializable {
         ObservableList<User> filtered = FXCollections.observableArrayList();
         boolean showInactive = showInactiveCheckbox == null ? true : showInactiveCheckbox.isSelected();
         for (User u : source) {
-            if (!showInactive && u.getStatus() != UserStatus.ACTIVE) continue;
+            if (!showInactive && u.getStatus() != UserStatus.ACTIVE) {
+                continue;
+            }
             if (q.isEmpty() || u.getName().toLowerCase().contains(q) || u.getSurname().toLowerCase().contains(q)
                     || u.getEnrollmentID().contains(q) || u.getEmail().toLowerCase().contains(q)) {
                 filtered.add(u);
@@ -209,7 +211,7 @@ public class UserViewController implements Initializable {
             }
         }
     }
-    
+
     @FXML
     private void updateStatus(TableColumn.CellEditEvent<User, UserStatus> event) {
         User u = event.getRowValue();
@@ -221,12 +223,14 @@ public class UserViewController implements Initializable {
             filterUsers();
         }
     }
-    
+
     @FXML
     private void updateMaxLoans(TableColumn.CellEditEvent<User, Integer> event) {
         User u = event.getRowValue();
         Integer newMax = event.getNewValue();
-        if (newMax == null) return;
+        if (newMax == null) {
+            return;
+        }
         int activeLoans = LoanRegistry.getInstance().searchByUser(u).size();
         if (newMax < 0 || newMax < activeLoans) {
             // Non consentire un numero minore del numero di presiti attualmente attivi
@@ -245,5 +249,4 @@ public class UserViewController implements Initializable {
             return;
         }
     }
-    
 }

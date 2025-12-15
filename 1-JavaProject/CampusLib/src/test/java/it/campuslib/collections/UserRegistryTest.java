@@ -9,7 +9,6 @@ import it.campuslib.domain.users.User;
 import it.campuslib.domain.users.UserStatus;
 import java.io.File;
 import java.util.LinkedList;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
 
@@ -28,7 +27,7 @@ public class UserRegistryTest {
     public void setUp() throws InvalidUserInfoException {
         registry = new UserRegistry();
         
-        //Creazione e aggiunta al registro utenti di test
+        // Creazione e aggiunta al registro utenti di test
         user1 = new User("Mario", "Rossi", ID1, "mario.rossi@studenti.unisa.it");
         user1.setStatus(UserStatus.ACTIVE);
         

@@ -14,7 +14,7 @@ public class InvalidBookInfoException extends Exception {
     public InvalidBookInfoException() {
     }
     
-    public InvalidBookInfoException (String msg) {
+    public InvalidBookInfoException(String msg) {
         super(msg);
         try {
             Platform.runLater(() -> {

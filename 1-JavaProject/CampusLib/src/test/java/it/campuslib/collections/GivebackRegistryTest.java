@@ -28,15 +28,15 @@ public class GivebackRegistryTest {
     void setUp() throws InvalidUserInfoException, InvalidBookInfoException {
         // Creazione directory per i file di test I/O, se inesistente:
         new File(TEST_FILES_DIR).mkdirs();
-        
+
         registry = new GivebackRegistry();
-        
+
         book1 = new Book("9780123456789", "Object Oriented Programming", "Antonio Rossi", 2020, 3);
         book2 = new Book("9780987654321", "Data Structures and Algorithms", "Antonio Rossi, Gianmarco Verdi", 2022, 2);
 
         student = new User("Luca", "Martini", "0612710777", "luca.martini@studenti.unisa.it");
         user = new User("Maria", "Ferrari", "0000054321", "mferrari@unisa.it");
-        
+
         giveback1 = new Giveback(book1, student, LocalDate.of(2025, 12, 1), LocalDate.of(2025, 12, 10));
         giveback2 = new Giveback(book2, student, LocalDate.of(2025, 12, 5), LocalDate.of(2025, 12, 15));
         giveback3 = new Giveback(book1, user, LocalDate.of(2025, 12, 10), LocalDate.of(2025, 12, 20));
@@ -56,7 +56,7 @@ public class GivebackRegistryTest {
     }
 
     @Test
-    void testSearchByUser() throws InvalidUserInfoException{
+    void testSearchByUser() throws InvalidUserInfoException {
         registry.addGiveback(giveback1);
         registry.addGiveback(giveback2);
         registry.addGiveback(giveback3);

@@ -12,7 +12,7 @@ import it.campuslib.domain.users.User;
  */
 public class Loan extends Transaction {
     private LocalDate expectedReturnDate;
-    
+
     /**
      * @brief Istanzia un nuovo oggetto Loan.
      * Il metodo istanzia un nuovo oggetto Loan, utilizzando il costruttore della superclasse Transaction.
@@ -22,11 +22,10 @@ public class Loan extends Transaction {
      * @param[in] borrowerUser L'utente che ha preso in prestito il libro.
      * @see Transaction
      */
-    public Loan(Book borrowedBook, User borrowerUser, LocalDate startDate, LocalDate expectedReturnDate) throws InvalidLoanInfoException{
+    public Loan(Book borrowedBook, User borrowerUser, LocalDate startDate, LocalDate expectedReturnDate) throws InvalidLoanInfoException {
         super(borrowedBook, borrowerUser, startDate);
-        
-        if(!checkDate(startDate, expectedReturnDate)) {
-        
+
+        if (!checkDate(startDate, expectedReturnDate)) {
             throw new InvalidLoanInfoException("La data di inizio del prestito deve essere precedente alla data prevista di restituzione");
         }
         this.expectedReturnDate = expectedReturnDate;
@@ -42,11 +41,10 @@ public class Loan extends Transaction {
      * @param[in] expectedReturnDate La data di restituzione prevista del prestito.
      * @see Transaction
      */
-    protected Loan(int id, Book borrowedBook, User borrowerUser, LocalDate startDate, LocalDate expectedReturnDate) throws InvalidLoanInfoException{
+    protected Loan(int id, Book borrowedBook, User borrowerUser, LocalDate startDate, LocalDate expectedReturnDate) throws InvalidLoanInfoException {
         super(id, borrowedBook, borrowerUser, startDate);
-        
-        if(!checkDate(startDate, expectedReturnDate)) {
-        
+
+        if (!checkDate(startDate, expectedReturnDate)) {
             throw new InvalidLoanInfoException("La data di inizio del prestito deve essere precedente alla data prevista di restituzione");
         }
         this.expectedReturnDate = expectedReturnDate;
@@ -74,10 +72,8 @@ public class Loan extends Transaction {
      * @brief Imposta la data di restituzione prevista del prestito.
      * @param[in] newDate La nuova data di restituzione prevista del prestito.
      */
-    public void setExpectedReturnDate(LocalDate expectedReturnDate) throws InvalidLoanInfoException{
-       
-        if(!checkDate(super.getStartDate(), expectedReturnDate)) {
-        
+    public void setExpectedReturnDate(LocalDate expectedReturnDate) throws InvalidLoanInfoException {
+        if (!checkDate(super.getStartDate(), expectedReturnDate)) {
             throw new InvalidLoanInfoException("La data di inizio del prestito deve essere precedente alla data prevista di restituzione");
         }
         this.expectedReturnDate = expectedReturnDate;
@@ -94,7 +90,7 @@ public class Loan extends Transaction {
         
         sb.append(super.toString());
         sb.append("Data di restituzione prevista: ").append(expectedReturnDate).append("\n");
-        
+
         return sb.toString();
     }
 
@@ -103,18 +99,15 @@ public class Loan extends Transaction {
      * La funzione confronta la data di restituzione prevista con la data corrente
      * per determinare se il prestito è in ritardo.
      * @return true se il prestito è in ritardo, false altrimenti.
-     * @pre 
+     * @pre
      * La data di inizio del prestito deve essere antecedente o uguale alla data corrente.
      * @see getExpectedReturnDate()
      */
     public boolean isOverdue() {
         return this.expectedReturnDate.isBefore(LocalDate.now());
     }
-    
+
     public static boolean checkDate(LocalDate startDate, LocalDate expectedReturnDate) {
-    
-        if(expectedReturnDate.isAfter(startDate)) return true;
-        else return false;
+        return (expectedReturnDate.isAfter(startDate));
     }
-           
 }

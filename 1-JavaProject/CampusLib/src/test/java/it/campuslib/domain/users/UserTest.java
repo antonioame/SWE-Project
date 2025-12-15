@@ -15,14 +15,6 @@ import java.time.Month;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-// FIXME: La classe non passa correttamente i test, già da prima del commit di refactoring per l'eliminazione della Classe Author
-// Sono state effettuate le necessarie modifiche relative a Author, perché la classe è stata eliminata
-// Questa classe non ha dirette dipendenze da Author ma sono state corrette le nuove istanze per Book, presenti sotto
-
-/**
- *
- * @author luca
- */
 public class UserTest {
     
     private User utente1, utente2, utente3;
@@ -240,7 +232,7 @@ public class UserTest {
 
     @Test
     @Timeout(value = 5, unit = TimeUnit.SECONDS)
-    public void testSetGetMaxLoans() {
+    public void testSetGetMaxLoans() throws InvalidUserInfoException {
     
         assertEquals(3, utente1.getMaxLoans());
         
@@ -337,7 +329,7 @@ public class UserTest {
      
      @Test
      @Timeout(value = 15, unit = TimeUnit.SECONDS)
-     public void testCannotBorrow() throws InvalidLoanInfoException, InvalidBookInfoException {
+    public void testCannotBorrow() throws InvalidLoanInfoException, InvalidBookInfoException, InvalidUserInfoException {
      
         //Tutti e tre gli utenti hanno come numero massimo di prestiti 2
         utente1.setMaxLoans(2);

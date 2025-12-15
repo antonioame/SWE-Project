@@ -17,7 +17,7 @@ public class Book implements Comparable<Book>, Serializable {
     private int publishingYear;
     private AdoptionStatus status;
     private int copies;
-    
+
     /**
      * @brief Istanzia un nuovo oggetto Book.
      * La funzione istanzia un nuovo oggetto Book con i parametri forniti,
@@ -30,13 +30,13 @@ public class Book implements Comparable<Book>, Serializable {
      * @see checkIsbn(String isbn)
      */
     public Book(String isbn, String title, String authors, int publishingYear, int copies) throws InvalidBookInfoException {
-        if(!checkIsbn(isbn)) {
+        if (!checkIsbn(isbn)) {
             throw new InvalidBookInfoException("Isbn non valido: " + isbn);
         }
         if (publishingYear > Year.now().getValue()) {
             throw new InvalidPublicationYearException("Anno di pubblicazione non può essere maggiore dell'anno corrente: " + publishingYear);
         }
-   
+
         this.isbn = isbn;
         this.title = title;
         this.authors = authors != null ? authors : "";
@@ -44,7 +44,7 @@ public class Book implements Comparable<Book>, Serializable {
         this.copies = copies;
         this.status = AdoptionStatus.ADOPTED;
     }
-    
+
     /**
      * @brief Restituisce il codice ISBN del libro.
      * @return Il codice ISBN del libro.
@@ -52,7 +52,7 @@ public class Book implements Comparable<Book>, Serializable {
     public String getIsbn() {
         return isbn;
     }
-    
+
     /**
      * @brief Restituisce il titolo del libro.
      * @return Il titolo del libro.
@@ -60,15 +60,15 @@ public class Book implements Comparable<Book>, Serializable {
     public String getTitle() {
         return title;
     }
-    
+
     /**
      * @brief Restituisce la stringa degli autori del libro.
      * @return La stringa degli autori del libro.
-     */ 
+     */
     public String getAuthors() {
         return authors;
     }
-    
+
     /**
      * @brief Restituisce l'anno di pubblicazione del libro.
      * @return L'anno di pubblicazione del libro.
@@ -76,7 +76,7 @@ public class Book implements Comparable<Book>, Serializable {
     public int getPublishingYear() {
         return publishingYear;
     }
-        
+
     /**
      * @brief Restituisce il numero totale di copie del libro.
      * @return Il numero totale di copie del libro.
@@ -84,7 +84,7 @@ public class Book implements Comparable<Book>, Serializable {
     public int getCopies() {
         return copies;
     }
-    
+
     /**
      * @brief Verifica se il libro è in adozione.
      * @return true se il libro è in adozione, false altrimenti.
@@ -108,10 +108,10 @@ public class Book implements Comparable<Book>, Serializable {
     public String getDisplayString() {
         return title + " - " + authors;
     }
-    
+
     /**
      * @brief Verifica la disponibilità del libro.
-     * Il metodo verifica la disponibilità del libro confrontando 
+     * Il metodo verifica la disponibilità del libro confrontando
      * il numero di copie totali con il numero di prestiti associati al libro.
      * @return true se il libro è disponibile, false altrimenti.
      * @see getAssociatedLoans()
@@ -121,7 +121,7 @@ public class Book implements Comparable<Book>, Serializable {
         l = registry.searchByBook(isbn);
         return (this.copies > l.size());
     }
-    
+
     /**
      * @brief Imposta il titolo del libro.
      * @param[in] title Il nuovo titolo del libro.
@@ -129,7 +129,7 @@ public class Book implements Comparable<Book>, Serializable {
     public void setTitle(String title) {
         this.title = title;
     }
-    
+
     /**
      * @brief Imposta lo stato di adozione del libro.
      * @param[in] status Il nuovo stato di adozione del libro.
@@ -181,7 +181,7 @@ public class Book implements Comparable<Book>, Serializable {
         }
         return false;
     }
-    
+
     /**
      * @brief Verifica se il formato dell'ISBN fornito è valido.
      * @param[in] isbn L'ISBN da controllare.
@@ -189,29 +189,24 @@ public class Book implements Comparable<Book>, Serializable {
      * @see Book(String isbn, String title, String authors, int publishingYear, int copies)
      */
     private static boolean checkIsbn(String isbn) {
-        
-        
-        if (isbn == null) {
+        if (isbn == null)
             return false;
-        }
-        
-        //Rimuove spazi bianchi iniziali e finali
-        isbn=isbn.trim();
-        if(isbn.isEmpty()) {
+
+        // Rimuove spazi bianchi iniziali e finali
+        isbn = isbn.trim();
+        if (isbn.isEmpty())
             return false;
-        }
-        
-        if (isbn.length() != 13) {
+
+        if (isbn.length() != 13)
             return false;
-        } else {
+        else {
             for (int i = 0; i < isbn.length(); i++) {
-                if (!Character.isDigit(isbn.charAt(i))) {
+                if (!Character.isDigit(isbn.charAt(i)))
                     return false;
-                }
             }
             return (isbn.startsWith("978") || isbn.startsWith("979"));
         }
-    } 
+    }
 
     /**
      * @brief Restituisce una rappresentazione testuale dell'oggetto Book.
@@ -219,7 +214,7 @@ public class Book implements Comparable<Book>, Serializable {
      */
     public String toString() {
         StringBuffer sb = new StringBuffer();
-        
+
         sb.append("\n");
         sb.append("Isbn: " + isbn);
         sb.append(" Titolo: " + title);
@@ -228,7 +223,7 @@ public class Book implements Comparable<Book>, Serializable {
         sb.append(" Stato: " + status);
         sb.append(" Copie totali: " + copies);
         sb.append("\n");
-    
+
         return sb.toString();
     }
 
@@ -239,12 +234,10 @@ public class Book implements Comparable<Book>, Serializable {
      */
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
+        if (this == obj)
             return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
+        if (obj == null || getClass() != obj.getClass())
             return false;
-        }
         Book book = (Book) obj;
         return this.isbn.equals(book.isbn);
     }

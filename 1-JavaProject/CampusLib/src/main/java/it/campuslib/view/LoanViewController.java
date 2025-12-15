@@ -33,11 +33,6 @@ import it.campuslib.domain.users.InvalidUserInfoException;
 import it.campuslib.domain.transactions.Giveback;
 import javafx.collections.ObservableSet;
 
-/**
- * FXML Controller class
- *
- * @author ecoll
- */
 public class LoanViewController implements Initializable {
 
     private BookCatalog bookCatalog;

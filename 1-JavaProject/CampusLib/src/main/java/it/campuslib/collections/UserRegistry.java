@@ -23,7 +23,7 @@ import java.io.ObjectInputStream;
 /**
  * @brief Il registro degli utenti della biblioteca.
  */
-public class UserRegistry implements Serializable{
+public class UserRegistry implements Serializable {
     private Map<String, User> registry;
     private transient ObservableList<User> observableUsers;
 
@@ -33,7 +33,6 @@ public class UserRegistry implements Serializable{
      * Il registro utenti è vuoto.
      */
     public UserRegistry() {
-        
         this.registry = new HashMap<>();
         this.observableUsers = FXCollections.observableArrayList();
     }
@@ -45,12 +44,18 @@ public class UserRegistry implements Serializable{
      * @return Esito aggiunta.
      */
     public boolean addUser(User user) {
-        if(user == null) return false;
+        if (user == null)
+            return false;
         String id = user.getEnrollmentID();
-        if (id == null) return false;
-        if (registry.containsKey(id)) return false;
+
+        if (id == null)
+            return false;
+        if (registry.containsKey(id))
+            return false;
+        
         registry.put(id, user);
-        if (observableUsers == null) observableUsers = FXCollections.observableArrayList(registry.values());
+        if (observableUsers == null)
+            observableUsers = FXCollections.observableArrayList(registry.values());
         observableUsers.add(user);
         return true;
     }
@@ -63,14 +68,13 @@ public class UserRegistry implements Serializable{
      * Se presente, l'utente viene rimosso dal registro, altrimenti restituisce false.
      */
     public boolean removeUser(String enrollmentID) {
-        
         User u = registry.get(enrollmentID);
-        
-        if(u == null) return false;
-        else {
-            
-        u.setStatus(UserStatus.INACTIVE);
-        return true;
+
+        if (u == null) {
+            return false;
+        } else {
+            u.setStatus(UserStatus.INACTIVE);
+            return true;
         }
     }
 
@@ -81,19 +85,17 @@ public class UserRegistry implements Serializable{
      * @return Lista di utenti trovati (vuota se nessun utente corrisponde al criterio di ricerca).
      */
     public LinkedList<User> searchByName(String name, String surname) {
-        
         LinkedList<User> list = new LinkedList<>();
-        if(name == null || surname == null) return list;
-        
-        for(User u : registry.values()) {
-        
-            if(u.getName() != null && u.getSurname() != null && 
-               u.getName().equals(name) && 
-               u.getSurname().equals(surname)) {
+        if (name == null || surname == null)
+            return list;
+
+        for (User u : registry.values()) {
+            if (u.getName() != null && u.getSurname() != null &&
+                u.getName().equals(name) &&
+                u.getSurname().equals(surname)) {
                 list.add(u);
             }
         }
-        
         return list;
     }
 
@@ -103,13 +105,10 @@ public class UserRegistry implements Serializable{
      * @return Utente trovato o null se non presente.
      */
     public User searchByEnrollmentID(String enrollmentID) {
-        
         User user = null;
-        
-        if(enrollmentID == null) return null;
-        
-        if(registry.containsKey(enrollmentID)) user = registry.get(enrollmentID);
-        
+        if (enrollmentID == null)
+            return null;
+        if (registry.containsKey(enrollmentID)) user = registry.get(enrollmentID);
         return user;
     }
 
@@ -119,31 +118,26 @@ public class UserRegistry implements Serializable{
      * @return Lista di utenti che corrispondono alla query (vuota se nessun utente corrisponde al criterio di ricerca).
      */
     public LinkedList<User> search(String query) {
-        
         LinkedList<User> lista = new LinkedList<>();
-        
-        if(query == null || query.isEmpty()) return lista;
-        
-        //Controlla se la query contiene la matricola:
+
+        if (query == null || query.isEmpty())
+            return lista;
+
+        // Controlla se la query contiene la matricola:
         User user = registry.get(query);
-        if(user != null) {
-        
+        if (user != null) {
             lista.add(user);
             return lista;
         }
-        
-        //Controlla nei campi dei valori:
-        
+
+        // Controlla nei campi dei valori:
         String q = query.toLowerCase();
-        for(User u : registry.values()) {
-        
-            if(u.getName().equalsIgnoreCase(q) ||
-               u.getSurname().equalsIgnoreCase(q) ||
-               u.getEmail().equalsIgnoreCase(q)) {
-            
+        for (User u : registry.values()) {
+            if (u.getName().equalsIgnoreCase(q) ||
+                u.getSurname().equalsIgnoreCase(q) ||
+                u.getEmail().equalsIgnoreCase(q)) {
                 lista.add(u);
             }
-            
         }
         return lista;
     }
@@ -153,18 +147,17 @@ public class UserRegistry implements Serializable{
      * @return Rappresentazione testuale del registro.
      */
     public String toString() {
-        
-        if(registry.isEmpty()) return "Registro utenti è vuoto";
-        
+        if (registry.isEmpty())
+            return "Registro utenti è vuoto";
+
         StringBuilder sb = new StringBuilder();
-        
+
         sb.append(" * === Stampa Registro Utenti === * \n");
-        
-        for(User user : registry.values()) {
-        
+
+        for (User user : registry.values()) {
             sb.append(user.toString()).append("\n");
         }
-        
+
         return sb.toString();
     }
 
@@ -175,22 +168,15 @@ public class UserRegistry implements Serializable{
      * Il registro viene salvato sul file specificato.
      */
     public void exportOnFile(String fileName) {
-        
-        if(fileName == null != fileName.isEmpty()) {
-        
+        if (fileName == null != fileName.isEmpty()) {
             return;
         }
-        
-        try(ObjectOutputStream oos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(fileName)))) {
-        
+
+        try (ObjectOutputStream oos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(fileName)))) {
             oos.writeObject(registry);
-            
-        }
-        catch(IOException ex) {
-        
+        } catch (IOException ex) {
             System.err.println("ERR. Esportazione Non Riuscita: " + ex.getMessage());
         }
-        
     }
 
     /**
@@ -199,23 +185,19 @@ public class UserRegistry implements Serializable{
      * @return Registro importato o null se il file non è valido.
      */
     public static UserRegistry importFromFile(String fileName) {
-        
-        if(fileName == null || fileName.isEmpty()) return null;
-        
-        try(ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(fileName)))) {
-        
+        if (fileName == null || fileName.isEmpty())
+            return null;
+
+        try (ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(fileName)))) {
             HashMap<String, User> registry = (HashMap<String, User>) ois.readObject();
             UserRegistry userRegistry = new UserRegistry();
-            
+
             userRegistry.registry = registry;
             userRegistry.observableUsers = FXCollections.observableArrayList(registry.values());
-            
+
             instance = userRegistry;
             return userRegistry;
-            
-        }
-        catch(IOException | ClassNotFoundException ex) {
-        
+        } catch (IOException | ClassNotFoundException ex) {
             return null;
         }
     }

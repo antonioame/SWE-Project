@@ -17,11 +17,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 
-/**
- * FXML Controller class
- *
- * @author ecoll
- */
 public class MainViewController implements Initializable {
 
     @FXML
@@ -49,7 +44,7 @@ public class MainViewController implements Initializable {
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         lastSaveLabel.setText("App avviata: " + now.format(formatter));
-    }    
+    }
 
     @FXML
     private void exitApp(ActionEvent event) {
@@ -63,7 +58,7 @@ public class MainViewController implements Initializable {
             UserRegistry.getInstance().exportOnFile("personal-files/io-binary-files/users.dat");
             LoanRegistry.getInstance().exportOnFile("personal-files/io-binary-files/loans.dat");
             GivebackRegistry.getInstance().exportOnFile("personal-files/io-binary-files/givebacks.dat");
-            
+
             LocalDateTime now = LocalDateTime.now();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
             lastSaveLabel.setText("Stato: Ultimo salvataggio " + now.format(formatter));
@@ -79,7 +74,7 @@ public class MainViewController implements Initializable {
             UserRegistry reloadedUsers = UserRegistry.importFromFile("personal-files/io-binary-files/users.dat");
             LoanRegistry reloadedLoans = LoanRegistry.importFromFile("personal-files/io-binary-files/loans.dat");
             GivebackRegistry reloadedGivebacks = GivebackRegistry.importFromFile("personal-files/io-binary-files/givebacks.dat");
-            
+
             LocalDateTime now = LocalDateTime.now();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
             lastSaveLabel.setText("Stato: Ricaricato con successo " + now.format(formatter));
@@ -87,5 +82,4 @@ public class MainViewController implements Initializable {
             lastSaveLabel.setText("Errore durante il ricaricamento");
         }
     }
-
 }

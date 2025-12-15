@@ -11,10 +11,11 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.stream.Collectors;
 
-import it.campuslib.domain.catalog.Book;
-import it.campuslib.domain.catalog.AdoptionStatus;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
+import it.campuslib.domain.catalog.Book;
+import it.campuslib.domain.catalog.AdoptionStatus;
 
 /**
  * @brief Il catalogo dei libri della biblioteca.
@@ -69,13 +70,6 @@ public class BookCatalog implements Serializable{
         }
         Book bookToRemove = catalog.get(isbn);
         
-        /*Precondizione da aggiungere: Libro registrato
-        if (bookToRemove == null) {  //libro non trovato
-            return false;
-        }
-        */
-        
-        //Aggiornamento stato libro
         bookToRemove.setStatus(AdoptionStatus.NOT_ADOPTED);
         return true;
     }
@@ -168,7 +162,6 @@ public class BookCatalog implements Serializable{
             sb.append(book.toString());
         }
         sb.append("\n");
-        
         return sb.toString();
     }
 
@@ -181,13 +174,11 @@ public class BookCatalog implements Serializable{
      */
     public void exportOnFile(String fileName) {
         if (fileName == null || fileName.isEmpty()) {
-            // System.err.println("Errore: Il nome del file non può essere vuoto.");
             return;
         }
         
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
             oos.writeObject(catalog);
-            // System.out.println("Catalogo esportato con successo in " + fileName);
         } catch (IOException e) {
             // In caso di errore, il metodo termina senza sollevare eccezioni
             System.err.println("ERR. Esportazione Non Riuscita: " + e.getMessage());

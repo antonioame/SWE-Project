@@ -15,19 +15,19 @@ public class BookCatalogTest {
     private BookCatalog catalog;
     private Book book1, book2;
     
-    //File temporaneo per i test di serializzazione
+    // File temporaneo per i test di serializzazione
     private static final String TEST_FILENAME = "testCatalog.ser";
-    
+
     public BookCatalogTest() {
     }
 
     @BeforeEach
     void setUp() throws InvalidBookInfoException {
         catalog = new BookCatalog();
-        
+
         book1 = new Book("9788804368581", "Il Sentiero Dei Nidi Di Ragno", "Italo Calvino", 1947, 5);
         book2 = new Book("9788804685715", "Marcovaldo", "Italo Calvino", 1963, 10);
-        
+
         // Aggiungo i libri al catalogo iniziale
         catalog.addBook(book1);
         catalog.addBook(book2);
@@ -41,16 +41,16 @@ public class BookCatalogTest {
             file.delete();
         }
     }
-    
+
     @Test
     void testAddBook_Success() throws InvalidBookInfoException {
         Book newBook = new Book("9788804603610", "Se Una Notte d'Inverno Un Viaggiatore", "", 1979, 3);
-        assertEquals(2, catalog.getCatalogSize()); 
-        
+        assertEquals(2, catalog.getCatalogSize());
+
         assertTrue(catalog.addBook(newBook));
         assertNotNull(catalog.searchByIsbn("9788804603610"));
     }
-    
+
     @Test
     void testAddBook_Fail_InputNull() {
         assertFalse(catalog.addBook(null));
@@ -63,17 +63,10 @@ public class BookCatalogTest {
         
         // Rimuove il libro (cambia lo stato)
         assertTrue(catalog.removeBook(book1.getIsbn()));
-        
+
         // Verifica che lo stato sia cambiato
         assertFalse(book1.isAdopted());
     }
-
-    /* Precondizione: il libro è registrato
-    @Test
-    void testRemoveBook_Fallimento_ISBNInesistente() {
-        assertFalse(catalog.removeBook("9999999999999"));
-    }
-    */
 
     @Test
     void testSearchByTitle_Partial_Success() {
@@ -81,7 +74,7 @@ public class BookCatalogTest {
         assertEquals(1, results.size());
         assertEquals(book1.getTitle(), results.getFirst().getTitle());
     }
-    
+
     @Test
     void testTearchByTitle_Success_CaseInsensitive() {
         LinkedList<Book> results = catalog.searchByTitle("MARCOVAlDo");
@@ -101,7 +94,7 @@ public class BookCatalogTest {
         assertEquals(2, results.size());
         assertTrue(results.contains(book1) && results.contains(book2));
     }
-    
+
     @Test
     void testSearchByAuthor_NoResult() {
         LinkedList<Book> results = catalog.searchByAuthor("Ciccio Graziani");
@@ -147,7 +140,7 @@ public class BookCatalogTest {
         // Verifica un elemento chiave del contenuto del libro (es. ISBN o Stato)
         assertTrue(result.contains(book1.getIsbn()));
     }
-    
+
     @Test
     void testToString_Empty_Catalog() {
         BookCatalog emptyCatalog = new BookCatalog();
@@ -176,7 +169,7 @@ public class BookCatalogTest {
         assertNotNull(importedBook1);
         assertEquals(book1.getTitle(), importedBook1.getTitle());
     }
-    
+
     @Test
     public void testExportOnFile_Fail_Invalid_Name() {
         assertDoesNotThrow(() -> catalog.exportOnFile(null)); // Non deve lanciare eccezioni per nome file nullo
@@ -187,7 +180,7 @@ public class BookCatalogTest {
         //File Inesistente
         assertNull(BookCatalog.importFromFile("file_inesistente_xyz.ser")); // L'importazione deve restituire null se il file non esiste
     }
-    
+
     @Test
     public void testGetCatalogSize() throws InvalidBookInfoException {
         // Verifica la dimensione dopo il setUp (2 libri)
