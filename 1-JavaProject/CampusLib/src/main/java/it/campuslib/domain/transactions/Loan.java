@@ -16,10 +16,10 @@ public class Loan extends Transaction {
     /**
      * @brief Istanzia un nuovo oggetto Loan.
      * Il metodo istanzia un nuovo oggetto Loan, utilizzando il costruttore della superclasse Transaction.
-     * @param[in] expectedReturnDate La data di restituzione prevista del prestito.
-     * @param[in] startDate La data di inizio del prestito.
-     * @param[in] borrowedBook Il libro preso in prestito.
-     * @param[in] borrowerUser L'utente che ha preso in prestito il libro.
+     * @param[in] borrowedBook La data di restituzione prevista del prestito.
+     * @param[in] borrowerUser La data di inizio del prestito.
+     * @param[in] startDate Il libro preso in prestito.
+     * @param[in] expectedReturnDate L'utente che ha preso in prestito il libro.
      * @see Transaction
      */
     public Loan(Book borrowedBook, User borrowerUser, LocalDate startDate, LocalDate expectedReturnDate) throws InvalidLoanInfoException {
@@ -70,7 +70,7 @@ public class Loan extends Transaction {
 
     /**
      * @brief Imposta la data di restituzione prevista del prestito.
-     * @param[in] newDate La nuova data di restituzione prevista del prestito.
+     * @param[in] expectedReturnDate La nuova data di restituzione prevista del prestito.
      */
     public void setExpectedReturnDate(LocalDate expectedReturnDate) throws InvalidLoanInfoException {
         if (!checkDate(super.getStartDate(), expectedReturnDate)) {

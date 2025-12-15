@@ -5,10 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 public class InvalidPublicationYearExceptionTest {
-
-    @Test
-    public void testSomeMethod() {
-    }
     
     @Test
     public void testDefaultConstructor() {

@@ -195,7 +195,7 @@ public class User extends Person implements Comparable<User> {
     /**
      * @brief Confronta l'oggetto User corrente con un altro oggetto User per verificarne l'uguaglianza.
      * L'uguaglianza è verificata se entrambi gli oggetti sono di tipo User e hanno la stessa matricola.
-     * @param[i] obj L'oggetto da confrontare con l'utente corrente.
+     * @param[in] obj L'oggetto da confrontare con l'utente corrente.
      * @return Valore booleano che indica la relazione di uguaglianza tra i due oggetti.
      */
     @Override
